@@ -9,43 +9,39 @@
   <!-- Geist & Geist Mono Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@200;300;400;500&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@200;300;400;500;700&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Sticky Control Bar -->
-  <header class="control-bar">
-    <nav class="nav-links" aria-label="Primary sections">
-      <a href="#palette">01 Palette</a>
-      <a href="#typography">02 Typography</a>
-      <a href="#primitives">03 Box Primitives</a>
-      <a href="#rules">04 Rules</a>
-      <a href="#llm-docs">05 DESIGN.MD</a>
-    </nav>
-
-    <div class="accent-switcher" role="group" aria-label="Select composition accent family">
-      <span class="accent-label">Accent</span>
-      <button type="button" class="accent-btn is-active" data-set-accent="red" style="background:#DF1717" title="Red (#DF1717)"></button>
-      <button type="button" class="accent-btn" data-set-accent="blue" style="background:#196FE6" title="Blue (#196FE6)"></button>
-      <button type="button" class="accent-btn" data-set-accent="green" style="background:#1AE51A" title="Green (#1AE51A)"></button>
-      <button type="button" class="accent-btn" data-set-accent="orange" style="background:#FF5500" title="Orange (#FF5500)"></button>
-      <button type="button" class="accent-btn" data-set-accent="yellow" style="background:#E5C41A" title="Yellow (#E5C41A)"></button>
-      <button type="button" class="accent-btn" data-set-accent="teal" style="background:#14A9B8" title="Teal (#14A9B8)"></button>
-      <button type="button" class="accent-btn" data-set-accent="violet" style="background:#8019E5" title="Violet (#8019E5)"></button>
-    </div>
-  </header>
-
-  <!-- 9-Part Technical Frame Grid -->
+  <!-- 9-Part Technical Frame Grid (Scrolls with document) -->
   <div class="frame-grid">
-    <!-- Top Row: 66px square | 1fr stretch | 66px square -->
+    <!-- Top Row: 66px square | 1fr stretch (Menu) | 66px square -->
     <div class="frame-cell frame-tl" aria-hidden="true">
       <div class="slot-corner" title="30x30px corner SVG slot"></div>
     </div>
-    <div class="frame-cell frame-tc" aria-hidden="true">
-      <div class="slot-edge-h" title="300x2px top SVG slot"></div>
-    </div>
+
+    <header class="frame-cell frame-tc">
+      <nav class="nav-links" aria-label="Primary sections">
+        <a href="#palette">01 Palette</a>
+        <a href="#typography">02 Typography</a>
+        <a href="#primitives">03 Components</a>
+        <a href="#llm-docs">04 DESIGN.MD</a>
+      </nav>
+
+      <div class="accent-switcher" role="group" aria-label="Select composition accent family">
+        <span class="accent-label">Accent</span>
+        <button type="button" class="accent-btn is-active" data-set-accent="red" style="background:#DF1717" title="Red (#DF1717)"></button>
+        <button type="button" class="accent-btn" data-set-accent="blue" style="background:#196FE6" title="Blue (#196FE6)"></button>
+        <button type="button" class="accent-btn" data-set-accent="green" style="background:#1AE51A" title="Green (#1AE51A)"></button>
+        <button type="button" class="accent-btn" data-set-accent="orange" style="background:#FF5500" title="Orange (#FF5500)"></button>
+        <button type="button" class="accent-btn" data-set-accent="yellow" style="background:#E5C41A" title="Yellow (#E5C41A)"></button>
+        <button type="button" class="accent-btn" data-set-accent="teal" style="background:#14A9B8" title="Teal (#14A9B8)"></button>
+        <button type="button" class="accent-btn" data-set-accent="violet" style="background:#8019E5" title="Violet (#8019E5)"></button>
+      </div>
+    </header>
+
     <div class="frame-cell frame-tr" aria-hidden="true">
       <div class="slot-corner" title="30x30px corner SVG slot"></div>
     </div>
@@ -60,10 +56,9 @@
 
         <!-- HERO -->
         <section class="hero">
-          <span class="hero-kicker">COURT OF MORAVIA — DESIGN SYSTEM</span>
           <h1 class="hero-display">WE CHANGE THE GAME OF BUSINESS</h1>
           <p class="hero-body">
-            A technical frame. A human purpose. Click any color swatch, type style, or component primitive to copy its exact token or CSS rule.
+            A technical frame. A human purpose. Click any color swatch, type style, or component primitive to copy its exact token or CSS specification.
           </p>
 
           <div class="hero-actions">
@@ -82,11 +77,13 @@
         <!-- 01 / COLOR SYSTEM -->
         <section id="palette" class="section">
           <div class="section-header">
-            <span class="section-index">01 Palette</span>
-            <h2 class="section-title">Color System</h2>
-            <p class="section-desc">
-              Ordered sequence: Red (default), Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black. Pure white is strictly reserved for h1–h3 headers and body text; all other text uses grey-l or the active accent color.
-            </p>
+            <span class="section-eyebrow">01</span>
+            <h2 class="section-title">Color System<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+            <div class="section-desc-wrap">
+              <p class="section-desc">
+                Pure black (#000000) is the sole canvas background across all pages and components. White (#FFFFFF) is reserved strictly for h1–h3 headers and body text; everything else uses grey-l (#E8E5E0) or the active accent color.
+              </p>
+            </div>
           </div>
 
           <!-- 7 Accent Families in Exact Sequence -->
@@ -99,137 +96,150 @@
         <!-- 02 / TYPOGRAPHY SYSTEM -->
         <section id="typography" class="section">
           <div class="section-header">
-            <span class="section-index">02 Typography</span>
-            <h2 class="section-title">Core Typography</h2>
-            <p class="section-desc">
-              Geist is used exclusively for h1 and body text. Geist Mono is used for everything else, set in uppercase. Proportional vertical spacing to body text: 64px after h1, 40px after h2, and 24px after h3–h6.
-            </p>
+            <span class="section-eyebrow">02</span>
+            <h2 class="section-title">Core Typography<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+            <div class="section-desc-wrap">
+              <p class="section-desc">
+                Geist is used exclusively for h1, body text, and the lower CTA label. Geist Mono is used for everything else, set in uppercase. Body paragraphs are capped at 66ch for optimal reading comfort.
+              </p>
+            </div>
           </div>
 
           <div class="type-list" id="typography-container"></div>
 
-          <div class="stroke-note-bar">
-            <span class="stroke-note-label">Non-Web Border Stroke (Slide Decks &amp; Print): <span>2px Inside</span></span>
-            <span class="stroke-note-label">Base Spacing Grid: <span>8px Increments</span></span>
+          <!-- Line Measure Comparison: 20ch vs 66ch vs 120ch in 12px -->
+          <div class="measure-showcase">
+            <div class="measure-item">
+              <span class="measure-label">20ch Measure (12px — Too Narrow, Excessive Line Breaks)</span>
+              <p class="measure-sample measure-20ch">
+                We deliver change in companies by replacing vague corporate theory with structured action, clear ownership, and measurable execution.
+              </p>
+            </div>
+            <div class="measure-item">
+              <span class="measure-label">66ch Measure (12px — Standard COM Reading Convention)</span>
+              <p class="measure-sample measure-66ch">
+                We deliver change in companies by replacing vague corporate theory with structured action, clear ownership, and measurable execution. Every paragraph stays within 66 characters so the eye tracks effortlessly across large monitors.
+              </p>
+            </div>
+            <div class="measure-item">
+              <span class="measure-label">120ch Measure (12px — Too Wide, Eye Tracking Fatigue)</span>
+              <p class="measure-sample measure-120ch">
+                We deliver change in companies by replacing vague corporate theory with structured action, clear ownership, and measurable execution. When lines stretch to 120 characters across wide displays, readers lose their place returning to the left margin.
+              </p>
+            </div>
           </div>
         </section>
 
-        <!-- 03 / BANNERS, HORBOX & VERBOX PRIMITIVES -->
+        <!-- 03 / COMPONENT PRIMITIVES -->
         <section id="primitives" class="section">
           <div class="section-header">
-            <span class="section-index">03 Box Primitives</span>
-            <h2 class="section-title">Banners &amp; Containers</h2>
-            <p class="section-desc">
-              Banners and box headers always hug their content width with 24px vertical and 40px horizontal padding. Box headers sit flush at the top of the container, while interior box content uses 64px vertical and 72px horizontal padding.
-            </p>
+            <span class="section-eyebrow">03</span>
+            <h2 class="section-title">Component Primitives<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+            <div class="section-desc-wrap">
+              <p class="section-desc">
+                Composite blocks never carry an outer wrapper border as a whole—borders and fills apply strictly to their inner frames on a pure black background.
+              </p>
+            </div>
           </div>
 
-          <div class="box-primitives-stack">
+          <div class="primitives-stack">
 
-            <!-- Banner Example -->
+            <!-- VERBOX (Vertical Box: content stacked in a column) -->
+            <div class="verbox" data-copy-snippet="VERBOX: Top hug header (padding: 24px 48px; background: var(--accent); color: #000000) + bottom box (border: 1px solid var(--accent); padding: 64px 72px; gap: 64px) with h6 (color: var(--accent), gap: 24px) + body (max-width: 66ch).">
+              <div class="verbox-header">VERBOX HEADER</div>
+              <div class="verbox-body">
+                <div class="text-pair">
+                  <h6 class="text-pair-h6">01 RADIKÁLNÍ UPŘÍMNOST</h6>
+                  <p class="box-body-text">
+                    Pojmenováváme věci pravými jmény. Bez korporátní vaty, s respektem k lidem a fokusem na výsledek. Obsah verboxu je řazený vertikálně pod sebou s mezerou 64px.
+                  </p>
+                </div>
+                <div class="text-pair">
+                  <h6 class="text-pair-h6">02 MĚŘITELNÝ DOPAD</h6>
+                  <p class="box-body-text">
+                    Každý zásah do fungování firmy musí mít jasný cíl a ověřitelný posun v každodenní praxi týmu. Šířka odstavce nepřesahuje 66ch.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- HORBOX (Horizontal Box: columns in a row) -->
+            <div class="horbox" data-copy-snippet="HORBOX: Top hug header (padding: 48px 72px; background: var(--accent); color: #000000) + horizontal row box (border: 1px solid var(--accent); padding: 64px 72px; gap: 56px) with h6 (color: var(--accent), gap: 24px) + body (max-width: 66ch).">
+              <div class="horbox-header">HORBOX HEADER</div>
+              <div class="horbox-body">
+                <div class="text-pair">
+                  <h6 class="text-pair-h6">DIAGNOSTIKA</h6>
+                  <p class="box-body-text">
+                    Mapujeme skutečné chování týmu a úzká hrdla rozhodování místo povrchových dojmů.
+                  </p>
+                </div>
+                <div class="text-pair">
+                  <h6 class="text-pair-h6">INTERVENCE</h6>
+                  <p class="box-body-text">
+                    Navrhujeme konkrétní herní a procesní mechanismy, které mění návyky v reálném čase.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SBOX (Small Box: 100% width h5 header + 48px 56px body frame) -->
+            <div class="sbox-grid">
+              <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; background: var(--accent); color: #000000; padding: 24px 40px) + bottom frame (border: 1px solid var(--accent); padding: 48px 56px) with body text (max-width: 66ch).">
+                <h5 class="sbox-header">FILTERED TRUTH</h5>
+                <div class="sbox-body">
+                  <p class="box-body-text">
+                    Diagnostika reálného stavu firmy bez zkreslení management reporty. Hlavička h5 vyplňuje 100 % šířky boxu.
+                  </p>
+                </div>
+              </div>
+
+              <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; background: var(--accent); color: #000000; padding: 24px 40px) + bottom frame (border: 1px solid var(--accent); padding: 48px 56px) with body text (max-width: 66ch).">
+                <h5 class="sbox-header">TALENT OPTIMIZATION</h5>
+                <div class="sbox-body">
+                  <p class="box-body-text">
+                    Sladění silných stránek lidí s klíčovými byznysovými cíli a jasnou odpovědností za výsledek.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ORDERED LISTS -->
+            <div class="com-ordered-list">
+              <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left number cell (padding: 24px; border: 1px solid var(--accent); color: var(--accent); h6 bold; number only) + Right text cell (padding: 24px 48px; background: var(--accent); color: #000000; h6 bold uppercase).">
+                <div class="com-ol-num">1</div>
+                <div class="com-ol-text">POJMENUJEME SKUTEČNÝ PROBLÉM BEZ KORPORÁTNÍHO BALASTU</div>
+              </div>
+              <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left number cell (padding: 24px; border: 1px solid var(--accent); color: var(--accent); h6 bold; number only) + Right text cell (padding: 24px 48px; background: var(--accent); color: #000000; h6 bold uppercase).">
+                <div class="com-ol-num">2</div>
+                <div class="com-ol-text">NAVRHNEME SYSTÉM A HERNÍ MECHANIKY, KTERÉ V TÝMU PŘENESOU ODPOVĚDNOST Z JEDNOTLIVCE NA CELEK A ODSTRANÍ ROZHODOVACÍ PARALÝZU</div>
+              </div>
+              <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left number cell (padding: 24px; border: 1px solid var(--accent); color: var(--accent); h6 bold; number only) + Right text cell (padding: 24px 48px; background: var(--accent); color: #000000; h6 bold uppercase).">
+                <div class="com-ol-num">3</div>
+                <div class="com-ol-text">PŘEDÁME NÁSTROJE INTERNÍM LÍDRŮM DO KAŽDODENNÍ PRAXE</div>
+              </div>
+            </div>
+
+            <!-- TWO-PART CTA BUTTON -->
             <div>
-              <div class="com-banner" data-copy-snippet="Banner: width: fit-content; padding: 24px 40px; border: 1px solid var(--accent); font-family: 'Geist Mono', monospace; text-transform: uppercase; color: var(--accent);">
-                BANNER — HUG WIDTH · PADDING 24PX 40PX
-              </div>
-            </div>
-
-            <!-- HORBOX Example -->
-            <article class="com-box-unit" data-copy-snippet="HORBOX: Top hug header (width: fit-content; padding: 24px 40px) + interior content container (padding: 64px 72px) with 2-column horizontal split.">
-              <div class="com-box-header">HORBOX HEADER</div>
-              <div class="com-box-content">
-                <div class="horbox-inner">
-                  <h3 class="horbox-heading">SLIB: RADIKÁLNÍ UPŘÍMNOST</h3>
-                  <p class="horbox-body">
-                    Pojmenováváme věci pravými jmény. Bez korporátní vaty, s respektem k lidem a fokusem na výsledek. Header nahoře má width: hug a padding 24px 40px, vnitřní obsah má padding 64px 72px.
-                  </p>
-                </div>
-              </div>
-            </article>
-
-            <!-- VERBOX 3-Column Grid -->
-            <div class="verbox-grid">
-              <article class="verbox-card" data-copy-snippet="VERBOX Column: Top hug header (width: fit-content; padding: 24px 40px) + interior content container (padding: 64px 72px) with h3 header (24px min gap) and body text.">
-                <div class="com-box-header">VERBOX 01</div>
-                <div class="com-box-content">
-                  <h3 class="verbox-card-title">FILTERED TRUTH</h3>
-                  <p class="verbox-card-body">
-                    Diagnostika reálného stavu firmy bez zkreslení management reporty.
-                  </p>
-                </div>
-              </article>
-
-              <article class="verbox-card" data-copy-snippet="VERBOX Column: Top hug header (width: fit-content; padding: 24px 40px) + interior content container (padding: 64px 72px) with h3 header (24px min gap) and body text.">
-                <div class="com-box-header">VERBOX 02</div>
-                <div class="com-box-content">
-                  <h3 class="verbox-card-title">SERIOUS GAMES</h3>
-                  <p class="verbox-card-body">
-                    Bezpečný prostor pro simulaci reálných situací a okamžitou reflexi.
-                  </p>
-                </div>
-              </article>
-
-              <article class="verbox-card" data-copy-snippet="VERBOX Column: Top hug header (width: fit-content; padding: 24px 40px) + interior content container (padding: 64px 72px) with h3 header (24px min gap) and body text.">
-                <div class="com-box-header">VERBOX 03</div>
-                <div class="com-box-content">
-                  <h3 class="verbox-card-title">TALENT OPTIMIZATION</h3>
-                  <p class="verbox-card-body">
-                    Sladění silných stránek lidí s klíčovými byznysovými cíli.
-                  </p>
-                </div>
-              </article>
+              <a href="#llm-docs" class="cta-block" data-copy-snippet="Two-Part CTA Button: Top frame (padding: 24px 40px; background: #000000; border: 1px solid var(--accent); h6) + Bottom frame (padding: 40px 48px; background: var(--accent); font-family: 'Geist'; font-size: 32px; font-weight: 500; text-decoration: underline; color: #000000).">
+                <span class="cta-top">READY TO IMPLEMENT THIS SYSTEM</span>
+                <span class="cta-bottom">COPY FULL SPECIFICATION</span>
+              </a>
             </div>
 
           </div>
         </section>
 
-        <!-- 04 / DESIGN RULES & ANTI-PATTERNS -->
-        <section id="rules" class="section">
-          <div class="section-header">
-            <span class="section-index">04 Governance</span>
-            <h2 class="section-title">Design Rules</h2>
-            <p class="section-desc">
-              Functional minimalism enforced by strict token bindings, an 8px spacing grid, and clear typographic separation.
-            </p>
-          </div>
-
-          <div class="rules-grid">
-            <article class="rule-card">
-              <span class="rule-num">01 Color Scope</span>
-              <p class="rule-text">Pure white (#FFFFFF) is strictly reserved for h1–h3 headers and body text. Everything else uses grey-l (#E8E5E0) or the active accent color.</p>
-            </article>
-            <article class="rule-card">
-              <span class="rule-num">02 Font Roles</span>
-              <p class="rule-text">Geist is used exclusively for h1 and body text. Geist Mono is used for h2–h6, labels, banners, and buttons, always in uppercase.</p>
-            </article>
-            <article class="rule-card">
-              <span class="rule-num">03 Proportional Gaps</span>
-              <p class="rule-text">All spacing follows multiples of 8px. Minimum gap from headings to body text: 64px for h1, 40px for h2, and 24px for h3–h6.</p>
-            </article>
-            <article class="rule-card">
-              <span class="rule-num">04 Box Anatomy</span>
-              <p class="rule-text">Banners and box headers hug their text (padding: 24px 40px) at the top of the container. Interior box content uses padding: 64px 72px.</p>
-            </article>
-          </div>
-
-          <div class="antipatterns-box">
-            <h3 class="antipatterns-title">Strict Anti-Patterns</h3>
-            <ul class="antipatterns-list">
-              <li>No rounded corners: 0px border-radius across all elements.</li>
-              <li>No off-role white text: never apply #FFFFFF to h4–h6, tags, or metadata.</li>
-              <li>No terminal cosplay: never use slashes or bracketed flavor text in UI labels.</li>
-              <li>No multi-color mixing: use Black + White/Grey + 1 Accent Family per composition.</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- 05 / RAW DESIGN.MD FOR LLMS -->
+        <!-- 04 / RAW DESIGN.MD FOR LLMS -->
         <section id="llm-docs" class="section">
           <div class="section-header">
-            <span class="section-index">05 Specification</span>
-            <h2 class="section-title">DESIGN.MD</h2>
-            <p class="section-desc">
-              Machine-readable system rules ready to paste directly into LLM system prompts.
-            </p>
+            <span class="section-eyebrow">04</span>
+            <h2 class="section-title">DESIGN.MD<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+            <div class="section-desc-wrap">
+              <p class="section-desc">
+                Machine-readable design system specification ready to paste directly into LLM system prompts.
+              </p>
+            </div>
           </div>
 
           <div class="code-panel">
@@ -281,10 +291,10 @@
     /* White + Grey, Black */
     const NEUTRALS = [
       { token: '--color-white',   name: 'WHITE',   hex: '#FFFFFF', role: 'Strictly h1–h3 headers & body text' },
-      { token: '--color-grey-l',  name: 'GREY-L',  hex: '#E8E5E0', role: 'Secondary text, labels & metadata' },
-      { token: '--color-grey-d',  name: 'GREY-D',  hex: '#808080', role: 'Muted borders & structural rules' },
-      { token: '--color-black-l', name: 'BLACK-L', hex: '#121212', role: 'Elevated dark container fill' },
-      { token: '--color-black',   name: 'BLACK',   hex: '#000000', role: 'Primary field & primary button text' }
+      { token: '--color-grey-l',  name: 'GREY-L',  hex: '#E8E5E0', role: 'Secondary text, labels & h2 arrow' },
+      { token: '--color-grey-d',  name: 'GREY-D',  hex: '#808080', role: 'Muted borders & structural hairlines' },
+      { token: '--color-black-l', name: 'BLACK-L', hex: '#121212', role: 'Reserved token (never used in boxes)' },
+      { token: '--color-black',   name: 'BLACK',   hex: '#000000', role: 'Sole canvas background & filled text' }
     ];
 
     const TYPOGRAPHY = [
@@ -297,8 +307,8 @@
       },
       {
         role: 'h2 · Geist Mono Light',
-        meta: '96px · 110% line · 0% tracking · #FFFFFF · 40px gap to body',
-        sample: 'CHANGE THE GAME',
+        meta: '96px · 110% line · 0% tracking · #FFFFFF + grey-l ↘ · 40px gap',
+        sample: 'CHANGE THE GAME ↘',
         previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: clamp(30px, 4vw, 56px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);",
         cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
       },
@@ -332,10 +342,10 @@
       },
       {
         role: 'body · Geist Regular',
-        meta: '24px · 130% line · 0% tracking · #FFFFFF · Sentence case',
+        meta: '24px · 130% line · 0% tracking · #FFFFFF · max-width: 66ch',
         sample: 'We deliver change in companies. We change the game of business.',
-        previewStyle: "font-family: var(--font-body); font-weight: 400; font-size: 22px; line-height: 1.3; letter-spacing: 0; color: var(--color-white);",
-        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #FFFFFF;"
+        previewStyle: "font-family: var(--font-body); font-weight: 400; font-size: 22px; line-height: 1.3; letter-spacing: 0; color: var(--color-white); max-width: 66ch;",
+        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #FFFFFF; max-width: 66ch;"
       },
       {
         role: 'micro · Geist Mono Regular',
@@ -358,11 +368,12 @@
 
 When generating UI, web pages, slide decks, or digital assets for **Court of Moravia (COM)**, strictly follow these rules:
 
-1. **01 / PALETTE & COLOR HIERARCHY:** Use pure black (\`#000000\`) as the primary canvas. Choose **one accent family per composition** (defaulting to **Red** \`#DF1717\`). Pure white (\`#FFFFFF\`) is strictly reserved for \`h1\`–\`h3\` headers and \`body\` text; all other text, labels, metadata, and subheadings (\`h4\`–\`h6\`, \`micro\`) must use \`grey-l\` (\`#E8E5E0\`) or the active \`--accent\` color.
-2. **02 / TYPOGRAPHY ROLES:** \`Geist\` is used exclusively for \`h1\` display titles and \`body\` text (optimized for short and long-form reading). \`Geist Mono\` is used for everything else (\`h2\`–\`h6\`, banners, labels, buttons, navigation, and microtype). All text outside \`body\` copy uses \`text-transform: uppercase\`.
-3. **03 / SPACING & PROPORTIONAL RHYTHM:** Standard spacing is strictly based on multiples of \`8px\` (\`0px\` or minimum \`8px\`, typically larger). Vertical gaps between \`body\` text and headings scale proportionally: at least \`24px\` below \`h3\`–\`h6\`, at least \`40px\` below \`h2\`, and at least \`64px\` below \`h1\`.
-4. **04 / GEOMETRY & STROKES:** Favor flat, angular marks and crisp \`0px\` border-radius rectangular framing. Avoid rounded corners, drop shadows, glassmorphism, and soft gradients. For non-web deliverables (slide decks, print), standard border stroke width is \`2px\` aligned **inside**.
-5. **05 / FUNCTIONAL MINIMALISM:** Zero decorative "tech larp" or terminal cosplay—do not use \`//\`, \`/\`, or bracketed flavor text (e.g., \`[CLICK TO COPY]\`) as inline dividers or decorative labels. Keep all UI clean, direct, and functional.
+1. **01 PURE BLACK CANVAS ONLY:** Pure black (\`#000000\`) is the **only** surface background color used across pages, \`verbox\`, \`horbox\`, \`sbox\`, and layout containers. Never use \`#121212\` (\`black-l\`) inside boxes or cards—the only exception is button hover states (\`rgba(accent-d, 0.40)\`).
+2. **02 COLOR SEQUENCE & STRICT TEXT ROLES:** Choose **one accent family per composition** (defaulting to **Red** \`#DF1717\`). The canonical palette sequence is: **Red, Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black**. Pure white (\`#FFFFFF\`) is strictly reserved for \`h1\`–\`h3\` headers and \`body\` text; all other text, eyebrows, labels, and subheadings (\`h4\`–\`h6\`, \`micro\`) must use \`grey-l\` (\`#E8E5E0\`) or the active \`--accent\` color.
+3. **03 TYPOGRAPHY ROLES & MEASURE:** \`Geist\` is used exclusively for \`h1\` display titles, \`body\` text, and the bottom label of CTA buttons. \`Geist Mono\` is used for everything else (\`h2\`–\`h6\`, box headers, ordered lists, navigation, and standard buttons). All text outside \`body\` copy uses \`text-transform: uppercase\`. Body paragraphs must never exceed \`max-width: 66ch\` to ensure optimal reading measure.
+4. **04 SPACING & PROPORTIONAL RHYTHM:** Standard spacing is strictly based on multiples of \`8px\` (\`0px\` or minimum \`8px\`, typically larger). Vertical gaps between \`body\` text and headings scale proportionally: at least \`24px\` below \`h3\`–\`h6\`, at least \`40px\` below \`h2\`, and at least \`64px\` below \`h1\`.
+5. **05 GEOMETRY & COMPONENT BOUNDARIES:** Favor flat, angular marks and crisp \`0px\` border-radius rectangular framing. Avoid rounded corners, drop shadows, glassmorphism, and soft gradients. Composite components (\`horbox\`, \`verbox\`, \`sbox\`, \`cta-button\`, ordered lists) **never have an outer wrapper border as a whole**—borders and fills apply strictly to their individual inner parts. For non-web deliverables (slide decks, print), standard border stroke width is \`2px\` aligned **inside**.
+6. **06 FUNCTIONAL MINIMALISM:** Zero decorative "tech larp" or terminal cosplay—do not use \`//\`, \`/\`, or bracketed flavor text (e.g., \`[CLICK TO COPY]\`) as inline dividers or decorative labels. Minimize eyebrow text (\`h5\` section numbers) to an absolute minimum.
 
 ---
 
@@ -385,81 +396,99 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 | Token | Hex | Strict Usage Role |
 | :--- | :--- | :--- |
 | \`--color-white\` | \`#FFFFFF\` | **Restricted:** \`h1\`–\`h3\` headers and \`body\` text only |
-| \`--color-grey-l\` | \`#E8E5E0\` | Secondary text, labels, metadata, and subtle borders |
-| \`--color-grey-d\` | \`#808080\` | Muted borders and structural hairlines |
-| \`--color-black-l\` | \`#121212\` | Elevated dark card/box surface |
-| \`--color-black\` | \`#000000\` | Primary background field and primary button text |
+| \`--color-grey-l\` | \`#E8E5E0\` | Secondary text, labels, metadata, and \`h2\` trailing \`↘\` arrow |
+| \`--color-grey-d\` | \`#808080\` | Muted structural hairlines and frame rails |
+| \`--color-black-l\` | \`#121212\` | Reserved token only — never used as a card or box background |
+| \`--color-black\` | \`#000000\` | Universal background canvas and primary filled-element text |
 
 ---
 
 ## 3. Typography System
 
 ### Font Families
-* \`--font-body\`: \`'Geist', sans-serif\` — Used **only** for \`h1\` and \`body\` text.
-* \`--font-header\`: \`'Geist Mono', monospace\` — Used for **everything else** (\`h2\`–\`h6\`, banners, buttons, labels, and microtype).
+* \`--font-body\`: \`'Geist', sans-serif\` — Used **only** for \`h1\`, \`body\` text, and the lower CTA button label.
+* \`--font-header\`: \`'Geist Mono', monospace\` — Used for **everything else** (\`h2\`–\`h6\`, box headers, ordered lists, navigation, and standard buttons).
 
 ### Type Scale & Color Rules
 | Style / Role | Font Family | Weight | Size | Line Height | Tracking | Color | Case |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | \`h1\` | Geist | Light (300) | \`160px\` | \`110%\` | \`0%\` | \`#FFFFFF\` | UPPERCASE |
-| \`h2\` | Geist Mono | Light (300) | \`96px\` | \`110%\` | \`0%\` | \`#FFFFFF\` | UPPERCASE |
+| \`h2\` | Geist Mono | Light (300) | \`96px\` | \`110%\` | \`0%\` | \`#FFFFFF\` (with \`grey-l\` \`↘\`) | UPPERCASE |
 | \`h3\` | Geist Mono | ExtraLight (200) | \`64px\` | \`110%\` | \`0%\` | \`#FFFFFF\` | UPPERCASE |
 | \`h4\` | Geist Mono | Light (300) | \`48px\` | \`110%\` | \`0%\` | \`grey-l\` or \`--accent\` | UPPERCASE |
 | \`h5\` | Geist Mono | Regular (400) | \`32px\` | \`110%\` | \`+4%\` | \`grey-l\` or \`--accent\` | UPPERCASE |
 | \`h6\` | Geist Mono | Light (300) | \`24px\` | \`130%\` | \`+1%\` | \`grey-l\` or \`--accent\` | UPPERCASE |
-| \`body\` | Geist | Regular (400) | \`24px\` | \`130%\` | \`0%\` | \`#FFFFFF\` | Sentence case |
+| \`body\` | Geist | Regular (400) | \`24px\` | \`130%\` | \`0%\` | \`#FFFFFF\` (\`max-width: 66ch\`) | Sentence case |
 | \`micro\` | Geist Mono | Regular (400) | \`14px\` | \`110%\` | \`+4%\` | \`grey-l\` or \`--accent\` | UPPERCASE |
 
 ### Proportional Heading-to-Body Spacing (8px Grid)
 * \`h1\` → \`body\`: minimum \`64px\` gap
-* \`h2\` → \`body\`: minimum \`40px\` gap
+* \`h2\` → \`body\`: minimum \`40px\` gap (in section headers, \`body\` sits inside \`padding: 56px 88px 24px\`)
 * \`h3\`–\`h6\` → \`body\`: minimum \`24px\` gap
 
 ---
 
-## 4. Buttons & Interactive Controls
+## 4. Component Specifications (No Outer Wrapper Borders)
 
-All interactive buttons use \`Geist Mono\`, \`text-transform: uppercase\`, \`0px\` border-radius, and \`1px\` solid borders:
+Composite components never carry a single border around the entire unit; only their specified child frames are bordered or filled. All surfaces sit on \`#000000\`.
 
-* **Main Button (Primary CTA):**
-  * Default: \`color: #000000\`, \`background-color: var(--accent)\`, \`border: 1px solid var(--accent)\`
-  * Hover: \`color: var(--accent)\`, \`background-color: rgba(var(--accent-d-rgb), 0.40)\`, \`border-color: var(--accent)\`
-* **Side Button (Alternative Choice):**
-  * Default: \`color: var(--accent)\`, \`background-color: #000000\`, \`border: 1px solid var(--accent)\`
-  * Hover: \`color: var(--accent)\`, \`background-color: rgba(var(--accent-d-rgb), 0.40)\`, \`border-color: var(--accent)\`
+### A. Section / Big Header
+1. **Eyebrow (\`h5\`):** Optional section number or minimal label (\`color: var(--accent)\` or \`grey-l\`). Keep to an absolute minimum.
+2. **Gap:** \`32px\` vertical spacing between \`h5\` and \`h2\`.
+3. **Title (\`h2\`):** \`color: #FFFFFF\`, uppercase \`Geist Mono\`, ending with a trailing \`↘\` glyph styled in \`color: var(--color-grey-l)\`.
+4. **Section Description:** \`body\` text (\`max-width: 66ch\`, \`color: #FFFFFF\`) placed inside a wrapper with \`padding: 56px 88px 24px\`.
+
+### B. \`VERBOX\` (Vertical Box — Content Stacked in a Column)
+* **No outer wrapper border.**
+* **Top Header Frame:** \`width: fit-content\` (\`hug\`), \`padding: 24px 48px\`, \`background-color: var(--accent)\`, \`color: #000000\` (\`Geist Mono\`, uppercase).
+* **Content Frame (directly underneath, \`0px\` gap):** \`background-color: #000000\`, \`border: 1px solid var(--accent)\`, \`padding: 64px 72px\`, \`display: flex; flex-direction: column; gap: 64px\`.
+* **Content Items:** Either plain \`body\` paragraphs (\`max-width: 66ch\`, \`color: #FFFFFF\`) or \`h6\` (\`color: var(--accent)\`, uppercase) + \`body\` pairs with \`gap: 24px\` between the \`h6\` and its paragraph.
+
+### C. \`HORBOX\` (Horizontal Box — Columns in a Row)
+* **No outer wrapper border.**
+* **Top Header Frame:** \`width: fit-content\` (\`hug\`), \`padding: 48px 72px\` (or \`24px 48px\`), \`background-color: var(--accent)\`, \`color: #000000\` (\`Geist Mono\`, uppercase).
+* **Content Frame (directly underneath, \`0px\` gap):** \`background-color: #000000\`, \`border: 1px solid var(--accent)\`, \`padding: 64px 72px\`, arranged horizontally in a row (\`display: flex\` or multi-column grid) with \`gap: 56px\` between individual \`body\` blocks or \`h6\` (\`color: var(--accent)\`) + \`body\` (\`gap: 24px\`) pairs.
+
+### D. \`SBOX\` (Small Box)
+* **No outer wrapper border.**
+* **Top Header (\`h5\`):** \`width: 100%\` (fills the entire width of the \`sbox\`), uppercase \`Geist Mono\` (\`background-color: var(--accent)\`, \`color: #000000\`, \`padding: 24px 40px\`).
+* **Content Frame (directly underneath, \`0px\` gap):** \`background-color: #000000\`, \`border: 1px solid var(--accent)\`, \`padding: 48px 56px\`, containing \`body\` text (\`max-width: 66ch\`, \`color: #FFFFFF\`).
+
+### E. Standard Buttons & Two-Part \`CTA\` Button
+* **Main Button:** \`color: #000000\`, \`background-color: var(--accent)\`, \`border: 1px solid var(--accent)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`.
+  * *Hover:* \`color: var(--accent)\`, \`background-color: rgba(var(--accent-d), 0.40)\`, \`border-color: var(--accent)\`.
+* **Side Button (Alternative Choice):** \`color: var(--accent)\`, \`background-color: #000000\`, \`border: 1px solid var(--accent)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`.
+  * *Hover:* \`color: var(--accent)\`, \`background-color: rgba(var(--accent-d), 0.40)\`, \`border-color: var(--accent)\`.
+* **Two-Part \`CTA\` Button (No outer wrapper border):**
+  1. **Top Frame:** \`padding: 24px 40px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent)\`, containing an \`h6\` (\`color: var(--accent)\`, uppercase).
+  2. **Bottom Action Frame (directly underneath, \`0px\` gap):** \`padding: 40px 48px\`, \`background-color: var(--accent)\`, \`border: 1px solid var(--accent)\`, containing \`font-family: 'Geist'\`, \`font-size: 32px\`, \`font-weight: 500\`, \`text-decoration: underline\`, \`text-transform: uppercase\`, \`color: #000000\`.
+     * *Hover:* \`color: var(--accent)\`, \`background-color: rgba(var(--accent-d), 0.40)\`, \`border-color: var(--accent)\`.
+
+### F. Ordered Lists
+* **No outer wrapper border.** Each list row consists of two flush (\`0px\` gap) side-by-side frames (\`align-items: stretch\`):
+  1. **Number Cell (Left):** \`padding: 24px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent)\`, \`color: var(--accent)\`, \`font-family: 'Geist Mono'\`, \`font-weight: 700\` (\`h6\` bold). Contains **only the number** (no trailing dot or punctuation). Aligns to the top when text wraps.
+  2. **Text Cell (Right):** \`padding: 24px 48px\`, \`background-color: var(--accent)\`, \`border: 1px solid var(--accent)\`, \`color: #000000\`, \`font-family: 'Geist Mono'\`, \`font-weight: 700\` (\`h6\` bold, uppercase). Grows vertically in height when text wraps across multiple lines.
 
 ---
 
-## 5. Slide Deck & Box Component Primitives
+## 5. 9-Part Perimeter Frame Architecture
 
-* **Non-Web Stroke Rule:** In slide decks and print layouts, borders use a \`2px\` stroke aligned **inside**.
-* **Banners, \`HORBOX\` & \`VERBOX\` Headers:** Always sized to content (\`width: fit-content\` / Figma \`hug\`) with \`padding: 24px 40px\`, positioned at the top edge of the container.
-* **\`HORBOX\` & \`VERBOX\` Content Area:** Interior body container has \`padding: 64px 72px\`.
-* **\`INTRO\`:** Minimal title frame with uppercase \`Geist\` Light \`h1\` display headline (\`#FFFFFF\`) and bottom \`COURT OF MORAVIA\` attribution in \`Geist Mono\` (\`grey-l\` / \`--accent\`).
-* **\`CHAPTER\`:** Full-bleed solid \`--accent\` fill with high-contrast \`#000000\` uppercase display typography.
-* **\`TEXT\`:** Left-aligned uppercase display statement paired with \`body\` text (\`#FFFFFF\`) respecting proportional heading gaps (\`24px\`–\`64px\`).
-* **\`SBOX\`:** 2-column grid of equal bordered boxes (\`padding: 64px 72px\` at full scale) with uppercase \`Geist Mono\` headers (\`grey-l\` or \`--accent\`) and \`#FFFFFF\` body copy.
-* **\`ROADMAP\`:** 3-column sequential phase progression (\`MĚSÍC 1–2: DATA\`, etc.) with \`Geist Mono\` headers and \`#FFFFFF\` body copy.
-* **\`GOALS\` / \`CÍLE\`:** Asymmetric 2-column split with an uppercase display title on the left and stacked bordered objective rows on the right.
+The page uses a **9-part CSS Grid** (\`66px 1fr 66px\` columns × \`66px 1fr 66px\` rows) that scrolls naturally with the document so corner and edge elements visibly frame the entire layout:
+
+* **4 Corner Cells (\`66px × 66px\`):** Centered \`30px × 30px\` square SVG slot (\`1px solid var(--accent)\`).
+* **Top Center Cell (\`1fr × 66px\`):** Houses the primary navigation menu and accent switcher.
+* **Left, Right & Bottom Stretched Edge Cells (\`66px × 1fr\` / \`1fr × 66px\`):** Centered slim SVG ornament slots (\`2px × 300px\` vertical on left/right; \`300px × 2px\` horizontal on bottom).
+* **Center Cell (\`1fr × 1fr\`):** Main \`#000000\` content canvas.
 
 ---
 
-## 6. 9-Part Perimeter Frame Architecture
-
-The master viewport layout uses a **9-part CSS Grid** (\`66px 1fr 66px\` columns × \`66px 1fr 66px\` rows) framing the center content canvas:
-
-* **4 Corner Cells (\`66px × 66px\`):** Centered \`30px × 30px\` square SVG slot (placeholder \`1px\` border box).
-* **4 Stretched Edge Cells (Top/Bottom \`1fr × 66px\`, Left/Right \`66px × 1fr\`):** Centered slim SVG ornament slot (\`300px × 2px\` horizontal on top/bottom; \`2px × 300px\` vertical on left/right).
-* **Center Cell (\`1fr × 1fr\`):** Main scrollable/responsive website content canvas.
-
----
-
-## 7. Strict Anti-Patterns (Do NOT Generate)
+## 6. Strict Anti-Patterns (Do NOT Generate)
+* **No \`black-l\` (\`#121212\`) backgrounds:** Pure \`#000000\` is the only background used in layout containers, boxes, and cards.
+* **No outer wrapper borders on composite blocks:** Never wrap \`horbox\`, \`verbox\`, \`sbox\`, \`cta-button\`, or ordered list items in an extra outer border.
 * **No rounded corners:** \`0px\` sharp corners everywhere.
-* **No off-role white text:** Never use \`#FFFFFF\` for \`h4\`–\`h6\`, labels, badges, or metadata (use \`grey-l\` or \`--accent\`).
-* **No \`Geist\` on subheadings/UI:** \`Geist\` is strictly for \`h1\` and \`body\`; use \`Geist Mono\` for \`h2\`–\`h6\`, navigation, and buttons.
-* **No terminal cosplay:** Never use \`//\`, \`/\`, or \`[TEXT]\` flavor decorations in labels or headings.
-* **No multi-color mixing:** Stick to Black + White/Grey + **1 Accent Family** per composition.`;
+* **No off-role white text:** Never use \`#FFFFFF\` for \`h4\`–\`h6\`, labels, eyebrows, or metadata (use \`grey-l\` or \`--accent\`).
+* **No paragraphs wider than \`66ch\`:** Always cap \`body\` text measure at \`max-width: 66ch\`.
+* **No terminal cosplay:** Never use \`//\`, \`/\`, or \`[TEXT]\` flavor decorations in UI labels or headings.`;
 
     // Toast helper
     let toastTimer;
@@ -554,7 +583,7 @@ The master viewport layout uses a **9-part CSS Grid** (\`66px 1fr 66px\` columns
       typoContainer.appendChild(row);
     });
 
-    // Box Primitives Copy Handlers
+    // Component Primitives Copy Handlers
     document.querySelectorAll('[data-copy-snippet]').forEach(el => {
       el.addEventListener('click', () => {
         copyText(el.dataset.copySnippet, 'COMPONENT SPEC');
