@@ -8,99 +8,107 @@
 
 ## 1. Core Design Principles & Rules
 
-When generating UI, web pages, slide decks, or digital assets for **Court of Moravia (COM)**, strictly follow these 5 rules:
+When generating UI, web pages, slide decks, or digital assets for **Court of Moravia (COM)**, strictly follow these rules:
 
-1. **01 / PALETTE:** Use pure black (`#000000`) and pure white (`#FFFFFF`) as the primary field. Choose **one accent family per composition**—do not mix multiple palette hues by default.
-2. **02 / HIERARCHY:** Pair large, light, uppercase headlines (`Geist`) with clean, sentence-case body copy (`Geist`). Use monospaced type (`Geist Mono`) for technical labels, headings (`h3`–`h6`), metadata, and navigational details.
-3. **03 / COMPOSITION:** Align elements to a clear, crisp edge and protect generous negative space. Keep ornamental borders, ticks, and technical framing confined to the outer perimeter, well away from the core message.
-4. **04 / GEOMETRY:** Favor flat, angular marks and crisp rectangular framing. Avoid rounded blobs, drop shadows, soft gradients, or organic curves.
-5. **05 / LEGIBILITY:** Use pure white (`#FFFFFF`) or a tested `-L` (light) tint for small text on dark backgrounds. Always verify contrast at the final rendered size.
+1. **01 / PALETTE & COLOR HIERARCHY:** Use pure black (`#000000`) as the primary canvas. Choose **one accent family per composition** (defaulting to **Red** `#DF1717`). Pure white (`#FFFFFF`) is strictly reserved for `h1`–`h3` headers and `body` text; all other text, labels, metadata, and subheadings (`h4`–`h6`, `micro`) must use `grey-l` (`#E8E5E0`) or the active `--accent` color.
+2. **02 / TYPOGRAPHY ROLES:** `Geist` is used exclusively for `h1` display titles and `body` text (optimized for short and long-form reading). `Geist Mono` is used for everything else (`h2`–`h6`, banners, labels, buttons, navigation, and microtype). All text outside `body` copy uses `text-transform: uppercase`.
+3. **03 / SPACING & PROPORTIONAL RHYTHM:** Standard spacing is strictly based on multiples of `8px` (`0px` or minimum `8px`, typically larger). Vertical gaps between `body` text and headings scale proportionally: at least `24px` below `h3`–`h6`, at least `40px` below `h2`, and at least `64px` below `h1`.
+4. **04 / GEOMETRY & STROKES:** Favor flat, angular marks and crisp `0px` border-radius rectangular framing. Avoid rounded corners, drop shadows, glassmorphism, and soft gradients. For non-web deliverables (slide decks, print), standard border stroke width is `2px` aligned **inside**.
+5. **05 / FUNCTIONAL MINIMALISM:** Zero decorative "tech larp" or terminal cosplay—do not use `//`, `/`, or bracketed flavor text (e.g., `[CLICK TO COPY]`) as inline dividers or decorative labels. Keep all UI clean, direct, and functional.
 
 ---
 
 ## 2. Color System (26 Variables)
 
-*Naming convention: Base token = primary hue, `-D` = dark shade, `-L` = light tint.*
+*Strict sequence: Red (default), Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black.*
 
-### Neutrals & Surfaces
-| Token | Hex | Role / Notes |
-| :--- | :--- | :--- |
-| `--color-black` | `#000000` | Primary background / dark field |
-| `--color-black-l` | `#121212` | Elevated dark surface / subtle card fill |
-| `--color-grey-d` | `#808080` | Muted technical borders, secondary labels |
-| `--color-grey-l` | `#E8E5E0` | Warm off-white surface / muted light fill |
-| `--color-white` | `#FFFFFF` | Primary light text / inverted background |
-
-### Accent Families (Pick ONE per composition)
+### Accent Families (Pick ONE per composition; Default = Red)
 | Family | Dark (`-D`) | Base (Primary) | Light (`-L`) |
 | :--- | :--- | :--- | :--- |
+| **Red (Default)** | `#910606` | `#DF1717` | `#F65656` |
 | **Blue** | `#063B91` | `#196FE6` | `#9EC4FA` |
 | **Green** | `#067008` | `#1AE51A` | `#9EFAB0` |
 | **Orange** | `#913606` | `#FF5500` | `#FFB899` |
 | **Yellow** | `#917806` | `#E5C41A` | `#FFEE99` |
-| **Red** | `#910606` | `#DF1717` | `#F65656` |
 | **Teal** | `#068691` | `#14A9B8` | `#9EF2FA` |
 | **Violet** | `#4D0691` | `#8019E5` | `#A99EFA` |
+
+### Neutrals & Surfaces
+| Token | Hex | Strict Usage Role |
+| :--- | :--- | :--- |
+| `--color-white` | `#FFFFFF` | **Restricted:** `h1`–`h3` headers and `body` text only |
+| `--color-grey-l` | `#E8E5E0` | Secondary text, labels, metadata, and subtle borders |
+| `--color-grey-d` | `#808080` | Muted borders and structural hairlines |
+| `--color-black-l` | `#121212` | Elevated dark card/box surface |
+| `--color-black` | `#000000` | Primary background field and primary button text |
 
 ---
 
 ## 3. Typography System
 
 ### Font Families
-* `--font-body`: `'Geist', sans-serif` (Used for major display headlines `h1`–`h2` and body copy)
-* `--font-header`: `'Geist Mono', monospace` (Used for technical headings `h3`–`h6`, labels, and microtype)
+* `--font-body`: `'Geist', sans-serif` — Used **only** for `h1` and `body` text.
+* `--font-header`: `'Geist Mono', monospace` — Used for **everything else** (`h2`–`h6`, banners, buttons, labels, and microtype).
 
-### Type Scale & Styles
-| Style / Role | Font Family | Weight | Size | Line Height | Tracking (Letter Spacing) | Case / Usage |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `h1` | Geist | Light (300) | `160px` | `110%` | `0%` | UPPERCASE — Hero display |
-| `h2` | Geist | Light (300) | `96px` | `110%` | `0%` | UPPERCASE — Section display |
-| `h3` | Geist Mono | ExtraLight (200) | `64px` | `110%` | `0%` | UPPERCASE — Technical display |
-| `h4` | Geist Mono | Light (300) | `48px` | `110%` | `0%` | UPPERCASE — Sub-display / Deck titles |
-| `h5` | Geist Mono | Regular (400) | `32px` | `110%` | `+4%` | UPPERCASE — Card / Block headers |
-| `h6` | Geist Mono | Light (300) | `24px` | `130%` | `+1%` | Technical subheadings |
-| `body` | Geist | Regular (400) | `24px` | `130%` | `0%` | Sentence case — Primary reading copy |
-| `micro` | Geist Mono | Regular (400) | `14px` | `110%` | `+4%` | UPPERCASE — Captions, tags, border codes |
+### Type Scale & Color Rules
+| Style / Role | Font Family | Weight | Size | Line Height | Tracking | Color | Case |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `h1` | Geist | Light (300) | `160px` | `110%` | `0%` | `#FFFFFF` | UPPERCASE |
+| `h2` | Geist Mono | Light (300) | `96px` | `110%` | `0%` | `#FFFFFF` | UPPERCASE |
+| `h3` | Geist Mono | ExtraLight (200) | `64px` | `110%` | `0%` | `#FFFFFF` | UPPERCASE |
+| `h4` | Geist Mono | Light (300) | `48px` | `110%` | `0%` | `grey-l` or `--accent` | UPPERCASE |
+| `h5` | Geist Mono | Regular (400) | `32px` | `110%` | `+4%` | `grey-l` or `--accent` | UPPERCASE |
+| `h6` | Geist Mono | Light (300) | `24px` | `130%` | `+1%` | `grey-l` or `--accent` | UPPERCASE |
+| `body` | Geist | Regular (400) | `24px` | `130%` | `0%` | `#FFFFFF` | Sentence case |
+| `micro` | Geist Mono | Regular (400) | `14px` | `110%` | `+4%` | `grey-l` or `--accent` | UPPERCASE |
 
-### Extended Numeric Scale Tokens
-*(Note: Numeric tokens exist in the system without fixed semantic roles; use proportionally when scaling).*
-* **Display Scale:** `tera: 88px`, `giga: 72px`, `mega: 64px`, `kilo: 56px`, `micro: 48px`, `nano: 40px`, `pico: 32px`, `femto: 24px`
-* **Stroke / Line Weight:** `stroke: 2px` (or `1px` for fine technical hairlines/gutters)
-
----
-
-## 4. Slide Deck & UI Component Primitives (`content.pdf` Spec)
-
-Use these standardized structural primitives when building slide decks, web presentations, or modular UI blocks:
-
-* **Surface & Border Rule:** All cards, boxes, and slides sit on `#000000` (or `#121212` for nested cards) framed by crisp `1px` or `2px` solid rules in `--accent` or `--accent-d`. Zero border-radius (`0px`).
-* **`INTRO` (Title Slide):** Centered minimal frame with uppercase `Geist` Light display title (`h1`/`h2`) and bottom-anchored `COURT OF MORAVIA` attribution in `Geist Mono` (`micro`).
-* **`CHAPTER` (Section Divider):** Full-bleed solid `--accent` fill (`#DF1717`, `#8019E5`, etc.) with high-contrast black (`#000000`) or white (`#FFFFFF`) uppercase display type.
-* **`TEXT` (Statement + Narrative):** Left-aligned bold/light uppercase statement headline paired with a clean 1-column `body` paragraph below.
-* **`SBOX` (Small Box Grid — 2-Column):** Two equal-width side-by-side bordered cards (`1px solid var(--accent-d)`), each containing an uppercase `Geist Mono` title (`h5`) and `body` copy.
-* **`HORBOX` (Horizontal Split Row):** Wide horizontal container split into a left `Geist Mono` label/index column (e.g., `SLIB: RADIKÁLNÍ UPŘÍMNOST`) and a right narrative column.
-* **`VERBOX` (Vertical Pillar Grid — 3-Column):** Three tall vertical columns separated by `1px` hairline dividers or individual `1px solid var(--accent-d)` frames for pillars, packages, or tiers.
-* **`ROADMAP` (Sequential Step Grid — 3-Column):** Horizontal progression of numbered phase cards (`MĚSÍC 1–2: DATA`, etc.) with `Geist Mono` phase headers and `body` deliverables.
-* **`GOALS` / `CÍLE` (Split Objective Matrix):** Asymmetric 2-column layout with a large `Geist` display header on the left and stacked bordered objective rows on the right.
+### Proportional Heading-to-Body Spacing (8px Grid)
+* `h1` → `body`: minimum `64px` gap
+* `h2` → `body`: minimum `40px` gap
+* `h3`–`h6` → `body`: minimum `24px` gap
 
 ---
 
-## 5. Layout, Grid & Framing Conventions
+## 4. Buttons & Interactive Controls
 
-### Master Grid (`main`)
-* **Structure:** 1 stretch row + 1 stretch column (single unified content safe-zone framed by technical perimeter borders).
-* **Outer Inset / Margin:** `136px` (for standard `1080x1080` post or `1920x1080` deck formats; scale proportionally for responsive web viewports).
-* **Gutter:** `1px`
+All interactive buttons use `Geist Mono`, `text-transform: uppercase`, `0px` border-radius, and `1px` solid borders:
 
-### Borders & Technical Ornaments
-* **Perimeter Framing:** Use thin `1px` or `2px` solid rules (`--accent` or `--accent-d`) with crisp `0px` border-radius.
-* **Micro-Motifs:** Decorate outer frame edges or section dividers with monospaced ASCII/technical ticks (`|||||`, `/////`, `\\\`, `XXXXX`), corner crosshairs, or index numbers (e.g., `01 / PALETTE`) set in `Geist Mono` (`14px`, `+4%` tracking).
-* **Negative Space:** Keep the interior canvas clean and uncluttered; never crowd text against the perimeter frame.
+* **Main Button (Primary CTA):**
+  * Default: `color: #000000`, `background-color: var(--accent)`, `border: 1px solid var(--accent)`
+  * Hover: `color: var(--accent)`, `background-color: rgba(var(--accent-d-rgb), 0.40)`, `border-color: var(--accent)`
+* **Side Button (Alternative Choice):**
+  * Default: `color: var(--accent)`, `background-color: #000000`, `border: 1px solid var(--accent)`
+  * Hover: `color: var(--accent)`, `background-color: rgba(var(--accent-d-rgb), 0.40)`, `border-color: var(--accent)`
 
 ---
 
-## 6. Strict Anti-Patterns (Do NOT Generate)
-* **No rounded corners:** Do not use `border-radius` on cards, buttons, or containers (`0px` sharp corners only).
-* **No multi-color rainbows:** Never combine Red, Blue, Green, and Yellow accents on the same screen. Stick to Black + White + **1 Accent Family**.
-* **No decorative/serif fonts:** Never substitute `Geist` or `Geist Mono` with Playfair, Inter, Roboto, or handwritten/script fonts.
-* **No drop shadows or glassmorphism:** Avoid `box-shadow`, `backdrop-filter: blur()`, and soft gradients. Rely on high-contrast solid fills and `1px`–`2px` hairline borders.
+## 5. Slide Deck & Box Component Primitives
+
+* **Non-Web Stroke Rule:** In slide decks and print layouts, borders use a `2px` stroke aligned **inside**.
+* **Banners, `HORBOX` & `VERBOX` Headers:** Always sized to content (`width: fit-content` / Figma `hug`) with `padding: 24px 40px`, positioned at the top edge of the container.
+* **`HORBOX` & `VERBOX` Content Area:** Interior body container has `padding: 64px 72px`.
+* **`INTRO`:** Minimal title frame with uppercase `Geist` Light `h1` display headline (`#FFFFFF`) and bottom `COURT OF MORAVIA` attribution in `Geist Mono` (`grey-l` / `--accent`).
+* **`CHAPTER`:** Full-bleed solid `--accent` fill with high-contrast `#000000` uppercase display typography.
+* **`TEXT`:** Left-aligned uppercase display statement paired with `body` text (`#FFFFFF`) respecting proportional heading gaps (`24px`–`64px`).
+* **`SBOX`:** 2-column grid of equal bordered boxes (`padding: 64px 72px` at full scale) with uppercase `Geist Mono` headers (`grey-l` or `--accent`) and `#FFFFFF` body copy.
+* **`ROADMAP`:** 3-column sequential phase progression (`MĚSÍC 1–2: DATA`, etc.) with `Geist Mono` headers and `#FFFFFF` body copy.
+* **`GOALS` / `CÍLE`:** Asymmetric 2-column split with an uppercase display title on the left and stacked bordered objective rows on the right.
+
+---
+
+## 6. 9-Part Perimeter Frame Architecture
+
+The master viewport layout uses a **9-part CSS Grid** (`66px 1fr 66px` columns × `66px 1fr 66px` rows) framing the center content canvas:
+
+* **4 Corner Cells (`66px × 66px`):** Centered `30px × 30px` square SVG slot (placeholder `1px` border box).
+* **4 Stretched Edge Cells (Top/Bottom `1fr × 66px`, Left/Right `66px × 1fr`):** Centered slim SVG ornament slot (`300px × 2px` horizontal on top/bottom; `2px × 300px` vertical on left/right).
+* **Center Cell (`1fr × 1fr`):** Main scrollable/responsive website content canvas.
+
+---
+
+## 7. Strict Anti-Patterns (Do NOT Generate)
+* **No rounded corners:** `0px` sharp corners everywhere.
+* **No off-role white text:** Never use `#FFFFFF` for `h4`–`h6`, labels, badges, or metadata (use `grey-l` or `--accent`).
+* **No `Geist` on subheadings/UI:** `Geist` is strictly for `h1` and `body`; use `Geist Mono` for `h2`–`h6`, navigation, and buttons.
+* **No terminal cosplay:** Never use `//`, `/`, or `[TEXT]` flavor decorations in labels or headings.
+* **No multi-color mixing:** Stick to Black + White/Grey + **1 Accent Family** per composition.

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-accent="violet">
+<html lang="en" data-accent="red">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DESIGN.MD — Court of Moravia</title>
-  <meta name="description" content="Living visual reference, slide deck primitives, and machine-readable design tokens for Court of Moravia." />
+  <meta name="description" content="Design system tokens, component geometry, and LLM specification for Court of Moravia." />
 
   <!-- Geist & Geist Mono Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,365 +18,248 @@
   <!-- Sticky Control Bar -->
   <header class="control-bar">
     <nav class="nav-links" aria-label="Primary sections">
-      <a href="#palette">01 / Palette</a>
-      <a href="#typography">02 / Typography</a>
-      <a href="#deck-primitives">03 / Deck Primitives</a>
-      <a href="#rules">04 / Rules &amp; Grid</a>
-      <a href="#llm-docs">05 / DESIGN.MD</a>
+      <a href="#palette">01 Palette</a>
+      <a href="#typography">02 Typography</a>
+      <a href="#primitives">03 Box Primitives</a>
+      <a href="#rules">04 Rules</a>
+      <a href="#llm-docs">05 DESIGN.MD</a>
     </nav>
 
     <div class="accent-switcher" role="group" aria-label="Select composition accent family">
-      <span class="accent-label">Accent:</span>
-      <button type="button" class="accent-btn is-active" data-set-accent="violet" style="background:#8019E5" title="Violet (#8019E5)"></button>
-      <button type="button" class="accent-btn" data-set-accent="red" style="background:#DF1717" title="Red (#DF1717)"></button>
+      <span class="accent-label">Accent</span>
+      <button type="button" class="accent-btn is-active" data-set-accent="red" style="background:#DF1717" title="Red (#DF1717)"></button>
       <button type="button" class="accent-btn" data-set-accent="blue" style="background:#196FE6" title="Blue (#196FE6)"></button>
       <button type="button" class="accent-btn" data-set-accent="green" style="background:#1AE51A" title="Green (#1AE51A)"></button>
       <button type="button" class="accent-btn" data-set-accent="orange" style="background:#FF5500" title="Orange (#FF5500)"></button>
       <button type="button" class="accent-btn" data-set-accent="yellow" style="background:#E5C41A" title="Yellow (#E5C41A)"></button>
       <button type="button" class="accent-btn" data-set-accent="teal" style="background:#14A9B8" title="Teal (#14A9B8)"></button>
+      <button type="button" class="accent-btn" data-set-accent="violet" style="background:#8019E5" title="Violet (#8019E5)"></button>
     </div>
   </header>
 
-  <!-- Technical Perimeter Frame -->
-  <div class="com-frame">
-    <span class="corner-mark corner-mark--tl" aria-hidden="true"></span>
-    <span class="corner-mark corner-mark--tr" aria-hidden="true"></span>
-    <span class="corner-mark corner-mark--bl" aria-hidden="true"></span>
-    <span class="corner-mark corner-mark--br" aria-hidden="true"></span>
-
-    <!-- Top Technical Ornament Bar -->
-    <div class="frame-bar">
-      <span>COM // DESIGN SYSTEM</span>
-      <span class="frame-ticks" aria-hidden="true">|||||||||||||||||||| //////////</span>
-      <span>SNAPSHOT: 16 NOV 2026</span>
+  <!-- 9-Part Technical Frame Grid -->
+  <div class="frame-grid">
+    <!-- Top Row: 66px square | 1fr stretch | 66px square -->
+    <div class="frame-cell frame-tl" aria-hidden="true">
+      <div class="slot-corner" title="30x30px corner SVG slot"></div>
+    </div>
+    <div class="frame-cell frame-tc" aria-hidden="true">
+      <div class="slot-edge-h" title="300x2px top SVG slot"></div>
+    </div>
+    <div class="frame-cell frame-tr" aria-hidden="true">
+      <div class="slot-corner" title="30x30px corner SVG slot"></div>
     </div>
 
-    <main class="main-container">
+    <!-- Center Row: 66px left rail | 1fr content | 66px right rail -->
+    <div class="frame-cell frame-cl" aria-hidden="true">
+      <div class="slot-edge-v" title="2x300px left SVG slot"></div>
+    </div>
 
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero-kicker">
-          <span>COURT OF MORAVIA</span>
-          <span>//</span>
-          <span>SINGLE SOURCE OF TRUTH</span>
-        </div>
-        <h1 class="hero-display">WE CHANGE THE GAME OF BUSINESS</h1>
-        <p class="hero-sub">A technical frame. A human purpose. — Click any token or slide primitive to copy.</p>
+    <main class="frame-center">
+      <div class="main-container">
 
-        <div class="hero-actions">
-          <button type="button" class="btn" id="copy-design-md-hero">
-            Copy DESIGN.MD for LLMs
-          </button>
-          <button type="button" class="btn btn--secondary" id="copy-css-vars">
-            Copy CSS :root Variables
-          </button>
-          <a href="DESIGN.md" download="DESIGN.md" class="btn btn--secondary">
-            Download DESIGN.md
-          </a>
-        </div>
-      </section>
+        <!-- HERO -->
+        <section class="hero">
+          <span class="hero-kicker">COURT OF MORAVIA — DESIGN SYSTEM</span>
+          <h1 class="hero-display">WE CHANGE THE GAME OF BUSINESS</h1>
+          <p class="hero-body">
+            A technical frame. A human purpose. Click any color swatch, type style, or component primitive to copy its exact token or CSS rule.
+          </p>
 
-      <!-- 01 / COLOR SYSTEM -->
-      <section id="palette" class="section">
-        <div class="section-header">
-          <div>
-            <span class="section-index">01 / PALETTE — 26 COLOR VARIABLES</span>
+          <div class="hero-actions">
+            <button type="button" class="btn" id="copy-design-md-hero">
+              Copy DESIGN.MD for LLMs
+            </button>
+            <button type="button" class="btn btn--side" id="copy-css-vars">
+              Copy CSS Variables
+            </button>
+            <a href="DESIGN.md" download="DESIGN.md" class="btn btn--side">
+              Download DESIGN.md
+            </a>
+          </div>
+        </section>
+
+        <!-- 01 / COLOR SYSTEM -->
+        <section id="palette" class="section">
+          <div class="section-header">
+            <span class="section-index">01 Palette</span>
             <h2 class="section-title">Color System</h2>
             <p class="section-desc">
-              Use pure black and white as the field. Pick <strong>one accent family</strong> per composition; do not mix multiple hues by default. Notice how <code>--accent-d</code> frames containers while <code>--accent-l</code> highlights monospaced headers.
+              Ordered sequence: Red (default), Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black. Pure white is strictly reserved for h1–h3 headers and body text; all other text uses grey-l or the active accent color.
             </p>
           </div>
-        </div>
 
-        <!-- Neutrals -->
-        <div class="neutrals-grid" id="neutrals-container"></div>
+          <!-- 7 Accent Families in Exact Sequence -->
+          <div class="accent-matrix" id="accents-container"></div>
 
-        <!-- 7 Accent Families -->
-        <div class="accent-matrix" id="accents-container"></div>
-      </section>
+          <!-- White + Grey, Black -->
+          <div class="neutrals-grid" id="neutrals-container"></div>
+        </section>
 
-      <!-- 02 / TYPOGRAPHY SYSTEM -->
-      <section id="typography" class="section">
-        <div class="section-header">
-          <div>
-            <span class="section-index">02 / HIERARCHY — GEIST + GEIST MONO</span>
+        <!-- 02 / TYPOGRAPHY SYSTEM -->
+        <section id="typography" class="section">
+          <div class="section-header">
+            <span class="section-index">02 Typography</span>
             <h2 class="section-title">Core Typography</h2>
             <p class="section-desc">
-              Large, light, uppercase headlines (<code>Geist</code>) paired with sentence-case body copy and technical monospaced labels (<code>Geist Mono</code>). Click any row to copy its CSS declaration.
+              Geist is used exclusively for h1 and body text. Geist Mono is used for everything else, set in uppercase. Proportional vertical spacing to body text: 64px after h1, 40px after h2, and 24px after h3–h6.
             </p>
           </div>
-        </div>
 
-        <div class="type-list" id="typography-container"></div>
+          <div class="type-list" id="typography-container"></div>
 
-        <!-- Extended Numeric Tokens -->
-        <div class="scale-tokens-bar" aria-label="Extended numeric scale tokens">
-          <span class="section-index" style="margin:0; width:100%;">Extended Numeric Scale &amp; Stroke Tokens (Click to copy px)</span>
-          <div class="token-pill" data-copy="88px">tera: <span>88px</span></div>
-          <div class="token-pill" data-copy="72px">giga: <span>72px</span></div>
-          <div class="token-pill" data-copy="64px">mega: <span>64px</span></div>
-          <div class="token-pill" data-copy="56px">kilo: <span>56px</span></div>
-          <div class="token-pill" data-copy="48px">micro: <span>48px</span></div>
-          <div class="token-pill" data-copy="40px">nano: <span>40px</span></div>
-          <div class="token-pill" data-copy="32px">pico: <span>32px</span></div>
-          <div class="token-pill" data-copy="24px">femto: <span>24px</span></div>
-          <div class="token-pill" data-copy="2px">stroke: <span>2px</span></div>
-          <div class="token-pill" data-copy="136px">grid-inset: <span>136px</span></div>
-          <div class="token-pill" data-copy="1px">gutter: <span>1px</span></div>
-        </div>
-      </section>
+          <div class="stroke-note-bar">
+            <span class="stroke-note-label">Non-Web Border Stroke (Slide Decks &amp; Print): <span>2px Inside</span></span>
+            <span class="stroke-note-label">Base Spacing Grid: <span>8px Increments</span></span>
+          </div>
+        </section>
 
-      <!-- 03 / SLIDE DECK & UI COMPONENT PRIMITIVES -->
-      <section id="deck-primitives" class="section">
-        <div class="section-header">
-          <div>
-            <span class="section-index">03 / MODULAR LAYOUT PRIMITIVES — 16:9 DECK &amp; WEB BLOCKS</span>
-            <h2 class="section-title">Deck Primitives</h2>
+        <!-- 03 / BANNERS, HORBOX & VERBOX PRIMITIVES -->
+        <section id="primitives" class="section">
+          <div class="section-header">
+            <span class="section-index">03 Box Primitives</span>
+            <h2 class="section-title">Banners &amp; Containers</h2>
             <p class="section-desc">
-              Standardized layout modules extracted from the COM deck system (<code>INTRO</code>, <code>CHAPTER</code>, <code>TEXT</code>, <code>SBOX</code>, <code>HORBOX</code>, <code>VERBOX</code>, <code>ROADMAP</code>, <code>GOALS</code>). Click any slide specimen to copy its HTML/CSS prompt snippet.
+              Banners and box headers always hug their content width with 24px vertical and 40px horizontal padding. Box headers sit flush at the top of the container, while interior box content uses 64px vertical and 72px horizontal padding.
             </p>
           </div>
-        </div>
 
-        <div class="deck-showcase">
+          <div class="box-primitives-stack">
 
-          <!-- 1. INTRO -->
-          <article class="slide-specimen" data-copy-snippet="INTRO Slide: Full dark #000000 canvas, 1px solid var(--accent-d) perimeter, centered/left-aligned uppercase Geist Light h1 display title, bottom micro attribution 'COURT OF MORAVIA'.">
-            <div class="slide-specimen-bar">
-              <span>01 // INTRO</span>
-              <span>[CLICK TO COPY SPEC]</span>
-            </div>
-            <div class="slide-canvas">
-              <span class="slide-kicker">COURT OF MORAVIA // DECK</span>
-              <h3 class="slide-display" style="font-size: clamp(26px, 3vw, 38px);">SERIOUS GAMES</h3>
-              <span class="slide-footer-tag">COURT OF MORAVIA</span>
-            </div>
-          </article>
-
-          <!-- 2. CHAPTER -->
-          <article class="slide-specimen" data-copy-snippet="CHAPTER Slide: Full solid var(--accent) background fill, zero borders, high-contrast #000000 uppercase Geist Light display headline.">
-            <div class="slide-specimen-bar">
-              <span>02 // CHAPTER (INVERTED)</span>
-              <span>[CLICK TO COPY SPEC]</span>
-            </div>
-            <div class="slide-canvas slide-canvas--chapter">
-              <span class="slide-kicker" style="margin-bottom:8px;">CHAPTER // 01</span>
-              <h3 class="slide-display" style="font-size: clamp(24px, 2.8vw, 34px);">VYBERTE SI SVOU KVARTÁLNÍ DÁVKU SERIOUS GAMES</h3>
-            </div>
-          </article>
-
-          <!-- 3. TEXT -->
-          <article class="slide-specimen" data-copy-snippet="TEXT Slide: Dark #000000 canvas, uppercase Geist Light statement headline paired with a clean 1-column Geist Regular body paragraph.">
-            <div class="slide-specimen-bar">
-              <span>03 // TEXT</span>
-              <span>[CLICK TO COPY SPEC]</span>
-            </div>
-            <div class="slide-canvas">
-              <span class="slide-kicker">STATEMENT</span>
-              <div>
-                <h3 class="slide-display" style="margin-bottom: 12px;">POJĎME Z VÁS SEJMOUT BŘÍMĚ NENAŠKÁLOVANÉ FIRMY</h3>
-                <p class="slide-copy">Systematický přístup k rozvoji týmů a procesů bez zbytečné omáčky. Jasná pravidla, měřitelný dopad.</p>
-              </div>
-              <span class="slide-footer-tag">COURT OF MORAVIA</span>
-            </div>
-          </article>
-
-          <!-- 4. SBOX -->
-          <article class="slide-specimen" data-copy-snippet="SBOX (Small Box Grid): 2-column equal grid of #121212 cards framed by 1px solid var(--accent-d), uppercase Geist Mono header + Geist Regular body copy.">
-            <div class="slide-specimen-bar">
-              <span>04 // SBOX (2-COL CARDS)</span>
-              <span>[CLICK TO COPY SPEC]</span>
-            </div>
-            <div class="slide-canvas">
-              <span class="slide-kicker">SBOX // TWO-COLUMN COMPARISON</span>
-              <div class="prim-sbox-grid">
-                <div class="prim-box">
-                  <h4 class="slide-mono-title">FILTERED TRUTH</h4>
-                  <p class="slide-copy">Diagnostika reálného stavu firmy bez zkreslení management reporty.</p>
-                </div>
-                <div class="prim-box">
-                  <h4 class="slide-mono-title">TALENT OPTIMIZATION</h4>
-                  <p class="slide-copy">Sladění silných stránek lidí s klíčovými byznysovými cíli.</p>
-                </div>
-              </div>
-              <span class="slide-footer-tag">COURT OF MORAVIA</span>
-            </div>
-          </article>
-
-          <!-- 5. HORBOX -->
-          <article class="slide-specimen" data-copy-snippet="HORBOX (Horizontal Box): Wide horizontal container framed by 1px solid var(--accent-d), split 38%/62% with a vertical 1px divider. Left cell: uppercase Geist Mono label; Right cell: Geist Regular description.">
-            <div class="slide-specimen-bar">
-              <span>05 // HORBOX (HORIZONTAL SPLIT)</span>
-              <span>[CLICK TO COPY SPEC]</span>
-            </div>
-            <div class="slide-canvas">
-              <span class="slide-kicker">HORBOX // PRINCIPLE</span>
-              <div class="prim-horbox">
-                <div class="prim-horbox-left">SLIB: RADIKÁLNÍ UPŘÍMNOST</div>
-                <div class="prim-horbox-right">
-                  <p class="slide-copy">Pojmenováváme věci pravými jmény. Bez korporátní vaty, s respektem k lidem a fokusem na výsledek.</p>
-                </div>
-              </div>
-              <span class="slide-footer-tag">COURT OF MORAVIA</span>
-            </div>
-          </article>
-
-          <!-- 6. VERBOX -->
-          <article class="slide-specimen" data-copy-snippet="VERBOX (Vertical Box): 3-column vertical pillar layout, each column framed in 1px solid var(--accent-d) on #121212 fill with Geist Mono header and Geist body copy.">
-            <div class="slide-specimen-bar">
-              <span>06 // VERBOX (3-COL PILLARS)</span>
-              <span>[CLICK TO COPY SPEC]</span>
-            </div>
-            <div class="slide-canvas">
-              <span class="slide-kicker">VERBOX // THREE PILLARS</span>
-              <div class="prim-verbox-grid">
-                <div class="prim-verbox-col">
-                  <h4 class="slide-mono-title">01 / HRA</h4>
-                  <p class="slide-copy">Bezpečný prostor pro simulaci reálných situací.</p>
-                </div>
-                <div class="prim-verbox-col">
-                  <h4 class="slide-mono-title">02 / REFLEXE</h4>
-                  <p class="slide-copy">Okamžitá zpětná vazba a rozbor rozhodnutí.</p>
-                </div>
-                <div class="prim-verbox-col">
-                  <h4 class="slide-mono-title">03 / PŘENOS</h4>
-                  <p class="slide-copy">Konkrétní akční kroky do každodenní praxe.</p>
-                </div>
+            <!-- Banner Example -->
+            <div>
+              <div class="com-banner" data-copy-snippet="Banner: width: fit-content; padding: 24px 40px; border: 1px solid var(--accent); font-family: 'Geist Mono', monospace; text-transform: uppercase; color: var(--accent);">
+                BANNER — HUG WIDTH · PADDING 24PX 40PX
               </div>
             </div>
-          </article>
 
-          <!-- 7. ROADMAP -->
-          <article class="slide-specimen" data-copy-snippet="ROADMAP: 3-column sequential phase grid (e.g., MĚSÍC 1–2: DATA) with 1px solid var(--accent-d) cards and Geist Mono phase tags.">
-            <div class="slide-specimen-bar">
-              <span>07 // ROADMAP</span>
-              <span>[CLICK TO COPY SPEC]</span>
-            </div>
-            <div class="slide-canvas">
-              <span class="slide-kicker">ROADMAP // TIMELINE</span>
-              <div class="prim-verbox-grid">
-                <div class="prim-verbox-col">
-                  <h4 class="slide-mono-title">MĚSÍC 1–2: DATA</h4>
-                  <p class="slide-copy">Sběr dat, hloubkové rozhovory a mapování úzkých hrdel.</p>
-                </div>
-                <div class="prim-verbox-col">
-                  <h4 class="slide-mono-title">MĚSÍC 3–4: DESIGN</h4>
-                  <p class="slide-copy">Návrh intervencí a herních mechanik na míru.</p>
-                </div>
-                <div class="prim-verbox-col">
-                  <h4 class="slide-mono-title">MĚSÍC 5–6: SCALE</h4>
-                  <p class="slide-copy">Implementace do týmu a předání interním ownerům.</p>
+            <!-- HORBOX Example -->
+            <article class="com-box-unit" data-copy-snippet="HORBOX: Top hug header (width: fit-content; padding: 24px 40px) + interior content container (padding: 64px 72px) with 2-column horizontal split.">
+              <div class="com-box-header">HORBOX HEADER</div>
+              <div class="com-box-content">
+                <div class="horbox-inner">
+                  <h3 class="horbox-heading">SLIB: RADIKÁLNÍ UPŘÍMNOST</h3>
+                  <p class="horbox-body">
+                    Pojmenováváme věci pravými jmény. Bez korporátní vaty, s respektem k lidem a fokusem na výsledek. Header nahoře má width: hug a padding 24px 40px, vnitřní obsah má padding 64px 72px.
+                  </p>
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <!-- 8. GOALS / CÍLE -->
-          <article class="slide-specimen" data-copy-snippet="GOALS / CÍLE: Asymmetric 2-column split (36% left large uppercase Geist title 'CÍLE', 64% right stacked bordered objective boxes in 1px solid var(--accent-d)).">
-            <div class="slide-specimen-bar">
-              <span>08 // GOALS (CÍLE)</span>
-              <span>[CLICK TO COPY SPEC]</span>
-            </div>
-            <div class="slide-canvas">
-              <div class="prim-goals-split">
-                <div>
-                  <span class="slide-kicker" style="display:block; margin-bottom:6px;">OBJECTIVES</span>
-                  <h3 class="slide-display" style="font-size: clamp(28px, 3.2vw, 40px);">CÍLE</h3>
+            <!-- VERBOX 3-Column Grid -->
+            <div class="verbox-grid">
+              <article class="verbox-card" data-copy-snippet="VERBOX Column: Top hug header (width: fit-content; padding: 24px 40px) + interior content container (padding: 64px 72px) with h3 header (24px min gap) and body text.">
+                <div class="com-box-header">VERBOX 01</div>
+                <div class="com-box-content">
+                  <h3 class="verbox-card-title">FILTERED TRUTH</h3>
+                  <p class="verbox-card-body">
+                    Diagnostika reálného stavu firmy bez zkreslení management reporty.
+                  </p>
                 </div>
-                <div class="prim-goals-list">
-                  <div class="prim-goal-item">
-                    <h4 class="slide-mono-title" style="margin:0 0 2px 0;">01 // RYCHLOST ROZHODOVÁNÍ</h4>
-                    <p class="slide-copy">Odstranění bottlenecků v exekutivě.</p>
-                  </div>
-                  <div class="prim-goal-item">
-                    <h4 class="slide-mono-title" style="margin:0 0 2px 0;">02 // VLASTNICTVÍ V TÝMU</h4>
-                    <p class="slide-copy">Jasné kompetence a zodpovědnost za výsledek.</p>
-                  </div>
+              </article>
+
+              <article class="verbox-card" data-copy-snippet="VERBOX Column: Top hug header (width: fit-content; padding: 24px 40px) + interior content container (padding: 64px 72px) with h3 header (24px min gap) and body text.">
+                <div class="com-box-header">VERBOX 02</div>
+                <div class="com-box-content">
+                  <h3 class="verbox-card-title">SERIOUS GAMES</h3>
+                  <p class="verbox-card-body">
+                    Bezpečný prostor pro simulaci reálných situací a okamžitou reflexi.
+                  </p>
                 </div>
-              </div>
+              </article>
+
+              <article class="verbox-card" data-copy-snippet="VERBOX Column: Top hug header (width: fit-content; padding: 24px 40px) + interior content container (padding: 64px 72px) with h3 header (24px min gap) and body text.">
+                <div class="com-box-header">VERBOX 03</div>
+                <div class="com-box-content">
+                  <h3 class="verbox-card-title">TALENT OPTIMIZATION</h3>
+                  <p class="verbox-card-body">
+                    Sladění silných stránek lidí s klíčovými byznysovými cíli.
+                  </p>
+                </div>
+              </article>
             </div>
-          </article>
 
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <!-- 04 / DESIGN CONVENTIONS & ANTI-PATTERNS -->
-      <section id="rules" class="section">
-        <div class="section-header">
-          <div>
-            <span class="section-index">04 / COMPOSITION, GEOMETRY &amp; LEGIBILITY</span>
-            <h2 class="section-title">Design Conventions</h2>
+        <!-- 04 / DESIGN RULES & ANTI-PATTERNS -->
+        <section id="rules" class="section">
+          <div class="section-header">
+            <span class="section-index">04 Governance</span>
+            <h2 class="section-title">Design Rules</h2>
             <p class="section-desc">
-              Master grid <code>main</code>: 1 stretch row + 1 stretch column with <code>136px</code> inset (for 1080&times;1080 / 1920&times;1080 formats) and <code>1px</code> gutter.
+              Functional minimalism enforced by strict token bindings, an 8px spacing grid, and clear typographic separation.
             </p>
           </div>
-        </div>
 
-        <div class="rules-grid">
-          <article class="rule-card">
-            <span class="rule-num">01 / PALETTE</span>
-            <p class="rule-text">Use black (#000000) and white (#FFFFFF) as the primary field. Choose one accent family per composition; do not mix all palette hues by default.</p>
-          </article>
-          <article class="rule-card">
-            <span class="rule-num">02 / HIERARCHY</span>
-            <p class="rule-text">Large, light, uppercase headlines. Sentence-case body copy. Monospaced labels (Geist Mono) for technical and navigational detail.</p>
-          </article>
-          <article class="rule-card">
-            <span class="rule-num">03 / COMPOSITION</span>
-            <p class="rule-text">Align to a clear edge; protect generous negative space. Keep ornamental borders and ticks at the outer perimeter, away from the message.</p>
-          </article>
-          <article class="rule-card">
-            <span class="rule-num">04 / GEOMETRY</span>
-            <p class="rule-text">Favor flat, angular marks and crisp rectangular framing. Maintain 0px border-radius across all containers and controls.</p>
-          </article>
-          <article class="rule-card">
-            <span class="rule-num">05 / LEGIBILITY</span>
-            <p class="rule-text">Use white (#FFFFFF) or a tested light tone (-L) for small text on dark fields. Check contrast at final size.</p>
-          </article>
-        </div>
+          <div class="rules-grid">
+            <article class="rule-card">
+              <span class="rule-num">01 Color Scope</span>
+              <p class="rule-text">Pure white (#FFFFFF) is strictly reserved for h1–h3 headers and body text. Everything else uses grey-l (#E8E5E0) or the active accent color.</p>
+            </article>
+            <article class="rule-card">
+              <span class="rule-num">02 Font Roles</span>
+              <p class="rule-text">Geist is used exclusively for h1 and body text. Geist Mono is used for h2–h6, labels, banners, and buttons, always in uppercase.</p>
+            </article>
+            <article class="rule-card">
+              <span class="rule-num">03 Proportional Gaps</span>
+              <p class="rule-text">All spacing follows multiples of 8px. Minimum gap from headings to body text: 64px for h1, 40px for h2, and 24px for h3–h6.</p>
+            </article>
+            <article class="rule-card">
+              <span class="rule-num">04 Box Anatomy</span>
+              <p class="rule-text">Banners and box headers hug their text (padding: 24px 40px) at the top of the container. Interior box content uses padding: 64px 72px.</p>
+            </article>
+          </div>
 
-        <div class="antipatterns-box">
-          <h3 class="antipatterns-title">Strict Anti-Patterns (LLM Guardrails)</h3>
-          <ul class="antipatterns-list">
-            <li><strong>No rounded corners:</strong> Never apply <code>border-radius</code> to cards, buttons, or frames (0px only).</li>
-            <li><strong>No multi-color rainbows:</strong> Never combine multiple accent families (e.g. Red + Blue + Green) in a single layout.</li>
-            <li><strong>No off-brand fonts:</strong> Never substitute Geist or Geist Mono with Inter, Roboto, serif, or script fonts.</li>
-            <li><strong>No shadows or blur:</strong> Avoid <code>box-shadow</code>, glassmorphism, and soft gradients.</li>
-          </ul>
-        </div>
-      </section>
+          <div class="antipatterns-box">
+            <h3 class="antipatterns-title">Strict Anti-Patterns</h3>
+            <ul class="antipatterns-list">
+              <li>No rounded corners: 0px border-radius across all elements.</li>
+              <li>No off-role white text: never apply #FFFFFF to h4–h6, tags, or metadata.</li>
+              <li>No terminal cosplay: never use slashes or bracketed flavor text in UI labels.</li>
+              <li>No multi-color mixing: use Black + White/Grey + 1 Accent Family per composition.</li>
+            </ul>
+          </div>
+        </section>
 
-      <!-- 05 / RAW DESIGN.MD FOR LLMS -->
-      <section id="llm-docs" class="section">
-        <div class="section-header">
-          <div>
-            <span class="section-index">05 / MACHINE-READABLE SPECIFICATION</span>
+        <!-- 05 / RAW DESIGN.MD FOR LLMS -->
+        <section id="llm-docs" class="section">
+          <div class="section-header">
+            <span class="section-index">05 Specification</span>
             <h2 class="section-title">DESIGN.MD</h2>
             <p class="section-desc">
-              Ready to paste directly into Claude, ChatGPT, Cursor, or system prompts to enforce Court of Moravia visual rules and slide primitives.
+              Machine-readable system rules ready to paste directly into LLM system prompts.
             </p>
           </div>
-        </div>
 
-        <div class="code-panel">
-          <div class="code-panel-header">
-            <span class="code-filename">DESIGN.md — Ready for LLM Context</span>
-            <div class="code-actions">
-              <button type="button" class="btn" id="copy-design-md-panel">Copy Markdown</button>
-              <a href="DESIGN.md" download="DESIGN.md" class="btn btn--secondary">Download .md</a>
+          <div class="code-panel">
+            <div class="code-panel-header">
+              <span class="code-filename">DESIGN.md</span>
+              <div class="code-actions">
+                <button type="button" class="btn" id="copy-design-md-panel">Copy Markdown</button>
+                <a href="DESIGN.md" download="DESIGN.md" class="btn btn--side">Download .md</a>
+              </div>
             </div>
+            <pre class="code-block" id="raw-markdown-display"></pre>
           </div>
-          <pre class="code-block" id="raw-markdown-display">Loading DESIGN.md...</pre>
-        </div>
-      </section>
+        </section>
 
+      </div>
     </main>
 
-    <!-- Bottom Technical Ornament Bar -->
-    <div class="frame-bar frame-bar--bottom">
-      <span>WE DELIVER CHANGE IN COMPANIES</span>
-      <span class="frame-ticks" aria-hidden="true">\\\ XXXXXXXXXX</span>
-      <span>COURT OF MORAVIA // EXPERT GUILD</span>
+    <div class="frame-cell frame-cr" aria-hidden="true">
+      <div class="slot-edge-v" title="2x300px right SVG slot"></div>
+    </div>
+
+    <!-- Bottom Row: 66px square | 1fr stretch | 66px square -->
+    <div class="frame-cell frame-bl" aria-hidden="true">
+      <div class="slot-corner" title="30x30px corner SVG slot"></div>
+    </div>
+    <div class="frame-cell frame-bc" aria-hidden="true">
+      <div class="slot-edge-h" title="300x2px bottom SVG slot"></div>
+    </div>
+    <div class="frame-cell frame-br" aria-hidden="true">
+      <div class="slot-corner" title="30x30px corner SVG slot"></div>
     </div>
   </div>
 
@@ -384,80 +267,82 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
-    const NEUTRALS = [
-      { token: '--color-black',   name: 'BLACK',   hex: '#000000', role: 'Primary background / dark field' },
-      { token: '--color-black-l', name: 'BLACK-L', hex: '#121212', role: 'Elevated dark surface / subtle fill' },
-      { token: '--color-grey-d',  name: 'GREY-D',  hex: '#808080', role: 'Muted borders, secondary labels' },
-      { token: '--color-grey-l',  name: 'GREY-L',  hex: '#E8E5E0', role: 'Warm off-white surface / muted fill' },
-      { token: '--color-white',   name: 'WHITE',   hex: '#FFFFFF', role: 'Primary light text / inverted field' }
-    ];
-
+    /* Ordered sequence: Red, Blue, Green, Orange, Yellow, Teal, Violet */
     const ACCENT_FAMILIES = [
-      { id: 'violet', name: 'VIOLET', d: '#4D0691', base: '#8019E5', l: '#A99EFA' },
       { id: 'red',    name: 'RED',    d: '#910606', base: '#DF1717', l: '#F65656' },
       { id: 'blue',   name: 'BLUE',   d: '#063B91', base: '#196FE6', l: '#9EC4FA' },
       { id: 'green',  name: 'GREEN',  d: '#067008', base: '#1AE51A', l: '#9EFAB0' },
       { id: 'orange', name: 'ORANGE', d: '#913606', base: '#FF5500', l: '#FFB899' },
       { id: 'yellow', name: 'YELLOW', d: '#917806', base: '#E5C41A', l: '#FFEE99' },
-      { id: 'teal',   name: 'TEAL',   d: '#068691', base: '#14A9B8', l: '#9EF2FA' }
+      { id: 'teal',   name: 'TEAL',   d: '#068691', base: '#14A9B8', l: '#9EF2FA' },
+      { id: 'violet', name: 'VIOLET', d: '#4D0691', base: '#8019E5', l: '#A99EFA' }
+    ];
+
+    /* White + Grey, Black */
+    const NEUTRALS = [
+      { token: '--color-white',   name: 'WHITE',   hex: '#FFFFFF', role: 'Strictly h1–h3 headers & body text' },
+      { token: '--color-grey-l',  name: 'GREY-L',  hex: '#E8E5E0', role: 'Secondary text, labels & metadata' },
+      { token: '--color-grey-d',  name: 'GREY-D',  hex: '#808080', role: 'Muted borders & structural rules' },
+      { token: '--color-black-l', name: 'BLACK-L', hex: '#121212', role: 'Elevated dark container fill' },
+      { token: '--color-black',   name: 'BLACK',   hex: '#000000', role: 'Primary field & primary button text' }
     ];
 
     const TYPOGRAPHY = [
       {
-        role: 'h1 / Geist Light',
-        meta: '160px · 110% line · 0% tracking · UPPERCASE',
+        role: 'h1 · Geist Light',
+        meta: '160px · 110% line · 0% tracking · #FFFFFF · 64px gap to body',
         sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: var(--font-body); font-weight: 300; font-size: clamp(36px, 5vw, 72px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase;",
-        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase;"
+        previewStyle: "font-family: var(--font-body); font-weight: 300; font-size: clamp(36px, 5vw, 72px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);",
+        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
       },
       {
-        role: 'h2 / Geist Light',
-        meta: '96px · 110% line · 0% tracking · UPPERCASE',
+        role: 'h2 · Geist Mono Light',
+        meta: '96px · 110% line · 0% tracking · #FFFFFF · 40px gap to body',
         sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: var(--font-body); font-weight: 300; font-size: clamp(30px, 4vw, 56px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase;",
-        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase;"
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: clamp(30px, 4vw, 56px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
       },
       {
-        role: 'h3 / Geist Mono ExtraLight',
-        meta: '64px · 110% line · 0% tracking · UPPERCASE',
+        role: 'h3 · Geist Mono ExtraLight',
+        meta: '64px · 110% line · 0% tracking · #FFFFFF · 24px gap to body',
         sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: var(--font-header); font-weight: 200; font-size: clamp(26px, 3.2vw, 44px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase;",
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase;"
+        previewStyle: "font-family: var(--font-header); font-weight: 200; font-size: clamp(26px, 3.2vw, 44px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
       },
       {
-        role: 'h4 / Geist Mono Light',
-        meta: '48px · 110% line · 0% tracking · UPPERCASE',
+        role: 'h4 · Geist Mono Light',
+        meta: '48px · 110% line · 0% tracking · GREY-L / ACCENT',
         sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: clamp(22px, 2.6vw, 36px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase;",
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase;"
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: clamp(22px, 2.6vw, 36px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-grey-l);",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #E8E5E0;"
       },
       {
-        role: 'h5 / Geist Mono Regular',
-        meta: '32px · 110% line · +4% tracking · UPPERCASE',
+        role: 'h5 · Geist Mono Regular',
+        meta: '32px · 110% line · +4% tracking · GREY-L / ACCENT',
         sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: clamp(20px, 2vw, 28px); line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase;",
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase;"
+        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: clamp(20px, 2vw, 28px); line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent);",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent);"
       },
       {
-        role: 'h6 / Geist Mono Light',
-        meta: '24px · 130% line · +1% tracking · Technical',
-        sample: 'We deliver change in companies.',
-        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em;",
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em;"
+        role: 'h6 · Geist Mono Light',
+        meta: '24px · 130% line · +1% tracking · GREY-L / ACCENT',
+        sample: 'WE DELIVER CHANGE IN COMPANIES',
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: var(--color-grey-l);",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: #E8E5E0;"
       },
       {
-        role: 'body / Geist Regular',
-        meta: '24px · 130% line · 0% tracking · Sentence case',
+        role: 'body · Geist Regular',
+        meta: '24px · 130% line · 0% tracking · #FFFFFF · Sentence case',
         sample: 'We deliver change in companies. We change the game of business.',
-        previewStyle: "font-family: var(--font-body); font-weight: 400; font-size: 22px; line-height: 1.3; letter-spacing: 0;",
-        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0;"
+        previewStyle: "font-family: var(--font-body); font-weight: 400; font-size: 22px; line-height: 1.3; letter-spacing: 0; color: var(--color-white);",
+        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #FFFFFF;"
       },
       {
-        role: 'micro / Geist Mono Regular',
-        meta: '14px · 110% line · +4% tracking · UPPERCASE',
-        sample: '01 / PALETTE — LIVE INSTANCES · GEOMETRY FOLLOWS THE SOURCE COMPONENT',
-        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase;",
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase;"
+        role: 'micro · Geist Mono Regular',
+        meta: '14px · 110% line · +4% tracking · GREY-L / ACCENT',
+        sample: 'COURT OF MORAVIA · EXPERT GUILD',
+        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-grey-l);",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #E8E5E0;"
       }
     ];
 
@@ -471,102 +356,110 @@
 
 ## 1. Core Design Principles & Rules
 
-When generating UI, web pages, slide decks, or digital assets for **Court of Moravia (COM)**, strictly follow these 5 rules:
+When generating UI, web pages, slide decks, or digital assets for **Court of Moravia (COM)**, strictly follow these rules:
 
-1. **01 / PALETTE:** Use pure black (\`#000000\`) and pure white (\`#FFFFFF\`) as the primary field. Choose **one accent family per composition**—do not mix multiple palette hues by default.
-2. **02 / HIERARCHY:** Pair large, light, uppercase headlines (\`Geist\`) with clean, sentence-case body copy (\`Geist\`). Use monospaced type (\`Geist Mono\`) for technical labels, headings (\`h3\`–\`h6\`), metadata, and navigational details.
-3. **03 / COMPOSITION:** Align elements to a clear, crisp edge and protect generous negative space. Keep ornamental borders, ticks, and technical framing confined to the outer perimeter, well away from the core message.
-4. **04 / GEOMETRY:** Favor flat, angular marks and crisp rectangular framing. Avoid rounded blobs, drop shadows, soft gradients, or organic curves.
-5. **05 / LEGIBILITY:** Use pure white (\`#FFFFFF\`) or a tested \`-L\` (light) tint for small text on dark backgrounds. Always verify contrast at the final rendered size.
+1. **01 / PALETTE & COLOR HIERARCHY:** Use pure black (\`#000000\`) as the primary canvas. Choose **one accent family per composition** (defaulting to **Red** \`#DF1717\`). Pure white (\`#FFFFFF\`) is strictly reserved for \`h1\`–\`h3\` headers and \`body\` text; all other text, labels, metadata, and subheadings (\`h4\`–\`h6\`, \`micro\`) must use \`grey-l\` (\`#E8E5E0\`) or the active \`--accent\` color.
+2. **02 / TYPOGRAPHY ROLES:** \`Geist\` is used exclusively for \`h1\` display titles and \`body\` text (optimized for short and long-form reading). \`Geist Mono\` is used for everything else (\`h2\`–\`h6\`, banners, labels, buttons, navigation, and microtype). All text outside \`body\` copy uses \`text-transform: uppercase\`.
+3. **03 / SPACING & PROPORTIONAL RHYTHM:** Standard spacing is strictly based on multiples of \`8px\` (\`0px\` or minimum \`8px\`, typically larger). Vertical gaps between \`body\` text and headings scale proportionally: at least \`24px\` below \`h3\`–\`h6\`, at least \`40px\` below \`h2\`, and at least \`64px\` below \`h1\`.
+4. **04 / GEOMETRY & STROKES:** Favor flat, angular marks and crisp \`0px\` border-radius rectangular framing. Avoid rounded corners, drop shadows, glassmorphism, and soft gradients. For non-web deliverables (slide decks, print), standard border stroke width is \`2px\` aligned **inside**.
+5. **05 / FUNCTIONAL MINIMALISM:** Zero decorative "tech larp" or terminal cosplay—do not use \`//\`, \`/\`, or bracketed flavor text (e.g., \`[CLICK TO COPY]\`) as inline dividers or decorative labels. Keep all UI clean, direct, and functional.
 
 ---
 
 ## 2. Color System (26 Variables)
 
-*Naming convention: Base token = primary hue, \`-D\` = dark shade, \`-L\` = light tint.*
+*Strict sequence: Red (default), Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black.*
 
-### Neutrals & Surfaces
-| Token | Hex | Role / Notes |
-| :--- | :--- | :--- |
-| \`--color-black\` | \`#000000\` | Primary background / dark field |
-| \`--color-black-l\` | \`#121212\` | Elevated dark surface / subtle card fill |
-| \`--color-grey-d\` | \`#808080\` | Muted technical borders, secondary labels |
-| \`--color-grey-l\` | \`#E8E5E0\` | Warm off-white surface / muted light fill |
-| \`--color-white\` | \`#FFFFFF\` | Primary light text / inverted background |
-
-### Accent Families (Pick ONE per composition)
+### Accent Families (Pick ONE per composition; Default = Red)
 | Family | Dark (\`-D\`) | Base (Primary) | Light (\`-L\`) |
 | :--- | :--- | :--- | :--- |
+| **Red (Default)** | \`#910606\` | \`#DF1717\` | \`#F65656\` |
 | **Blue** | \`#063B91\` | \`#196FE6\` | \`#9EC4FA\` |
 | **Green** | \`#067008\` | \`#1AE51A\` | \`#9EFAB0\` |
 | **Orange** | \`#913606\` | \`#FF5500\` | \`#FFB899\` |
 | **Yellow** | \`#917806\` | \`#E5C41A\` | \`#FFEE99\` |
-| **Red** | \`#910606\` | \`#DF1717\` | \`#F65656\` |
 | **Teal** | \`#068691\` | \`#14A9B8\` | \`#9EF2FA\` |
 | **Violet** | \`#4D0691\` | \`#8019E5\` | \`#A99EFA\` |
+
+### Neutrals & Surfaces
+| Token | Hex | Strict Usage Role |
+| :--- | :--- | :--- |
+| \`--color-white\` | \`#FFFFFF\` | **Restricted:** \`h1\`–\`h3\` headers and \`body\` text only |
+| \`--color-grey-l\` | \`#E8E5E0\` | Secondary text, labels, metadata, and subtle borders |
+| \`--color-grey-d\` | \`#808080\` | Muted borders and structural hairlines |
+| \`--color-black-l\` | \`#121212\` | Elevated dark card/box surface |
+| \`--color-black\` | \`#000000\` | Primary background field and primary button text |
 
 ---
 
 ## 3. Typography System
 
 ### Font Families
-* \`--font-body\`: \`'Geist', sans-serif\` (Used for major display headlines \`h1\`–\`h2\` and body copy)
-* \`--font-header\`: \`'Geist Mono', monospace\` (Used for technical headings \`h3\`–\`h6\`, labels, and microtype)
+* \`--font-body\`: \`'Geist', sans-serif\` — Used **only** for \`h1\` and \`body\` text.
+* \`--font-header\`: \`'Geist Mono', monospace\` — Used for **everything else** (\`h2\`–\`h6\`, banners, buttons, labels, and microtype).
 
-### Type Scale & Styles
-| Style / Role | Font Family | Weight | Size | Line Height | Tracking (Letter Spacing) | Case / Usage |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| \`h1\` | Geist | Light (300) | \`160px\` | \`110%\` | \`0%\` | UPPERCASE — Hero display |
-| \`h2\` | Geist | Light (300) | \`96px\` | \`110%\` | \`0%\` | UPPERCASE — Section display |
-| \`h3\` | Geist Mono | ExtraLight (200) | \`64px\` | \`110%\` | \`0%\` | UPPERCASE — Technical display |
-| \`h4\` | Geist Mono | Light (300) | \`48px\` | \`110%\` | \`0%\` | UPPERCASE — Sub-display / Deck titles |
-| \`h5\` | Geist Mono | Regular (400) | \`32px\` | \`110%\` | \`+4%\` | UPPERCASE — Card / Block headers |
-| \`h6\` | Geist Mono | Light (300) | \`24px\` | \`130%\` | \`+1%\` | Technical subheadings |
-| \`body\` | Geist | Regular (400) | \`24px\` | \`130%\` | \`0%\` | Sentence case — Primary reading copy |
-| \`micro\` | Geist Mono | Regular (400) | \`14px\` | \`110%\` | \`+4%\` | UPPERCASE — Captions, tags, border codes |
+### Type Scale & Color Rules
+| Style / Role | Font Family | Weight | Size | Line Height | Tracking | Color | Case |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| \`h1\` | Geist | Light (300) | \`160px\` | \`110%\` | \`0%\` | \`#FFFFFF\` | UPPERCASE |
+| \`h2\` | Geist Mono | Light (300) | \`96px\` | \`110%\` | \`0%\` | \`#FFFFFF\` | UPPERCASE |
+| \`h3\` | Geist Mono | ExtraLight (200) | \`64px\` | \`110%\` | \`0%\` | \`#FFFFFF\` | UPPERCASE |
+| \`h4\` | Geist Mono | Light (300) | \`48px\` | \`110%\` | \`0%\` | \`grey-l\` or \`--accent\` | UPPERCASE |
+| \`h5\` | Geist Mono | Regular (400) | \`32px\` | \`110%\` | \`+4%\` | \`grey-l\` or \`--accent\` | UPPERCASE |
+| \`h6\` | Geist Mono | Light (300) | \`24px\` | \`130%\` | \`+1%\` | \`grey-l\` or \`--accent\` | UPPERCASE |
+| \`body\` | Geist | Regular (400) | \`24px\` | \`130%\` | \`0%\` | \`#FFFFFF\` | Sentence case |
+| \`micro\` | Geist Mono | Regular (400) | \`14px\` | \`110%\` | \`+4%\` | \`grey-l\` or \`--accent\` | UPPERCASE |
 
-### Extended Numeric Scale Tokens
-*(Note: Numeric tokens exist in the system without fixed semantic roles; use proportionally when scaling).*
-* **Display Scale:** \`tera: 88px\`, \`giga: 72px\`, \`mega: 64px\`, \`kilo: 56px\`, \`micro: 48px\`, \`nano: 40px\`, \`pico: 32px\`, \`femto: 24px\`
-* **Stroke / Line Weight:** \`stroke: 2px\` (or \`1px\` for fine technical hairlines/gutters)
-
----
-
-## 4. Slide Deck & UI Component Primitives (\`content.pdf\` Spec)
-
-Use these standardized structural primitives when building slide decks, web presentations, or modular UI blocks:
-
-* **Surface & Border Rule:** All cards, boxes, and slides sit on \`#000000\` (or \`#121212\` for nested cards) framed by crisp \`1px\` or \`2px\` solid rules in \`--accent\` or \`--accent-d\`. Zero border-radius (\`0px\`).
-* **\`INTRO\` (Title Slide):** Centered minimal frame with uppercase \`Geist\` Light display title (\`h1\`/\`h2\`) and bottom-anchored \`COURT OF MORAVIA\` attribution in \`Geist Mono\` (\`micro\`).
-* **\`CHAPTER\` (Section Divider):** Full-bleed solid \`--accent\` fill (\`#DF1717\`, \`#8019E5\`, etc.) with high-contrast black (\`#000000\`) or white (\`#FFFFFF\`) uppercase display type.
-* **\`TEXT\` (Statement + Narrative):** Left-aligned bold/light uppercase statement headline paired with a clean 1-column \`body\` paragraph below.
-* **\`SBOX\` (Small Box Grid — 2-Column):** Two equal-width side-by-side bordered cards (\`1px solid var(--accent-d)\`), each containing an uppercase \`Geist Mono\` title (\`h5\`) and \`body\` copy.
-* **\`HORBOX\` (Horizontal Split Row):** Wide horizontal container split into a left \`Geist Mono\` label/index column (e.g., \`SLIB: RADIKÁLNÍ UPŘÍMNOST\`) and a right narrative column.
-* **\`VERBOX\` (Vertical Pillar Grid — 3-Column):** Three tall vertical columns separated by \`1px\` hairline dividers or individual \`1px solid var(--accent-d)\` frames for pillars, packages, or tiers.
-* **\`ROADMAP\` (Sequential Step Grid — 3-Column):** Horizontal progression of numbered phase cards (\`MĚSÍC 1–2: DATA\`, etc.) with \`Geist Mono\` phase headers and \`body\` deliverables.
-* **\`GOALS\` / \`CÍLE\` (Split Objective Matrix):** Asymmetric 2-column layout with a large \`Geist\` display header on the left and stacked bordered objective rows on the right.
+### Proportional Heading-to-Body Spacing (8px Grid)
+* \`h1\` → \`body\`: minimum \`64px\` gap
+* \`h2\` → \`body\`: minimum \`40px\` gap
+* \`h3\`–\`h6\` → \`body\`: minimum \`24px\` gap
 
 ---
 
-## 5. Layout, Grid & Framing Conventions
+## 4. Buttons & Interactive Controls
 
-### Master Grid (\`main\`)
-* **Structure:** 1 stretch row + 1 stretch column (single unified content safe-zone framed by technical perimeter borders).
-* **Outer Inset / Margin:** \`136px\` (for standard \`1080x1080\` post or \`1920x1080\` deck formats; scale proportionally for responsive web viewports).
-* **Gutter:** \`1px\`
+All interactive buttons use \`Geist Mono\`, \`text-transform: uppercase\`, \`0px\` border-radius, and \`1px\` solid borders:
 
-### Borders & Technical Ornaments
-* **Perimeter Framing:** Use thin \`1px\` or \`2px\` solid rules (\`--accent\` or \`--accent-d\`) with crisp \`0px\` border-radius.
-* **Micro-Motifs:** Decorate outer frame edges or section dividers with monospaced ASCII/technical ticks (\`|||||\`, \`/////\`, \`\\\\\\\`, \`XXXXX\`), corner crosshairs, or index numbers (e.g., \`01 / PALETTE\`) set in \`Geist Mono\` (\`14px\`, \`+4%\` tracking).
-* **Negative Space:** Keep the interior canvas clean and uncluttered; never crowd text against the perimeter frame.
+* **Main Button (Primary CTA):**
+  * Default: \`color: #000000\`, \`background-color: var(--accent)\`, \`border: 1px solid var(--accent)\`
+  * Hover: \`color: var(--accent)\`, \`background-color: rgba(var(--accent-d-rgb), 0.40)\`, \`border-color: var(--accent)\`
+* **Side Button (Alternative Choice):**
+  * Default: \`color: var(--accent)\`, \`background-color: #000000\`, \`border: 1px solid var(--accent)\`
+  * Hover: \`color: var(--accent)\`, \`background-color: rgba(var(--accent-d-rgb), 0.40)\`, \`border-color: var(--accent)\`
 
 ---
 
-## 6. Strict Anti-Patterns (Do NOT Generate)
-* **No rounded corners:** Do not use \`border-radius\` on cards, buttons, or containers (\`0px\` sharp corners only).
-* **No multi-color rainbows:** Never combine Red, Blue, Green, and Yellow accents on the same screen. Stick to Black + White + **1 Accent Family**.
-* **No decorative/serif fonts:** Never substitute \`Geist\` or \`Geist Mono\` with Playfair, Inter, Roboto, or handwritten/script fonts.
-* **No drop shadows or glassmorphism:** Avoid \`box-shadow\`, \`backdrop-filter: blur()\`, and soft gradients. Rely on high-contrast solid fills and \`1px\`–\`2px\` hairline borders.`;
+## 5. Slide Deck & Box Component Primitives
+
+* **Non-Web Stroke Rule:** In slide decks and print layouts, borders use a \`2px\` stroke aligned **inside**.
+* **Banners, \`HORBOX\` & \`VERBOX\` Headers:** Always sized to content (\`width: fit-content\` / Figma \`hug\`) with \`padding: 24px 40px\`, positioned at the top edge of the container.
+* **\`HORBOX\` & \`VERBOX\` Content Area:** Interior body container has \`padding: 64px 72px\`.
+* **\`INTRO\`:** Minimal title frame with uppercase \`Geist\` Light \`h1\` display headline (\`#FFFFFF\`) and bottom \`COURT OF MORAVIA\` attribution in \`Geist Mono\` (\`grey-l\` / \`--accent\`).
+* **\`CHAPTER\`:** Full-bleed solid \`--accent\` fill with high-contrast \`#000000\` uppercase display typography.
+* **\`TEXT\`:** Left-aligned uppercase display statement paired with \`body\` text (\`#FFFFFF\`) respecting proportional heading gaps (\`24px\`–\`64px\`).
+* **\`SBOX\`:** 2-column grid of equal bordered boxes (\`padding: 64px 72px\` at full scale) with uppercase \`Geist Mono\` headers (\`grey-l\` or \`--accent\`) and \`#FFFFFF\` body copy.
+* **\`ROADMAP\`:** 3-column sequential phase progression (\`MĚSÍC 1–2: DATA\`, etc.) with \`Geist Mono\` headers and \`#FFFFFF\` body copy.
+* **\`GOALS\` / \`CÍLE\`:** Asymmetric 2-column split with an uppercase display title on the left and stacked bordered objective rows on the right.
+
+---
+
+## 6. 9-Part Perimeter Frame Architecture
+
+The master viewport layout uses a **9-part CSS Grid** (\`66px 1fr 66px\` columns × \`66px 1fr 66px\` rows) framing the center content canvas:
+
+* **4 Corner Cells (\`66px × 66px\`):** Centered \`30px × 30px\` square SVG slot (placeholder \`1px\` border box).
+* **4 Stretched Edge Cells (Top/Bottom \`1fr × 66px\`, Left/Right \`66px × 1fr\`):** Centered slim SVG ornament slot (\`300px × 2px\` horizontal on top/bottom; \`2px × 300px\` vertical on left/right).
+* **Center Cell (\`1fr × 1fr\`):** Main scrollable/responsive website content canvas.
+
+---
+
+## 7. Strict Anti-Patterns (Do NOT Generate)
+* **No rounded corners:** \`0px\` sharp corners everywhere.
+* **No off-role white text:** Never use \`#FFFFFF\` for \`h4\`–\`h6\`, labels, badges, or metadata (use \`grey-l\` or \`--accent\`).
+* **No \`Geist\` on subheadings/UI:** \`Geist\` is strictly for \`h1\` and \`body\`; use \`Geist Mono\` for \`h2\`–\`h6\`, navigation, and buttons.
+* **No terminal cosplay:** Never use \`//\`, \`/\`, or \`[TEXT]\` flavor decorations in labels or headings.
+* **No multi-color mixing:** Stick to Black + White/Grey + **1 Accent Family** per composition.`;
 
     // Toast helper
     let toastTimer;
@@ -581,7 +474,7 @@ Use these standardized structural primitives when building slide decks, web pres
     async function copyText(text, label) {
       try {
         await navigator.clipboard.writeText(text);
-        showToast('COPIED: ' + (label || text));
+        showToast('COPIED ' + (label || text));
       } catch (err) {
         const ta = document.createElement('textarea');
         ta.value = text;
@@ -589,29 +482,9 @@ Use these standardized structural primitives when building slide decks, web pres
         ta.select();
         document.execCommand('copy');
         document.body.removeChild(ta);
-        showToast('COPIED: ' + (label || text));
+        showToast('COPIED ' + (label || text));
       }
     }
-
-    // Render Neutrals
-    const neutralsContainer = document.getElementById('neutrals-container');
-    NEUTRALS.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'swatch-card';
-      card.title = 'Click to copy ' + item.hex;
-      card.innerHTML = `
-        <div class="swatch-preview" style="background:${item.hex};"></div>
-        <div class="swatch-meta">
-          <div class="swatch-name">
-            <span>${item.name}</span>
-            <span class="swatch-hex">${item.hex}</span>
-          </div>
-          <span class="swatch-role">${item.role}</span>
-        </div>
-      `;
-      card.addEventListener('click', () => copyText(item.hex, `${item.name} (${item.hex})`));
-      neutralsContainer.appendChild(card);
-    });
 
     // Render Accent Families
     const accentsContainer = document.getElementById('accents-container');
@@ -623,17 +496,17 @@ Use these standardized structural primitives when building slide decks, web pres
         col.innerHTML = `
           <div class="family-header">
             <span>${fam.name}</span>
-            ${fam.id === activeId ? '<span style="color:var(--accent-l)">ACTIVE</span>' : ''}
+            ${fam.id === activeId ? '<span class="active-tag">ACTIVE</span>' : ''}
           </div>
-          <div class="family-tile" style="background:${fam.d}; color:#FFFFFF;" data-hex="${fam.d}" data-label="${fam.name}-D (${fam.d})">
+          <div class="family-tile" style="background:${fam.d}; color:#FFFFFF;" data-hex="${fam.d}" data-label="${fam.name}-D ${fam.d}">
             <span class="tile-token">${fam.name}-D</span>
             <span class="tile-hex">${fam.d}</span>
           </div>
-          <div class="family-tile" style="background:${fam.base}; color:#000000;" data-hex="${fam.base}" data-label="${fam.name} (${fam.base})">
+          <div class="family-tile" style="background:${fam.base}; color:#000000;" data-hex="${fam.base}" data-label="${fam.name} ${fam.base}">
             <span class="tile-token">${fam.name}</span>
             <span class="tile-hex">${fam.base}</span>
           </div>
-          <div class="family-tile" style="background:${fam.l}; color:#000000;" data-hex="${fam.l}" data-label="${fam.name}-L (${fam.l})">
+          <div class="family-tile" style="background:${fam.l}; color:#000000;" data-hex="${fam.l}" data-label="${fam.name}-L ${fam.l}">
             <span class="tile-token">${fam.name}-L</span>
             <span class="tile-hex">${fam.l}</span>
           </div>
@@ -644,41 +517,52 @@ Use these standardized structural primitives when building slide decks, web pres
         accentsContainer.appendChild(col);
       });
     }
-    renderAccents('violet');
+    renderAccents('red');
+
+    // Render Neutrals
+    const neutralsContainer = document.getElementById('neutrals-container');
+    NEUTRALS.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'swatch-card';
+      card.innerHTML = `
+        <div class="swatch-preview" style="background:${item.hex};"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">
+            <span>${item.name}</span>
+            <span class="swatch-hex">${item.hex}</span>
+          </div>
+          <span class="swatch-role">${item.role}</span>
+        </div>
+      `;
+      card.addEventListener('click', () => copyText(item.hex, `${item.name} ${item.hex}`));
+      neutralsContainer.appendChild(card);
+    });
 
     // Render Typography
     const typoContainer = document.getElementById('typography-container');
     TYPOGRAPHY.forEach(t => {
       const row = document.createElement('div');
       row.className = 'type-row';
-      row.title = 'Click to copy CSS rule';
       row.innerHTML = `
         <div class="type-specs">
           <strong>${t.role}</strong>
           <span>${t.meta}</span>
-          <span style="color:var(--color-white); margin-top:4px;">[CLICK TO COPY CSS]</span>
         </div>
         <div class="type-sample" style="${t.previewStyle}">${t.sample}</div>
       `;
-      row.addEventListener('click', () => copyText(t.cssCopy, t.role + ' CSS'));
+      row.addEventListener('click', () => copyText(t.cssCopy, t.role));
       typoContainer.appendChild(row);
     });
 
-    // Slide Specimen Copy Handlers
-    document.querySelectorAll('.slide-specimen').forEach(slide => {
-      slide.addEventListener('click', () => {
-        const title = slide.querySelector('.slide-specimen-bar span').textContent;
-        copyText(slide.dataset.copySnippet, title + ' SPEC');
+    // Box Primitives Copy Handlers
+    document.querySelectorAll('[data-copy-snippet]').forEach(el => {
+      el.addEventListener('click', () => {
+        copyText(el.dataset.copySnippet, 'COMPONENT SPEC');
       });
     });
 
     // Populate Raw Markdown Display
     document.getElementById('raw-markdown-display').textContent = DESIGN_MD_RAW;
-
-    // Numeric Scale Pills
-    document.querySelectorAll('.token-pill').forEach(pill => {
-      pill.addEventListener('click', () => copyText(pill.dataset.copy, pill.textContent.trim()));
-    });
 
     // Accent Switcher Logic
     document.querySelectorAll('[data-set-accent]').forEach(btn => {
@@ -688,37 +572,37 @@ Use these standardized structural primitives when building slide decks, web pres
         document.querySelectorAll('[data-set-accent]').forEach(b => b.classList.remove('is-active'));
         btn.classList.add('is-active');
         renderAccents(accent);
-        showToast('ACCENT SET: ' + accent.toUpperCase());
+        showToast('ACCENT ' + accent.toUpperCase());
       });
     });
 
     // Copy DESIGN.MD Buttons
     document.getElementById('copy-design-md-hero').addEventListener('click', () => {
-      copyText(DESIGN_MD_RAW, 'FULL DESIGN.MD');
+      copyText(DESIGN_MD_RAW, 'DESIGN.MD');
     });
     document.getElementById('copy-design-md-panel').addEventListener('click', () => {
-      copyText(DESIGN_MD_RAW, 'FULL DESIGN.MD');
+      copyText(DESIGN_MD_RAW, 'DESIGN.MD');
     });
 
     // Copy CSS Variables Button
     document.getElementById('copy-css-vars').addEventListener('click', () => {
       const rootVars = `:root {
-  --color-black: #000000;
-  --color-black-l: #121212;
-  --color-grey-d: #808080;
-  --color-grey-l: #E8E5E0;
-  --color-white: #FFFFFF;
+  --color-red-d: #910606; --color-red: #DF1717; --color-red-l: #F65656;
   --color-blue-d: #063B91; --color-blue: #196FE6; --color-blue-l: #9EC4FA;
   --color-green-d: #067008; --color-green: #1AE51A; --color-green-l: #9EFAB0;
   --color-orange-d: #913606; --color-orange: #FF5500; --color-orange-l: #FFB899;
   --color-yellow-d: #917806; --color-yellow: #E5C41A; --color-yellow-l: #FFEE99;
-  --color-red-d: #910606; --color-red: #DF1717; --color-red-l: #F65656;
   --color-teal-d: #068691; --color-teal: #14A9B8; --color-teal-l: #9EF2FA;
   --color-violet-d: #4D0691; --color-violet: #8019E5; --color-violet-l: #A99EFA;
+  --color-white: #FFFFFF;
+  --color-grey-l: #E8E5E0;
+  --color-grey-d: #808080;
+  --color-black-l: #121212;
+  --color-black: #000000;
   --font-body: 'Geist', sans-serif;
   --font-header: 'Geist Mono', monospace;
 }`;
-      copyText(rootVars, 'CSS :ROOT VARIABLES');
+      copyText(rootVars, 'CSS VARIABLES');
     });
   </script>
 </body>
