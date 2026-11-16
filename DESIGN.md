@@ -69,21 +69,37 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 
 ---
 
-## 4. Layout, Grid & Framing Conventions
+## 4. Slide Deck & UI Component Primitives (`content.pdf` Spec)
+
+Use these standardized structural primitives when building slide decks, web presentations, or modular UI blocks:
+
+* **Surface & Border Rule:** All cards, boxes, and slides sit on `#000000` (or `#121212` for nested cards) framed by crisp `1px` or `2px` solid rules in `--accent` or `--accent-d`. Zero border-radius (`0px`).
+* **`INTRO` (Title Slide):** Centered minimal frame with uppercase `Geist` Light display title (`h1`/`h2`) and bottom-anchored `COURT OF MORAVIA` attribution in `Geist Mono` (`micro`).
+* **`CHAPTER` (Section Divider):** Full-bleed solid `--accent` fill (`#DF1717`, `#8019E5`, etc.) with high-contrast black (`#000000`) or white (`#FFFFFF`) uppercase display type.
+* **`TEXT` (Statement + Narrative):** Left-aligned bold/light uppercase statement headline paired with a clean 1-column `body` paragraph below.
+* **`SBOX` (Small Box Grid — 2-Column):** Two equal-width side-by-side bordered cards (`1px solid var(--accent-d)`), each containing an uppercase `Geist Mono` title (`h5`) and `body` copy.
+* **`HORBOX` (Horizontal Split Row):** Wide horizontal container split into a left `Geist Mono` label/index column (e.g., `SLIB: RADIKÁLNÍ UPŘÍMNOST`) and a right narrative column.
+* **`VERBOX` (Vertical Pillar Grid — 3-Column):** Three tall vertical columns separated by `1px` hairline dividers or individual `1px solid var(--accent-d)` frames for pillars, packages, or tiers.
+* **`ROADMAP` (Sequential Step Grid — 3-Column):** Horizontal progression of numbered phase cards (`MĚSÍC 1–2: DATA`, etc.) with `Geist Mono` phase headers and `body` deliverables.
+* **`GOALS` / `CÍLE` (Split Objective Matrix):** Asymmetric 2-column layout with a large `Geist` display header on the left and stacked bordered objective rows on the right.
+
+---
+
+## 5. Layout, Grid & Framing Conventions
 
 ### Master Grid (`main`)
 * **Structure:** 1 stretch row + 1 stretch column (single unified content safe-zone framed by technical perimeter borders).
 * **Outer Inset / Margin:** `136px` (for standard `1080x1080` post or `1920x1080` deck formats; scale proportionally for responsive web viewports).
 * **Gutter:** `1px`
 
-### Borders & Technical Ornaments (CSS / HTML Approximation)
-* **Perimeter Framing:** Use thin `1px` or `2px` solid rules (`--color-grey-d` or the active accent color) with crisp `0px` border-radius.
+### Borders & Technical Ornaments
+* **Perimeter Framing:** Use thin `1px` or `2px` solid rules (`--accent` or `--accent-d`) with crisp `0px` border-radius.
 * **Micro-Motifs:** Decorate outer frame edges or section dividers with monospaced ASCII/technical ticks (`|||||`, `/////`, `\\\`, `XXXXX`), corner crosshairs, or index numbers (e.g., `01 / PALETTE`) set in `Geist Mono` (`14px`, `+4%` tracking).
 * **Negative Space:** Keep the interior canvas clean and uncluttered; never crowd text against the perimeter frame.
 
 ---
 
-## 5. Strict Anti-Patterns (Do NOT Generate)
+## 6. Strict Anti-Patterns (Do NOT Generate)
 * **No rounded corners:** Do not use `border-radius` on cards, buttons, or containers (`0px` sharp corners only).
 * **No multi-color rainbows:** Never combine Red, Blue, Green, and Yellow accents on the same screen. Stick to Black + White + **1 Accent Family**.
 * **No decorative/serif fonts:** Never substitute `Geist` or `Geist Mono` with Playfair, Inter, Roboto, or handwritten/script fonts.
