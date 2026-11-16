@@ -17,7 +17,7 @@
 
   <!-- Sticky Topbar (66px tall, 66px end squares with diagonal paired marks) -->
   <header class="chrome-bar chrome-bar--top">
-    <div class="chrome-end chrome-end--left" id="corner-tl" title="Click to copy corner SVG">
+    <div class="chrome-end chrome-end--left" id="corner-tl" title="Click to copy SVG">
       <div class="corner-svg-slot" id="slot-tl"></div>
     </div>
 
@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div class="chrome-end chrome-end--right" id="corner-tr" title="Click to copy corner SVG">
+    <div class="chrome-end chrome-end--right" id="corner-tr" title="Click to copy SVG">
       <div class="corner-svg-slot" id="slot-tr"></div>
     </div>
   </header>
@@ -78,19 +78,12 @@
           <h2 class="section-title">Color System<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Ordered sequence: Red (default), Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black. Interactive elements use accent-l; structural borders and decorative lines use accent-d.
+              Ordered sequence: Red, Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black. Each row presents Light (-L), Base, and Dark (-D) variants with self-inherited borders.
             </p>
           </div>
         </div>
 
-        <h3 class="palette-group-title">Active Accent Family Chips</h3>
-        <div class="chips-grid" id="active-family-chips"></div>
-
-        <h3 class="palette-group-title">All Accent Families (Base Swatches)</h3>
-        <div class="chips-grid" id="all-accent-chips"></div>
-
-        <h3 class="palette-group-title">White + Grey &amp; Black</h3>
-        <div class="chips-grid" id="neutral-chips"></div>
+        <div id="all-color-rows"></div>
       </section>
 
       <!-- 02 / TYPOGRAPHY SYSTEM -->
@@ -108,14 +101,14 @@
         <div class="type-list" id="typography-container"></div>
       </section>
 
-      <!-- 03 / BRAND MARKS & GEOMETRIC ICONS -->
+      <!-- 03 / BRAND MARKS & VECTOR ASSETS -->
       <section id="marks" class="section">
         <div class="section-header">
           <span class="section-eyebrow">03</span>
           <h2 class="section-title">Brand Marks<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Click any mark to copy clean, Figma-ready SVG XML code. The primary lockup is visually larger for primary brand attribution, while standalone marks live inside square frames.
+              Vector assets imported from ./svgs/ with proportional scale-fill rendering. Click any mark to copy its SVG file XML or path.
             </p>
           </div>
         </div>
@@ -208,7 +201,7 @@
 
           <!-- ORDERED LISTS -->
           <div class="primitive-unit">
-            <p class="primitive-micro-desc">ORDERED LIST — Top-aligned hugging number cell paired with flush uppercase h6 regular text frame</p>
+            <p class="primitive-micro-desc">ORDERED LIST — Top-aligned hugging number cell paired with full-bordered uppercase h6 regular text frame</p>
             <div class="com-ordered-list">
               <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular uppercase).">
                 <div class="com-ol-num">1</div>
@@ -268,7 +261,7 @@
 
   <!-- Sticky Footer (66px tall, 66px end squares with diagonal paired marks) -->
   <footer class="chrome-bar chrome-bar--bottom">
-    <div class="chrome-end chrome-end--left" id="corner-bl" title="Click to copy corner SVG">
+    <div class="chrome-end chrome-end--left" id="corner-bl" title="Click to copy SVG">
       <div class="corner-svg-slot" id="slot-bl"></div>
     </div>
 
@@ -276,7 +269,7 @@
       <div class="slot-edge-h" title="300x2px footer SVG slot"></div>
     </div>
 
-    <div class="chrome-end chrome-end--right" id="corner-br" title="Click to copy corner SVG">
+    <div class="chrome-end chrome-end--right" id="corner-br" title="Click to copy SVG">
       <div class="corner-svg-slot" id="slot-br"></div>
     </div>
   </footer>
@@ -285,131 +278,70 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
-    const BRAND_MARKS = [
-      {
-        id: 'com',
-        name: 'COM',
-        isMain: false,
-        viewBox: '0 0 100 100',
-        svgInner: `<polygon points="50,18 57,23 57,31 50,36 43,31 43,23" fill="currentColor"/><polygon points="24,31 30,35 30,42 24,46 18,42 18,35" fill="currentColor"/><polygon points="76,31 82,35 82,42 76,46 70,42 70,35" fill="currentColor"/><polygon points="39,40 50,46 61,40 50,64" fill="currentColor"/><polygon points="20,50 35,44 47,68 23,64" fill="currentColor"/><polygon points="80,50 65,44 53,68 77,64" fill="currentColor"/>`
-      },
-      {
-        id: 'com-full',
-        name: 'COM-FULL',
-        isMain: true,
-        viewBox: '0 0 320 100',
-        svgInner: `<g transform="translate(8, 12) scale(0.76)"><polygon points="50,18 57,23 57,31 50,36 43,31 43,23" fill="currentColor"/><polygon points="24,31 30,35 30,42 24,46 18,42 18,35" fill="currentColor"/><polygon points="76,31 82,35 82,42 76,46 70,42 70,35" fill="currentColor"/><polygon points="39,40 50,46 61,40 50,64" fill="currentColor"/><polygon points="20,50 35,44 47,68 23,64" fill="currentColor"/><polygon points="80,50 65,44 53,68 77,64" fill="currentColor"/></g><text x="96" y="36" fill="currentColor" font-family="Geist Mono, monospace" font-size="13" font-weight="400" letter-spacing="0.06em">MADE BY</text><text x="96" y="54" fill="currentColor" font-family="Geist Mono, monospace" font-size="13" font-weight="400" letter-spacing="0.06em">COURT OF MORAVIA</text><text x="96" y="72" fill="currentColor" font-family="Geist Mono, monospace" font-size="13" font-weight="400" letter-spacing="0.06em">EXPERT GUILD</text>`
-      },
-      {
-        id: 'd4',
-        name: 'D4',
-        isMain: false,
-        viewBox: '0 0 100 100',
-        svgInner: `<polygon points="48,18 22,52 48,78" fill="currentColor"/><polygon points="52,18 78,52 52,78" fill="currentColor"/>`
-      },
-      {
-        id: 'd6',
-        name: 'D6',
-        isMain: false,
-        viewBox: '0 0 100 100',
-        svgInner: `<polygon points="50,18 76,33 50,48 24,33" fill="currentColor"/><polygon points="22,37 48,52 48,82 22,67" fill="currentColor"/><polygon points="78,37 52,52 52,82 78,67" fill="currentColor"/>`
-      },
-      {
-        id: 'd8',
-        name: 'D8',
-        isMain: false,
-        viewBox: '0 0 100 100',
-        svgInner: `<polygon points="50,26 70,62 30,62" fill="currentColor"/><polygon points="45,22 26,34 26,56" fill="currentColor"/><polygon points="55,22 74,34 74,56" fill="currentColor"/><polygon points="34,67 66,67 50,78" fill="currentColor"/>`
-      },
-      {
-        id: 'd10',
-        name: 'D10',
-        isMain: false,
-        viewBox: '0 0 100 100',
-        svgInner: `<polygon points="50,18 62,44 50,52 38,44" fill="currentColor"/><polygon points="46,22 34,42 26,36" fill="currentColor"/><polygon points="54,22 66,42 74,36" fill="currentColor"/><polygon points="25,42 48,56 48,78 27,58" fill="currentColor"/><polygon points="75,42 52,56 52,78 73,58" fill="currentColor"/>`
-      },
-      {
-        id: 'd12',
-        name: 'D12',
-        isMain: false,
-        viewBox: '0 0 100 100',
-        svgInner: `<polygon points="50,36 63,45 58,60 42,60 37,45" fill="currentColor"/><polygon points="50,18 66,24 62,33 50,32 38,33 34,24" fill="currentColor"/><polygon points="70,27 80,41 72,53 66,43 65,35" fill="currentColor"/><polygon points="79,46 76,64 63,72 61,61 70,55" fill="currentColor"/><polygon points="30,27 20,41 28,53 34,43 35,35" fill="currentColor"/><polygon points="21,46 24,64 37,72 39,61 30,55" fill="currentColor"/><polygon points="41,64 59,64 60,75 50,82 40,75" fill="currentColor"/>`
-      },
-      {
-        id: 'd20',
-        name: 'D20',
-        isMain: false,
-        viewBox: '0 0 100 100',
-        svgInner: `<path fill-rule="evenodd" d="M50,24 L72,62 L28,62 Z M50,38 L40,56 L60,56 Z" fill="currentColor"/><polygon points="45,20 26,32 26,54" fill="currentColor"/><polygon points="55,20 74,32 74,54" fill="currentColor"/><polygon points="33,67 67,67 50,79" fill="currentColor"/>`
-      },
-      {
-        id: 'aztec-full',
-        name: 'AZTEC FULL',
-        isMain: false,
-        viewBox: '0 0 100 100',
-        svgInner: `<path fill-rule="evenodd" d="M18,18 H82 V82 H18 Z M26,26 V74 H74 V26 Z" fill="currentColor"/><path fill-rule="evenodd" d="M36,36 H64 V64 H36 Z M41,41 V59 H59 V41 Z" fill="currentColor"/><rect x="46" y="46" width="8" height="8" fill="currentColor"/><rect x="26" y="26" width="8" height="8" fill="currentColor"/><rect x="66" y="26" width="8" height="8" fill="currentColor"/><rect x="26" y="66" width="8" height="8" fill="currentColor"/><rect x="54" y="26" width="8" height="8" fill="currentColor"/><rect x="26" y="46" width="6" height="12" fill="currentColor"/><rect x="68" y="42" width="6" height="16" fill="currentColor"/><rect x="42" y="68" width="16" height="6" fill="currentColor"/>`
-      },
-      {
-        id: 'aztec',
-        name: 'AZTEC',
-        isMain: false,
-        viewBox: '0 0 100 100',
-        svgInner: `<path fill-rule="evenodd" d="M36,36 H64 V64 H36 Z M41,41 V59 H59 V41 Z" fill="currentColor"/><rect x="46" y="46" width="8" height="8" fill="currentColor"/><rect x="24" y="24" width="10" height="8" fill="currentColor"/><rect x="42" y="22" width="14" height="8" fill="currentColor"/><rect x="64" y="24" width="12" height="10" fill="currentColor"/><rect x="22" y="40" width="8" height="16" fill="currentColor"/><rect x="70" y="42" width="8" height="14" fill="currentColor"/><rect x="24" y="64" width="12" height="12" fill="currentColor"/><rect x="44" y="70" width="12" height="8" fill="currentColor"/><rect x="62" y="62" width="14" height="14" fill="currentColor"/>`
-      },
-      {
-        id: 'c',
-        name: 'C',
-        isMain: false,
-        viewBox: '0 0 100 100',
-        svgInner: `<rect x="38" y="22" width="32" height="16" fill="currentColor"/><rect x="28" y="38" width="16" height="24" fill="currentColor"/><rect x="38" y="62" width="32" height="16" fill="currentColor"/>`
-      },
-      {
-        id: 'o',
-        name: 'O',
-        isMain: false,
-        viewBox: '0 0 100 100',
-        svgInner: `<rect x="38" y="22" width="24" height="16" fill="currentColor"/><rect x="38" y="62" width="24" height="16" fill="currentColor"/><rect x="22" y="38" width="16" height="24" fill="currentColor"/><rect x="62" y="38" width="16" height="24" fill="currentColor"/>`
-      },
-      {
-        id: 'm',
-        name: 'M',
-        isMain: false,
-        viewBox: '0 0 100 100',
-        svgInner: `<rect x="22" y="36" width="14" height="40" fill="currentColor"/><rect x="43" y="36" width="14" height="40" fill="currentColor"/><rect x="64" y="36" width="14" height="40" fill="currentColor"/><rect x="32" y="24" width="14" height="12" fill="currentColor"/><rect x="54" y="24" width="14" height="12" fill="currentColor"/>`
-      },
-      {
-        id: 'guild',
-        name: 'GUILD',
-        isMain: false,
-        viewBox: '0 0 100 100',
-        svgInner: `<rect x="22" y="22" width="14" height="14" fill="currentColor"/><rect x="42" y="22" width="36" height="14" fill="currentColor"/><polygon points="22,42 36,42 36,64 64,64 64,56 46,56 46,44 78,44 78,78 22,78" fill="currentColor"/>`
-      }
+    /* External SVG files inside ./svgs/ */
+    const SVG_ASSETS = [
+      { id: 'com-logo-full', name: 'COM LOGO FULL', file: './svgs/com-logo-full.svg', isMain: true },
+      { id: 'com-logo',      name: 'COM LOGO',      file: './svgs/com-logo.svg',      isMain: false },
+      { id: 'com-d2',        name: 'COM D2',        file: './svgs/com-d4.svg',        isMain: false },
+      { id: 'com-d6',        name: 'COM D6',        file: './svgs/com-d6.svg',        isMain: false },
+      { id: 'com-d8',        name: 'COM D8',        file: './svgs/com-d8.svg',        isMain: false },
+      { id: 'com-d10',       name: 'COM D10',       file: './svgs/com-d10.svg',       isMain: false },
+      { id: 'com-d12',       name: 'COM D12',       file: './svgs/com-d12.svg',       isMain: false },
+      { id: 'com-d20',       name: 'COM D20',       file: './svgs/com-d20.svg',       isMain: false },
+      { id: 'com-aztec-a',   name: 'COM AZTEC A',   file: './svgs/com-aztec-a.svg',   isMain: false },
+      { id: 'com-aztec-b',   name: 'COM AZTEC B',   file: './svgs/com-aztec-b.svg',   isMain: false },
+      { id: 'com-c',         name: 'COM C',         file: './svgs/com-c.svg',         isMain: false },
+      { id: 'com-o',         name: 'COM O',         file: './svgs/com-o.svg',         isMain: false },
+      { id: 'com-m',         name: 'COM M',         file: './svgs/com-m.svg',         isMain: false },
+      { id: 'com-g',         name: 'COM G',         file: './svgs/com-g.svg',         isMain: false }
     ];
 
-    function buildSvgMarkup(mark, forClipboard = false) {
-      const fillAttr = forClipboard ? '#000000' : 'currentColor';
-      const inner = mark.svgInner.replace(/currentColor/g, fillAttr);
-      return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${mark.viewBox}" fill="none">${inner}</svg>`;
+    function createMaskedSvgNode(filePath) {
+      const span = document.createElement('span');
+      span.className = 'svg-asset';
+      span.style.webkitMaskImage = `url('${filePath}')`;
+      span.style.maskImage = `url('${filePath}')`;
+      return span;
+    }
+
+    async function copySvgFile(asset) {
+      try {
+        const res = await fetch(asset.file);
+        if (res.ok) {
+          const xml = await res.text();
+          if (xml.includes('<svg')) {
+            await copyText(xml, asset.name + ' SVG XML');
+            return;
+          }
+        }
+      } catch (e) {
+        // Fallback if opened via file:// protocol without local server
+      }
+      await copyText(asset.file, asset.file);
     }
 
     /* Ordered sequence: Red, Blue, Green, Orange, Yellow, Teal, Violet */
     const ACCENT_FAMILIES = [
-      { id: 'red',    name: 'RED',    d: '#910606', base: '#DF1717', l: '#F65656' },
-      { id: 'blue',   name: 'BLUE',   d: '#063B91', base: '#196FE6', l: '#9EC4FA' },
-      { id: 'green',  name: 'GREEN',  d: '#067008', base: '#1AE51A', l: '#9EFAB0' },
-      { id: 'orange', name: 'ORANGE', d: '#913606', base: '#FF5500', l: '#FFB899' },
-      { id: 'yellow', name: 'YELLOW', d: '#917806', base: '#E5C41A', l: '#FFEE99' },
-      { id: 'teal',   name: 'TEAL',   d: '#068691', base: '#14A9B8', l: '#9EF2FA' },
-      { id: 'violet', name: 'VIOLET', d: '#4D0691', base: '#8019E5', l: '#A99EFA' }
+      { id: 'red',    name: 'RED',    l: '#F65656', base: '#DF1717', d: '#910606' },
+      { id: 'blue',   name: 'BLUE',   l: '#9EC4FA', base: '#196FE6', d: '#063B91' },
+      { id: 'green',  name: 'GREEN',  l: '#9EFAB0', base: '#1AE51A', d: '#067008' },
+      { id: 'orange', name: 'ORANGE', l: '#FFB899', base: '#FF5500', d: '#913606' },
+      { id: 'yellow', name: 'YELLOW', l: '#FFEE99', base: '#E5C41A', d: '#917806' },
+      { id: 'teal',   name: 'TEAL',   l: '#9EF2FA', base: '#14A9B8', d: '#068691' },
+      { id: 'violet', name: 'VIOLET', l: '#A99EFA', base: '#8019E5', d: '#4D0691' }
     ];
 
     /* White + Grey, Black */
-    const NEUTRALS = [
-      { name: 'WHITE',   hex: '#FFFFFF', textColor: '#000000' },
-      { name: 'GREY-L',  hex: '#E8E5E0', textColor: '#000000' },
-      { name: 'GREY-D',  hex: '#808080', textColor: '#000000' },
-      { name: 'BLACK-L', hex: '#121212', textColor: '#FFFFFF' },
-      { name: 'BLACK',   hex: '#000000', textColor: '#FFFFFF' }
+    const NEUTRAL_ROWS = [
+      [
+        { name: 'WHITE',   hex: '#FFFFFF', textColor: '#000000' },
+        { name: 'GREY-L',  hex: '#E8E5E0', textColor: '#000000' },
+        { name: 'GREY-D',  hex: '#808080', textColor: '#000000' }
+      ],
+      [
+        { name: 'BLACK-L', hex: '#121212', textColor: '#FFFFFF' },
+        { name: 'BLACK',   hex: '#000000', textColor: '#FFFFFF' }
+      ]
     ];
 
     /* Exact Color Format Converters (HEX -> RGB, HSL, OKLCH) */
@@ -468,10 +400,14 @@
       return `oklch(${Lpct}% ${Cval} ${Hdeg})`;
     }
 
-    function createColorChip(name, hex, textColor, badgeText) {
+    function createColorChip(name, hex, textColor) {
       const chip = document.createElement('div');
       chip.className = 'color-chip';
       const upperHex = hex.toUpperCase();
+      /* Swatch border inherits its own color (using #808080 only if pure #000000 so it remains visible on black canvas) */
+      const borderCol = upperHex === '#000000' ? '#808080' : upperHex;
+      chip.style.setProperty('--chip-color', borderCol);
+
       const rgbStr = formatRgb(upperHex);
       const hslStr = formatHsl(upperHex);
       const oklchStr = formatOklch(upperHex);
@@ -479,7 +415,6 @@
       chip.innerHTML = `
         <div class="chip-top" style="background-color:${upperHex}; color:${textColor};">
           <span>${name}</span>
-          ${badgeText ? `<span class="chip-active-dot">${badgeText}</span>` : ''}
         </div>
         <div class="chip-bottom">
           <p class="chip-val">HEX: ${upperHex}</p>
@@ -557,13 +492,13 @@
 When generating UI, web pages, slide decks, or digital assets for **Court of Moravia (COM)**, strictly follow these rules:
 
 1. **01 PURE BLACK CANVAS ONLY:** Pure black (\`#000000\`) is the **only** surface background color used across pages, \`verbox\`, \`horbox\`, \`sbox\`, color chips, and layout containers. Never use \`#121212\` (\`black-l\`) inside boxes or cards—the only exception is button and interactive hover states (\`rgba(accent-d, 0.40)\`).
-2. **02 ACCENT ROLES (\`-L\` vs. \`-D\`):** Choose **one accent family per composition** (defaulting to **Red** \`#DF1717\`). The canonical palette sequence is: **Red, Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black**.
+2. **02 ACCENT ROLES & SELF-BORDERS:** Choose **one accent family per composition** (defaulting to **Red** \`#DF1717\`). The canonical palette sequence is: **Red, Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black**.
    * **Interactive Elements:** Every interactive element (buttons, links, active controls, hover text) uses \`--accent-l\` (\`#F65656\` for Red) or transitions to \`--accent-l\` on hover.
-   * **Structural Lines & Decorative Elements:** Every border, hairline divider, and non-textual decorative element uses \`--accent-d\` (\`#910606\` for Red).
+   * **Structural Lines & Decorative Elements:** Every border, hairline divider, and non-textual decorative element uses \`--accent-d\` (\`#910606\` for Red)—except color swatches, which inherit the border color of the swatch itself (e.g., a \`green-d\` swatch has a \`green-d\` border).
 3. **03 STRICT TEXT COLOR ROLES:** Pure white (\`#FFFFFF\`) is strictly reserved for \`h1\`–\`h3\` headers and \`body\` text (plus the value breakdown inside color chips). All other text, eyebrows, labels, and subheadings (\`h4\`–\`h6\`, \`micro\`) must use \`grey-l\` (\`#E8E5E0\`) or \`--accent\` / \`--accent-l\`.
 4. **04 TYPOGRAPHY ROLES & MEASURE:** \`Geist\` is used exclusively for \`h1\` display titles, \`body\` text, and the bottom label of CTA buttons. \`Geist Mono\` is used for everything else (\`h2\`–\`h6\`, box headers, ordered lists, navigation, and standard buttons). All text outside \`body\` copy uses \`text-transform: uppercase\`. Body paragraphs must never exceed \`max-width: 66ch\` to ensure optimal reading measure.
-5. **05 SPACING & PROPORTIONAL RHYTHM:** Standard spacing is strictly based on multiples of \`8px\` (\`0px\` or minimum \`8px\`, typically larger). Vertical gaps between \`body\` text and headings scale proportionally: at least \`24px\` below \`h3\`–\`h6\`, at least \`40px\` below \`h2\`, and at least \`64px\` below \`h1\`.
-6. **06 GEOMETRY & COMPONENT BOUNDARIES:** Favor flat, angular marks and crisp \`0px\` border-radius rectangular framing. Composite components (\`horbox\`, \`verbox\`, \`sbox\`, \`cta-button\`, ordered lists) **never have an outer wrapper border as a whole**—borders and fills apply strictly to their individual inner parts. For non-web deliverables (slide decks, print), standard border stroke width is \`2px\` aligned **inside**.
+5. **05 SPACING, MOTION & PROPORTIONAL RHYTHM:** Standard spacing is strictly based on multiples of \`8px\` (\`0px\` or minimum \`8px\`, typically larger). Vertical gaps between \`body\` text and headings scale proportionally: at least \`24px\` below \`h3\`–\`h6\`, at least \`40px\` below \`h2\`, and at least \`64px\` below \`h1\`. Interactive transitions use \`transition: all .15s ease-in-out\`—no excessive or decorative animations.
+6. **06 GEOMETRY & COMPONENT BOUNDARIES:** Favor flat, angular marks and crisp \`0px\` border-radius rectangular framing. Composite components (\`horbox\`, \`verbox\`, \`sbox\`, \`cta-button\`, ordered lists) **never have an outer wrapper border as a whole**—borders and fills apply strictly to their individual inner parts. Global outline/stroke alignment is **center** (\`outline-offset: 0\`). For non-web deliverables (slide decks, print), standard border stroke width is \`2px\`.
 7. **07 FUNCTIONAL MINIMALISM:** Zero decorative "tech larp" or terminal cosplay—do not use \`//\`, \`/\`, or bracketed flavor text (e.g., \`[CLICK TO COPY]\`) as inline dividers or decorative labels. Minimize eyebrow text (\`h5\` section numbers) to an absolute minimum.
 
 ---
@@ -572,16 +507,16 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 
 *Strict sequence: Red (default), Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black.*
 
-### Accent Families (Pick ONE per composition; Default = Red)
-| Family | Dark (\`-D\` · Lines/Borders) | Base (Primary) | Light (\`-L\` · Interactive) |
+### Accent Families (3-Column Rows: \`-L\` · Base · \`-D\`)
+| Family | Light (\`-L\` · Interactive) | Base (Primary) | Dark (\`-D\` · Lines/Borders) |
 | :--- | :--- | :--- | :--- |
-| **Red (Default)** | \`#910606\` | \`#DF1717\` | \`#F65656\` |
-| **Blue** | \`#063B91\` | \`#196FE6\` | \`#9EC4FA\` |
-| **Green** | \`#067008\` | \`#1AE51A\` | \`#9EFAB0\` |
-| **Orange** | \`#913606\` | \`#FF5500\` | \`#FFB899\` |
-| **Yellow** | \`#917806\` | \`#E5C41A\` | \`#FFEE99\` |
-| **Teal** | \`#068691\` | \`#14A9B8\` | \`#9EF2FA\` |
-| **Violet** | \`#4D0691\` | \`#8019E5\` | \`#A99EFA\` |
+| **Red (Default)** | \`#F65656\` | \`#DF1717\` | \`#910606\` |
+| **Blue** | \`#9EC4FA\` | \`#196FE6\` | \`#063B91\` |
+| **Green** | \`#9EFAB0\` | \`#1AE51A\` | \`#067008\` |
+| **Orange** | \`#FFB899\` | \`#FF5500\` | \`#913606\` |
+| **Yellow** | \`#FFEE99\` | \`#E5C41A\` | \`#917806\` |
+| **Teal** | \`#9EF2FA\` | \`#14A9B8\` | \`#068691\` |
+| **Violet** | \`#A99EFA\` | \`#8019E5\` | \`#4D0691\` |
 
 ### Neutrals & Surfaces
 | Token | Hex | Strict Usage Role |
@@ -593,9 +528,11 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 | \`--color-black\` | \`#000000\` | Universal background canvas and primary filled-element text |
 
 ### Color Chip Specification
-Each color token is documented as a split two-part chip:
-1. **Top Swatch Frame:** \`padding: 32px 40px\`, \`background-color: $color\`, \`color: #000000\` (or \`#FFFFFF\` on dark shades), displaying the \`h5\` token name (e.g., \`RED-L\`).
-2. **Bottom Spec Frame:** \`padding: 32px 40px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`color: #FFFFFF\`, \`display: flex; flex-direction: column; gap: 24px\`, containing four stacked paragraphs: **HEX**, **RGB**, **HSL**, and **OKLCH**.
+* **Grid Layout:** 3-column rows (\`red-l, red, red-d\`, \`blue-l, blue, blue-d\`, etc.) preserved across all viewport widths by scaling typography and padding proportionally on smaller screens.
+* **Self-Inherited Borders:** Both frames of a color chip use \`1px solid $color\` (e.g., \`GREEN-D\` uses a \`#067008\` border).
+* **Two-Part Structure:**
+  1. **Top Swatch Frame:** \`padding: 32px 40px\`, \`background-color: $color\`, \`color: #000000\` (or \`#FFFFFF\` on dark shades), displaying the \`h5\` token name.
+  2. **Bottom Spec Frame:** \`padding: 32px 40px\`, \`background-color: #000000\`, \`color: #FFFFFF\`, \`display: flex; flex-direction: column; gap: 24px\`, listing **HEX**, **RGB**, **HSL**, and **OKLCH**.
 
 ---
 
@@ -624,30 +561,39 @@ Each color token is documented as a split two-part chip:
 
 ---
 
-## 4. Brand Marks & Geometric Icons (\`Frame 172.svg\`)
+## 4. Brand Marks & Vector Assets (\`./svgs/\`)
 
-The identity includes **14 geometric marks** normalized inside square bounding boxes for balanced visual presence:
+External SVG files stored in \`./svgs/\` are imported without stretching (\`object-fit: contain\` / proportional scaling) and recolored via CSS filters/masks or inline SVG injection:
 
-* **Primary Lockup (\`COM-FULL\`):** The COM triad mark paired with \`"MADE BY COURT OF MORAVIA EXPERT GUILD"\` in uppercase \`Geist Mono\`. Visually larger than standalone icons and used as the primary brand signature.
-* **Standalone Icons (13 Marks):** \`COM\`, \`D4\`, \`D6\`, \`D8\`, \`D10\`, \`D12\`, \`D20\`, \`AZTEC FULL\`, \`AZTEC\`, \`C\`, \`O\`, \`M\`, \`GUILD\`.
-* **Rules:** Keep flat vector geometry; do not stretch, outline, add drop shadows, or detach sub-elements.
+* **Primary Full-Width Lockup:** \`./svgs/com-logo-full.svg\` — Spans \`width: 100%\` of the container as the primary brand lockup.
+* **Standalone Icons (13 Files):**
+  * \`./svgs/com-logo.svg\`
+  * \`./svgs/com-d4.svg\`
+  * \`./svgs/com-d6.svg\`
+  * \`./svgs/com-d8.svg\`
+  * \`./svgs/com-d10.svg\`
+  * \`./svgs/com-d12.svg\`
+  * \`./svgs/com-d20.svg\`
+  * \`./svgs/com-aztec-a.svg\`
+  * \`./svgs/com-aztec-b.svg\`
+  * \`./svgs/com-c.svg\`
+  * \`./svgs/com-o.svg\`
+  * \`./svgs/com-m.svg\`
+  * \`./svgs/com-g.svg\`
 
 ---
 
-## 5. Buttons & Interactive Hover States
+## 5. Buttons, Motion & Interactive Hover States
 
-All interactive buttons, brand mark cards, and typography showcase rows share a unified hover state (\`background-color: rgba(var(--accent-d), 0.40)\`, \`color: var(--accent-l)\`, \`border-color: var(--accent-l)\`):
-
+* **Standard Transition:** \`transition: all .15s ease-in-out;\` across all interactive controls. No excessive animations.
+* **Unified Hover State:** \`background-color: rgba(var(--accent-d), 0.40)\`, \`color: var(--accent-l)\`, \`border-color: var(--accent-l)\`.
 * **Main Button (Primary CTA):**
-  * Default: \`color: #000000\`, \`background-color: var(--accent-l)\`, \`border: 1px solid var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`
-  * Hover: \`color: var(--accent-l)\`, \`background-color: rgba(var(--accent-d), 0.40)\`, \`border-color: var(--accent-l)\`
+  * Default: \`color: #000000\`, \`background-color: var(--accent-l)\`, \`border: 1px solid var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`.
 * **Side Button (Alternative Choice):**
-  * Default: \`color: var(--accent-l)\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`
-  * Hover: \`color: var(--accent-l)\`, \`background-color: rgba(var(--accent-d), 0.40)\`, \`border-color: var(--accent-l)\`
+  * Default: \`color: var(--accent-l)\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`.
 * **Two-Part \`CTA\` Button (No outer wrapper border):**
   1. **Top Frame:** \`width: fit-content\` (\`hug\`), \`padding: 24px 40px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, containing an \`h6\` (\`color: var(--accent-l)\`, uppercase).
   2. **Bottom Action Frame (directly underneath, \`0px\` gap):** \`padding: 40px 48px\`, \`background-color: var(--accent-l)\`, \`border: 1px solid var(--accent-l)\`, containing \`font-family: 'Geist'\`, \`font-size: 32px\`, \`font-weight: 500\`, \`text-decoration: underline\`, \`text-transform: uppercase\`, \`color: #000000\`.
-     * *Hover:* \`color: var(--accent-l)\`, \`background-color: rgba(var(--accent-d), 0.40)\`, \`border-color: var(--accent-l)\`.
 
 ---
 
@@ -674,13 +620,13 @@ Composite components never carry a single border around the entire unit; only th
 
 ### D. \`SBOX\` (Small Box)
 * **No outer wrapper border.**
-* **Top Header (\`h5\`):** \`width: 100%\` (fills the entire width of the \`sbox\`), \`padding: 24px 40px\`, \`border: 1px solid var(--accent-d)\`, \`background-color: #000000\`, \`color: var(--color-grey-l)\` (\`Geist Mono\`, \`32px\`, uppercase).
+* **Top Header (\`h5\`):** \`width: 100%\` (fills the entire width of the \`sbox\`), \`padding: 24px 40px\`, \`border: 1px solid var(--accent-d)\`, \`background-color: #000000\`, \`color: var(--color-grey-l)` (\`Geist Mono\`, \`32px\`, uppercase).
 * **Content Frame (directly underneath, \`0px\` gap):** \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`padding: 48px 56px\`, containing \`body\` text (\`max-width: 66ch\`, \`color: #FFFFFF\`).
 
 ### E. Ordered Lists
-* **No outer wrapper border.** Each list row consists of two flush (\`0px\` gap) side-by-side frames (\`align-items: flex-start\` so the number cell hugs its content and hangs cleanly next to the item without stretching vertically):
-  1. **Number Cell (Left):** \`padding: 24px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`color: var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`font-weight: 400\` (\`h6\` regular — never bold). Hugs the number (\`align-self: flex-start\`) with no trailing dot.
-  2. **Text Cell (Right):** \`padding: 24px 48px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`color: var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`font-weight: 400\` (\`h6\` regular — never bold, uppercase). Grows vertically in height when text wraps across multiple lines.
+* **No outer wrapper border.** Each list row consists of two flush (\`0px\` gap) side-by-side frames (\`align-items: flex-start\` so the number cell hugs its content):
+  1. **Number Cell (Left):** \`padding: 24px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`color: var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`font-weight: 400\` (\`h6\` regular — never bold). Hugs the number with no trailing dot.
+  2. **Text Cell (Right):** \`padding: 24px 48px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\` (**full 4-sided border**, including left border), \`color: var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`font-weight: 400\` (\`h6\` regular — never bold, uppercase).
 
 ---
 
@@ -688,10 +634,10 @@ Composite components never carry a single border around the entire unit; only th
 
 The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px\` tall (\`66px 1fr 66px\`):
 
-* **Corner Squares (\`66px × 66px\`):** House centered \`30px × 30px\` standalone brand marks (\`color: var(--accent-l)\`):
-  * **Diagonal Pair A:** Top-Left and Bottom-Right share the same mark.
-  * **Diagonal Pair B:** Top-Right and Bottom-Left share a different mark.
-  * Whenever the active accent color changes, the two diagonal pairs randomize to new distinct marks from the standalone icon set (excluding \`COM-FULL\`).
+* **Corner Squares (\`66px × 66px\`):** House centered standalone brand marks from \`./svgs/\` (\`color: var(--accent-l)\`):
+  * **Diagonal Pair A:** Top-Left and Bottom-Right share the same icon.
+  * **Diagonal Pair B:** Top-Right and Bottom-Left share a different icon.
+  * Whenever the active accent color changes, the two diagonal pairs randomize to new distinct icons from the standalone \`./svgs/\` set (excluding \`com-logo-full.svg\`).
 * **Center Stretch Cell (\`1fr\`):**
   * **Topbar Center:** \`border-bottom: 1px solid var(--accent-d)\`, housing the navigation menu and accent switcher.
   * **Footer Center:** \`border-top: 1px solid var(--accent-d)\`.
@@ -704,7 +650,7 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
 * **No outer wrapper borders on composite blocks:** Never wrap \`horbox\`, \`verbox\`, \`sbox\`, \`cta-button\`, or ordered list items in an extra outer border.
 * **No rounded corners:** \`0px\` sharp corners everywhere.
 * **No off-role white text:** Never use \`#FFFFFF\` for \`h4\`–\`h6\`, labels, eyebrows, or metadata (use \`grey-l\` or \`--accent-l\`).
-* **No paragraphs wider than \`66ch\`:** Always cap \`body\` text measure at \`max-width: 66ch\`.
+* **No paragraphs wider than `66ch`:** Always cap `body` text measure at `max-width: 66ch`.
 `;
 
     // Toast helper
@@ -732,61 +678,70 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
       }
     }
 
-    // Corner Diagonal Marks Logic
-    // Top-Left & Bottom-Right share Pair A; Top-Right & Bottom-Left share Pair B
-    const STANDALONE_MARKS = BRAND_MARKS.filter(m => !m.isMain);
-    let currentPairA = STANDALONE_MARKS[0]; // COM
-    let currentPairB = STANDALONE_MARKS[12]; // GUILD
+    // Corner Diagonal Marks Logic (Uses ./svgs/ standalone assets, excluding com-logo-full.svg)
+    const STANDALONE_SVGS = SVG_ASSETS.filter(a => !a.isMain);
+    let currentPairA = STANDALONE_SVGS[0]; // com-logo.svg
+    let currentPairB = STANDALONE_SVGS[12]; // com-g.svg
 
-    function applyCornerMarks(markA, markB) {
-      currentPairA = markA;
-      currentPairB = markB;
+    function applyCornerMarks(assetA, assetB) {
+      currentPairA = assetA;
+      currentPairB = assetB;
 
-      document.getElementById('slot-tl').innerHTML = buildSvgMarkup(markA, false);
-      document.getElementById('slot-br').innerHTML = buildSvgMarkup(markA, false);
+      const tl = document.getElementById('slot-tl');
+      const br = document.getElementById('slot-br');
+      const tr = document.getElementById('slot-tr');
+      const bl = document.getElementById('slot-bl');
 
-      document.getElementById('slot-tr').innerHTML = buildSvgMarkup(markB, false);
-      document.getElementById('slot-bl').innerHTML = buildSvgMarkup(markB, false);
+      tl.innerHTML = ''; tl.appendChild(createMaskedSvgNode(assetA.file));
+      br.innerHTML = ''; br.appendChild(createMaskedSvgNode(assetA.file));
+
+      tr.innerHTML = ''; tr.appendChild(createMaskedSvgNode(assetB.file));
+      bl.innerHTML = ''; bl.appendChild(createMaskedSvgNode(assetB.file));
     }
 
     function randomizeCornerPairs() {
-      const pool = [...STANDALONE_MARKS];
+      const pool = [...STANDALONE_SVGS];
       const idxA = Math.floor(Math.random() * pool.length);
-      const markA = pool.splice(idxA, 1)[0];
+      const assetA = pool.splice(idxA, 1)[0];
       const idxB = Math.floor(Math.random() * pool.length);
-      const markB = pool[idxB];
-      applyCornerMarks(markA, markB);
+      const assetB = pool[idxB];
+      applyCornerMarks(assetA, assetB);
     }
 
-    // Initialize default corner diagonal pair
     applyCornerMarks(currentPairA, currentPairB);
 
-    // Click handlers on corner squares to copy SVG XML
-    document.getElementById('corner-tl').addEventListener('click', () => copyText(buildSvgMarkup(currentPairA, true), currentPairA.name + ' SVG'));
-    document.getElementById('corner-br').addEventListener('click', () => copyText(buildSvgMarkup(currentPairA, true), currentPairA.name + ' SVG'));
-    document.getElementById('corner-tr').addEventListener('click', () => copyText(buildSvgMarkup(currentPairB, true), currentPairB.name + ' SVG'));
-    document.getElementById('corner-bl').addEventListener('click', () => copyText(buildSvgMarkup(currentPairB, true), currentPairB.name + ' SVG'));
+    document.getElementById('corner-tl').addEventListener('click', () => copySvgFile(currentPairA));
+    document.getElementById('corner-br').addEventListener('click', () => copySvgFile(currentPairA));
+    document.getElementById('corner-tr').addEventListener('click', () => copySvgFile(currentPairB));
+    document.getElementById('corner-bl').addEventListener('click', () => copySvgFile(currentPairB));
 
-    // Render Brand Marks Showcase
+    // Render Brand Marks Showcase (Main logo spans 100% width; standalone icons in grid)
     function renderBrandMarks() {
       const mainContainer = document.getElementById('main-logo-container');
       const gridContainer = document.getElementById('marks-grid-container');
       mainContainer.innerHTML = '';
       gridContainer.innerHTML = '';
 
-      BRAND_MARKS.forEach(mark => {
+      SVG_ASSETS.forEach(asset => {
         const card = document.createElement('div');
-        card.className = 'mark-card' + (mark.isMain ? ' mark-card--main' : '');
-        card.innerHTML = `
-          <div class="mark-stage">${buildSvgMarkup(mark, false)}</div>
-          <div class="mark-meta">
-            <span class="mark-name">${mark.name}</span>
-            <span class="mark-action">COPY SVG</span>
-          </div>
-        `;
-        card.addEventListener('click', () => copyText(buildSvgMarkup(mark, true), mark.name + ' SVG'));
+        card.className = 'mark-card' + (asset.isMain ? ' mark-card--main' : '');
 
-        if (mark.isMain) {
+        const stage = document.createElement('div');
+        stage.className = 'mark-stage';
+        stage.appendChild(createMaskedSvgNode(asset.file));
+
+        const meta = document.createElement('div');
+        meta.className = 'mark-meta';
+        meta.innerHTML = `
+          <span class="mark-name">${asset.name}</span>
+          <span class="mark-file">${asset.file}</span>
+        `;
+
+        card.appendChild(stage);
+        card.appendChild(meta);
+        card.addEventListener('click', () => copySvgFile(asset));
+
+        if (asset.isMain) {
           mainContainer.appendChild(card);
         } else {
           gridContainer.appendChild(card);
@@ -795,32 +750,30 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
     }
     renderBrandMarks();
 
-    // Render Color Chips
-    function renderColorChips(activeId) {
-      const activeFamily = ACCENT_FAMILIES.find(f => f.id === activeId) || ACCENT_FAMILIES[0];
+    // Render Color Chips — 1 accent family per 3-column line: [NAME-L, NAME, NAME-D]
+    function renderAllColorRows() {
+      const container = document.getElementById('all-color-rows');
+      container.innerHTML = '';
 
-      const activeContainer = document.getElementById('active-family-chips');
-      activeContainer.innerHTML = '';
-      activeContainer.appendChild(createColorChip(`${activeFamily.name}-D`, activeFamily.d, '#FFFFFF', 'LINES'));
-      activeContainer.appendChild(createColorChip(`${activeFamily.name}`, activeFamily.base, '#000000', 'BASE'));
-      activeContainer.appendChild(createColorChip(`${activeFamily.name}-L`, activeFamily.l, '#000000', 'INTERACTIVE'));
-
-      const allAccentsContainer = document.getElementById('all-accent-chips');
-      allAccentsContainer.innerHTML = '';
       ACCENT_FAMILIES.forEach(fam => {
-        const isCurrent = fam.id === activeId;
-        allAccentsContainer.appendChild(
-          createColorChip(fam.name, fam.base, '#000000', isCurrent ? 'ACTIVE' : '')
-        );
+        const rowGrid = document.createElement('div');
+        rowGrid.className = 'chips-row-grid';
+        rowGrid.appendChild(createColorChip(`${fam.name}-L`, fam.l, '#000000'));
+        rowGrid.appendChild(createColorChip(`${fam.name}`, fam.base, '#000000'));
+        rowGrid.appendChild(createColorChip(`${fam.name}-D`, fam.d, '#FFFFFF'));
+        container.appendChild(rowGrid);
       });
 
-      const neutralsContainer = document.getElementById('neutral-chips');
-      neutralsContainer.innerHTML = '';
-      NEUTRALS.forEach(n => {
-        neutralsContainer.appendChild(createColorChip(n.name, n.hex, n.textColor, ''));
+      NEUTRAL_ROWS.forEach(row => {
+        const rowGrid = document.createElement('div');
+        rowGrid.className = 'chips-row-grid';
+        row.forEach(item => {
+          rowGrid.appendChild(createColorChip(item.name, item.hex, item.textColor));
+        });
+        container.appendChild(rowGrid);
       });
     }
-    renderColorChips('red');
+    renderAllColorRows();
 
     // Render 1:1 Typography Showcase
     const typoContainer = document.getElementById('typography-container');
@@ -852,7 +805,6 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
         document.documentElement.setAttribute('data-accent', accent);
         document.querySelectorAll('[data-set-accent]').forEach(b => b.classList.remove('is-active'));
         btn.classList.add('is-active');
-        renderColorChips(accent);
         randomizeCornerPairs();
         showToast('ACCENT ' + accent.toUpperCase());
       });
