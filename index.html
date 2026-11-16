@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DESIGN.MD — Court of Moravia</title>
-  <meta name="description" content="Design system tokens, component geometry, and LLM specification for Court of Moravia." />
+  <meta name="description" content="Design system tokens, brand marks, component geometry, and LLM specification for Court of Moravia." />
 
   <!-- Geist & Geist Mono Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,18 +15,19 @@
 </head>
 <body>
 
-  <!-- Sticky Topbar (66px tall, 66px end squares, center stretch with border-bottom) -->
+  <!-- Sticky Topbar (66px tall, 66px end squares with diagonal paired marks) -->
   <header class="chrome-bar chrome-bar--top">
-    <div class="chrome-end chrome-end--left" aria-hidden="true">
-      <div class="slot-corner" title="30x30px corner SVG slot"></div>
+    <div class="chrome-end chrome-end--left" id="corner-tl" title="Click to copy corner SVG">
+      <div class="corner-svg-slot" id="slot-tl"></div>
     </div>
 
     <div class="chrome-center chrome-center--top">
       <nav class="nav-links" aria-label="Primary sections">
         <a href="#palette">01 Palette</a>
         <a href="#typography">02 Typography</a>
-        <a href="#primitives">03 Components</a>
-        <a href="#llm-docs">04 DESIGN.MD</a>
+        <a href="#marks">03 Brand Marks</a>
+        <a href="#primitives">04 Components</a>
+        <a href="#llm-docs">05 DESIGN.MD</a>
       </nav>
 
       <div class="accent-switcher" role="group" aria-label="Select composition accent family">
@@ -41,8 +42,8 @@
       </div>
     </div>
 
-    <div class="chrome-end chrome-end--right" aria-hidden="true">
-      <div class="slot-corner" title="30x30px corner SVG slot"></div>
+    <div class="chrome-end chrome-end--right" id="corner-tr" title="Click to copy corner SVG">
+      <div class="corner-svg-slot" id="slot-tr"></div>
     </div>
   </header>
 
@@ -54,7 +55,7 @@
       <section class="hero">
         <h1 class="hero-display">WE CHANGE THE GAME OF BUSINESS</h1>
         <p class="hero-body">
-          A technical frame. A human purpose. Click any color chip, typography specimen, or component primitive to copy its exact token or CSS rule.
+          A technical frame. A human purpose. Click any color chip, typography specimen, SVG brand mark, or component primitive to copy its exact code or token.
         </p>
 
         <div class="hero-actions">
@@ -107,10 +108,26 @@
         <div class="type-list" id="typography-container"></div>
       </section>
 
-      <!-- 03 / COMPONENT PRIMITIVES -->
-      <section id="primitives" class="section">
+      <!-- 03 / BRAND MARKS & GEOMETRIC ICONS -->
+      <section id="marks" class="section">
         <div class="section-header">
           <span class="section-eyebrow">03</span>
+          <h2 class="section-title">Brand Marks<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+          <div class="section-desc-wrap">
+            <p class="section-desc">
+              Click any mark to copy clean, Figma-ready SVG XML code. The primary lockup is visually larger for primary brand attribution, while standalone marks live inside square frames.
+            </p>
+          </div>
+        </div>
+
+        <div class="marks-main-wrap" id="main-logo-container"></div>
+        <div class="marks-grid" id="marks-grid-container"></div>
+      </section>
+
+      <!-- 04 / COMPONENT PRIMITIVES -->
+      <section id="primitives" class="section">
+        <div class="section-header">
+          <span class="section-eyebrow">04</span>
           <h2 class="section-title">Component Primitives<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
           <div class="section-desc-wrap">
             <p class="section-desc">
@@ -222,10 +239,10 @@
         </div>
       </section>
 
-      <!-- 04 / RAW DESIGN.MD FOR LLMS -->
+      <!-- 05 / RAW DESIGN.MD FOR LLMS -->
       <section id="llm-docs" class="section">
         <div class="section-header">
-          <span class="section-eyebrow">04</span>
+          <span class="section-eyebrow">05</span>
           <h2 class="section-title">DESIGN.MD<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
           <div class="section-desc-wrap">
             <p class="section-desc">
@@ -249,18 +266,18 @@
     </div>
   </main>
 
-  <!-- Sticky Footer (66px tall, 66px end squares, center stretch with border-top) -->
+  <!-- Sticky Footer (66px tall, 66px end squares with diagonal paired marks) -->
   <footer class="chrome-bar chrome-bar--bottom">
-    <div class="chrome-end chrome-end--left" aria-hidden="true">
-      <div class="slot-corner" title="30x30px corner SVG slot"></div>
+    <div class="chrome-end chrome-end--left" id="corner-bl" title="Click to copy corner SVG">
+      <div class="corner-svg-slot" id="slot-bl"></div>
     </div>
 
     <div class="chrome-center chrome-center--bottom">
       <div class="slot-edge-h" title="300x2px footer SVG slot"></div>
     </div>
 
-    <div class="chrome-end chrome-end--right" aria-hidden="true">
-      <div class="slot-corner" title="30x30px corner SVG slot"></div>
+    <div class="chrome-end chrome-end--right" id="corner-br" title="Click to copy corner SVG">
+      <div class="corner-svg-slot" id="slot-br"></div>
     </div>
   </footer>
 
@@ -268,6 +285,113 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
+    const BRAND_MARKS = [
+      {
+        id: 'com',
+        name: 'COM',
+        isMain: false,
+        viewBox: '0 0 100 100',
+        svgInner: `<polygon points="50,18 57,23 57,31 50,36 43,31 43,23" fill="currentColor"/><polygon points="24,31 30,35 30,42 24,46 18,42 18,35" fill="currentColor"/><polygon points="76,31 82,35 82,42 76,46 70,42 70,35" fill="currentColor"/><polygon points="39,40 50,46 61,40 50,64" fill="currentColor"/><polygon points="20,50 35,44 47,68 23,64" fill="currentColor"/><polygon points="80,50 65,44 53,68 77,64" fill="currentColor"/>`
+      },
+      {
+        id: 'com-full',
+        name: 'COM-FULL',
+        isMain: true,
+        viewBox: '0 0 320 100',
+        svgInner: `<g transform="translate(8, 12) scale(0.76)"><polygon points="50,18 57,23 57,31 50,36 43,31 43,23" fill="currentColor"/><polygon points="24,31 30,35 30,42 24,46 18,42 18,35" fill="currentColor"/><polygon points="76,31 82,35 82,42 76,46 70,42 70,35" fill="currentColor"/><polygon points="39,40 50,46 61,40 50,64" fill="currentColor"/><polygon points="20,50 35,44 47,68 23,64" fill="currentColor"/><polygon points="80,50 65,44 53,68 77,64" fill="currentColor"/></g><text x="96" y="36" fill="currentColor" font-family="Geist Mono, monospace" font-size="13" font-weight="400" letter-spacing="0.06em">MADE BY</text><text x="96" y="54" fill="currentColor" font-family="Geist Mono, monospace" font-size="13" font-weight="400" letter-spacing="0.06em">COURT OF MORAVIA</text><text x="96" y="72" fill="currentColor" font-family="Geist Mono, monospace" font-size="13" font-weight="400" letter-spacing="0.06em">EXPERT GUILD</text>`
+      },
+      {
+        id: 'd4',
+        name: 'D4',
+        isMain: false,
+        viewBox: '0 0 100 100',
+        svgInner: `<polygon points="48,18 22,52 48,78" fill="currentColor"/><polygon points="52,18 78,52 52,78" fill="currentColor"/>`
+      },
+      {
+        id: 'd6',
+        name: 'D6',
+        isMain: false,
+        viewBox: '0 0 100 100',
+        svgInner: `<polygon points="50,18 76,33 50,48 24,33" fill="currentColor"/><polygon points="22,37 48,52 48,82 22,67" fill="currentColor"/><polygon points="78,37 52,52 52,82 78,67" fill="currentColor"/>`
+      },
+      {
+        id: 'd8',
+        name: 'D8',
+        isMain: false,
+        viewBox: '0 0 100 100',
+        svgInner: `<polygon points="50,26 70,62 30,62" fill="currentColor"/><polygon points="45,22 26,34 26,56" fill="currentColor"/><polygon points="55,22 74,34 74,56" fill="currentColor"/><polygon points="34,67 66,67 50,78" fill="currentColor"/>`
+      },
+      {
+        id: 'd10',
+        name: 'D10',
+        isMain: false,
+        viewBox: '0 0 100 100',
+        svgInner: `<polygon points="50,18 62,44 50,52 38,44" fill="currentColor"/><polygon points="46,22 34,42 26,36" fill="currentColor"/><polygon points="54,22 66,42 74,36" fill="currentColor"/><polygon points="25,42 48,56 48,78 27,58" fill="currentColor"/><polygon points="75,42 52,56 52,78 73,58" fill="currentColor"/>`
+      },
+      {
+        id: 'd12',
+        name: 'D12',
+        isMain: false,
+        viewBox: '0 0 100 100',
+        svgInner: `<polygon points="50,36 63,45 58,60 42,60 37,45" fill="currentColor"/><polygon points="50,18 66,24 62,33 50,32 38,33 34,24" fill="currentColor"/><polygon points="70,27 80,41 72,53 66,43 65,35" fill="currentColor"/><polygon points="79,46 76,64 63,72 61,61 70,55" fill="currentColor"/><polygon points="30,27 20,41 28,53 34,43 35,35" fill="currentColor"/><polygon points="21,46 24,64 37,72 39,61 30,55" fill="currentColor"/><polygon points="41,64 59,64 60,75 50,82 40,75" fill="currentColor"/>`
+      },
+      {
+        id: 'd20',
+        name: 'D20',
+        isMain: false,
+        viewBox: '0 0 100 100',
+        svgInner: `<path fill-rule="evenodd" d="M50,24 L72,62 L28,62 Z M50,38 L40,56 L60,56 Z" fill="currentColor"/><polygon points="45,20 26,32 26,54" fill="currentColor"/><polygon points="55,20 74,32 74,54" fill="currentColor"/><polygon points="33,67 67,67 50,79" fill="currentColor"/>`
+      },
+      {
+        id: 'aztec-full',
+        name: 'AZTEC FULL',
+        isMain: false,
+        viewBox: '0 0 100 100',
+        svgInner: `<path fill-rule="evenodd" d="M18,18 H82 V82 H18 Z M26,26 V74 H74 V26 Z" fill="currentColor"/><path fill-rule="evenodd" d="M36,36 H64 V64 H36 Z M41,41 V59 H59 V41 Z" fill="currentColor"/><rect x="46" y="46" width="8" height="8" fill="currentColor"/><rect x="26" y="26" width="8" height="8" fill="currentColor"/><rect x="66" y="26" width="8" height="8" fill="currentColor"/><rect x="26" y="66" width="8" height="8" fill="currentColor"/><rect x="54" y="26" width="8" height="8" fill="currentColor"/><rect x="26" y="46" width="6" height="12" fill="currentColor"/><rect x="68" y="42" width="6" height="16" fill="currentColor"/><rect x="42" y="68" width="16" height="6" fill="currentColor"/>`
+      },
+      {
+        id: 'aztec',
+        name: 'AZTEC',
+        isMain: false,
+        viewBox: '0 0 100 100',
+        svgInner: `<path fill-rule="evenodd" d="M36,36 H64 V64 H36 Z M41,41 V59 H59 V41 Z" fill="currentColor"/><rect x="46" y="46" width="8" height="8" fill="currentColor"/><rect x="24" y="24" width="10" height="8" fill="currentColor"/><rect x="42" y="22" width="14" height="8" fill="currentColor"/><rect x="64" y="24" width="12" height="10" fill="currentColor"/><rect x="22" y="40" width="8" height="16" fill="currentColor"/><rect x="70" y="42" width="8" height="14" fill="currentColor"/><rect x="24" y="64" width="12" height="12" fill="currentColor"/><rect x="44" y="70" width="12" height="8" fill="currentColor"/><rect x="62" y="62" width="14" height="14" fill="currentColor"/>`
+      },
+      {
+        id: 'c',
+        name: 'C',
+        isMain: false,
+        viewBox: '0 0 100 100',
+        svgInner: `<rect x="38" y="22" width="32" height="16" fill="currentColor"/><rect x="28" y="38" width="16" height="24" fill="currentColor"/><rect x="38" y="62" width="32" height="16" fill="currentColor"/>`
+      },
+      {
+        id: 'o',
+        name: 'O',
+        isMain: false,
+        viewBox: '0 0 100 100',
+        svgInner: `<rect x="38" y="22" width="24" height="16" fill="currentColor"/><rect x="38" y="62" width="24" height="16" fill="currentColor"/><rect x="22" y="38" width="16" height="24" fill="currentColor"/><rect x="62" y="38" width="16" height="24" fill="currentColor"/>`
+      },
+      {
+        id: 'm',
+        name: 'M',
+        isMain: false,
+        viewBox: '0 0 100 100',
+        svgInner: `<rect x="22" y="36" width="14" height="40" fill="currentColor"/><rect x="43" y="36" width="14" height="40" fill="currentColor"/><rect x="64" y="36" width="14" height="40" fill="currentColor"/><rect x="32" y="24" width="14" height="12" fill="currentColor"/><rect x="54" y="24" width="14" height="12" fill="currentColor"/>`
+      },
+      {
+        id: 'guild',
+        name: 'GUILD',
+        isMain: false,
+        viewBox: '0 0 100 100',
+        svgInner: `<rect x="22" y="22" width="14" height="14" fill="currentColor"/><rect x="42" y="22" width="36" height="14" fill="currentColor"/><polygon points="22,42 36,42 36,64 64,64 64,56 46,56 46,44 78,44 78,78 22,78" fill="currentColor"/>`
+      }
+    ];
+
+    function buildSvgMarkup(mark, forClipboard = false) {
+      const fillAttr = forClipboard ? '#000000' : 'currentColor';
+      const inner = mark.svgInner.replace(/currentColor/g, fillAttr);
+      return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${mark.viewBox}" fill="none">${inner}</svg>`;
+    }
+
     /* Ordered sequence: Red, Blue, Green, Orange, Yellow, Teal, Violet */
     const ACCENT_FAMILIES = [
       { id: 'red',    name: 'RED',    d: '#910606', base: '#DF1717', l: '#F65656' },
@@ -500,9 +624,19 @@ Each color token is documented as a split two-part chip:
 
 ---
 
-## 4. Buttons & Interactive Hover States
+## 4. Brand Marks & Geometric Icons (\`Frame 172.svg\`)
 
-All interactive buttons and typography showcase rows share a unified hover state (\`background-color: rgba(var(--accent-d), 0.40)\`, \`color: var(--accent-l)\`, \`border-color: var(--accent-l)\`):
+The identity includes **14 geometric marks** normalized inside square bounding boxes for balanced visual presence:
+
+* **Primary Lockup (\`COM-FULL\`):** The COM triad mark paired with \`"MADE BY COURT OF MORAVIA EXPERT GUILD"\` in uppercase \`Geist Mono\`. Visually larger than standalone icons and used as the primary brand signature.
+* **Standalone Icons (13 Marks):** \`COM\`, \`D4\`, \`D6\`, \`D8\`, \`D10\`, \`D12\`, \`D20\`, \`AZTEC FULL\`, \`AZTEC\`, \`C\`, \`O\`, \`M\`, \`GUILD\`.
+* **Rules:** Keep flat vector geometry; do not stretch, outline, add drop shadows, or detach sub-elements.
+
+---
+
+## 5. Buttons & Interactive Hover States
+
+All interactive buttons, brand mark cards, and typography showcase rows share a unified hover state (\`background-color: rgba(var(--accent-d), 0.40)\`, \`color: var(--accent-l)\`, \`border-color: var(--accent-l)\`):
 
 * **Main Button (Primary CTA):**
   * Default: \`color: #000000\`, \`background-color: var(--accent-l)\`, \`border: 1px solid var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`
@@ -517,7 +651,7 @@ All interactive buttons and typography showcase rows share a unified hover state
 
 ---
 
-## 5. Component Specifications (No Outer Wrapper Borders)
+## 6. Component Specifications (No Outer Wrapper Borders)
 
 Composite components never carry a single border around the entire unit; only their specified child frames are bordered or filled. All surfaces sit on \`#000000\`.
 
@@ -550,25 +684,28 @@ Composite components never carry a single border around the entire unit; only th
 
 ---
 
-## 6. Sticky Topbar & Sticky Footer Shell
+## 7. Sticky Topbar & Sticky Footer Shell (Diagonal Paired Corner Marks)
 
-Instead of side perimeter rails, the viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px\` tall:
+The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px\` tall (\`66px 1fr 66px\`):
 
-* **Layout:** 3-column grid (\`66px 1fr 66px\`) with \`height: 66px\` on both topbar and footer.
-* **End Squares (\`66px × 66px\`):** Centered \`30px × 30px\` square SVG placeholder (\`1px solid var(--accent-d)\`).
+* **Corner Squares (\`66px × 66px\`):** House centered \`30px × 30px\` standalone brand marks (\`color: var(--accent-l)\`):
+  * **Diagonal Pair A:** Top-Left and Bottom-Right share the same mark.
+  * **Diagonal Pair B:** Top-Right and Bottom-Left share a different mark.
+  * Whenever the active accent color changes, the two diagonal pairs randomize to new distinct marks from the standalone icon set (excluding \`COM-FULL\`).
 * **Center Stretch Cell (\`1fr\`):**
   * **Topbar Center:** \`border-bottom: 1px solid var(--accent-d)\`, housing the navigation menu and accent switcher.
   * **Footer Center:** \`border-top: 1px solid var(--accent-d)\`.
 
 ---
 
-## 7. Strict Anti-Patterns (Do NOT Generate)
+## 8. Strict Anti-Patterns (Do NOT Generate)
 * **No \`black-l\` (\`#121212\`) backgrounds:** Pure \`#000000\` is the only background used in layout containers, boxes, and cards.
 * **No bold font-weight on ordered lists:** Ordered list numbers and text use \`font-weight: 400\` (Regular), never bold.
 * **No outer wrapper borders on composite blocks:** Never wrap \`horbox\`, \`verbox\`, \`sbox\`, \`cta-button\`, or ordered list items in an extra outer border.
 * **No rounded corners:** \`0px\` sharp corners everywhere.
 * **No off-role white text:** Never use \`#FFFFFF\` for \`h4\`–\`h6\`, labels, eyebrows, or metadata (use \`grey-l\` or \`--accent-l\`).
-* **No paragraphs wider than \`66ch\`:** Always cap \`body\` text measure at \`max-width: 66ch\`.`;
+* **No paragraphs wider than \`66ch\`:** Always cap \`body\` text measure at \`max-width: 66ch\`.
+`;
 
     // Toast helper
     let toastTimer;
@@ -595,18 +732,79 @@ Instead of side perimeter rails, the viewport is framed by a **sticky topbar** a
       }
     }
 
+    // Corner Diagonal Marks Logic
+    // Top-Left & Bottom-Right share Pair A; Top-Right & Bottom-Left share Pair B
+    const STANDALONE_MARKS = BRAND_MARKS.filter(m => !m.isMain);
+    let currentPairA = STANDALONE_MARKS[0]; // COM
+    let currentPairB = STANDALONE_MARKS[12]; // GUILD
+
+    function applyCornerMarks(markA, markB) {
+      currentPairA = markA;
+      currentPairB = markB;
+
+      document.getElementById('slot-tl').innerHTML = buildSvgMarkup(markA, false);
+      document.getElementById('slot-br').innerHTML = buildSvgMarkup(markA, false);
+
+      document.getElementById('slot-tr').innerHTML = buildSvgMarkup(markB, false);
+      document.getElementById('slot-bl').innerHTML = buildSvgMarkup(markB, false);
+    }
+
+    function randomizeCornerPairs() {
+      const pool = [...STANDALONE_MARKS];
+      const idxA = Math.floor(Math.random() * pool.length);
+      const markA = pool.splice(idxA, 1)[0];
+      const idxB = Math.floor(Math.random() * pool.length);
+      const markB = pool[idxB];
+      applyCornerMarks(markA, markB);
+    }
+
+    // Initialize default corner diagonal pair
+    applyCornerMarks(currentPairA, currentPairB);
+
+    // Click handlers on corner squares to copy SVG XML
+    document.getElementById('corner-tl').addEventListener('click', () => copyText(buildSvgMarkup(currentPairA, true), currentPairA.name + ' SVG'));
+    document.getElementById('corner-br').addEventListener('click', () => copyText(buildSvgMarkup(currentPairA, true), currentPairA.name + ' SVG'));
+    document.getElementById('corner-tr').addEventListener('click', () => copyText(buildSvgMarkup(currentPairB, true), currentPairB.name + ' SVG'));
+    document.getElementById('corner-bl').addEventListener('click', () => copyText(buildSvgMarkup(currentPairB, true), currentPairB.name + ' SVG'));
+
+    // Render Brand Marks Showcase
+    function renderBrandMarks() {
+      const mainContainer = document.getElementById('main-logo-container');
+      const gridContainer = document.getElementById('marks-grid-container');
+      mainContainer.innerHTML = '';
+      gridContainer.innerHTML = '';
+
+      BRAND_MARKS.forEach(mark => {
+        const card = document.createElement('div');
+        card.className = 'mark-card' + (mark.isMain ? ' mark-card--main' : '');
+        card.innerHTML = `
+          <div class="mark-stage">${buildSvgMarkup(mark, false)}</div>
+          <div class="mark-meta">
+            <span class="mark-name">${mark.name}</span>
+            <span class="mark-action">COPY SVG</span>
+          </div>
+        `;
+        card.addEventListener('click', () => copyText(buildSvgMarkup(mark, true), mark.name + ' SVG'));
+
+        if (mark.isMain) {
+          mainContainer.appendChild(card);
+        } else {
+          gridContainer.appendChild(card);
+        }
+      });
+    }
+    renderBrandMarks();
+
     // Render Color Chips
     function renderColorChips(activeId) {
       const activeFamily = ACCENT_FAMILIES.find(f => f.id === activeId) || ACCENT_FAMILIES[0];
 
-      // 1. Active Family (-D, Base, -L)
       const activeContainer = document.getElementById('active-family-chips');
       activeContainer.innerHTML = '';
       activeContainer.appendChild(createColorChip(`${activeFamily.name}-D`, activeFamily.d, '#FFFFFF', 'LINES'));
       activeContainer.appendChild(createColorChip(`${activeFamily.name}`, activeFamily.base, '#000000', 'BASE'));
       activeContainer.appendChild(createColorChip(`${activeFamily.name}-L`, activeFamily.l, '#000000', 'INTERACTIVE'));
 
-      // 2. All 7 Accent Families (Base swatches in canonical order)
       const allAccentsContainer = document.getElementById('all-accent-chips');
       allAccentsContainer.innerHTML = '';
       ACCENT_FAMILIES.forEach(fam => {
@@ -616,7 +814,6 @@ Instead of side perimeter rails, the viewport is framed by a **sticky topbar** a
         );
       });
 
-      // 3. White + Grey, Black
       const neutralsContainer = document.getElementById('neutral-chips');
       neutralsContainer.innerHTML = '';
       NEUTRALS.forEach(n => {
@@ -625,7 +822,7 @@ Instead of side perimeter rails, the viewport is framed by a **sticky topbar** a
     }
     renderColorChips('red');
 
-    // Render 1:1 Typography Showcase (Specs at top, 24px gap, 1:1 size)
+    // Render 1:1 Typography Showcase
     const typoContainer = document.getElementById('typography-container');
     TYPOGRAPHY.forEach(t => {
       const row = document.createElement('div');
@@ -648,7 +845,7 @@ Instead of side perimeter rails, the viewport is framed by a **sticky topbar** a
     // Populate Raw Markdown Display
     document.getElementById('raw-markdown-display').textContent = DESIGN_MD_RAW;
 
-    // Accent Switcher Logic
+    // Accent Switcher Logic (Also randomizes diagonal corner icon pairs!)
     document.querySelectorAll('[data-set-accent]').forEach(btn => {
       btn.addEventListener('click', () => {
         const accent = btn.dataset.setAccent;
@@ -656,6 +853,7 @@ Instead of side perimeter rails, the viewport is framed by a **sticky topbar** a
         document.querySelectorAll('[data-set-accent]').forEach(b => b.classList.remove('is-active'));
         btn.classList.add('is-active');
         renderColorChips(accent);
+        randomizeCornerPairs();
         showToast('ACCENT ' + accent.toUpperCase());
       });
     });

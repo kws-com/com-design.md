@@ -98,7 +98,7 @@ body {
 }
 
 /* ==========================================================================
-   STICKY TOPBAR & STICKY FOOTER (66px TALL, 66px END SQUARES, NO SIDE RAILS)
+   STICKY TOPBAR & STICKY FOOTER (66px TALL, 66px END SQUARES WITH DIAGONAL SVGS)
    ========================================================================== */
 
 .chrome-bar {
@@ -130,6 +130,13 @@ body {
   border-color: var(--accent-d);
   border-style: solid;
   border-width: 0;
+  color: var(--accent-l);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.chrome-end:hover {
+  background-color: var(--accent-d-40);
 }
 
 .chrome-bar--top .chrome-end--left   { border-right-width: 1px; border-bottom-width: 1px; }
@@ -137,12 +144,18 @@ body {
 .chrome-bar--bottom .chrome-end--left  { border-right-width: 1px; border-top-width: 1px; }
 .chrome-bar--bottom .chrome-end--right { border-left-width: 1px;  border-top-width: 1px; }
 
-.slot-corner {
-  width: 30px;
-  height: 30px;
-  border: 1px solid var(--accent-d);
-  background-color: var(--color-black);
-  flex-shrink: 0;
+.corner-svg-slot {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.corner-svg-slot svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .chrome-center {
@@ -234,9 +247,9 @@ body {
   .chrome-end {
     width: 48px;
   }
-  .slot-corner {
-    width: 20px;
-    height: 20px;
+  .corner-svg-slot {
+    width: 24px;
+    height: 24px;
   }
   .chrome-center {
     padding: 12px 16px;
@@ -453,9 +466,6 @@ body {
 
 /* ==========================================================================
    01 / COLOR CHIPS SHOWCASE
-   Two-part chip:
-   1) Top frame: h5 color name, padding: 32px 40px, color: black, bg: $color
-   2) Bottom frame: padding: 32px 40px, bg: black, color: white, gap: 24px, HEX/RGB/HSL/OKLCH
    ========================================================================== */
 
 .palette-group-title {
@@ -586,7 +596,98 @@ body {
 }
 
 /* ==========================================================================
-   03 / COMPONENT PRIMITIVES (VERBOX, HORBOX, SBOX, ORDERED LISTS, CTA)
+   03 / BRAND MARKS & GEOMETRIC ICONS (Frame 172.svg)
+   ========================================================================== */
+
+.marks-main-wrap {
+  margin-bottom: 32px;
+}
+
+.marks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.mark-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background-color: var(--color-black);
+}
+
+.mark-card--main {
+  max-width: 640px;
+}
+
+.mark-stage {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  background-color: var(--color-black);
+  border: 1px solid var(--accent-d);
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: var(--accent-l);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.mark-card--main .mark-stage {
+  aspect-ratio: 16 / 7;
+  padding: 48px 56px;
+}
+
+.mark-stage svg {
+  width: 64%;
+  height: 64%;
+  display: block;
+}
+
+.mark-card--main .mark-stage svg {
+  width: 100%;
+  height: 100%;
+  max-height: 136px;
+}
+
+.mark-meta {
+  padding: 16px 24px;
+  background-color: var(--color-black);
+  border: 1px solid var(--accent-d);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.mark-name {
+  font-family: var(--font-header);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-grey-l);
+}
+
+.mark-action {
+  font-family: var(--font-header);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-l);
+}
+
+.mark-card:hover .mark-stage,
+.mark-card:hover .mark-meta {
+  background-color: var(--accent-d-40);
+  border-color: var(--accent-l);
+}
+
+/* ==========================================================================
+   04 / COMPONENT PRIMITIVES (VERBOX, HORBOX, SBOX, ORDERED LISTS, CTA)
    ========================================================================== */
 
 .primitives-stack {
@@ -612,7 +713,6 @@ body {
   margin: 0;
 }
 
-/* VERBOX — h5 Header (width: hug, padding: 24px 48px, border: 1px solid accent-d, bg: black, color: grey-l) + Box (border: 1px solid accent-d, padding: 64px 72px, gap: 64px) */
 .verbox {
   display: flex;
   flex-direction: column;
@@ -648,7 +748,6 @@ body {
   gap: 64px;
 }
 
-/* HORBOX — Unified header padding (24px 48px), h5 style, border: 1px solid accent-d, bg: black, color: grey-l */
 .horbox {
   display: flex;
   flex-direction: column;
@@ -667,7 +766,6 @@ body {
   align-items: start;
 }
 
-/* Shared Inner Text Block (h6 accent-l + 24px gap + body max-width 66ch) */
 .text-pair {
   display: flex;
   flex-direction: column;
@@ -695,7 +793,6 @@ body {
   margin: 0;
 }
 
-/* SBOX — h5 header (width: 100%, border: 1px solid accent-d, bg: black, color: grey-l) + Frame underneath (padding: 48px 56px, body max-width: 66ch) */
 .sbox-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -731,7 +828,6 @@ body {
   padding: clamp(32px, 4vw, 48px) clamp(24px, 4vw, 56px);
 }
 
-/* ORDERED LISTS — Number cell hugs number (align-items: flex-start), border: accent-d, bg: black, color: accent-l, regular 400 weight */
 .com-ordered-list {
   display: flex;
   flex-direction: column;
@@ -779,7 +875,7 @@ body {
 }
 
 /* ==========================================================================
-   04 / LLM CONTEXT & RAW DESIGN.MD VIEWER (Pure #000000)
+   05 / LLM CONTEXT & RAW DESIGN.MD VIEWER (Pure #000000)
    ========================================================================== */
 
 .code-panel {
