@@ -282,7 +282,7 @@
     const SVG_ASSETS = [
       { id: 'com-logo-full', name: 'COM LOGO FULL', file: './svgs/com-logo-full.svg', isMain: true },
       { id: 'com-logo',      name: 'COM LOGO',      file: './svgs/com-logo.svg',      isMain: false },
-      { id: 'com-d2',        name: 'COM D2',        file: './svgs/com-d4.svg',        isMain: false },
+      { id: 'com-d2',        name: 'COM D2',        file: './svgs/com-d2.svg',        isMain: false },
       { id: 'com-d6',        name: 'COM D6',        file: './svgs/com-d6.svg',        isMain: false },
       { id: 'com-d8',        name: 'COM D8',        file: './svgs/com-d8.svg',        isMain: false },
       { id: 'com-d10',       name: 'COM D10',       file: './svgs/com-d10.svg',       isMain: false },
@@ -297,11 +297,11 @@
     ];
 
     function createMaskedSvgNode(filePath) {
-      const span = document.createElement('span');
-      span.className = 'svg-asset';
-      span.style.webkitMaskImage = `url('${filePath}')`;
-      span.style.maskImage = `url('${filePath}')`;
-      return span;
+      const img = document.createElement('img');
+      img.className = 'svg-asset';
+      img.src = filePath;
+      img.alt = '';
+      return img;
     }
 
     async function copySvgFile(asset) {
