@@ -5,19 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DESIGN.MD — Court of Moravia</title>
   <meta name="description" content="Design system tokens, brand marks, component geometry, and LLM specification for Court of Moravia." />
-
-  <!-- Geist & Geist Mono Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@200;300;400;500&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Sticky Topbar (66px tall, 66px end squares with diagonal paired marks) -->
   <header class="chrome-bar chrome-bar--top">
-    <div class="chrome-end chrome-end--left" id="corner-tl" title="Click to copy SVG">
+    <div class="chrome-end chrome-end--left" id="corner-tl">
       <div class="corner-svg-slot" id="slot-tl"></div>
     </div>
 
@@ -42,16 +38,14 @@
       </div>
     </div>
 
-    <div class="chrome-end chrome-end--right" id="corner-tr" title="Click to copy SVG">
+    <div class="chrome-end chrome-end--right" id="corner-tr">
       <div class="corner-svg-slot" id="slot-tr"></div>
     </div>
   </header>
 
-  <!-- Main Content -->
   <main class="page-main">
     <div class="main-container">
 
-      <!-- HERO -->
       <section class="hero">
         <h1 class="hero-display">WE CHANGE THE GAME OF BUSINESS</h1>
         <p class="hero-body">
@@ -71,7 +65,6 @@
         </div>
       </section>
 
-      <!-- 01 / COLOR SYSTEM -->
       <section id="palette" class="section">
         <div class="section-header">
           <span class="section-eyebrow">01</span>
@@ -86,7 +79,6 @@
         <div id="all-color-rows"></div>
       </section>
 
-      <!-- 02 / TYPOGRAPHY SYSTEM -->
       <section id="typography" class="section">
         <div class="section-header">
           <span class="section-eyebrow">02</span>
@@ -101,14 +93,13 @@
         <div class="type-list" id="typography-container"></div>
       </section>
 
-      <!-- 03 / BRAND MARKS & VECTOR ASSETS -->
       <section id="marks" class="section">
         <div class="section-header">
           <span class="section-eyebrow">03</span>
           <h2 class="section-title">Brand Marks<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Vector assets imported from ./svgs/ with proportional scale-fill rendering. Click any mark to copy its SVG file XML or path.
+              Vector assets imported from ./svgs/ with proportional scale-fill rendering. Click any mark to copy its SVG XML code.
             </p>
           </div>
         </div>
@@ -117,7 +108,6 @@
         <div class="marks-grid" id="marks-grid-container"></div>
       </section>
 
-      <!-- 04 / COMPONENT PRIMITIVES -->
       <section id="primitives" class="section">
         <div class="section-header">
           <span class="section-eyebrow">04</span>
@@ -131,7 +121,6 @@
 
         <div class="primitives-stack">
 
-          <!-- VERBOX -->
           <div class="primitive-unit">
             <p class="primitive-micro-desc">VERBOX — Vertical stack container with hug h5 header (padding 24px 48px) and 64px vertical item gap</p>
             <div class="verbox" data-copy-snippet="VERBOX: Top hug h5 header (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l)) + bottom box (border: 1px solid var(--accent-d); padding: 64px 72px; gap: 64px) with h6 (color: var(--accent-l), gap: 24px) + body (max-width: 66ch).">
@@ -153,7 +142,6 @@
             </div>
           </div>
 
-          <!-- HORBOX -->
           <div class="primitive-unit">
             <p class="primitive-micro-desc">HORBOX — Horizontal multi-column container with unified hug h5 header (padding 24px 48px) and 56px column gap</p>
             <div class="horbox" data-copy-snippet="HORBOX: Top hug h5 header (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l)) + horizontal row box (border: 1px solid var(--accent-d); padding: 64px 72px; gap: 56px) with h6 (color: var(--accent-l), gap: 24px) + body (max-width: 66ch).">
@@ -175,7 +163,6 @@
             </div>
           </div>
 
-          <!-- SBOX -->
           <div class="primitive-unit">
             <p class="primitive-micro-desc">SBOX — Small box with 100% full-width h5 header and 48px 56px body frame</p>
             <div class="sbox-grid">
@@ -199,7 +186,6 @@
             </div>
           </div>
 
-          <!-- ORDERED LISTS -->
           <div class="primitive-unit">
             <p class="primitive-micro-desc">ORDERED LIST — Top-aligned hugging number cell paired with full-bordered uppercase h6 regular text frame</p>
             <div class="com-ordered-list">
@@ -218,7 +204,6 @@
             </div>
           </div>
 
-          <!-- TWO-PART CTA BUTTON -->
           <div class="primitive-unit">
             <p class="primitive-micro-desc">CTA BUTTON — Two-part action block with hug h6 context header and 32px Geist Medium underlined trigger</p>
             <div>
@@ -232,7 +217,6 @@
         </div>
       </section>
 
-      <!-- 05 / RAW DESIGN.MD FOR LLMS -->
       <section id="llm-docs" class="section">
         <div class="section-header">
           <span class="section-eyebrow">05</span>
@@ -259,26 +243,23 @@
     </div>
   </main>
 
-  <!-- Sticky Footer (66px tall, 66px end squares with diagonal paired marks) -->
   <footer class="chrome-bar chrome-bar--bottom">
-    <div class="chrome-end chrome-end--left" id="corner-bl" title="Click to copy SVG">
+    <div class="chrome-end chrome-end--left" id="corner-bl">
       <div class="corner-svg-slot" id="slot-bl"></div>
     </div>
 
     <div class="chrome-center chrome-center--bottom">
-      <div class="slot-edge-h" title="300x2px footer SVG slot"></div>
+      <div class="slot-edge-h"></div>
     </div>
 
-    <div class="chrome-end chrome-end--right" id="corner-br" title="Click to copy SVG">
+    <div class="chrome-end chrome-end--right" id="corner-br">
       <div class="corner-svg-slot" id="slot-br"></div>
     </div>
   </footer>
 
-  <!-- Copy Feedback Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
-    /* External SVG files inside ./svgs/ */
     const SVG_ASSETS = [
       { id: 'com-logo-full', name: 'COM LOGO FULL', file: './svgs/com-logo-full.svg', isMain: true },
       { id: 'com-logo',      name: 'COM LOGO',      file: './svgs/com-logo.svg',      isMain: false },
@@ -296,31 +277,71 @@
       { id: 'com-g',         name: 'COM G',         file: './svgs/com-g.svg',         isMain: false }
     ];
 
-    function createMaskedSvgNode(filePath) {
-      const img = document.createElement('img');
-      img.className = 'svg-asset';
-      img.src = filePath;
-      img.alt = '';
-      return img;
+    const svgCache = new Map();
+
+    async function loadSvgData(filePath) {
+      if (svgCache.has(filePath)) return svgCache.get(filePath);
+      try {
+        const res = await fetch(filePath);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const rawXml = await res.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(rawXml, 'image/svg+xml');
+        const svgEl = doc.querySelector('svg');
+        if (!svgEl) throw new Error('Invalid SVG');
+
+        svgEl.removeAttribute('width');
+        svgEl.removeAttribute('height');
+        svgEl.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+        svgEl.classList.add('svg-inline');
+
+        svgEl.querySelectorAll('[fill]').forEach(el => {
+          const val = el.getAttribute('fill');
+          if (val && val.toLowerCase() !== 'none') {
+            el.setAttribute('fill', 'currentColor');
+          }
+        });
+        svgEl.querySelectorAll('[stroke]').forEach(el => {
+          const val = el.getAttribute('stroke');
+          if (val && val.toLowerCase() !== 'none') {
+            el.setAttribute('stroke', 'currentColor');
+          }
+        });
+        if (!svgEl.querySelector('[fill], [stroke]')) {
+          svgEl.setAttribute('fill', 'currentColor');
+        }
+
+        const data = { rawXml, templateSvg: svgEl };
+        svgCache.set(filePath, data);
+        return data;
+      } catch (err) {
+        return null;
+      }
+    }
+
+    async function mountSvg(container, asset) {
+      container.innerHTML = '';
+      const data = await loadSvgData(asset.file);
+      if (data && data.templateSvg) {
+        container.appendChild(data.templateSvg.cloneNode(true));
+      } else {
+        const img = document.createElement('img');
+        img.src = asset.file;
+        img.alt = asset.name;
+        img.className = 'svg-fallback';
+        container.appendChild(img);
+      }
     }
 
     async function copySvgFile(asset) {
-      try {
-        const res = await fetch(asset.file);
-        if (res.ok) {
-          const xml = await res.text();
-          if (xml.includes('<svg')) {
-            await copyText(xml, asset.name + ' SVG XML');
-            return;
-          }
-        }
-      } catch (e) {
-        // Fallback if opened via file:// protocol without local server
+      const data = await loadSvgData(asset.file);
+      if (data && data.rawXml) {
+        await copyText(data.rawXml, asset.name + ' SVG');
+      } else {
+        await copyText(asset.file, asset.file);
       }
-      await copyText(asset.file, asset.file);
     }
 
-    /* Ordered sequence: Red, Blue, Green, Orange, Yellow, Teal, Violet */
     const ACCENT_FAMILIES = [
       { id: 'red',    name: 'RED',    l: '#F65656', base: '#DF1717', d: '#910606' },
       { id: 'blue',   name: 'BLUE',   l: '#9EC4FA', base: '#196FE6', d: '#063B91' },
@@ -331,7 +352,6 @@
       { id: 'violet', name: 'VIOLET', l: '#A99EFA', base: '#8019E5', d: '#4D0691' }
     ];
 
-    /* White + Grey, Black */
     const NEUTRAL_ROWS = [
       [
         { name: 'WHITE',   hex: '#FFFFFF', textColor: '#000000' },
@@ -344,7 +364,6 @@
       ]
     ];
 
-    /* Exact Color Format Converters (HEX -> RGB, HSL, OKLCH) */
     function hexToRgbObj(hex) {
       const clean = hex.replace('#', '');
       const num = parseInt(clean, 16);
@@ -404,7 +423,6 @@
       const chip = document.createElement('div');
       chip.className = 'color-chip';
       const upperHex = hex.toUpperCase();
-      /* Swatch border inherits its own color (using #808080 only if pure #000000 so it remains visible on black canvas) */
       const borderCol = upperHex === '#000000' ? '#808080' : upperHex;
       chip.style.setProperty('--chip-color', borderCol);
 
@@ -427,7 +445,6 @@
       return chip;
     }
 
-    /* Exact 1:1 Typography Scale */
     const TYPOGRAPHY = [
       {
         role: 'H1 · GEIST LIGHT · 160PX · 110% LINE · 0% TRACKING · #FFFFFF',
@@ -563,7 +580,7 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 
 ## 4. Brand Marks & Vector Assets (\`./svgs/\`)
 
-External SVG files stored in \`./svgs/\` are imported without stretching (\`object-fit: contain\` / proportional scaling) and recolored via CSS filters/masks or inline SVG injection:
+External SVG files stored in \`./svgs/\` are imported without stretching (\`preserveAspectRatio="xMidYMid meet"\`) and inherit \`--accent-l\`:
 
 * **Primary Full-Width Lockup:** \`./svgs/com-logo-full.svg\` — Spans \`width: 100%\` of the container as the primary brand lockup.
 * **Standalone Icons (13 Files):**
@@ -620,7 +637,7 @@ Composite components never carry a single border around the entire unit; only th
 
 ### D. \`SBOX\` (Small Box)
 * **No outer wrapper border.**
-* **Top Header (\`h5\`):** \`width: 100%\` (fills the entire width of the \`sbox\`), \`padding: 24px 40px\`, \`border: 1px solid var(--accent-d)\`, \`background-color: #000000\`, \`color: var(--color-grey-l)` (\`Geist Mono\`, \`32px\`, uppercase).
+* **Top Header (\`h5\`):** \`width: 100%\` (fills the entire width of the \`sbox\`), \`padding: 24px 40px\`, \`border: 1px solid var(--accent-d)\`, \`background-color: #000000\`, \`color: var(--color-grey-l)\` (\`Geist Mono\`, \`32px\`, uppercase).
 * **Content Frame (directly underneath, \`0px\` gap):** \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`padding: 48px 56px\`, containing \`body\` text (\`max-width: 66ch\`, \`color: #FFFFFF\`).
 
 ### E. Ordered Lists
@@ -650,10 +667,9 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
 * **No outer wrapper borders on composite blocks:** Never wrap \`horbox\`, \`verbox\`, \`sbox\`, \`cta-button\`, or ordered list items in an extra outer border.
 * **No rounded corners:** \`0px\` sharp corners everywhere.
 * **No off-role white text:** Never use \`#FFFFFF\` for \`h4\`–\`h6\`, labels, eyebrows, or metadata (use \`grey-l\` or \`--accent-l\`).
-* **No paragraphs wider than `66ch`:** Always cap `body` text measure at `max-width: 66ch`.
+* **No paragraphs wider than \`66ch\`:** Always cap \`body\` text measure at \`max-width: 66ch\`.
 `;
 
-    // Toast helper
     let toastTimer;
     function showToast(message) {
       const toast = document.getElementById('toast');
@@ -678,25 +694,18 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
       }
     }
 
-    // Corner Diagonal Marks Logic (Uses ./svgs/ standalone assets, excluding com-logo-full.svg)
     const STANDALONE_SVGS = SVG_ASSETS.filter(a => !a.isMain);
-    let currentPairA = STANDALONE_SVGS[0]; // com-logo.svg
-    let currentPairB = STANDALONE_SVGS[12]; // com-g.svg
+    let currentPairA = STANDALONE_SVGS[0];
+    let currentPairB = STANDALONE_SVGS[12];
 
     function applyCornerMarks(assetA, assetB) {
       currentPairA = assetA;
       currentPairB = assetB;
 
-      const tl = document.getElementById('slot-tl');
-      const br = document.getElementById('slot-br');
-      const tr = document.getElementById('slot-tr');
-      const bl = document.getElementById('slot-bl');
-
-      tl.innerHTML = ''; tl.appendChild(createMaskedSvgNode(assetA.file));
-      br.innerHTML = ''; br.appendChild(createMaskedSvgNode(assetA.file));
-
-      tr.innerHTML = ''; tr.appendChild(createMaskedSvgNode(assetB.file));
-      bl.innerHTML = ''; bl.appendChild(createMaskedSvgNode(assetB.file));
+      mountSvg(document.getElementById('slot-tl'), assetA);
+      mountSvg(document.getElementById('slot-br'), assetA);
+      mountSvg(document.getElementById('slot-tr'), assetB);
+      mountSvg(document.getElementById('slot-bl'), assetB);
     }
 
     function randomizeCornerPairs() {
@@ -715,7 +724,6 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
     document.getElementById('corner-tr').addEventListener('click', () => copySvgFile(currentPairB));
     document.getElementById('corner-bl').addEventListener('click', () => copySvgFile(currentPairB));
 
-    // Render Brand Marks Showcase (Main logo spans 100% width; standalone icons in grid)
     function renderBrandMarks() {
       const mainContainer = document.getElementById('main-logo-container');
       const gridContainer = document.getElementById('marks-grid-container');
@@ -728,7 +736,7 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
 
         const stage = document.createElement('div');
         stage.className = 'mark-stage';
-        stage.appendChild(createMaskedSvgNode(asset.file));
+        mountSvg(stage, asset);
 
         const meta = document.createElement('div');
         meta.className = 'mark-meta';
@@ -750,7 +758,6 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
     }
     renderBrandMarks();
 
-    // Render Color Chips — 1 accent family per 3-column line: [NAME-L, NAME, NAME-D]
     function renderAllColorRows() {
       const container = document.getElementById('all-color-rows');
       container.innerHTML = '';
@@ -775,7 +782,6 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
     }
     renderAllColorRows();
 
-    // Render 1:1 Typography Showcase
     const typoContainer = document.getElementById('typography-container');
     TYPOGRAPHY.forEach(t => {
       const row = document.createElement('div');
@@ -788,17 +794,14 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
       typoContainer.appendChild(row);
     });
 
-    // Component Primitives Copy Handlers
     document.querySelectorAll('[data-copy-snippet]').forEach(el => {
       el.addEventListener('click', () => {
         copyText(el.dataset.copySnippet, 'COMPONENT SPEC');
       });
     });
 
-    // Populate Raw Markdown Display
     document.getElementById('raw-markdown-display').textContent = DESIGN_MD_RAW;
 
-    // Accent Switcher Logic (Also randomizes diagonal corner icon pairs!)
     document.querySelectorAll('[data-set-accent]').forEach(btn => {
       btn.addEventListener('click', () => {
         const accent = btn.dataset.setAccent;
@@ -810,7 +813,6 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
       });
     });
 
-    // Copy DESIGN.MD Buttons
     document.getElementById('copy-design-md-hero').addEventListener('click', () => {
       copyText(DESIGN_MD_RAW, 'DESIGN.MD');
     });
@@ -818,7 +820,6 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
       copyText(DESIGN_MD_RAW, 'DESIGN.MD');
     });
 
-    // Copy CSS Variables Button
     document.getElementById('copy-css-vars').addEventListener('click', () => {
       const rootVars = `:root {
   --color-red-d: #910606; --color-red: #DF1717; --color-red-l: #F65656;

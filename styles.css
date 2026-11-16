@@ -1,17 +1,10 @@
-/* ==========================================================================
-   COURT OF MORAVIA — DESIGN SYSTEM TOKENS & COMPONENT ARCHITECTURE
-   Snapshot: 16 Nov 2026 | Pure #000000 Canvas | 0px Radius | 8px Spacing Grid
-   ========================================================================== */
-
 :root {
-  /* Neutrals & Surfaces */
   --color-black: #000000;
   --color-black-l: #121212;
   --color-grey-d: #808080;
   --color-grey-l: #E8E5E0;
   --color-white: #FFFFFF;
 
-  /* Accent Families (Ordered: Red, Blue, Green, Orange, Yellow, Teal, Violet) */
   --color-red-d: #910606;
   --color-red: #DF1717;
   --color-red-l: #F65656;
@@ -40,34 +33,18 @@
   --color-violet: #8019E5;
   --color-violet-l: #A99EFA;
 
-  /* Active Composition Accent (Defaults to RED) */
   --accent-d: var(--color-red-d);
   --accent-d-40: rgba(145, 6, 6, 0.40);
   --accent: var(--color-red);
   --accent-l: var(--color-red-l);
 
-  /* Typography */
   --font-body: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-header: 'Geist Mono', monospace;
 
-  /* Stroke */
   --stroke-web: 1px;
   --stroke-deck: 2px;
-
-  /* SVGs */
-  --svg-filter: brightness(0) saturate(100%) invert(47%) sepia(67%) saturate(2258%) hue-rotate(329deg) brightness(99%) contrast(94%); /* #F65656 Red-L */
-  }
-
-  [data-accent="red"]    { --accent-d: var(--color-red-d);    --accent-d-40: rgba(145, 6, 6, 0.40);    --accent: var(--color-red);    --accent-l: var(--color-red-l);    --svg-filter: brightness(0) saturate(100%) invert(47%) sepia(67%) saturate(2258%) hue-rotate(329deg) brightness(99%) contrast(94%); }
-  [data-accent="blue"]   { --accent-d: var(--color-blue-d);   --accent-d-40: rgba(6, 59, 145, 0.40);   --accent: var(--color-blue);   --accent-l: var(--color-blue-l);   --svg-filter: brightness(0) saturate(100%) invert(77%) sepia(24%) saturate(1062%) hue-rotate(186deg) brightness(101%) contrast(96%); }
-  [data-accent="green"]  { --accent-d: var(--color-green-d);  --accent-d-40: rgba(6, 112, 8, 0.40);    --accent: var(--color-green);  --accent-l: var(--color-green-l);  --svg-filter: brightness(0) saturate(100%) invert(91%) sepia(21%) saturate(935%) hue-rotate(74deg) brightness(102%) contrast(96%); }
-  [data-accent="orange"] { --accent-d: var(--color-orange-d); --accent-d-40: rgba(145, 54, 6, 0.40);   --accent: var(--color-orange); --accent-l: var(--color-orange-l); --svg-filter: brightness(0) saturate(100%) invert(79%) sepia(31%) saturate(855%) hue-rotate(326deg) brightness(103%) contrast(101%); }
-  [data-accent="yellow"] { --accent-d: var(--color-yellow-d); --accent-d-40: rgba(145, 120, 6, 0.40);  --accent: var(--color-yellow); --accent-l: var(--color-yellow-l); --svg-filter: brightness(0) saturate(100%) invert(93%) sepia(26%) saturate(669%) hue-rotate(352deg) brightness(104%) contrast(101%); }
-  [data-accent="teal"]   { --accent-d: var(--color-teal-d);   --accent-d-40: rgba(6, 134, 145, 0.40);  --accent: var(--color-teal);   --accent-l: var(--color-teal-l);   --svg-filter: brightness(0) saturate(100%) invert(91%) sepia(25%) saturate(854%) hue-rotate(155deg) brightness(101%) contrast(96%); }
-  [data-accent="violet"] { --accent-d: var(--color-violet-d); --accent-d-40: rgba(77, 6, 145, 0.40);   --accent: var(--color-violet); --accent-l: var(--color-violet-l); --svg-filter: brightness(0) saturate(100%) invert(68%) sepia(34%) saturate(1356%) hue-rotate(211deg) brightness(100%) contrast(97%); }
 }
 
-/* Accent Theme Overrides */
 [data-accent="red"]    { --accent-d: var(--color-red-d);    --accent-d-40: rgba(145, 6, 6, 0.40);    --accent: var(--color-red);    --accent-l: var(--color-red-l); }
 [data-accent="blue"]   { --accent-d: var(--color-blue-d);   --accent-d-40: rgba(6, 59, 145, 0.40);   --accent: var(--color-blue);   --accent-l: var(--color-blue-l); }
 [data-accent="green"]  { --accent-d: var(--color-green-d);  --accent-d-40: rgba(6, 112, 8, 0.40);    --accent: var(--color-green);  --accent-l: var(--color-green-l); }
@@ -76,7 +53,6 @@
 [data-accent="teal"]   { --accent-d: var(--color-teal-d);   --accent-d-40: rgba(6, 134, 145, 0.40);  --accent: var(--color-teal);   --accent-l: var(--color-teal-l); }
 [data-accent="violet"] { --accent-d: var(--color-violet-d); --accent-d-40: rgba(77, 6, 145, 0.40);   --accent: var(--color-violet); --accent-l: var(--color-violet-l); }
 
-/* Strict Reset — Pure #000000 Background, 0px Radius, Center Outline Alignment, Standard Transition */
 *, *::before, *::after {
   box-sizing: border-box;
   border-radius: 0 !important;
@@ -110,10 +86,6 @@ body {
   background-color: var(--accent-l);
   color: var(--color-black);
 }
-
-/* ==========================================================================
-   STICKY TOPBAR & STICKY FOOTER (66px TALL, 66px END SQUARES WITH DIAGONAL SVGS)
-   ========================================================================== */
 
 .chrome-bar {
   position: sticky;
@@ -157,15 +129,18 @@ body {
 .chrome-bar--bottom .chrome-end--left  { border-right-width: 1px; border-top-width: 1px; }
 .chrome-bar--bottom .chrome-end--right { border-left-width: 1px;  border-top-width: 1px; }
 
-/* External SVG Scale-Fill Wrapper (No stretching, preserves aspect ratio) */
-.svg-asset {
+.svg-inline {
   display: block;
   width: 100%;
   height: 100%;
-  min-width: 24px;
-  min-height: 24px;
+  color: var(--accent-l);
+}
+
+.svg-fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  filter: var(--svg-filter);
 }
 
 .corner-svg-slot {
@@ -174,6 +149,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--accent-l);
 }
 
 .chrome-center {
@@ -201,7 +177,6 @@ body {
   background-color: var(--accent-d);
 }
 
-/* Interactive Navigation & Accent Switcher (accent-l) */
 .nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -271,10 +246,6 @@ body {
   }
 }
 
-/* ==========================================================================
-   MAIN CONTAINER & SECTION HEADERS (8px Grid Rhythm)
-   ========================================================================== */
-
 .page-main {
   flex: 1;
   background-color: var(--color-black);
@@ -302,7 +273,6 @@ body {
   margin-bottom: 48px;
 }
 
-/* h5 Eyebrow — Geist Mono, Uppercase, Minimized */
 .section-eyebrow {
   font-family: var(--font-header);
   font-size: 16px;
@@ -312,10 +282,9 @@ body {
   text-transform: uppercase;
   color: var(--color-grey-l);
   display: block;
-  margin: 0 0 32px 0; /* exact 32px gap to h2 */
+  margin: 0 0 32px 0;
 }
 
-/* h2 — Geist Mono Light, White (#FFFFFF), Uppercase, trailing grey-l ↘ */
 .section-title {
   font-family: var(--font-header);
   font-weight: 300;
@@ -333,7 +302,6 @@ body {
   display: inline-block;
 }
 
-/* Section Description Wrapper: padding: 56px 88px 24px */
 .section-desc-wrap {
   padding: 56px 88px 24px;
 }
@@ -353,10 +321,6 @@ body {
   max-width: 66ch;
   margin: 0;
 }
-
-/* ==========================================================================
-   HERO BLOCK (h1 = Geist Light White, 64px gap to body)
-   ========================================================================== */
 
 .hero {
   padding: 24px 0;
@@ -388,10 +352,6 @@ body {
   flex-wrap: wrap;
   gap: 16px;
 }
-
-/* ==========================================================================
-   BUTTONS & TWO-PART CTA BUTTON
-   ========================================================================== */
 
 .btn {
   display: inline-flex;
@@ -472,22 +432,6 @@ body {
   border-color: var(--accent-l);
 }
 
-/* ==========================================================================
-   01 / COLOR CHIPS SHOWCASE
-   - Always 3 per row (e.g. red-l, red, red-d), scaling down on small screens
-   - Border inherits the swatch's own color (--chip-color)
-   ========================================================================== */
-
-.palette-group-title {
-  font-family: var(--font-header);
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--color-grey-l);
-  margin: 0 0 24px 0;
-}
-
 .chips-row-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -549,10 +493,6 @@ body {
   word-break: break-word;
 }
 
-/* ==========================================================================
-   02 / CORE TYPOGRAPHY SHOWCASE (1:1 EXACT SIZES, DESCRIPTION TOP, 24PX GAP)
-   ========================================================================== */
-
 .type-list {
   display: flex;
   flex-direction: column;
@@ -597,12 +537,6 @@ body {
   white-space: nowrap;
 }
 
-/* ==========================================================================
-   03 / BRAND MARKS & EXTERNAL SVGS (./svgs/)
-   - Main logo (com-logo-full.svg) spans 100% full width of the list
-   - No stretching, scale-fill only (contain)
-   ========================================================================== */
-
 .marks-main-wrap {
   width: 100%;
   margin-bottom: 24px;
@@ -641,14 +575,16 @@ body {
   padding: clamp(32px, 5vw, 64px) clamp(24px, 5vw, 72px);
 }
 
-.mark-stage .svg-asset {
+.mark-stage .svg-inline,
+.mark-stage .svg-fallback {
   width: 100%;
   height: 100%;
   max-width: 120px;
   max-height: 120px;
 }
 
-.mark-card--main .mark-stage .svg-asset {
+.mark-card--main .mark-stage .svg-inline,
+.mark-card--main .mark-stage .svg-fallback {
   max-width: 100%;
   max-height: 100%;
 }
@@ -686,10 +622,6 @@ body {
   background-color: var(--accent-d-40);
   border-color: var(--accent-l);
 }
-
-/* ==========================================================================
-   04 / COMPONENT PRIMITIVES (VERBOX, HORBOX, SBOX, ORDERED LISTS, CTA)
-   ========================================================================== */
 
 .primitives-stack {
   display: flex;
@@ -829,7 +761,6 @@ body {
   padding: clamp(32px, 4vw, 48px) clamp(24px, 4vw, 56px);
 }
 
-/* ORDERED LISTS — Number cell hugs number; text cell has FULL 4-sided border */
 .com-ordered-list {
   display: flex;
   flex-direction: column;
@@ -875,10 +806,6 @@ body {
   }
 }
 
-/* ==========================================================================
-   05 / LLM CONTEXT & RAW DESIGN.MD VIEWER (Pure #000000)
-   ========================================================================== */
-
 .code-panel {
   border: 1px solid var(--accent-d);
   background-color: var(--color-black);
@@ -922,10 +849,6 @@ body {
   overflow-y: auto;
   white-space: pre-wrap;
 }
-
-/* ==========================================================================
-   TOAST NOTIFICATION
-   ========================================================================== */
 
 .toast {
   position: fixed;
