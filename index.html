@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-accent="red">
+<html lang="en" data-accent="violet">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DESIGN.MD — Court of Moravia</title>
-  <meta name="description" content="Living visual reference and machine-readable design tokens for Court of Moravia." />
+  <meta name="description" content="Living visual reference, slide deck primitives, and machine-readable design tokens for Court of Moravia." />
 
   <!-- Geist & Geist Mono Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,19 +20,20 @@
     <nav class="nav-links" aria-label="Primary sections">
       <a href="#palette">01 / Palette</a>
       <a href="#typography">02 / Typography</a>
-      <a href="#rules">03 / Rules &amp; Grid</a>
-      <a href="#llm-docs">04 / DESIGN.MD</a>
+      <a href="#deck-primitives">03 / Deck Primitives</a>
+      <a href="#rules">04 / Rules &amp; Grid</a>
+      <a href="#llm-docs">05 / DESIGN.MD</a>
     </nav>
 
     <div class="accent-switcher" role="group" aria-label="Select composition accent family">
       <span class="accent-label">Accent:</span>
-      <button type="button" class="accent-btn is-active" data-set-accent="red" style="background:#DF1717" title="Red (#DF1717)"></button>
+      <button type="button" class="accent-btn is-active" data-set-accent="violet" style="background:#8019E5" title="Violet (#8019E5)"></button>
+      <button type="button" class="accent-btn" data-set-accent="red" style="background:#DF1717" title="Red (#DF1717)"></button>
       <button type="button" class="accent-btn" data-set-accent="blue" style="background:#196FE6" title="Blue (#196FE6)"></button>
       <button type="button" class="accent-btn" data-set-accent="green" style="background:#1AE51A" title="Green (#1AE51A)"></button>
       <button type="button" class="accent-btn" data-set-accent="orange" style="background:#FF5500" title="Orange (#FF5500)"></button>
       <button type="button" class="accent-btn" data-set-accent="yellow" style="background:#E5C41A" title="Yellow (#E5C41A)"></button>
       <button type="button" class="accent-btn" data-set-accent="teal" style="background:#14A9B8" title="Teal (#14A9B8)"></button>
-      <button type="button" class="accent-btn" data-set-accent="violet" style="background:#8019E5" title="Violet (#8019E5)"></button>
     </div>
   </header>
 
@@ -60,7 +61,7 @@
           <span>SINGLE SOURCE OF TRUTH</span>
         </div>
         <h1 class="hero-display">WE CHANGE THE GAME OF BUSINESS</h1>
-        <p class="hero-sub">A technical frame. A human purpose. — Click any token to copy.</p>
+        <p class="hero-sub">A technical frame. A human purpose. — Click any token or slide primitive to copy.</p>
 
         <div class="hero-actions">
           <button type="button" class="btn" id="copy-design-md-hero">
@@ -82,7 +83,7 @@
             <span class="section-index">01 / PALETTE — 26 COLOR VARIABLES</span>
             <h2 class="section-title">Color System</h2>
             <p class="section-desc">
-              Use pure black and white as the field. Pick <strong>one accent family</strong> per composition; do not mix multiple hues by default. Click any swatch to copy its HEX value.
+              Use pure black and white as the field. Pick <strong>one accent family</strong> per composition; do not mix multiple hues by default. Notice how <code>--accent-d</code> frames containers while <code>--accent-l</code> highlights monospaced headers.
             </p>
           </div>
         </div>
@@ -125,11 +126,185 @@
         </div>
       </section>
 
-      <!-- 03 / DESIGN CONVENTIONS & ANTI-PATTERNS -->
+      <!-- 03 / SLIDE DECK & UI COMPONENT PRIMITIVES -->
+      <section id="deck-primitives" class="section">
+        <div class="section-header">
+          <div>
+            <span class="section-index">03 / MODULAR LAYOUT PRIMITIVES — 16:9 DECK &amp; WEB BLOCKS</span>
+            <h2 class="section-title">Deck Primitives</h2>
+            <p class="section-desc">
+              Standardized layout modules extracted from the COM deck system (<code>INTRO</code>, <code>CHAPTER</code>, <code>TEXT</code>, <code>SBOX</code>, <code>HORBOX</code>, <code>VERBOX</code>, <code>ROADMAP</code>, <code>GOALS</code>). Click any slide specimen to copy its HTML/CSS prompt snippet.
+            </p>
+          </div>
+        </div>
+
+        <div class="deck-showcase">
+
+          <!-- 1. INTRO -->
+          <article class="slide-specimen" data-copy-snippet="INTRO Slide: Full dark #000000 canvas, 1px solid var(--accent-d) perimeter, centered/left-aligned uppercase Geist Light h1 display title, bottom micro attribution 'COURT OF MORAVIA'.">
+            <div class="slide-specimen-bar">
+              <span>01 // INTRO</span>
+              <span>[CLICK TO COPY SPEC]</span>
+            </div>
+            <div class="slide-canvas">
+              <span class="slide-kicker">COURT OF MORAVIA // DECK</span>
+              <h3 class="slide-display" style="font-size: clamp(26px, 3vw, 38px);">SERIOUS GAMES</h3>
+              <span class="slide-footer-tag">COURT OF MORAVIA</span>
+            </div>
+          </article>
+
+          <!-- 2. CHAPTER -->
+          <article class="slide-specimen" data-copy-snippet="CHAPTER Slide: Full solid var(--accent) background fill, zero borders, high-contrast #000000 uppercase Geist Light display headline.">
+            <div class="slide-specimen-bar">
+              <span>02 // CHAPTER (INVERTED)</span>
+              <span>[CLICK TO COPY SPEC]</span>
+            </div>
+            <div class="slide-canvas slide-canvas--chapter">
+              <span class="slide-kicker" style="margin-bottom:8px;">CHAPTER // 01</span>
+              <h3 class="slide-display" style="font-size: clamp(24px, 2.8vw, 34px);">VYBERTE SI SVOU KVARTÁLNÍ DÁVKU SERIOUS GAMES</h3>
+            </div>
+          </article>
+
+          <!-- 3. TEXT -->
+          <article class="slide-specimen" data-copy-snippet="TEXT Slide: Dark #000000 canvas, uppercase Geist Light statement headline paired with a clean 1-column Geist Regular body paragraph.">
+            <div class="slide-specimen-bar">
+              <span>03 // TEXT</span>
+              <span>[CLICK TO COPY SPEC]</span>
+            </div>
+            <div class="slide-canvas">
+              <span class="slide-kicker">STATEMENT</span>
+              <div>
+                <h3 class="slide-display" style="margin-bottom: 12px;">POJĎME Z VÁS SEJMOUT BŘÍMĚ NENAŠKÁLOVANÉ FIRMY</h3>
+                <p class="slide-copy">Systematický přístup k rozvoji týmů a procesů bez zbytečné omáčky. Jasná pravidla, měřitelný dopad.</p>
+              </div>
+              <span class="slide-footer-tag">COURT OF MORAVIA</span>
+            </div>
+          </article>
+
+          <!-- 4. SBOX -->
+          <article class="slide-specimen" data-copy-snippet="SBOX (Small Box Grid): 2-column equal grid of #121212 cards framed by 1px solid var(--accent-d), uppercase Geist Mono header + Geist Regular body copy.">
+            <div class="slide-specimen-bar">
+              <span>04 // SBOX (2-COL CARDS)</span>
+              <span>[CLICK TO COPY SPEC]</span>
+            </div>
+            <div class="slide-canvas">
+              <span class="slide-kicker">SBOX // TWO-COLUMN COMPARISON</span>
+              <div class="prim-sbox-grid">
+                <div class="prim-box">
+                  <h4 class="slide-mono-title">FILTERED TRUTH</h4>
+                  <p class="slide-copy">Diagnostika reálného stavu firmy bez zkreslení management reporty.</p>
+                </div>
+                <div class="prim-box">
+                  <h4 class="slide-mono-title">TALENT OPTIMIZATION</h4>
+                  <p class="slide-copy">Sladění silných stránek lidí s klíčovými byznysovými cíli.</p>
+                </div>
+              </div>
+              <span class="slide-footer-tag">COURT OF MORAVIA</span>
+            </div>
+          </article>
+
+          <!-- 5. HORBOX -->
+          <article class="slide-specimen" data-copy-snippet="HORBOX (Horizontal Box): Wide horizontal container framed by 1px solid var(--accent-d), split 38%/62% with a vertical 1px divider. Left cell: uppercase Geist Mono label; Right cell: Geist Regular description.">
+            <div class="slide-specimen-bar">
+              <span>05 // HORBOX (HORIZONTAL SPLIT)</span>
+              <span>[CLICK TO COPY SPEC]</span>
+            </div>
+            <div class="slide-canvas">
+              <span class="slide-kicker">HORBOX // PRINCIPLE</span>
+              <div class="prim-horbox">
+                <div class="prim-horbox-left">SLIB: RADIKÁLNÍ UPŘÍMNOST</div>
+                <div class="prim-horbox-right">
+                  <p class="slide-copy">Pojmenováváme věci pravými jmény. Bez korporátní vaty, s respektem k lidem a fokusem na výsledek.</p>
+                </div>
+              </div>
+              <span class="slide-footer-tag">COURT OF MORAVIA</span>
+            </div>
+          </article>
+
+          <!-- 6. VERBOX -->
+          <article class="slide-specimen" data-copy-snippet="VERBOX (Vertical Box): 3-column vertical pillar layout, each column framed in 1px solid var(--accent-d) on #121212 fill with Geist Mono header and Geist body copy.">
+            <div class="slide-specimen-bar">
+              <span>06 // VERBOX (3-COL PILLARS)</span>
+              <span>[CLICK TO COPY SPEC]</span>
+            </div>
+            <div class="slide-canvas">
+              <span class="slide-kicker">VERBOX // THREE PILLARS</span>
+              <div class="prim-verbox-grid">
+                <div class="prim-verbox-col">
+                  <h4 class="slide-mono-title">01 / HRA</h4>
+                  <p class="slide-copy">Bezpečný prostor pro simulaci reálných situací.</p>
+                </div>
+                <div class="prim-verbox-col">
+                  <h4 class="slide-mono-title">02 / REFLEXE</h4>
+                  <p class="slide-copy">Okamžitá zpětná vazba a rozbor rozhodnutí.</p>
+                </div>
+                <div class="prim-verbox-col">
+                  <h4 class="slide-mono-title">03 / PŘENOS</h4>
+                  <p class="slide-copy">Konkrétní akční kroky do každodenní praxe.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. ROADMAP -->
+          <article class="slide-specimen" data-copy-snippet="ROADMAP: 3-column sequential phase grid (e.g., MĚSÍC 1–2: DATA) with 1px solid var(--accent-d) cards and Geist Mono phase tags.">
+            <div class="slide-specimen-bar">
+              <span>07 // ROADMAP</span>
+              <span>[CLICK TO COPY SPEC]</span>
+            </div>
+            <div class="slide-canvas">
+              <span class="slide-kicker">ROADMAP // TIMELINE</span>
+              <div class="prim-verbox-grid">
+                <div class="prim-verbox-col">
+                  <h4 class="slide-mono-title">MĚSÍC 1–2: DATA</h4>
+                  <p class="slide-copy">Sběr dat, hloubkové rozhovory a mapování úzkých hrdel.</p>
+                </div>
+                <div class="prim-verbox-col">
+                  <h4 class="slide-mono-title">MĚSÍC 3–4: DESIGN</h4>
+                  <p class="slide-copy">Návrh intervencí a herních mechanik na míru.</p>
+                </div>
+                <div class="prim-verbox-col">
+                  <h4 class="slide-mono-title">MĚSÍC 5–6: SCALE</h4>
+                  <p class="slide-copy">Implementace do týmu a předání interním ownerům.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8. GOALS / CÍLE -->
+          <article class="slide-specimen" data-copy-snippet="GOALS / CÍLE: Asymmetric 2-column split (36% left large uppercase Geist title 'CÍLE', 64% right stacked bordered objective boxes in 1px solid var(--accent-d)).">
+            <div class="slide-specimen-bar">
+              <span>08 // GOALS (CÍLE)</span>
+              <span>[CLICK TO COPY SPEC]</span>
+            </div>
+            <div class="slide-canvas">
+              <div class="prim-goals-split">
+                <div>
+                  <span class="slide-kicker" style="display:block; margin-bottom:6px;">OBJECTIVES</span>
+                  <h3 class="slide-display" style="font-size: clamp(28px, 3.2vw, 40px);">CÍLE</h3>
+                </div>
+                <div class="prim-goals-list">
+                  <div class="prim-goal-item">
+                    <h4 class="slide-mono-title" style="margin:0 0 2px 0;">01 // RYCHLOST ROZHODOVÁNÍ</h4>
+                    <p class="slide-copy">Odstranění bottlenecků v exekutivě.</p>
+                  </div>
+                  <div class="prim-goal-item">
+                    <h4 class="slide-mono-title" style="margin:0 0 2px 0;">02 // VLASTNICTVÍ V TÝMU</h4>
+                    <p class="slide-copy">Jasné kompetence a zodpovědnost za výsledek.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 04 / DESIGN CONVENTIONS & ANTI-PATTERNS -->
       <section id="rules" class="section">
         <div class="section-header">
           <div>
-            <span class="section-index">03 / COMPOSITION, GEOMETRY &amp; LEGIBILITY</span>
+            <span class="section-index">04 / COMPOSITION, GEOMETRY &amp; LEGIBILITY</span>
             <h2 class="section-title">Design Conventions</h2>
             <p class="section-desc">
               Master grid <code>main</code>: 1 stretch row + 1 stretch column with <code>136px</code> inset (for 1080&times;1080 / 1920&times;1080 formats) and <code>1px</code> gutter.
@@ -171,14 +346,14 @@
         </div>
       </section>
 
-      <!-- 04 / RAW DESIGN.MD FOR LLMS -->
+      <!-- 05 / RAW DESIGN.MD FOR LLMS -->
       <section id="llm-docs" class="section">
         <div class="section-header">
           <div>
-            <span class="section-index">04 / MACHINE-READABLE SPECIFICATION</span>
+            <span class="section-index">05 / MACHINE-READABLE SPECIFICATION</span>
             <h2 class="section-title">DESIGN.MD</h2>
             <p class="section-desc">
-              Ready to paste directly into Claude, ChatGPT, Cursor, or system prompts to enforce Court of Moravia visual rules.
+              Ready to paste directly into Claude, ChatGPT, Cursor, or system prompts to enforce Court of Moravia visual rules and slide primitives.
             </p>
           </div>
         </div>
@@ -200,7 +375,7 @@
     <!-- Bottom Technical Ornament Bar -->
     <div class="frame-bar frame-bar--bottom">
       <span>WE DELIVER CHANGE IN COMPANIES</span>
-      <span class="frame-ticks" aria-hidden="true">\\\\\ XXXXXXXXXX</span>
+      <span class="frame-ticks" aria-hidden="true">\\\ XXXXXXXXXX</span>
       <span>COURT OF MORAVIA // EXPERT GUILD</span>
     </div>
   </div>
@@ -210,21 +385,21 @@
 
   <script>
     const NEUTRALS = [
-      { token: '--color-black',   name: 'BLACK',   hex: '#000000', role: 'Primary background / dark field', border: '#808080' },
-      { token: '--color-black-l', name: 'BLACK-L', hex: '#121212', role: 'Elevated dark surface / subtle fill', border: '#808080' },
+      { token: '--color-black',   name: 'BLACK',   hex: '#000000', role: 'Primary background / dark field' },
+      { token: '--color-black-l', name: 'BLACK-L', hex: '#121212', role: 'Elevated dark surface / subtle fill' },
       { token: '--color-grey-d',  name: 'GREY-D',  hex: '#808080', role: 'Muted borders, secondary labels' },
       { token: '--color-grey-l',  name: 'GREY-L',  hex: '#E8E5E0', role: 'Warm off-white surface / muted fill' },
       { token: '--color-white',   name: 'WHITE',   hex: '#FFFFFF', role: 'Primary light text / inverted field' }
     ];
 
     const ACCENT_FAMILIES = [
+      { id: 'violet', name: 'VIOLET', d: '#4D0691', base: '#8019E5', l: '#A99EFA' },
+      { id: 'red',    name: 'RED',    d: '#910606', base: '#DF1717', l: '#F65656' },
       { id: 'blue',   name: 'BLUE',   d: '#063B91', base: '#196FE6', l: '#9EC4FA' },
       { id: 'green',  name: 'GREEN',  d: '#067008', base: '#1AE51A', l: '#9EFAB0' },
       { id: 'orange', name: 'ORANGE', d: '#913606', base: '#FF5500', l: '#FFB899' },
       { id: 'yellow', name: 'YELLOW', d: '#917806', base: '#E5C41A', l: '#FFEE99' },
-      { id: 'red',    name: 'RED',    d: '#910606', base: '#DF1717', l: '#F65656' },
-      { id: 'teal',   name: 'TEAL',   d: '#068691', base: '#14A9B8', l: '#9EF2FA' },
-      { id: 'violet', name: 'VIOLET', d: '#4D0691', base: '#8019E5', l: '#A99EFA' }
+      { id: 'teal',   name: 'TEAL',   d: '#068691', base: '#14A9B8', l: '#9EF2FA' }
     ];
 
     const TYPOGRAPHY = [
@@ -357,21 +532,37 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 
 ---
 
-## 4. Layout, Grid & Framing Conventions
+## 4. Slide Deck & UI Component Primitives (\`content.pdf\` Spec)
+
+Use these standardized structural primitives when building slide decks, web presentations, or modular UI blocks:
+
+* **Surface & Border Rule:** All cards, boxes, and slides sit on \`#000000\` (or \`#121212\` for nested cards) framed by crisp \`1px\` or \`2px\` solid rules in \`--accent\` or \`--accent-d\`. Zero border-radius (\`0px\`).
+* **\`INTRO\` (Title Slide):** Centered minimal frame with uppercase \`Geist\` Light display title (\`h1\`/\`h2\`) and bottom-anchored \`COURT OF MORAVIA\` attribution in \`Geist Mono\` (\`micro\`).
+* **\`CHAPTER\` (Section Divider):** Full-bleed solid \`--accent\` fill (\`#DF1717\`, \`#8019E5\`, etc.) with high-contrast black (\`#000000\`) or white (\`#FFFFFF\`) uppercase display type.
+* **\`TEXT\` (Statement + Narrative):** Left-aligned bold/light uppercase statement headline paired with a clean 1-column \`body\` paragraph below.
+* **\`SBOX\` (Small Box Grid — 2-Column):** Two equal-width side-by-side bordered cards (\`1px solid var(--accent-d)\`), each containing an uppercase \`Geist Mono\` title (\`h5\`) and \`body\` copy.
+* **\`HORBOX\` (Horizontal Split Row):** Wide horizontal container split into a left \`Geist Mono\` label/index column (e.g., \`SLIB: RADIKÁLNÍ UPŘÍMNOST\`) and a right narrative column.
+* **\`VERBOX\` (Vertical Pillar Grid — 3-Column):** Three tall vertical columns separated by \`1px\` hairline dividers or individual \`1px solid var(--accent-d)\` frames for pillars, packages, or tiers.
+* **\`ROADMAP\` (Sequential Step Grid — 3-Column):** Horizontal progression of numbered phase cards (\`MĚSÍC 1–2: DATA\`, etc.) with \`Geist Mono\` phase headers and \`body\` deliverables.
+* **\`GOALS\` / \`CÍLE\` (Split Objective Matrix):** Asymmetric 2-column layout with a large \`Geist\` display header on the left and stacked bordered objective rows on the right.
+
+---
+
+## 5. Layout, Grid & Framing Conventions
 
 ### Master Grid (\`main\`)
 * **Structure:** 1 stretch row + 1 stretch column (single unified content safe-zone framed by technical perimeter borders).
 * **Outer Inset / Margin:** \`136px\` (for standard \`1080x1080\` post or \`1920x1080\` deck formats; scale proportionally for responsive web viewports).
 * **Gutter:** \`1px\`
 
-### Borders & Technical Ornaments (CSS / HTML Approximation)
-* **Perimeter Framing:** Use thin \`1px\` or \`2px\` solid rules (\`--color-grey-d\` or the active accent color) with crisp \`0px\` border-radius.
+### Borders & Technical Ornaments
+* **Perimeter Framing:** Use thin \`1px\` or \`2px\` solid rules (\`--accent\` or \`--accent-d\`) with crisp \`0px\` border-radius.
 * **Micro-Motifs:** Decorate outer frame edges or section dividers with monospaced ASCII/technical ticks (\`|||||\`, \`/////\`, \`\\\\\\\`, \`XXXXX\`), corner crosshairs, or index numbers (e.g., \`01 / PALETTE\`) set in \`Geist Mono\` (\`14px\`, \`+4%\` tracking).
 * **Negative Space:** Keep the interior canvas clean and uncluttered; never crowd text against the perimeter frame.
 
 ---
 
-## 5. Strict Anti-Patterns (Do NOT Generate)
+## 6. Strict Anti-Patterns (Do NOT Generate)
 * **No rounded corners:** Do not use \`border-radius\` on cards, buttons, or containers (\`0px\` sharp corners only).
 * **No multi-color rainbows:** Never combine Red, Blue, Green, and Yellow accents on the same screen. Stick to Black + White + **1 Accent Family**.
 * **No decorative/serif fonts:** Never substitute \`Geist\` or \`Geist Mono\` with Playfair, Inter, Roboto, or handwritten/script fonts.
@@ -453,7 +644,7 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
         accentsContainer.appendChild(col);
       });
     }
-    renderAccents('red');
+    renderAccents('violet');
 
     // Render Typography
     const typoContainer = document.getElementById('typography-container');
@@ -471,6 +662,14 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
       `;
       row.addEventListener('click', () => copyText(t.cssCopy, t.role + ' CSS'));
       typoContainer.appendChild(row);
+    });
+
+    // Slide Specimen Copy Handlers
+    document.querySelectorAll('.slide-specimen').forEach(slide => {
+      slide.addEventListener('click', () => {
+        const title = slide.querySelector('.slide-specimen-bar span').textContent;
+        copyText(slide.dataset.copySnippet, title + ' SPEC');
+      });
     });
 
     // Populate Raw Markdown Display
