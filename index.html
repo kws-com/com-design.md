@@ -9,20 +9,19 @@
   <!-- Geist & Geist Mono Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@200;300;400;500;700&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@200;300;400;500&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- 9-Part Technical Frame Grid (Scrolls with document) -->
-  <div class="frame-grid">
-    <!-- Top Row: 66px square | 1fr stretch (Menu) | 66px square -->
-    <div class="frame-cell frame-tl" aria-hidden="true">
+  <!-- Sticky Topbar (66px tall, 66px end squares, center stretch with border-bottom) -->
+  <header class="chrome-bar chrome-bar--top">
+    <div class="chrome-end chrome-end--left" aria-hidden="true">
       <div class="slot-corner" title="30x30px corner SVG slot"></div>
     </div>
 
-    <header class="frame-cell frame-tc">
+    <div class="chrome-center chrome-center--top">
       <nav class="nav-links" aria-label="Primary sections">
         <a href="#palette">01 Palette</a>
         <a href="#typography">02 Typography</a>
@@ -40,113 +39,93 @@
         <button type="button" class="accent-btn" data-set-accent="teal" style="background:#14A9B8" title="Teal (#14A9B8)"></button>
         <button type="button" class="accent-btn" data-set-accent="violet" style="background:#8019E5" title="Violet (#8019E5)"></button>
       </div>
-    </header>
+    </div>
 
-    <div class="frame-cell frame-tr" aria-hidden="true">
+    <div class="chrome-end chrome-end--right" aria-hidden="true">
       <div class="slot-corner" title="30x30px corner SVG slot"></div>
     </div>
+  </header>
 
-    <!-- Center Row: 66px left rail | 1fr content | 66px right rail -->
-    <div class="frame-cell frame-cl" aria-hidden="true">
-      <div class="slot-edge-v" title="2x300px left SVG slot"></div>
-    </div>
+  <!-- Main Content -->
+  <main class="page-main">
+    <div class="main-container">
 
-    <main class="frame-center">
-      <div class="main-container">
+      <!-- HERO -->
+      <section class="hero">
+        <h1 class="hero-display">WE CHANGE THE GAME OF BUSINESS</h1>
+        <p class="hero-body">
+          A technical frame. A human purpose. Click any color chip, typography specimen, or component primitive to copy its exact token or CSS rule.
+        </p>
 
-        <!-- HERO -->
-        <section class="hero">
-          <h1 class="hero-display">WE CHANGE THE GAME OF BUSINESS</h1>
-          <p class="hero-body">
-            A technical frame. A human purpose. Click any color swatch, type style, or component primitive to copy its exact token or CSS specification.
-          </p>
+        <div class="hero-actions">
+          <button type="button" class="btn" id="copy-design-md-hero">
+            Copy DESIGN.MD for LLMs
+          </button>
+          <button type="button" class="btn btn--side" id="copy-css-vars">
+            Copy CSS Variables
+          </button>
+          <a href="DESIGN.md" download="DESIGN.md" class="btn btn--side">
+            Download DESIGN.md
+          </a>
+        </div>
+      </section>
 
-          <div class="hero-actions">
-            <button type="button" class="btn" id="copy-design-md-hero">
-              Copy DESIGN.MD for LLMs
-            </button>
-            <button type="button" class="btn btn--side" id="copy-css-vars">
-              Copy CSS Variables
-            </button>
-            <a href="DESIGN.md" download="DESIGN.md" class="btn btn--side">
-              Download DESIGN.md
-            </a>
+      <!-- 01 / COLOR SYSTEM -->
+      <section id="palette" class="section">
+        <div class="section-header">
+          <span class="section-eyebrow">01</span>
+          <h2 class="section-title">Color System<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+          <div class="section-desc-wrap">
+            <p class="section-desc">
+              Ordered sequence: Red (default), Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black. Interactive elements use accent-l; structural borders and decorative lines use accent-d.
+            </p>
           </div>
-        </section>
+        </div>
 
-        <!-- 01 / COLOR SYSTEM -->
-        <section id="palette" class="section">
-          <div class="section-header">
-            <span class="section-eyebrow">01</span>
-            <h2 class="section-title">Color System<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
-            <div class="section-desc-wrap">
-              <p class="section-desc">
-                Pure black (#000000) is the sole canvas background across all pages and components. White (#FFFFFF) is reserved strictly for h1–h3 headers and body text; everything else uses grey-l (#E8E5E0) or the active accent color.
-              </p>
-            </div>
+        <h3 class="palette-group-title">Active Accent Family Chips</h3>
+        <div class="chips-grid" id="active-family-chips"></div>
+
+        <h3 class="palette-group-title">All Accent Families (Base Swatches)</h3>
+        <div class="chips-grid" id="all-accent-chips"></div>
+
+        <h3 class="palette-group-title">White + Grey &amp; Black</h3>
+        <div class="chips-grid" id="neutral-chips"></div>
+      </section>
+
+      <!-- 02 / TYPOGRAPHY SYSTEM -->
+      <section id="typography" class="section">
+        <div class="section-header">
+          <span class="section-eyebrow">02</span>
+          <h2 class="section-title">Core Typography<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+          <div class="section-desc-wrap">
+            <p class="section-desc">
+              Rendered at 1:1 scale. Geist is used exclusively for h1, body text, and the lower CTA label. Geist Mono is used for everything else, set in uppercase.
+            </p>
           </div>
+        </div>
 
-          <!-- 7 Accent Families in Exact Sequence -->
-          <div class="accent-matrix" id="accents-container"></div>
+        <div class="type-list" id="typography-container"></div>
+      </section>
 
-          <!-- White + Grey, Black -->
-          <div class="neutrals-grid" id="neutrals-container"></div>
-        </section>
-
-        <!-- 02 / TYPOGRAPHY SYSTEM -->
-        <section id="typography" class="section">
-          <div class="section-header">
-            <span class="section-eyebrow">02</span>
-            <h2 class="section-title">Core Typography<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
-            <div class="section-desc-wrap">
-              <p class="section-desc">
-                Geist is used exclusively for h1, body text, and the lower CTA label. Geist Mono is used for everything else, set in uppercase. Body paragraphs are capped at 66ch for optimal reading comfort.
-              </p>
-            </div>
+      <!-- 03 / COMPONENT PRIMITIVES -->
+      <section id="primitives" class="section">
+        <div class="section-header">
+          <span class="section-eyebrow">03</span>
+          <h2 class="section-title">Component Primitives<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+          <div class="section-desc-wrap">
+            <p class="section-desc">
+              Composite blocks never carry an outer wrapper border as a whole—borders and fills apply strictly to their inner frames on a pure black background.
+            </p>
           </div>
+        </div>
 
-          <div class="type-list" id="typography-container"></div>
+        <div class="primitives-stack">
 
-          <!-- Line Measure Comparison: 20ch vs 66ch vs 120ch in 12px -->
-          <div class="measure-showcase">
-            <div class="measure-item">
-              <span class="measure-label">20ch Measure (12px — Too Narrow, Excessive Line Breaks)</span>
-              <p class="measure-sample measure-20ch">
-                We deliver change in companies by replacing vague corporate theory with structured action, clear ownership, and measurable execution.
-              </p>
-            </div>
-            <div class="measure-item">
-              <span class="measure-label">66ch Measure (12px — Standard COM Reading Convention)</span>
-              <p class="measure-sample measure-66ch">
-                We deliver change in companies by replacing vague corporate theory with structured action, clear ownership, and measurable execution. Every paragraph stays within 66 characters so the eye tracks effortlessly across large monitors.
-              </p>
-            </div>
-            <div class="measure-item">
-              <span class="measure-label">120ch Measure (12px — Too Wide, Eye Tracking Fatigue)</span>
-              <p class="measure-sample measure-120ch">
-                We deliver change in companies by replacing vague corporate theory with structured action, clear ownership, and measurable execution. When lines stretch to 120 characters across wide displays, readers lose their place returning to the left margin.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- 03 / COMPONENT PRIMITIVES -->
-        <section id="primitives" class="section">
-          <div class="section-header">
-            <span class="section-eyebrow">03</span>
-            <h2 class="section-title">Component Primitives<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
-            <div class="section-desc-wrap">
-              <p class="section-desc">
-                Composite blocks never carry an outer wrapper border as a whole—borders and fills apply strictly to their inner frames on a pure black background.
-              </p>
-            </div>
-          </div>
-
-          <div class="primitives-stack">
-
-            <!-- VERBOX (Vertical Box: content stacked in a column) -->
-            <div class="verbox" data-copy-snippet="VERBOX: Top hug header (padding: 24px 48px; background: var(--accent); color: #000000) + bottom box (border: 1px solid var(--accent); padding: 64px 72px; gap: 64px) with h6 (color: var(--accent), gap: 24px) + body (max-width: 66ch).">
-              <div class="verbox-header">VERBOX HEADER</div>
+          <!-- VERBOX -->
+          <div class="primitive-unit">
+            <p class="primitive-micro-desc">VERBOX — Vertical stack container with hug h5 header (padding 24px 48px) and 64px vertical item gap</p>
+            <div class="verbox" data-copy-snippet="VERBOX: Top hug h5 header (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l)) + bottom box (border: 1px solid var(--accent-d); padding: 64px 72px; gap: 64px) with h6 (color: var(--accent-l), gap: 24px) + body (max-width: 66ch).">
+              <h5 class="verbox-header">VERBOX HEADER</h5>
               <div class="verbox-body">
                 <div class="text-pair">
                   <h6 class="text-pair-h6">01 RADIKÁLNÍ UPŘÍMNOST</h6>
@@ -162,10 +141,13 @@
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- HORBOX (Horizontal Box: columns in a row) -->
-            <div class="horbox" data-copy-snippet="HORBOX: Top hug header (padding: 48px 72px; background: var(--accent); color: #000000) + horizontal row box (border: 1px solid var(--accent); padding: 64px 72px; gap: 56px) with h6 (color: var(--accent), gap: 24px) + body (max-width: 66ch).">
-              <div class="horbox-header">HORBOX HEADER</div>
+          <!-- HORBOX -->
+          <div class="primitive-unit">
+            <p class="primitive-micro-desc">HORBOX — Horizontal multi-column container with unified hug h5 header (padding 24px 48px) and 56px column gap</p>
+            <div class="horbox" data-copy-snippet="HORBOX: Top hug h5 header (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l)) + horizontal row box (border: 1px solid var(--accent-d); padding: 64px 72px; gap: 56px) with h6 (color: var(--accent-l), gap: 24px) + body (max-width: 66ch).">
+              <h5 class="horbox-header">HORBOX HEADER</h5>
               <div class="horbox-body">
                 <div class="text-pair">
                   <h6 class="text-pair-h6">DIAGNOSTIKA</h6>
@@ -181,10 +163,13 @@
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- SBOX (Small Box: 100% width h5 header + 48px 56px body frame) -->
+          <!-- SBOX -->
+          <div class="primitive-unit">
+            <p class="primitive-micro-desc">SBOX — Small box with 100% full-width h5 header and 48px 56px body frame</p>
             <div class="sbox-grid">
-              <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; background: var(--accent); color: #000000; padding: 24px 40px) + bottom frame (border: 1px solid var(--accent); padding: 48px 56px) with body text (max-width: 66ch).">
+              <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l); padding: 24px 40px) + bottom frame (border: 1px solid var(--accent-d); padding: 48px 56px) with body text (max-width: 66ch).">
                 <h5 class="sbox-header">FILTERED TRUTH</h5>
                 <div class="sbox-body">
                   <p class="box-body-text">
@@ -193,7 +178,7 @@
                 </div>
               </div>
 
-              <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; background: var(--accent); color: #000000; padding: 24px 40px) + bottom frame (border: 1px solid var(--accent); padding: 48px 56px) with body text (max-width: 66ch).">
+              <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l); padding: 24px 40px) + bottom frame (border: 1px solid var(--accent-d); padding: 48px 56px) with body text (max-width: 66ch).">
                 <h5 class="sbox-header">TALENT OPTIMIZATION</h5>
                 <div class="sbox-body">
                   <p class="box-body-text">
@@ -202,76 +187,82 @@
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- ORDERED LISTS -->
+          <!-- ORDERED LISTS -->
+          <div class="primitive-unit">
+            <p class="primitive-micro-desc">ORDERED LIST — Top-aligned hugging number cell paired with flush uppercase h6 regular text frame</p>
             <div class="com-ordered-list">
-              <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left number cell (padding: 24px; border: 1px solid var(--accent); color: var(--accent); h6 bold; number only) + Right text cell (padding: 24px 48px; background: var(--accent); color: #000000; h6 bold uppercase).">
+              <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular uppercase).">
                 <div class="com-ol-num">1</div>
                 <div class="com-ol-text">POJMENUJEME SKUTEČNÝ PROBLÉM BEZ KORPORÁTNÍHO BALASTU</div>
               </div>
-              <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left number cell (padding: 24px; border: 1px solid var(--accent); color: var(--accent); h6 bold; number only) + Right text cell (padding: 24px 48px; background: var(--accent); color: #000000; h6 bold uppercase).">
+              <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular uppercase).">
                 <div class="com-ol-num">2</div>
                 <div class="com-ol-text">NAVRHNEME SYSTÉM A HERNÍ MECHANIKY, KTERÉ V TÝMU PŘENESOU ODPOVĚDNOST Z JEDNOTLIVCE NA CELEK A ODSTRANÍ ROZHODOVACÍ PARALÝZU</div>
               </div>
-              <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left number cell (padding: 24px; border: 1px solid var(--accent); color: var(--accent); h6 bold; number only) + Right text cell (padding: 24px 48px; background: var(--accent); color: #000000; h6 bold uppercase).">
+              <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular uppercase).">
                 <div class="com-ol-num">3</div>
                 <div class="com-ol-text">PŘEDÁME NÁSTROJE INTERNÍM LÍDRŮM DO KAŽDODENNÍ PRAXE</div>
               </div>
             </div>
+          </div>
 
-            <!-- TWO-PART CTA BUTTON -->
+          <!-- TWO-PART CTA BUTTON -->
+          <div class="primitive-unit">
+            <p class="primitive-micro-desc">CTA BUTTON — Two-part action block with hug h6 context header and 32px Geist Medium underlined trigger</p>
             <div>
-              <a href="#llm-docs" class="cta-block" data-copy-snippet="Two-Part CTA Button: Top frame (padding: 24px 40px; background: #000000; border: 1px solid var(--accent); h6) + Bottom frame (padding: 40px 48px; background: var(--accent); font-family: 'Geist'; font-size: 32px; font-weight: 500; text-decoration: underline; color: #000000).">
+              <a href="#llm-docs" class="cta-block" data-copy-snippet="Two-Part CTA Button: Top hug frame (padding: 24px 40px; background: #000000; border: 1px solid var(--accent-d); h6 accent-l) + Bottom frame (padding: 40px 48px; background: var(--accent-l); font-family: 'Geist'; font-size: 32px; font-weight: 500; text-decoration: underline; color: #000000).">
                 <span class="cta-top">READY TO IMPLEMENT THIS SYSTEM</span>
                 <span class="cta-bottom">COPY FULL SPECIFICATION</span>
               </a>
             </div>
-
           </div>
-        </section>
 
-        <!-- 04 / RAW DESIGN.MD FOR LLMS -->
-        <section id="llm-docs" class="section">
-          <div class="section-header">
-            <span class="section-eyebrow">04</span>
-            <h2 class="section-title">DESIGN.MD<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
-            <div class="section-desc-wrap">
-              <p class="section-desc">
-                Machine-readable design system specification ready to paste directly into LLM system prompts.
-              </p>
+        </div>
+      </section>
+
+      <!-- 04 / RAW DESIGN.MD FOR LLMS -->
+      <section id="llm-docs" class="section">
+        <div class="section-header">
+          <span class="section-eyebrow">04</span>
+          <h2 class="section-title">DESIGN.MD<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+          <div class="section-desc-wrap">
+            <p class="section-desc">
+              Machine-readable design system specification ready to paste directly into LLM system prompts.
+            </p>
+          </div>
+        </div>
+
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span class="code-filename">DESIGN.md</span>
+            <div class="code-actions">
+              <button type="button" class="btn" id="copy-design-md-panel">Copy Markdown</button>
+              <a href="DESIGN.md" download="DESIGN.md" class="btn btn--side">Download .md</a>
             </div>
           </div>
+          <pre class="code-block" id="raw-markdown-display"></pre>
+        </div>
+      </section>
 
-          <div class="code-panel">
-            <div class="code-panel-header">
-              <span class="code-filename">DESIGN.md</span>
-              <div class="code-actions">
-                <button type="button" class="btn" id="copy-design-md-panel">Copy Markdown</button>
-                <a href="DESIGN.md" download="DESIGN.md" class="btn btn--side">Download .md</a>
-              </div>
-            </div>
-            <pre class="code-block" id="raw-markdown-display"></pre>
-          </div>
-        </section>
-
-      </div>
-    </main>
-
-    <div class="frame-cell frame-cr" aria-hidden="true">
-      <div class="slot-edge-v" title="2x300px right SVG slot"></div>
     </div>
+  </main>
 
-    <!-- Bottom Row: 66px square | 1fr stretch | 66px square -->
-    <div class="frame-cell frame-bl" aria-hidden="true">
+  <!-- Sticky Footer (66px tall, 66px end squares, center stretch with border-top) -->
+  <footer class="chrome-bar chrome-bar--bottom">
+    <div class="chrome-end chrome-end--left" aria-hidden="true">
       <div class="slot-corner" title="30x30px corner SVG slot"></div>
     </div>
-    <div class="frame-cell frame-bc" aria-hidden="true">
-      <div class="slot-edge-h" title="300x2px bottom SVG slot"></div>
+
+    <div class="chrome-center chrome-center--bottom">
+      <div class="slot-edge-h" title="300x2px footer SVG slot"></div>
     </div>
-    <div class="frame-cell frame-br" aria-hidden="true">
+
+    <div class="chrome-end chrome-end--right" aria-hidden="true">
       <div class="slot-corner" title="30x30px corner SVG slot"></div>
     </div>
-  </div>
+  </footer>
 
   <!-- Copy Feedback Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -290,68 +281,141 @@
 
     /* White + Grey, Black */
     const NEUTRALS = [
-      { token: '--color-white',   name: 'WHITE',   hex: '#FFFFFF', role: 'Strictly h1–h3 headers & body text' },
-      { token: '--color-grey-l',  name: 'GREY-L',  hex: '#E8E5E0', role: 'Secondary text, labels & h2 arrow' },
-      { token: '--color-grey-d',  name: 'GREY-D',  hex: '#808080', role: 'Muted borders & structural hairlines' },
-      { token: '--color-black-l', name: 'BLACK-L', hex: '#121212', role: 'Reserved token (never used in boxes)' },
-      { token: '--color-black',   name: 'BLACK',   hex: '#000000', role: 'Sole canvas background & filled text' }
+      { name: 'WHITE',   hex: '#FFFFFF', textColor: '#000000' },
+      { name: 'GREY-L',  hex: '#E8E5E0', textColor: '#000000' },
+      { name: 'GREY-D',  hex: '#808080', textColor: '#000000' },
+      { name: 'BLACK-L', hex: '#121212', textColor: '#FFFFFF' },
+      { name: 'BLACK',   hex: '#000000', textColor: '#FFFFFF' }
     ];
 
+    /* Exact Color Format Converters (HEX -> RGB, HSL, OKLCH) */
+    function hexToRgbObj(hex) {
+      const clean = hex.replace('#', '');
+      const num = parseInt(clean, 16);
+      return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+    }
+
+    function formatRgb(hex) {
+      const { r, g, b } = hexToRgbObj(hex);
+      return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    function formatHsl(hex) {
+      let { r, g, b } = hexToRgbObj(hex);
+      r /= 255; g /= 255; b /= 255;
+      const max = Math.max(r, g, b), min = Math.min(r, g, b);
+      let h = 0, s = 0, l = (max + min) / 2;
+      if (max !== min) {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+          case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+          case g: h = (b - r) / d + 2; break;
+          case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+      }
+      return `hsl(${Math.round(h * 360)}, ${Math.round(s * 100)}%, ${Math.round(l * 100)}%)`;
+    }
+
+    function formatOklch(hex) {
+      let { r, g, b } = hexToRgbObj(hex);
+      const toLinear = c => {
+        c /= 255;
+        return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+      };
+      const lr = toLinear(r), lg = toLinear(g), lb = toLinear(b);
+      const l = 0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb;
+      const m = 0.2119034982 * lr + 0.6806995451 * lg + 0.1073969566 * lb;
+      const s = 0.0883024619 * lr + 0.2817188376 * lg + 0.6299787005 * lb;
+
+      const l_ = Math.cbrt(l), m_ = Math.cbrt(m), s_ = Math.cbrt(s);
+      const L = 0.2104542553 * l_ + 0.7936177850 * m_ - 0.0040720468 * s_;
+      const a = 1.9779984951 * l_ - 2.4285922050 * m_ + 0.4505937099 * s_;
+      const bVal = 0.0259040371 * l_ + 0.7827717662 * m_ - 0.8086757660 * s_;
+
+      const C = Math.sqrt(a * a + bVal * bVal);
+      let H = Math.atan2(bVal, a) * (180 / Math.PI);
+      if (H < 0) H += 360;
+
+      const Lpct = (L * 100).toFixed(1);
+      const Cval = C.toFixed(3);
+      const Hdeg = C < 0.0005 ? '0' : Math.round(H);
+      return `oklch(${Lpct}% ${Cval} ${Hdeg})`;
+    }
+
+    function createColorChip(name, hex, textColor, badgeText) {
+      const chip = document.createElement('div');
+      chip.className = 'color-chip';
+      const upperHex = hex.toUpperCase();
+      const rgbStr = formatRgb(upperHex);
+      const hslStr = formatHsl(upperHex);
+      const oklchStr = formatOklch(upperHex);
+
+      chip.innerHTML = `
+        <div class="chip-top" style="background-color:${upperHex}; color:${textColor};">
+          <span>${name}</span>
+          ${badgeText ? `<span class="chip-active-dot">${badgeText}</span>` : ''}
+        </div>
+        <div class="chip-bottom">
+          <p class="chip-val">HEX: ${upperHex}</p>
+          <p class="chip-val">RGB: ${rgbStr}</p>
+          <p class="chip-val">HSL: ${hslStr}</p>
+          <p class="chip-val">OKLCH: ${oklchStr}</p>
+        </div>
+      `;
+      chip.addEventListener('click', () => copyText(upperHex, `${name} ${upperHex}`));
+      return chip;
+    }
+
+    /* Exact 1:1 Typography Scale */
     const TYPOGRAPHY = [
       {
-        role: 'h1 · Geist Light',
-        meta: '160px · 110% line · 0% tracking · #FFFFFF · 64px gap to body',
+        role: 'H1 · GEIST LIGHT · 160PX · 110% LINE · 0% TRACKING · #FFFFFF',
         sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: var(--font-body); font-weight: 300; font-size: clamp(36px, 5vw, 72px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);",
+        previewStyle: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
         cssCopy: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
       },
       {
-        role: 'h2 · Geist Mono Light',
-        meta: '96px · 110% line · 0% tracking · #FFFFFF + grey-l ↘ · 40px gap',
+        role: 'H2 · GEIST MONO LIGHT · 96PX · 110% LINE · 0% TRACKING · #FFFFFF',
         sample: 'CHANGE THE GAME ↘',
-        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: clamp(30px, 4vw, 56px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);",
+        previewStyle: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
         cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
       },
       {
-        role: 'h3 · Geist Mono ExtraLight',
-        meta: '64px · 110% line · 0% tracking · #FFFFFF · 24px gap to body',
+        role: 'H3 · GEIST MONO EXTRALIGHT · 64PX · 110% LINE · 0% TRACKING · #FFFFFF',
         sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: var(--font-header); font-weight: 200; font-size: clamp(26px, 3.2vw, 44px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);",
+        previewStyle: "font-family: 'Geist Mono', monospace; font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
         cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
       },
       {
-        role: 'h4 · Geist Mono Light',
-        meta: '48px · 110% line · 0% tracking · GREY-L / ACCENT',
+        role: 'H4 · GEIST MONO LIGHT · 48PX · 110% LINE · 0% TRACKING · GREY-L',
         sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: clamp(22px, 2.6vw, 36px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-grey-l);",
+        previewStyle: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #E8E5E0;",
         cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #E8E5E0;"
       },
       {
-        role: 'h5 · Geist Mono Regular',
-        meta: '32px · 110% line · +4% tracking · GREY-L / ACCENT',
+        role: 'H5 · GEIST MONO REGULAR · 32PX · 110% LINE · +4% TRACKING · ACCENT-L',
         sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: clamp(20px, 2vw, 28px); line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent);",
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent);"
+        previewStyle: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-l);",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-l);"
       },
       {
-        role: 'h6 · Geist Mono Light',
-        meta: '24px · 130% line · +1% tracking · GREY-L / ACCENT',
+        role: 'H6 · GEIST MONO LIGHT · 24PX · 130% LINE · +1% TRACKING · GREY-L',
         sample: 'WE DELIVER CHANGE IN COMPANIES',
-        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: var(--color-grey-l);",
+        previewStyle: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: #E8E5E0;",
         cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: #E8E5E0;"
       },
       {
-        role: 'body · Geist Regular',
-        meta: '24px · 130% line · 0% tracking · #FFFFFF · max-width: 66ch',
+        role: 'BODY · GEIST REGULAR · 24PX · 130% LINE · 0% TRACKING · #FFFFFF · MAX-WIDTH 66CH',
         sample: 'We deliver change in companies. We change the game of business.',
-        previewStyle: "font-family: var(--font-body); font-weight: 400; font-size: 22px; line-height: 1.3; letter-spacing: 0; color: var(--color-white); max-width: 66ch;",
+        previewStyle: "font-family: 'Geist', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #FFFFFF; max-width: 66ch; white-space: normal;",
         cssCopy: "font-family: 'Geist', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #FFFFFF; max-width: 66ch;"
       },
       {
-        role: 'micro · Geist Mono Regular',
-        meta: '14px · 110% line · +4% tracking · GREY-L / ACCENT',
+        role: 'MICRO · GEIST MONO REGULAR · 14PX · 110% LINE · +4% TRACKING · GREY-L',
         sample: 'COURT OF MORAVIA · EXPERT GUILD',
-        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-grey-l);",
+        previewStyle: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #E8E5E0;",
         cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #E8E5E0;"
       }
     ];
@@ -368,12 +432,15 @@
 
 When generating UI, web pages, slide decks, or digital assets for **Court of Moravia (COM)**, strictly follow these rules:
 
-1. **01 PURE BLACK CANVAS ONLY:** Pure black (\`#000000\`) is the **only** surface background color used across pages, \`verbox\`, \`horbox\`, \`sbox\`, and layout containers. Never use \`#121212\` (\`black-l\`) inside boxes or cards—the only exception is button hover states (\`rgba(accent-d, 0.40)\`).
-2. **02 COLOR SEQUENCE & STRICT TEXT ROLES:** Choose **one accent family per composition** (defaulting to **Red** \`#DF1717\`). The canonical palette sequence is: **Red, Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black**. Pure white (\`#FFFFFF\`) is strictly reserved for \`h1\`–\`h3\` headers and \`body\` text; all other text, eyebrows, labels, and subheadings (\`h4\`–\`h6\`, \`micro\`) must use \`grey-l\` (\`#E8E5E0\`) or the active \`--accent\` color.
-3. **03 TYPOGRAPHY ROLES & MEASURE:** \`Geist\` is used exclusively for \`h1\` display titles, \`body\` text, and the bottom label of CTA buttons. \`Geist Mono\` is used for everything else (\`h2\`–\`h6\`, box headers, ordered lists, navigation, and standard buttons). All text outside \`body\` copy uses \`text-transform: uppercase\`. Body paragraphs must never exceed \`max-width: 66ch\` to ensure optimal reading measure.
-4. **04 SPACING & PROPORTIONAL RHYTHM:** Standard spacing is strictly based on multiples of \`8px\` (\`0px\` or minimum \`8px\`, typically larger). Vertical gaps between \`body\` text and headings scale proportionally: at least \`24px\` below \`h3\`–\`h6\`, at least \`40px\` below \`h2\`, and at least \`64px\` below \`h1\`.
-5. **05 GEOMETRY & COMPONENT BOUNDARIES:** Favor flat, angular marks and crisp \`0px\` border-radius rectangular framing. Avoid rounded corners, drop shadows, glassmorphism, and soft gradients. Composite components (\`horbox\`, \`verbox\`, \`sbox\`, \`cta-button\`, ordered lists) **never have an outer wrapper border as a whole**—borders and fills apply strictly to their individual inner parts. For non-web deliverables (slide decks, print), standard border stroke width is \`2px\` aligned **inside**.
-6. **06 FUNCTIONAL MINIMALISM:** Zero decorative "tech larp" or terminal cosplay—do not use \`//\`, \`/\`, or bracketed flavor text (e.g., \`[CLICK TO COPY]\`) as inline dividers or decorative labels. Minimize eyebrow text (\`h5\` section numbers) to an absolute minimum.
+1. **01 PURE BLACK CANVAS ONLY:** Pure black (\`#000000\`) is the **only** surface background color used across pages, \`verbox\`, \`horbox\`, \`sbox\`, color chips, and layout containers. Never use \`#121212\` (\`black-l\`) inside boxes or cards—the only exception is button and interactive hover states (\`rgba(accent-d, 0.40)\`).
+2. **02 ACCENT ROLES (\`-L\` vs. \`-D\`):** Choose **one accent family per composition** (defaulting to **Red** \`#DF1717\`). The canonical palette sequence is: **Red, Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black**.
+   * **Interactive Elements:** Every interactive element (buttons, links, active controls, hover text) uses \`--accent-l\` (\`#F65656\` for Red) or transitions to \`--accent-l\` on hover.
+   * **Structural Lines & Decorative Elements:** Every border, hairline divider, and non-textual decorative element uses \`--accent-d\` (\`#910606\` for Red).
+3. **03 STRICT TEXT COLOR ROLES:** Pure white (\`#FFFFFF\`) is strictly reserved for \`h1\`–\`h3\` headers and \`body\` text (plus the value breakdown inside color chips). All other text, eyebrows, labels, and subheadings (\`h4\`–\`h6\`, \`micro\`) must use \`grey-l\` (\`#E8E5E0\`) or \`--accent\` / \`--accent-l\`.
+4. **04 TYPOGRAPHY ROLES & MEASURE:** \`Geist\` is used exclusively for \`h1\` display titles, \`body\` text, and the bottom label of CTA buttons. \`Geist Mono\` is used for everything else (\`h2\`–\`h6\`, box headers, ordered lists, navigation, and standard buttons). All text outside \`body\` copy uses \`text-transform: uppercase\`. Body paragraphs must never exceed \`max-width: 66ch\` to ensure optimal reading measure.
+5. **05 SPACING & PROPORTIONAL RHYTHM:** Standard spacing is strictly based on multiples of \`8px\` (\`0px\` or minimum \`8px\`, typically larger). Vertical gaps between \`body\` text and headings scale proportionally: at least \`24px\` below \`h3\`–\`h6\`, at least \`40px\` below \`h2\`, and at least \`64px\` below \`h1\`.
+6. **06 GEOMETRY & COMPONENT BOUNDARIES:** Favor flat, angular marks and crisp \`0px\` border-radius rectangular framing. Composite components (\`horbox\`, \`verbox\`, \`sbox\`, \`cta-button\`, ordered lists) **never have an outer wrapper border as a whole**—borders and fills apply strictly to their individual inner parts. For non-web deliverables (slide decks, print), standard border stroke width is \`2px\` aligned **inside**.
+7. **07 FUNCTIONAL MINIMALISM:** Zero decorative "tech larp" or terminal cosplay—do not use \`//\`, \`/\`, or bracketed flavor text (e.g., \`[CLICK TO COPY]\`) as inline dividers or decorative labels. Minimize eyebrow text (\`h5\` section numbers) to an absolute minimum.
 
 ---
 
@@ -382,7 +449,7 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 *Strict sequence: Red (default), Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black.*
 
 ### Accent Families (Pick ONE per composition; Default = Red)
-| Family | Dark (\`-D\`) | Base (Primary) | Light (\`-L\`) |
+| Family | Dark (\`-D\` · Lines/Borders) | Base (Primary) | Light (\`-L\` · Interactive) |
 | :--- | :--- | :--- | :--- |
 | **Red (Default)** | \`#910606\` | \`#DF1717\` | \`#F65656\` |
 | **Blue** | \`#063B91\` | \`#196FE6\` | \`#9EC4FA\` |
@@ -396,10 +463,15 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 | Token | Hex | Strict Usage Role |
 | :--- | :--- | :--- |
 | \`--color-white\` | \`#FFFFFF\` | **Restricted:** \`h1\`–\`h3\` headers and \`body\` text only |
-| \`--color-grey-l\` | \`#E8E5E0\` | Secondary text, labels, metadata, and \`h2\` trailing \`↘\` arrow |
-| \`--color-grey-d\` | \`#808080\` | Muted structural hairlines and frame rails |
+| \`--color-grey-l\` | \`#E8E5E0\` | Secondary text, box headers, labels, and \`h2\` trailing \`↘\` arrow |
+| \`--color-grey-d\` | \`#808080\` | Muted neutral reference |
 | \`--color-black-l\` | \`#121212\` | Reserved token only — never used as a card or box background |
 | \`--color-black\` | \`#000000\` | Universal background canvas and primary filled-element text |
+
+### Color Chip Specification
+Each color token is documented as a split two-part chip:
+1. **Top Swatch Frame:** \`padding: 32px 40px\`, \`background-color: $color\`, \`color: #000000\` (or \`#FFFFFF\` on dark shades), displaying the \`h5\` token name (e.g., \`RED-L\`).
+2. **Bottom Spec Frame:** \`padding: 32px 40px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`color: #FFFFFF\`, \`display: flex; flex-direction: column; gap: 24px\`, containing four stacked paragraphs: **HEX**, **RGB**, **HSL**, and **OKLCH**.
 
 ---
 
@@ -415,11 +487,11 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 | \`h1\` | Geist | Light (300) | \`160px\` | \`110%\` | \`0%\` | \`#FFFFFF\` | UPPERCASE |
 | \`h2\` | Geist Mono | Light (300) | \`96px\` | \`110%\` | \`0%\` | \`#FFFFFF\` (with \`grey-l\` \`↘\`) | UPPERCASE |
 | \`h3\` | Geist Mono | ExtraLight (200) | \`64px\` | \`110%\` | \`0%\` | \`#FFFFFF\` | UPPERCASE |
-| \`h4\` | Geist Mono | Light (300) | \`48px\` | \`110%\` | \`0%\` | \`grey-l\` or \`--accent\` | UPPERCASE |
-| \`h5\` | Geist Mono | Regular (400) | \`32px\` | \`110%\` | \`+4%\` | \`grey-l\` or \`--accent\` | UPPERCASE |
-| \`h6\` | Geist Mono | Light (300) | \`24px\` | \`130%\` | \`+1%\` | \`grey-l\` or \`--accent\` | UPPERCASE |
+| \`h4\` | Geist Mono | Light (300) | \`48px\` | \`110%\` | \`0%\` | \`grey-l\` or \`--accent-l\` | UPPERCASE |
+| \`h5\` | Geist Mono | Regular (400) | \`32px\` | \`110%\` | \`+4%\` | \`grey-l\` or \`--accent-l\` | UPPERCASE |
+| \`h6\` | Geist Mono | Light (300) | \`24px\` | \`130%\` | \`+1%\` | \`grey-l\` or \`--accent-l\` | UPPERCASE |
 | \`body\` | Geist | Regular (400) | \`24px\` | \`130%\` | \`0%\` | \`#FFFFFF\` (\`max-width: 66ch\`) | Sentence case |
-| \`micro\` | Geist Mono | Regular (400) | \`14px\` | \`110%\` | \`+4%\` | \`grey-l\` or \`--accent\` | UPPERCASE |
+| \`micro\` | Geist Mono | Regular (400) | \`14px\` | \`110%\` | \`+4%\` | \`grey-l\` or \`--accent-l\` | UPPERCASE |
 
 ### Proportional Heading-to-Body Spacing (8px Grid)
 * \`h1\` → \`body\`: minimum \`64px\` gap
@@ -428,67 +500,75 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 
 ---
 
-## 4. Component Specifications (No Outer Wrapper Borders)
+## 4. Buttons & Interactive Hover States
+
+All interactive buttons and typography showcase rows share a unified hover state (\`background-color: rgba(var(--accent-d), 0.40)\`, \`color: var(--accent-l)\`, \`border-color: var(--accent-l)\`):
+
+* **Main Button (Primary CTA):**
+  * Default: \`color: #000000\`, \`background-color: var(--accent-l)\`, \`border: 1px solid var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`
+  * Hover: \`color: var(--accent-l)\`, \`background-color: rgba(var(--accent-d), 0.40)\`, \`border-color: var(--accent-l)\`
+* **Side Button (Alternative Choice):**
+  * Default: \`color: var(--accent-l)\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`
+  * Hover: \`color: var(--accent-l)\`, \`background-color: rgba(var(--accent-d), 0.40)\`, \`border-color: var(--accent-l)\`
+* **Two-Part \`CTA\` Button (No outer wrapper border):**
+  1. **Top Frame:** \`width: fit-content\` (\`hug\`), \`padding: 24px 40px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, containing an \`h6\` (\`color: var(--accent-l)\`, uppercase).
+  2. **Bottom Action Frame (directly underneath, \`0px\` gap):** \`padding: 40px 48px\`, \`background-color: var(--accent-l)\`, \`border: 1px solid var(--accent-l)\`, containing \`font-family: 'Geist'\`, \`font-size: 32px\`, \`font-weight: 500\`, \`text-decoration: underline\`, \`text-transform: uppercase\`, \`color: #000000\`.
+     * *Hover:* \`color: var(--accent-l)\`, \`background-color: rgba(var(--accent-d), 0.40)\`, \`border-color: var(--accent-l)\`.
+
+---
+
+## 5. Component Specifications (No Outer Wrapper Borders)
 
 Composite components never carry a single border around the entire unit; only their specified child frames are bordered or filled. All surfaces sit on \`#000000\`.
 
 ### A. Section / Big Header
-1. **Eyebrow (\`h5\`):** Optional section number or minimal label (\`color: var(--accent)\` or \`grey-l\`). Keep to an absolute minimum.
+1. **Eyebrow (\`h5\`):** Optional section number or minimal label (\`color: var(--accent-l)\` or \`grey-l\`). Keep to an absolute minimum.
 2. **Gap:** \`32px\` vertical spacing between \`h5\` and \`h2\`.
 3. **Title (\`h2\`):** \`color: #FFFFFF\`, uppercase \`Geist Mono\`, ending with a trailing \`↘\` glyph styled in \`color: var(--color-grey-l)\`.
 4. **Section Description:** \`body\` text (\`max-width: 66ch\`, \`color: #FFFFFF\`) placed inside a wrapper with \`padding: 56px 88px 24px\`.
 
 ### B. \`VERBOX\` (Vertical Box — Content Stacked in a Column)
 * **No outer wrapper border.**
-* **Top Header Frame:** \`width: fit-content\` (\`hug\`), \`padding: 24px 48px\`, \`background-color: var(--accent)\`, \`color: #000000\` (\`Geist Mono\`, uppercase).
-* **Content Frame (directly underneath, \`0px\` gap):** \`background-color: #000000\`, \`border: 1px solid var(--accent)\`, \`padding: 64px 72px\`, \`display: flex; flex-direction: column; gap: 64px\`.
-* **Content Items:** Either plain \`body\` paragraphs (\`max-width: 66ch\`, \`color: #FFFFFF\`) or \`h6\` (\`color: var(--accent)\`, uppercase) + \`body\` pairs with \`gap: 24px\` between the \`h6\` and its paragraph.
+* **Top Header Frame (\`h5\`):** \`width: fit-content\` (\`hug\`), \`padding: 24px 48px\`, \`border: 1px solid var(--accent-d)\`, \`background-color: #000000\`, \`color: var(--color-grey-l)\` (\`Geist Mono\`, \`32px\`, uppercase).
+* **Content Frame (directly underneath, \`0px\` gap):** \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`padding: 64px 72px\`, \`display: flex; flex-direction: column; gap: 64px\`.
+* **Content Items:** Either plain \`body\` paragraphs (\`max-width: 66ch\`, \`color: #FFFFFF\`) or \`h6\` (\`color: var(--accent-l)\`, uppercase) + \`body\` pairs with \`gap: 24px\` between the \`h6\` and its paragraph.
 
 ### C. \`HORBOX\` (Horizontal Box — Columns in a Row)
 * **No outer wrapper border.**
-* **Top Header Frame:** \`width: fit-content\` (\`hug\`), \`padding: 48px 72px\` (or \`24px 48px\`), \`background-color: var(--accent)\`, \`color: #000000\` (\`Geist Mono\`, uppercase).
-* **Content Frame (directly underneath, \`0px\` gap):** \`background-color: #000000\`, \`border: 1px solid var(--accent)\`, \`padding: 64px 72px\`, arranged horizontally in a row (\`display: flex\` or multi-column grid) with \`gap: 56px\` between individual \`body\` blocks or \`h6\` (\`color: var(--accent)\`) + \`body\` (\`gap: 24px\`) pairs.
+* **Top Header Frame (\`h5\`):** \`width: fit-content\` (\`hug\`), \`padding: 24px 48px\`, \`border: 1px solid var(--accent-d)\`, \`background-color: #000000\`, \`color: var(--color-grey-l)\` (\`Geist Mono\`, \`32px\`, uppercase).
+* **Content Frame (directly underneath, \`0px\` gap):** \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`padding: 64px 72px\`, arranged horizontally in a row with \`gap: 56px\` between individual \`body\` blocks or \`h6\` (\`color: var(--accent-l)\`) + \`body\` (\`gap: 24px\`) pairs.
 
 ### D. \`SBOX\` (Small Box)
 * **No outer wrapper border.**
-* **Top Header (\`h5\`):** \`width: 100%\` (fills the entire width of the \`sbox\`), uppercase \`Geist Mono\` (\`background-color: var(--accent)\`, \`color: #000000\`, \`padding: 24px 40px\`).
-* **Content Frame (directly underneath, \`0px\` gap):** \`background-color: #000000\`, \`border: 1px solid var(--accent)\`, \`padding: 48px 56px\`, containing \`body\` text (\`max-width: 66ch\`, \`color: #FFFFFF\`).
+* **Top Header (\`h5\`):** \`width: 100%\` (fills the entire width of the \`sbox\`), \`padding: 24px 40px\`, \`border: 1px solid var(--accent-d)\`, \`background-color: #000000\`, \`color: var(--color-grey-l)\` (\`Geist Mono\`, \`32px\`, uppercase).
+* **Content Frame (directly underneath, \`0px\` gap):** \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`padding: 48px 56px\`, containing \`body\` text (\`max-width: 66ch\`, \`color: #FFFFFF\`).
 
-### E. Standard Buttons & Two-Part \`CTA\` Button
-* **Main Button:** \`color: #000000\`, \`background-color: var(--accent)\`, \`border: 1px solid var(--accent)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`.
-  * *Hover:* \`color: var(--accent)\`, \`background-color: rgba(var(--accent-d), 0.40)\`, \`border-color: var(--accent)\`.
-* **Side Button (Alternative Choice):** \`color: var(--accent)\`, \`background-color: #000000\`, \`border: 1px solid var(--accent)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`.
-  * *Hover:* \`color: var(--accent)\`, \`background-color: rgba(var(--accent-d), 0.40)\`, \`border-color: var(--accent)\`.
-* **Two-Part \`CTA\` Button (No outer wrapper border):**
-  1. **Top Frame:** \`padding: 24px 40px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent)\`, containing an \`h6\` (\`color: var(--accent)\`, uppercase).
-  2. **Bottom Action Frame (directly underneath, \`0px\` gap):** \`padding: 40px 48px\`, \`background-color: var(--accent)\`, \`border: 1px solid var(--accent)\`, containing \`font-family: 'Geist'\`, \`font-size: 32px\`, \`font-weight: 500\`, \`text-decoration: underline\`, \`text-transform: uppercase\`, \`color: #000000\`.
-     * *Hover:* \`color: var(--accent)\`, \`background-color: rgba(var(--accent-d), 0.40)\`, \`border-color: var(--accent)\`.
-
-### F. Ordered Lists
-* **No outer wrapper border.** Each list row consists of two flush (\`0px\` gap) side-by-side frames (\`align-items: stretch\`):
-  1. **Number Cell (Left):** \`padding: 24px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent)\`, \`color: var(--accent)\`, \`font-family: 'Geist Mono'\`, \`font-weight: 700\` (\`h6\` bold). Contains **only the number** (no trailing dot or punctuation). Aligns to the top when text wraps.
-  2. **Text Cell (Right):** \`padding: 24px 48px\`, \`background-color: var(--accent)\`, \`border: 1px solid var(--accent)\`, \`color: #000000\`, \`font-family: 'Geist Mono'\`, \`font-weight: 700\` (\`h6\` bold, uppercase). Grows vertically in height when text wraps across multiple lines.
+### E. Ordered Lists
+* **No outer wrapper border.** Each list row consists of two flush (\`0px\` gap) side-by-side frames (\`align-items: flex-start\` so the number cell hugs its content and hangs cleanly next to the item without stretching vertically):
+  1. **Number Cell (Left):** \`padding: 24px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`color: var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`font-weight: 400\` (\`h6\` regular — never bold). Hugs the number (\`align-self: flex-start\`) with no trailing dot.
+  2. **Text Cell (Right):** \`padding: 24px 48px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`color: var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`font-weight: 400\` (\`h6\` regular — never bold, uppercase). Grows vertically in height when text wraps across multiple lines.
 
 ---
 
-## 5. 9-Part Perimeter Frame Architecture
+## 6. Sticky Topbar & Sticky Footer Shell
 
-The page uses a **9-part CSS Grid** (\`66px 1fr 66px\` columns × \`66px 1fr 66px\` rows) that scrolls naturally with the document so corner and edge elements visibly frame the entire layout:
+Instead of side perimeter rails, the viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px\` tall:
 
-* **4 Corner Cells (\`66px × 66px\`):** Centered \`30px × 30px\` square SVG slot (\`1px solid var(--accent)\`).
-* **Top Center Cell (\`1fr × 66px\`):** Houses the primary navigation menu and accent switcher.
-* **Left, Right & Bottom Stretched Edge Cells (\`66px × 1fr\` / \`1fr × 66px\`):** Centered slim SVG ornament slots (\`2px × 300px\` vertical on left/right; \`300px × 2px\` horizontal on bottom).
-* **Center Cell (\`1fr × 1fr\`):** Main \`#000000\` content canvas.
+* **Layout:** 3-column grid (\`66px 1fr 66px\`) with \`height: 66px\` on both topbar and footer.
+* **End Squares (\`66px × 66px\`):** Centered \`30px × 30px\` square SVG placeholder (\`1px solid var(--accent-d)\`).
+* **Center Stretch Cell (\`1fr\`):**
+  * **Topbar Center:** \`border-bottom: 1px solid var(--accent-d)\`, housing the navigation menu and accent switcher.
+  * **Footer Center:** \`border-top: 1px solid var(--accent-d)\`.
 
 ---
 
-## 6. Strict Anti-Patterns (Do NOT Generate)
+## 7. Strict Anti-Patterns (Do NOT Generate)
 * **No \`black-l\` (\`#121212\`) backgrounds:** Pure \`#000000\` is the only background used in layout containers, boxes, and cards.
+* **No bold font-weight on ordered lists:** Ordered list numbers and text use \`font-weight: 400\` (Regular), never bold.
 * **No outer wrapper borders on composite blocks:** Never wrap \`horbox\`, \`verbox\`, \`sbox\`, \`cta-button\`, or ordered list items in an extra outer border.
 * **No rounded corners:** \`0px\` sharp corners everywhere.
-* **No off-role white text:** Never use \`#FFFFFF\` for \`h4\`–\`h6\`, labels, eyebrows, or metadata (use \`grey-l\` or \`--accent\`).
-* **No paragraphs wider than \`66ch\`:** Always cap \`body\` text measure at \`max-width: 66ch\`.
-* **No terminal cosplay:** Never use \`//\`, \`/\`, or \`[TEXT]\` flavor decorations in UI labels or headings.`;
+* **No off-role white text:** Never use \`#FFFFFF\` for \`h4\`–\`h6\`, labels, eyebrows, or metadata (use \`grey-l\` or \`--accent-l\`).
+* **No paragraphs wider than \`66ch\`:** Always cap \`body\` text measure at \`max-width: 66ch\`.`;
 
     // Toast helper
     let toastTimer;
@@ -515,71 +595,46 @@ The page uses a **9-part CSS Grid** (\`66px 1fr 66px\` columns × \`66px 1fr 66p
       }
     }
 
-    // Render Accent Families
-    const accentsContainer = document.getElementById('accents-container');
-    function renderAccents(activeId) {
-      accentsContainer.innerHTML = '';
+    // Render Color Chips
+    function renderColorChips(activeId) {
+      const activeFamily = ACCENT_FAMILIES.find(f => f.id === activeId) || ACCENT_FAMILIES[0];
+
+      // 1. Active Family (-D, Base, -L)
+      const activeContainer = document.getElementById('active-family-chips');
+      activeContainer.innerHTML = '';
+      activeContainer.appendChild(createColorChip(`${activeFamily.name}-D`, activeFamily.d, '#FFFFFF', 'LINES'));
+      activeContainer.appendChild(createColorChip(`${activeFamily.name}`, activeFamily.base, '#000000', 'BASE'));
+      activeContainer.appendChild(createColorChip(`${activeFamily.name}-L`, activeFamily.l, '#000000', 'INTERACTIVE'));
+
+      // 2. All 7 Accent Families (Base swatches in canonical order)
+      const allAccentsContainer = document.getElementById('all-accent-chips');
+      allAccentsContainer.innerHTML = '';
       ACCENT_FAMILIES.forEach(fam => {
-        const col = document.createElement('div');
-        col.className = 'family-column' + (fam.id === activeId ? ' is-selected-family' : '');
-        col.innerHTML = `
-          <div class="family-header">
-            <span>${fam.name}</span>
-            ${fam.id === activeId ? '<span class="active-tag">ACTIVE</span>' : ''}
-          </div>
-          <div class="family-tile" style="background:${fam.d}; color:#FFFFFF;" data-hex="${fam.d}" data-label="${fam.name}-D ${fam.d}">
-            <span class="tile-token">${fam.name}-D</span>
-            <span class="tile-hex">${fam.d}</span>
-          </div>
-          <div class="family-tile" style="background:${fam.base}; color:#000000;" data-hex="${fam.base}" data-label="${fam.name} ${fam.base}">
-            <span class="tile-token">${fam.name}</span>
-            <span class="tile-hex">${fam.base}</span>
-          </div>
-          <div class="family-tile" style="background:${fam.l}; color:#000000;" data-hex="${fam.l}" data-label="${fam.name}-L ${fam.l}">
-            <span class="tile-token">${fam.name}-L</span>
-            <span class="tile-hex">${fam.l}</span>
-          </div>
-        `;
-        col.querySelectorAll('.family-tile').forEach(tile => {
-          tile.addEventListener('click', () => copyText(tile.dataset.hex, tile.dataset.label));
-        });
-        accentsContainer.appendChild(col);
+        const isCurrent = fam.id === activeId;
+        allAccentsContainer.appendChild(
+          createColorChip(fam.name, fam.base, '#000000', isCurrent ? 'ACTIVE' : '')
+        );
+      });
+
+      // 3. White + Grey, Black
+      const neutralsContainer = document.getElementById('neutral-chips');
+      neutralsContainer.innerHTML = '';
+      NEUTRALS.forEach(n => {
+        neutralsContainer.appendChild(createColorChip(n.name, n.hex, n.textColor, ''));
       });
     }
-    renderAccents('red');
+    renderColorChips('red');
 
-    // Render Neutrals
-    const neutralsContainer = document.getElementById('neutrals-container');
-    NEUTRALS.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'swatch-card';
-      card.innerHTML = `
-        <div class="swatch-preview" style="background:${item.hex};"></div>
-        <div class="swatch-meta">
-          <div class="swatch-name">
-            <span>${item.name}</span>
-            <span class="swatch-hex">${item.hex}</span>
-          </div>
-          <span class="swatch-role">${item.role}</span>
-        </div>
-      `;
-      card.addEventListener('click', () => copyText(item.hex, `${item.name} ${item.hex}`));
-      neutralsContainer.appendChild(card);
-    });
-
-    // Render Typography
+    // Render 1:1 Typography Showcase (Specs at top, 24px gap, 1:1 size)
     const typoContainer = document.getElementById('typography-container');
     TYPOGRAPHY.forEach(t => {
       const row = document.createElement('div');
       row.className = 'type-row';
       row.innerHTML = `
-        <div class="type-specs">
-          <strong>${t.role}</strong>
-          <span>${t.meta}</span>
-        </div>
+        <div class="type-specs">${t.role}</div>
         <div class="type-sample" style="${t.previewStyle}">${t.sample}</div>
       `;
-      row.addEventListener('click', () => copyText(t.cssCopy, t.role));
+      row.addEventListener('click', () => copyText(t.cssCopy, t.role.split('·')[0].trim()));
       typoContainer.appendChild(row);
     });
 
@@ -600,7 +655,7 @@ The page uses a **9-part CSS Grid** (\`66px 1fr 66px\` columns × \`66px 1fr 66p
         document.documentElement.setAttribute('data-accent', accent);
         document.querySelectorAll('[data-set-accent]').forEach(b => b.classList.remove('is-active'));
         btn.classList.add('is-active');
-        renderAccents(accent);
+        renderColorChips(accent);
         showToast('ACCENT ' + accent.toUpperCase());
       });
     });
