@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" data-accent="red">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DESIGN.MD — Court of Moravia</title>
+  <meta name="description" content="Living visual reference and machine-readable design tokens for Court of Moravia." />
+
+  <!-- Geist & Geist Mono Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@200;300;400;500&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Sticky Control Bar -->
+  <header class="control-bar">
+    <nav class="nav-links" aria-label="Primary sections">
+      <a href="#palette">01 / Palette</a>
+      <a href="#typography">02 / Typography</a>
+      <a href="#rules">03 / Rules &amp; Grid</a>
+      <a href="#llm-docs">04 / DESIGN.MD</a>
+    </nav>
+
+    <div class="accent-switcher" role="group" aria-label="Select composition accent family">
+      <span class="accent-label">Accent:</span>
+      <button type="button" class="accent-btn is-active" data-set-accent="red" style="background:#DF1717" title="Red (#DF1717)"></button>
+      <button type="button" class="accent-btn" data-set-accent="blue" style="background:#196FE6" title="Blue (#196FE6)"></button>
+      <button type="button" class="accent-btn" data-set-accent="green" style="background:#1AE51A" title="Green (#1AE51A)"></button>
+      <button type="button" class="accent-btn" data-set-accent="orange" style="background:#FF5500" title="Orange (#FF5500)"></button>
+      <button type="button" class="accent-btn" data-set-accent="yellow" style="background:#E5C41A" title="Yellow (#E5C41A)"></button>
+      <button type="button" class="accent-btn" data-set-accent="teal" style="background:#14A9B8" title="Teal (#14A9B8)"></button>
+      <button type="button" class="accent-btn" data-set-accent="violet" style="background:#8019E5" title="Violet (#8019E5)"></button>
+    </div>
+  </header>
+
+  <!-- Technical Perimeter Frame -->
+  <div class="com-frame">
+    <span class="corner-mark corner-mark--tl" aria-hidden="true"></span>
+    <span class="corner-mark corner-mark--tr" aria-hidden="true"></span>
+    <span class="corner-mark corner-mark--bl" aria-hidden="true"></span>
+    <span class="corner-mark corner-mark--br" aria-hidden="true"></span>
+
+    <!-- Top Technical Ornament Bar -->
+    <div class="frame-bar">
+      <span>COM // DESIGN SYSTEM</span>
+      <span class="frame-ticks" aria-hidden="true">|||||||||||||||||||| //////////</span>
+      <span>SNAPSHOT: 16 NOV 2026</span>
+    </div>
+
+    <main class="main-container">
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-kicker">
+          <span>COURT OF MORAVIA</span>
+          <span>//</span>
+          <span>SINGLE SOURCE OF TRUTH</span>
+        </div>
+        <h1 class="hero-display">WE CHANGE THE GAME OF BUSINESS</h1>
+        <p class="hero-sub">A technical frame. A human purpose. — Click any token to copy.</p>
+
+        <div class="hero-actions">
+          <button type="button" class="btn" id="copy-design-md-hero">
+            Copy DESIGN.MD for LLMs
+          </button>
+          <button type="button" class="btn btn--secondary" id="copy-css-vars">
+            Copy CSS :root Variables
+          </button>
+          <a href="DESIGN.md" download="DESIGN.md" class="btn btn--secondary">
+            Download DESIGN.md
+          </a>
+        </div>
+      </section>
+
+      <!-- 01 / COLOR SYSTEM -->
+      <section id="palette" class="section">
+        <div class="section-header">
+          <div>
+            <span class="section-index">01 / PALETTE — 26 COLOR VARIABLES</span>
+            <h2 class="section-title">Color System</h2>
+            <p class="section-desc">
+              Use pure black and white as the field. Pick <strong>one accent family</strong> per composition; do not mix multiple hues by default. Click any swatch to copy its HEX value.
+            </p>
+          </div>
+        </div>
+
+        <!-- Neutrals -->
+        <div class="neutrals-grid" id="neutrals-container"></div>
+
+        <!-- 7 Accent Families -->
+        <div class="accent-matrix" id="accents-container"></div>
+      </section>
+
+      <!-- 02 / TYPOGRAPHY SYSTEM -->
+      <section id="typography" class="section">
+        <div class="section-header">
+          <div>
+            <span class="section-index">02 / HIERARCHY — GEIST + GEIST MONO</span>
+            <h2 class="section-title">Core Typography</h2>
+            <p class="section-desc">
+              Large, light, uppercase headlines (<code>Geist</code>) paired with sentence-case body copy and technical monospaced labels (<code>Geist Mono</code>). Click any row to copy its CSS declaration.
+            </p>
+          </div>
+        </div>
+
+        <div class="type-list" id="typography-container"></div>
+
+        <!-- Extended Numeric Tokens -->
+        <div class="scale-tokens-bar" aria-label="Extended numeric scale tokens">
+          <span class="section-index" style="margin:0; width:100%;">Extended Numeric Scale &amp; Stroke Tokens (Click to copy px)</span>
+          <div class="token-pill" data-copy="88px">tera: <span>88px</span></div>
+          <div class="token-pill" data-copy="72px">giga: <span>72px</span></div>
+          <div class="token-pill" data-copy="64px">mega: <span>64px</span></div>
+          <div class="token-pill" data-copy="56px">kilo: <span>56px</span></div>
+          <div class="token-pill" data-copy="48px">micro: <span>48px</span></div>
+          <div class="token-pill" data-copy="40px">nano: <span>40px</span></div>
+          <div class="token-pill" data-copy="32px">pico: <span>32px</span></div>
+          <div class="token-pill" data-copy="24px">femto: <span>24px</span></div>
+          <div class="token-pill" data-copy="2px">stroke: <span>2px</span></div>
+          <div class="token-pill" data-copy="136px">grid-inset: <span>136px</span></div>
+          <div class="token-pill" data-copy="1px">gutter: <span>1px</span></div>
+        </div>
+      </section>
+
+      <!-- 03 / DESIGN CONVENTIONS & ANTI-PATTERNS -->
+      <section id="rules" class="section">
+        <div class="section-header">
+          <div>
+            <span class="section-index">03 / COMPOSITION, GEOMETRY &amp; LEGIBILITY</span>
+            <h2 class="section-title">Design Conventions</h2>
+            <p class="section-desc">
+              Master grid <code>main</code>: 1 stretch row + 1 stretch column with <code>136px</code> inset (for 1080&times;1080 / 1920&times;1080 formats) and <code>1px</code> gutter.
+            </p>
+          </div>
+        </div>
+
+        <div class="rules-grid">
+          <article class="rule-card">
+            <span class="rule-num">01 / PALETTE</span>
+            <p class="rule-text">Use black (#000000) and white (#FFFFFF) as the primary field. Choose one accent family per composition; do not mix all palette hues by default.</p>
+          </article>
+          <article class="rule-card">
+            <span class="rule-num">02 / HIERARCHY</span>
+            <p class="rule-text">Large, light, uppercase headlines. Sentence-case body copy. Monospaced labels (Geist Mono) for technical and navigational detail.</p>
+          </article>
+          <article class="rule-card">
+            <span class="rule-num">03 / COMPOSITION</span>
+            <p class="rule-text">Align to a clear edge; protect generous negative space. Keep ornamental borders and ticks at the outer perimeter, away from the message.</p>
+          </article>
+          <article class="rule-card">
+            <span class="rule-num">04 / GEOMETRY</span>
+            <p class="rule-text">Favor flat, angular marks and crisp rectangular framing. Maintain 0px border-radius across all containers and controls.</p>
+          </article>
+          <article class="rule-card">
+            <span class="rule-num">05 / LEGIBILITY</span>
+            <p class="rule-text">Use white (#FFFFFF) or a tested light tone (-L) for small text on dark fields. Check contrast at final size.</p>
+          </article>
+        </div>
+
+        <div class="antipatterns-box">
+          <h3 class="antipatterns-title">Strict Anti-Patterns (LLM Guardrails)</h3>
+          <ul class="antipatterns-list">
+            <li><strong>No rounded corners:</strong> Never apply <code>border-radius</code> to cards, buttons, or frames (0px only).</li>
+            <li><strong>No multi-color rainbows:</strong> Never combine multiple accent families (e.g. Red + Blue + Green) in a single layout.</li>
+            <li><strong>No off-brand fonts:</strong> Never substitute Geist or Geist Mono with Inter, Roboto, serif, or script fonts.</li>
+            <li><strong>No shadows or blur:</strong> Avoid <code>box-shadow</code>, glassmorphism, and soft gradients.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 04 / RAW DESIGN.MD FOR LLMS -->
+      <section id="llm-docs" class="section">
+        <div class="section-header">
+          <div>
+            <span class="section-index">04 / MACHINE-READABLE SPECIFICATION</span>
+            <h2 class="section-title">DESIGN.MD</h2>
+            <p class="section-desc">
+              Ready to paste directly into Claude, ChatGPT, Cursor, or system prompts to enforce Court of Moravia visual rules.
+            </p>
+          </div>
+        </div>
+
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <span class="code-filename">DESIGN.md — Ready for LLM Context</span>
+            <div class="code-actions">
+              <button type="button" class="btn" id="copy-design-md-panel">Copy Markdown</button>
+              <a href="DESIGN.md" download="DESIGN.md" class="btn btn--secondary">Download .md</a>
+            </div>
+          </div>
+          <pre class="code-block" id="raw-markdown-display">Loading DESIGN.md...</pre>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Technical Ornament Bar -->
+    <div class="frame-bar frame-bar--bottom">
+      <span>WE DELIVER CHANGE IN COMPANIES</span>
+      <span class="frame-ticks" aria-hidden="true">\\\\\ XXXXXXXXXX</span>
+      <span>COURT OF MORAVIA // EXPERT GUILD</span>
+    </div>
+  </div>
+
+  <!-- Copy Feedback Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const NEUTRALS = [
+      { token: '--color-black',   name: 'BLACK',   hex: '#000000', role: 'Primary background / dark field', border: '#808080' },
+      { token: '--color-black-l', name: 'BLACK-L', hex: '#121212', role: 'Elevated dark surface / subtle fill', border: '#808080' },
+      { token: '--color-grey-d',  name: 'GREY-D',  hex: '#808080', role: 'Muted borders, secondary labels' },
+      { token: '--color-grey-l',  name: 'GREY-L',  hex: '#E8E5E0', role: 'Warm off-white surface / muted fill' },
+      { token: '--color-white',   name: 'WHITE',   hex: '#FFFFFF', role: 'Primary light text / inverted field' }
+    ];
+
+    const ACCENT_FAMILIES = [
+      { id: 'blue',   name: 'BLUE',   d: '#063B91', base: '#196FE6', l: '#9EC4FA' },
+      { id: 'green',  name: 'GREEN',  d: '#067008', base: '#1AE51A', l: '#9EFAB0' },
+      { id: 'orange', name: 'ORANGE', d: '#913606', base: '#FF5500', l: '#FFB899' },
+      { id: 'yellow', name: 'YELLOW', d: '#917806', base: '#E5C41A', l: '#FFEE99' },
+      { id: 'red',    name: 'RED',    d: '#910606', base: '#DF1717', l: '#F65656' },
+      { id: 'teal',   name: 'TEAL',   d: '#068691', base: '#14A9B8', l: '#9EF2FA' },
+      { id: 'violet', name: 'VIOLET', d: '#4D0691', base: '#8019E5', l: '#A99EFA' }
+    ];
+
+    const TYPOGRAPHY = [
+      {
+        role: 'h1 / Geist Light',
+        meta: '160px · 110% line · 0% tracking · UPPERCASE',
+        sample: 'CHANGE THE GAME',
+        previewStyle: "font-family: var(--font-body); font-weight: 300; font-size: clamp(36px, 5vw, 72px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase;",
+        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase;"
+      },
+      {
+        role: 'h2 / Geist Light',
+        meta: '96px · 110% line · 0% tracking · UPPERCASE',
+        sample: 'CHANGE THE GAME',
+        previewStyle: "font-family: var(--font-body); font-weight: 300; font-size: clamp(30px, 4vw, 56px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase;",
+        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase;"
+      },
+      {
+        role: 'h3 / Geist Mono ExtraLight',
+        meta: '64px · 110% line · 0% tracking · UPPERCASE',
+        sample: 'CHANGE THE GAME',
+        previewStyle: "font-family: var(--font-header); font-weight: 200; font-size: clamp(26px, 3.2vw, 44px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase;",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase;"
+      },
+      {
+        role: 'h4 / Geist Mono Light',
+        meta: '48px · 110% line · 0% tracking · UPPERCASE',
+        sample: 'CHANGE THE GAME',
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: clamp(22px, 2.6vw, 36px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase;",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase;"
+      },
+      {
+        role: 'h5 / Geist Mono Regular',
+        meta: '32px · 110% line · +4% tracking · UPPERCASE',
+        sample: 'CHANGE THE GAME',
+        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: clamp(20px, 2vw, 28px); line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase;",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase;"
+      },
+      {
+        role: 'h6 / Geist Mono Light',
+        meta: '24px · 130% line · +1% tracking · Technical',
+        sample: 'We deliver change in companies.',
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em;",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em;"
+      },
+      {
+        role: 'body / Geist Regular',
+        meta: '24px · 130% line · 0% tracking · Sentence case',
+        sample: 'We deliver change in companies. We change the game of business.',
+        previewStyle: "font-family: var(--font-body); font-weight: 400; font-size: 22px; line-height: 1.3; letter-spacing: 0;",
+        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0;"
+      },
+      {
+        role: 'micro / Geist Mono Regular',
+        meta: '14px · 110% line · +4% tracking · UPPERCASE',
+        sample: '01 / PALETTE — LIVE INSTANCES · GEOMETRY FOLLOWS THE SOURCE COMPONENT',
+        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase;",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase;"
+      }
+    ];
+
+    const DESIGN_MD_RAW = `# DESIGN.md — Court of Moravia
+
+> **System Essence:** A technical frame. A human purpose.
+> **Core Motto:** WE CHANGE THE GAME OF BUSINESS / WE DELIVER CHANGE IN COMPANIES
+> **Snapshot Date:** 16 Nov 2026
+
+---
+
+## 1. Core Design Principles & Rules
+
+When generating UI, web pages, slide decks, or digital assets for **Court of Moravia (COM)**, strictly follow these 5 rules:
+
+1. **01 / PALETTE:** Use pure black (\`#000000\`) and pure white (\`#FFFFFF\`) as the primary field. Choose **one accent family per composition**—do not mix multiple palette hues by default.
+2. **02 / HIERARCHY:** Pair large, light, uppercase headlines (\`Geist\`) with clean, sentence-case body copy (\`Geist\`). Use monospaced type (\`Geist Mono\`) for technical labels, headings (\`h3\`–\`h6\`), metadata, and navigational details.
+3. **03 / COMPOSITION:** Align elements to a clear, crisp edge and protect generous negative space. Keep ornamental borders, ticks, and technical framing confined to the outer perimeter, well away from the core message.
+4. **04 / GEOMETRY:** Favor flat, angular marks and crisp rectangular framing. Avoid rounded blobs, drop shadows, soft gradients, or organic curves.
+5. **05 / LEGIBILITY:** Use pure white (\`#FFFFFF\`) or a tested \`-L\` (light) tint for small text on dark backgrounds. Always verify contrast at the final rendered size.
+
+---
+
+## 2. Color System (26 Variables)
+
+*Naming convention: Base token = primary hue, \`-D\` = dark shade, \`-L\` = light tint.*
+
+### Neutrals & Surfaces
+| Token | Hex | Role / Notes |
+| :--- | :--- | :--- |
+| \`--color-black\` | \`#000000\` | Primary background / dark field |
+| \`--color-black-l\` | \`#121212\` | Elevated dark surface / subtle card fill |
+| \`--color-grey-d\` | \`#808080\` | Muted technical borders, secondary labels |
+| \`--color-grey-l\` | \`#E8E5E0\` | Warm off-white surface / muted light fill |
+| \`--color-white\` | \`#FFFFFF\` | Primary light text / inverted background |
+
+### Accent Families (Pick ONE per composition)
+| Family | Dark (\`-D\`) | Base (Primary) | Light (\`-L\`) |
+| :--- | :--- | :--- | :--- |
+| **Blue** | \`#063B91\` | \`#196FE6\` | \`#9EC4FA\` |
+| **Green** | \`#067008\` | \`#1AE51A\` | \`#9EFAB0\` |
+| **Orange** | \`#913606\` | \`#FF5500\` | \`#FFB899\` |
+| **Yellow** | \`#917806\` | \`#E5C41A\` | \`#FFEE99\` |
+| **Red** | \`#910606\` | \`#DF1717\` | \`#F65656\` |
+| **Teal** | \`#068691\` | \`#14A9B8\` | \`#9EF2FA\` |
+| **Violet** | \`#4D0691\` | \`#8019E5\` | \`#A99EFA\` |
+
+---
+
+## 3. Typography System
+
+### Font Families
+* \`--font-body\`: \`'Geist', sans-serif\` (Used for major display headlines \`h1\`–\`h2\` and body copy)
+* \`--font-header\`: \`'Geist Mono', monospace\` (Used for technical headings \`h3\`–\`h6\`, labels, and microtype)
+
+### Type Scale & Styles
+| Style / Role | Font Family | Weight | Size | Line Height | Tracking (Letter Spacing) | Case / Usage |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| \`h1\` | Geist | Light (300) | \`160px\` | \`110%\` | \`0%\` | UPPERCASE — Hero display |
+| \`h2\` | Geist | Light (300) | \`96px\` | \`110%\` | \`0%\` | UPPERCASE — Section display |
+| \`h3\` | Geist Mono | ExtraLight (200) | \`64px\` | \`110%\` | \`0%\` | UPPERCASE — Technical display |
+| \`h4\` | Geist Mono | Light (300) | \`48px\` | \`110%\` | \`0%\` | UPPERCASE — Sub-display / Deck titles |
+| \`h5\` | Geist Mono | Regular (400) | \`32px\` | \`110%\` | \`+4%\` | UPPERCASE — Card / Block headers |
+| \`h6\` | Geist Mono | Light (300) | \`24px\` | \`130%\` | \`+1%\` | Technical subheadings |
+| \`body\` | Geist | Regular (400) | \`24px\` | \`130%\` | \`0%\` | Sentence case — Primary reading copy |
+| \`micro\` | Geist Mono | Regular (400) | \`14px\` | \`110%\` | \`+4%\` | UPPERCASE — Captions, tags, border codes |
+
+### Extended Numeric Scale Tokens
+*(Note: Numeric tokens exist in the system without fixed semantic roles; use proportionally when scaling).*
+* **Display Scale:** \`tera: 88px\`, \`giga: 72px\`, \`mega: 64px\`, \`kilo: 56px\`, \`micro: 48px\`, \`nano: 40px\`, \`pico: 32px\`, \`femto: 24px\`
+* **Stroke / Line Weight:** \`stroke: 2px\` (or \`1px\` for fine technical hairlines/gutters)
+
+---
+
+## 4. Layout, Grid & Framing Conventions
+
+### Master Grid (\`main\`)
+* **Structure:** 1 stretch row + 1 stretch column (single unified content safe-zone framed by technical perimeter borders).
+* **Outer Inset / Margin:** \`136px\` (for standard \`1080x1080\` post or \`1920x1080\` deck formats; scale proportionally for responsive web viewports).
+* **Gutter:** \`1px\`
+
+### Borders & Technical Ornaments (CSS / HTML Approximation)
+* **Perimeter Framing:** Use thin \`1px\` or \`2px\` solid rules (\`--color-grey-d\` or the active accent color) with crisp \`0px\` border-radius.
+* **Micro-Motifs:** Decorate outer frame edges or section dividers with monospaced ASCII/technical ticks (\`|||||\`, \`/////\`, \`\\\\\\\`, \`XXXXX\`), corner crosshairs, or index numbers (e.g., \`01 / PALETTE\`) set in \`Geist Mono\` (\`14px\`, \`+4%\` tracking).
+* **Negative Space:** Keep the interior canvas clean and uncluttered; never crowd text against the perimeter frame.
+
+---
+
+## 5. Strict Anti-Patterns (Do NOT Generate)
+* **No rounded corners:** Do not use \`border-radius\` on cards, buttons, or containers (\`0px\` sharp corners only).
+* **No multi-color rainbows:** Never combine Red, Blue, Green, and Yellow accents on the same screen. Stick to Black + White + **1 Accent Family**.
+* **No decorative/serif fonts:** Never substitute \`Geist\` or \`Geist Mono\` with Playfair, Inter, Roboto, or handwritten/script fonts.
+* **No drop shadows or glassmorphism:** Avoid \`box-shadow\`, \`backdrop-filter: blur()\`, and soft gradients. Rely on high-contrast solid fills and \`1px\`–\`2px\` hairline borders.`;
+
+    // Toast helper
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2200);
+    }
+
+    async function copyText(text, label) {
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast('COPIED: ' + (label || text));
+      } catch (err) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('COPIED: ' + (label || text));
+      }
+    }
+
+    // Render Neutrals
+    const neutralsContainer = document.getElementById('neutrals-container');
+    NEUTRALS.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'swatch-card';
+      card.title = 'Click to copy ' + item.hex;
+      card.innerHTML = `
+        <div class="swatch-preview" style="background:${item.hex};"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">
+            <span>${item.name}</span>
+            <span class="swatch-hex">${item.hex}</span>
+          </div>
+          <span class="swatch-role">${item.role}</span>
+        </div>
+      `;
+      card.addEventListener('click', () => copyText(item.hex, `${item.name} (${item.hex})`));
+      neutralsContainer.appendChild(card);
+    });
+
+    // Render Accent Families
+    const accentsContainer = document.getElementById('accents-container');
+    function renderAccents(activeId) {
+      accentsContainer.innerHTML = '';
+      ACCENT_FAMILIES.forEach(fam => {
+        const col = document.createElement('div');
+        col.className = 'family-column' + (fam.id === activeId ? ' is-selected-family' : '');
+        col.innerHTML = `
+          <div class="family-header">
+            <span>${fam.name}</span>
+            ${fam.id === activeId ? '<span style="color:var(--accent-l)">ACTIVE</span>' : ''}
+          </div>
+          <div class="family-tile" style="background:${fam.d}; color:#FFFFFF;" data-hex="${fam.d}" data-label="${fam.name}-D (${fam.d})">
+            <span class="tile-token">${fam.name}-D</span>
+            <span class="tile-hex">${fam.d}</span>
+          </div>
+          <div class="family-tile" style="background:${fam.base}; color:#000000;" data-hex="${fam.base}" data-label="${fam.name} (${fam.base})">
+            <span class="tile-token">${fam.name}</span>
+            <span class="tile-hex">${fam.base}</span>
+          </div>
+          <div class="family-tile" style="background:${fam.l}; color:#000000;" data-hex="${fam.l}" data-label="${fam.name}-L (${fam.l})">
+            <span class="tile-token">${fam.name}-L</span>
+            <span class="tile-hex">${fam.l}</span>
+          </div>
+        `;
+        col.querySelectorAll('.family-tile').forEach(tile => {
+          tile.addEventListener('click', () => copyText(tile.dataset.hex, tile.dataset.label));
+        });
+        accentsContainer.appendChild(col);
+      });
+    }
+    renderAccents('red');
+
+    // Render Typography
+    const typoContainer = document.getElementById('typography-container');
+    TYPOGRAPHY.forEach(t => {
+      const row = document.createElement('div');
+      row.className = 'type-row';
+      row.title = 'Click to copy CSS rule';
+      row.innerHTML = `
+        <div class="type-specs">
+          <strong>${t.role}</strong>
+          <span>${t.meta}</span>
+          <span style="color:var(--color-white); margin-top:4px;">[CLICK TO COPY CSS]</span>
+        </div>
+        <div class="type-sample" style="${t.previewStyle}">${t.sample}</div>
+      `;
+      row.addEventListener('click', () => copyText(t.cssCopy, t.role + ' CSS'));
+      typoContainer.appendChild(row);
+    });
+
+    // Populate Raw Markdown Display
+    document.getElementById('raw-markdown-display').textContent = DESIGN_MD_RAW;
+
+    // Numeric Scale Pills
+    document.querySelectorAll('.token-pill').forEach(pill => {
+      pill.addEventListener('click', () => copyText(pill.dataset.copy, pill.textContent.trim()));
+    });
+
+    // Accent Switcher Logic
+    document.querySelectorAll('[data-set-accent]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const accent = btn.dataset.setAccent;
+        document.documentElement.setAttribute('data-accent', accent);
+        document.querySelectorAll('[data-set-accent]').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        renderAccents(accent);
+        showToast('ACCENT SET: ' + accent.toUpperCase());
+      });
+    });
+
+    // Copy DESIGN.MD Buttons
+    document.getElementById('copy-design-md-hero').addEventListener('click', () => {
+      copyText(DESIGN_MD_RAW, 'FULL DESIGN.MD');
+    });
+    document.getElementById('copy-design-md-panel').addEventListener('click', () => {
+      copyText(DESIGN_MD_RAW, 'FULL DESIGN.MD');
+    });
+
+    // Copy CSS Variables Button
+    document.getElementById('copy-css-vars').addEventListener('click', () => {
+      const rootVars = `:root {
+  --color-black: #000000;
+  --color-black-l: #121212;
+  --color-grey-d: #808080;
+  --color-grey-l: #E8E5E0;
+  --color-white: #FFFFFF;
+  --color-blue-d: #063B91; --color-blue: #196FE6; --color-blue-l: #9EC4FA;
+  --color-green-d: #067008; --color-green: #1AE51A; --color-green-l: #9EFAB0;
+  --color-orange-d: #913606; --color-orange: #FF5500; --color-orange-l: #FFB899;
+  --color-yellow-d: #917806; --color-yellow: #E5C41A; --color-yellow-l: #FFEE99;
+  --color-red-d: #910606; --color-red: #DF1717; --color-red-l: #F65656;
+  --color-teal-d: #068691; --color-teal: #14A9B8; --color-teal-l: #9EF2FA;
+  --color-violet-d: #4D0691; --color-violet: #8019E5; --color-violet-l: #A99EFA;
+  --font-body: 'Geist', sans-serif;
+  --font-header: 'Geist Mono', monospace;
+}`;
+      copyText(rootVars, 'CSS :ROOT VARIABLES');
+    });
+  </script>
+</body>
+</html>
