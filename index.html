@@ -13,7 +13,7 @@
 <body>
 
   <header class="chrome-bar chrome-bar--top">
-    <div class="chrome-end chrome-end--left" id="corner-tl">
+    <div class="chrome-end chrome-end--tl" id="corner-tl">
       <div class="corner-svg-slot" id="slot-tl"></div>
     </div>
 
@@ -32,7 +32,7 @@
         <a href="#llm-docs">DESIGN.MD</a>
       </nav>
 
-      <div class="accent-switcher" role="group" aria-label="Accent color">
+      <div class="accent-switcher" role="group" aria-label="Demo accent showcase">
         <button type="button" class="accent-btn is-active" data-set-accent="red" style="background:#DF1717" title="Red"></button>
         <button type="button" class="accent-btn" data-set-accent="blue" style="background:#196FE6" title="Blue"></button>
         <button type="button" class="accent-btn" data-set-accent="green" style="background:#1AE51A" title="Green"></button>
@@ -43,16 +43,24 @@
       </div>
     </div>
 
-    <div class="chrome-end chrome-end--right" id="corner-tr">
+    <div class="chrome-end chrome-end--tr" id="corner-tr">
       <div class="corner-svg-slot" id="slot-tr"></div>
     </div>
   </header>
+
+  <aside class="side-rail side-rail--left" aria-label="Left perimeter ornament">
+    <div class="side-rail-slot" id="side-left-pdf417" title="Click to copy com-pdf417.svg"></div>
+  </aside>
+
+  <aside class="side-rail side-rail--right" aria-label="Right perimeter ornament">
+    <div class="side-rail-slot" id="side-right-barcode" title="Click to copy com-barcode-short.svg"></div>
+  </aside>
 
   <main class="page-main">
     <div class="main-container">
 
       <section class="hero">
-        <h1 class="hero-display">WE CHANGE THE GAME OF BUSINESS</h1>
+        <h1 class="hero-display">WE CHANGE THE <span class="kw-red">GAME OF BUSINESS</span></h1>
         <p class="hero-body">
           A technical frame. A human purpose. Click any color chip, typography specimen, SVG shape, slide composition, or component primitive to copy its exact code or token.
         </p>
@@ -73,13 +81,13 @@
       <section id="palette" class="section">
         <button type="button" class="accordion-trigger" aria-expanded="false">
           <span class="section-eyebrow">1</span>
-          <h2 class="section-title">Color System<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+          <h2 class="section-title">Color <span class="kw-red">System</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
         </button>
 
         <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Ordered sequence: Red, Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black. Documents up to 20 pages and 5 chapters use a single accent family; longer decks use Red for Intro and Outro while inner chapters follow the palette order.
+              Production systems use strictly black (#000000), white (#FFFFFF), the grey scale (grey-l #EBE7E0, grey #808080, grey-d #424242), and Red (#DF1717). Other accent colors below are showcased for demonstrative purposes only and are forbidden for agents.
             </p>
           </div>
           <div id="all-color-rows"></div>
@@ -89,13 +97,13 @@
       <section id="typography" class="section">
         <button type="button" class="accordion-trigger" aria-expanded="false">
           <span class="section-eyebrow">2</span>
-          <h2 class="section-title">Core Typography<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+          <h2 class="section-title">Core <span class="kw-red">Typography</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
         </button>
 
         <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Rendered at 1:1 scale. Geist is used exclusively for h1, body text, and the lower CTA label. Geist Mono is used for everything else, set in uppercase. Client deliverables always export to PDF with embedded fonts.
+              Rendered at 1:1 scale. Headings h1–h6 are pure white (#FFFFFF) with optional 2–4 word highlights in Red (#DF1717). Body text is always grey-l (#EBE7E0) capped at 66ch.
             </p>
             <div class="section-actions">
               <a href="./fonts/geist.zip" download="geist.zip" class="btn">Download Geist</a>
@@ -110,13 +118,13 @@
       <section id="marks" class="section">
         <button type="button" class="accordion-trigger" aria-expanded="false">
           <span class="section-eyebrow">3</span>
-          <h2 class="section-title">Shapes &amp; Marks<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+          <h2 class="section-title">Shapes &amp; <span class="kw-red">Marks</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
         </button>
 
         <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Shapes are copied with the currently selected web accent color baked into their SVG XML so pasting into Figma or Illustrator preserves your chosen color. Source files use fill="currentColor" in HTML/CSS.
+              Non-interactive decorative shapes render in grey-d (#424242); interactive shapes render in Red (#DF1717). Click any mark to copy its SVG XML.
             </p>
           </div>
 
@@ -128,13 +136,13 @@
       <section id="primitives" class="section">
         <button type="button" class="accordion-trigger" aria-expanded="false">
           <span class="section-eyebrow">4</span>
-          <h2 class="section-title">Component Primitives<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+          <h2 class="section-title">Component <span class="kw-red">Primitives</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
         </button>
 
         <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Composite blocks never carry an outer wrapper border as a whole—borders and fills apply strictly to their inner frames on a pure black background.
+              Composite blocks never carry an outer wrapper border as a whole—borders apply strictly to inner frames in grey-d (#424242) on a pure black background.
             </p>
           </div>
 
@@ -142,17 +150,17 @@
 
             <div class="primitive-unit">
               <p class="primitive-micro-desc">VERBOX — Vertical stack container with hug h5 header (padding 24px 48px) and 64px vertical item gap</p>
-              <div class="verbox" data-copy-snippet="VERBOX: Top hug h5 header (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l)) + bottom box (border: 1px solid var(--accent-d); padding: 64px 72px; gap: 64px) with h6 (color: var(--accent-l), gap: 24px) + body (max-width: 66ch).">
-                <h5 class="verbox-header">VERBOX HEADER</h5>
+              <div class="verbox" data-copy-snippet="VERBOX: Top hug h5 header (padding: 24px 48px; border: 1px solid var(--color-grey-d); background: #000000; color: #FFFFFF) + bottom box (border: 1px solid var(--color-grey-d); padding: 64px 72px; gap: 64px) with h6 (#FFFFFF, gap: 24px) + body (color: var(--color-grey-l); max-width: 66ch).">
+                <h5 class="verbox-header">VERBOX <span class="kw-red">HEADER</span></h5>
                 <div class="verbox-body">
                   <div class="text-pair">
-                    <h6 class="text-pair-h6">1 RADIKÁLNÍ UPŘÍMNOST</h6>
+                    <h6 class="text-pair-h6">1 RADIKÁLNÍ <span class="kw-red">UPŘÍMNOST</span></h6>
                     <p class="box-body-text">
                       Pojmenováváme věci pravými jmény. Bez korporátní vaty, s respektem k lidem a fokusem na výsledek. Obsah verboxu je řazený vertikálně pod sebou s mezerou 64px.
                     </p>
                   </div>
                   <div class="text-pair">
-                    <h6 class="text-pair-h6">2 MĚŘITELNÝ DOPAD</h6>
+                    <h6 class="text-pair-h6">2 MĚŘITELNÝ <span class="kw-red">DOPAD</span></h6>
                     <p class="box-body-text">
                       Každý zásah do fungování firmy musí mít jasný cíl a ověřitelný posun v každodenní praxi týmu. Šířka odstavce nepřesahuje 66ch.
                     </p>
@@ -163,8 +171,8 @@
 
             <div class="primitive-unit">
               <p class="primitive-micro-desc">HORBOX — Horizontal multi-column container (max 3 columns) with hug h5 header (padding 24px 48px) and 56px column gap</p>
-              <div class="horbox" data-copy-snippet="HORBOX: Top hug h5 header (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l)) + horizontal row box (border: 1px solid var(--accent-d); padding: 64px 72px; gap: 56px, max 3 cols) with h6 (color: var(--accent-l), gap: 24px) + body (max-width: 66ch).">
-                <h5 class="horbox-header">HORBOX HEADER</h5>
+              <div class="horbox" data-copy-snippet="HORBOX: Top hug h5 header (padding: 24px 48px; border: 1px solid var(--color-grey-d); background: #000000; color: #FFFFFF) + horizontal row box (border: 1px solid var(--color-grey-d); padding: 64px 72px; gap: 56px, max 3 cols) with h6 (#FFFFFF, gap: 24px) + body (color: var(--color-grey-l); max-width: 66ch).">
+                <h5 class="horbox-header">HORBOX <span class="kw-red">HEADER</span></h5>
                 <div class="horbox-body">
                   <div class="text-pair">
                     <h6 class="text-pair-h6">DIAGNOSTIKA</h6>
@@ -185,8 +193,8 @@
             <div class="primitive-unit">
               <p class="primitive-micro-desc">SBOX — Equal-height small boxes with 100% full-width h5 header and 48px 56px body frame</p>
               <div class="sbox-grid">
-                <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l); padding: 24px 40px) + bottom frame (border: 1px solid var(--accent-d); padding: 48px 56px) with body text (max-width: 66ch).">
-                  <h5 class="sbox-header">FILTERED TRUTH</h5>
+                <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; border: 1px solid var(--color-grey-d); background: #000000; color: #FFFFFF; padding: 24px 40px) + bottom frame (border: 1px solid var(--color-grey-d); padding: 48px 56px) with body text (color: var(--color-grey-l); max-width: 66ch).">
+                  <h5 class="sbox-header">FILTERED <span class="kw-red">TRUTH</span></h5>
                   <div class="sbox-body">
                     <p class="box-body-text">
                       Diagnostika reálného stavu firmy bez zkreslení management reporty. Hlavička h5 vyplňuje 100 % šířky boxu.
@@ -194,8 +202,8 @@
                   </div>
                 </div>
 
-                <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l); padding: 24px 40px) + bottom frame (border: 1px solid var(--accent-d); padding: 48px 56px) with body text (max-width: 66ch).">
-                  <h5 class="sbox-header">TALENT OPTIMIZATION</h5>
+                <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; border: 1px solid var(--color-grey-d); background: #000000; color: #FFFFFF; padding: 24px 40px) + bottom frame (border: 1px solid var(--color-grey-d); padding: 48px 56px) with body text (color: var(--color-grey-l); max-width: 66ch).">
+                  <h5 class="sbox-header">TALENT <span class="kw-red">OPTIMIZATION</span></h5>
                   <div class="sbox-body">
                     <p class="box-body-text">
                       Sladění silných stránek lidí s klíčovými byznysovými cíli a jasnou odpovědností za výsledek.
@@ -208,17 +216,17 @@
             <div class="primitive-unit">
               <p class="primitive-micro-desc">ORDERED LIST — Top-aligned hugging number cell paired with full-bordered uppercase h6 regular text frame</p>
               <div class="com-ordered-list">
-                <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular uppercase).">
+                <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--color-grey-d); background: #000000; color: var(--color-red); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--color-grey-d); background: #000000; color: #FFFFFF; h6 regular uppercase).">
                   <div class="com-ol-num">1</div>
-                  <div class="com-ol-text">POJMENUJEME SKUTEČNÝ PROBLÉM BEZ KORPORÁTNÍHO BALASTU</div>
+                  <div class="com-ol-text">POJMENUJEME SKUTEČNÝ <span class="kw-red">PROBLÉM</span> BEZ KORPORÁTNÍHO BALASTU</div>
                 </div>
-                <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular uppercase).">
+                <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--color-grey-d); background: #000000; color: var(--color-red); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--color-grey-d); background: #000000; color: #FFFFFF; h6 regular uppercase).">
                   <div class="com-ol-num">2</div>
-                  <div class="com-ol-text">NAVRHNEME SYSTÉM A HERNÍ MECHANIKY, KTERÉ V TÝMU PŘENESOU ODPOVĚDNOST Z JEDNOTLIVCE NA CELEK A ODSTRANÍ ROZHODOVACÍ PARALÝZU</div>
+                  <div class="com-ol-text">NAVRHNEME SYSTÉM A HERNÍ MECHANIKY, KTERÉ V TÝMU PŘENESOU <span class="kw-red">ODPOVĚDNOST</span> Z JEDNOTLIVCE NA CELEK</div>
                 </div>
-                <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular uppercase).">
+                <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--color-grey-d); background: #000000; color: var(--color-red); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--color-grey-d); background: #000000; color: #FFFFFF; h6 regular uppercase).">
                   <div class="com-ol-num">3</div>
-                  <div class="com-ol-text">PŘEDÁME NÁSTROJE INTERNÍM LÍDRŮM DO KAŽDODENNÍ PRAXE</div>
+                  <div class="com-ol-text">PŘEDÁME NÁSTROJE INTERNÍM LÍDRŮM DO <span class="kw-red">KAŽDODENNÍ PRAXE</span></div>
                 </div>
               </div>
             </div>
@@ -226,7 +234,7 @@
             <div class="primitive-unit">
               <p class="primitive-micro-desc">CTA BUTTON — Two-part action block with hug h6 context header and 32px Geist Medium underlined trigger</p>
               <div>
-                <a href="#llm-docs" class="cta-block" data-copy-snippet="Two-Part CTA Button: Top hug frame (padding: 24px 40px; background: #000000; border: 1px solid var(--accent-d); h6 accent-l) + Bottom frame (padding: 40px 48px; background: var(--accent-l); font-family: 'Geist'; font-size: 32px; font-weight: 500; text-decoration: underline; color: #000000).">
+                <a href="#llm-docs" class="cta-block" data-copy-snippet="Two-Part CTA Button: Top hug frame (padding: 24px 40px; background: #000000; border: 1px solid var(--color-grey-d); h6 #FFFFFF) + Bottom frame (padding: 40px 48px; background: var(--color-red); font-family: 'Geist'; font-size: 32px; font-weight: 500; text-decoration: underline; color: #000000).">
                   <span class="cta-top">READY TO IMPLEMENT THIS SYSTEM</span>
                   <span class="cta-bottom">COPY FULL SPECIFICATION</span>
                 </a>
@@ -240,7 +248,7 @@
       <section id="slides" class="section">
         <button type="button" class="accordion-trigger" aria-expanded="false">
           <span class="section-eyebrow">5</span>
-          <h2 class="section-title">Slide Compositions<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+          <h2 class="section-title">Slide <span class="kw-red">Compositions</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
         </button>
 
         <div class="accordion-panel">
@@ -257,7 +265,7 @@
       <section id="llm-docs" class="section">
         <div class="section-header">
           <span class="section-eyebrow">6</span>
-          <h2 class="section-title">DESIGN.MD<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+          <h2 class="section-title">DESIGN.<span class="kw-red">MD</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
           <div class="section-desc-wrap">
             <p class="section-desc">
               Machine-readable design system specification ready to paste directly into LLM system prompts.
@@ -281,20 +289,18 @@
   </main>
 
   <footer class="chrome-bar chrome-bar--bottom">
-    <div class="chrome-end chrome-end--left" id="corner-bl">
+    <div class="chrome-end chrome-end--bl" id="corner-bl">
       <div class="corner-svg-slot" id="slot-bl"></div>
     </div>
 
     <div class="chrome-center chrome-center--bottom">
-      <div class="footer-edge-slot footer-edge-slot--alt" id="footer-logo-alt" title="Click to copy com-logo-alt.svg"></div>
       <div class="footer-edge-slot footer-edge-slot--barcode" id="footer-barcode" title="Click to copy barcode SVG">
         <div class="barcode-long-wrap" id="footer-barcode-long"></div>
         <div class="barcode-short-wrap" id="footer-barcode-short"></div>
       </div>
-      <div class="footer-edge-slot footer-edge-slot--pdf417" id="footer-pdf417" title="Click to copy com-pdf417.svg"></div>
     </div>
 
-    <div class="chrome-end chrome-end--right" id="corner-br">
+    <div class="chrome-end chrome-end--br" id="corner-br">
       <div class="corner-svg-slot" id="slot-br"></div>
     </div>
   </footer>
@@ -320,7 +326,7 @@
       { id: 'com-logo-alt',      name: 'COM LOGO ALT (BOTTOM ONLY)',  file: './svgs/com-logo-alt.svg',      isMain: false, isGuild: false },
       { id: 'com-barcode-long',  name: 'COM BARCODE LONG (EDGES)',    file: './svgs/com-barcode-long.svg',  isMain: false, isGuild: false },
       { id: 'com-barcode-short', name: 'COM BARCODE SHORT (EDGES)',   file: './svgs/com-barcode-short.svg', isMain: false, isGuild: false },
-      { id: 'com-pdf417',        name: 'COM PDF417 (BOTTOM ONLY)',    file: './svgs/com-pdf417.svg',        isMain: false, isGuild: false }
+      { id: 'com-pdf417',        name: 'COM PDF417 (LATERAL/BOTTOM)', file: './svgs/com-pdf417.svg',        isMain: false, isGuild: false }
     ];
 
     const svgCache = new Map();
@@ -338,11 +344,6 @@
       }
     }
     loadDesignMdFile();
-
-    function getActiveAccentHex() {
-      const val = getComputedStyle(document.documentElement).getPropertyValue('--accent-l').trim();
-      return val || '#F65656';
-    }
 
     async function loadSvgData(filePath) {
       if (svgCache.has(filePath)) return svgCache.get(filePath);
@@ -399,41 +400,41 @@
       }
     }
 
-    async function copySvgWithActiveColor(asset) {
-      const hex = getActiveAccentHex();
+    async function copySvgXml(asset, colorHex = '#424242') {
       const data = await loadSvgData(asset.file);
       if (data && data.templateSvg) {
         const clone = data.templateSvg.cloneNode(true);
         clone.removeAttribute('class');
-        clone.querySelectorAll('[fill="currentColor"]').forEach(el => el.setAttribute('fill', hex));
-        clone.querySelectorAll('[stroke="currentColor"]').forEach(el => el.setAttribute('stroke', hex));
+        clone.querySelectorAll('[fill="currentColor"]').forEach(el => el.setAttribute('fill', colorHex));
+        clone.querySelectorAll('[stroke="currentColor"]').forEach(el => el.setAttribute('stroke', colorHex));
         if (clone.getAttribute('fill') === 'currentColor') {
-          clone.setAttribute('fill', hex);
+          clone.setAttribute('fill', colorHex);
         }
         const serialized = new XMLSerializer().serializeToString(clone);
-        await copyText(serialized, `${asset.name} (${hex})`);
+        await copyText(serialized, `${asset.name} (${colorHex})`);
       } else {
         await copyText(asset.file, asset.file);
       }
     }
 
     const ACCENT_FAMILIES = [
-      { id: 'red',    name: 'RED',    l: '#F65656', base: '#DF1717', d: '#910606' },
-      { id: 'blue',   name: 'BLUE',   l: '#9EC4FA', base: '#196FE6', d: '#063B91' },
-      { id: 'green',  name: 'GREEN',  l: '#9EFAB0', base: '#1AE51A', d: '#067008' },
-      { id: 'orange', name: 'ORANGE', l: '#FFB899', base: '#FF5500', d: '#913606' },
-      { id: 'yellow', name: 'YELLOW', l: '#FFEE99', base: '#E5C41A', d: '#917806' },
-      { id: 'teal',   name: 'TEAL',   l: '#9EF2FA', base: '#14A9B8', d: '#068691' },
-      { id: 'violet', name: 'VIOLET', l: '#A99EFA', base: '#8019E5', d: '#4D0691' }
+      { id: 'red',    name: 'RED',    l: '#F65656', base: '#DF1717', d: '#910606', demo: false },
+      { id: 'blue',   name: 'BLUE',   l: '#9EC4FA', base: '#196FE6', d: '#063B91', demo: true  },
+      { id: 'green',  name: 'GREEN',  l: '#9EFAB0', base: '#1AE51A', d: '#067008', demo: true  },
+      { id: 'orange', name: 'ORANGE', l: '#FFB899', base: '#FF5500', d: '#913606', demo: true  },
+      { id: 'yellow', name: 'YELLOW', l: '#FFEE99', base: '#E5C41A', d: '#917806', demo: true  },
+      { id: 'teal',   name: 'TEAL',   l: '#9EF2FA', base: '#14A9B8', d: '#068691', demo: true  },
+      { id: 'violet', name: 'VIOLET', l: '#A99EFA', base: '#8019E5', d: '#4D0691', demo: true  }
     ];
 
     const NEUTRAL_ROWS = [
       [
         { name: 'WHITE',   hex: '#FFFFFF', textColor: '#000000' },
-        { name: 'GREY-L',  hex: '#E8E5E0', textColor: '#000000' },
-        { name: 'GREY-D',  hex: '#808080', textColor: '#000000' }
+        { name: 'GREY-L',  hex: '#EBE7E0', textColor: '#000000' },
+        { name: 'GREY',    hex: '#808080', textColor: '#000000' }
       ],
       [
+        { name: 'GREY-D',  hex: '#424242', textColor: '#FFFFFF' },
         { name: 'BLACK-L', hex: '#121212', textColor: '#FFFFFF' },
         { name: 'BLACK',   hex: '#000000', textColor: '#FFFFFF' }
       ]
@@ -494,11 +495,11 @@
       return `oklch(${Lpct}% ${Cval} ${Hdeg})`;
     }
 
-    function createColorChip(name, hex, textColor) {
+    function createColorChip(name, hex, textColor, isDemo = false) {
       const chip = document.createElement('div');
       chip.className = 'color-chip';
       const upperHex = hex.toUpperCase();
-      const borderCol = upperHex === '#000000' ? '#808080' : upperHex;
+      const borderCol = upperHex === '#000000' ? '#424242' : upperHex;
       chip.style.setProperty('--chip-color', borderCol);
 
       const rgbStr = formatRgb(upperHex);
@@ -507,7 +508,7 @@
 
       chip.innerHTML = `
         <div class="chip-top" style="background-color:${upperHex}; color:${textColor};">
-          <span>${name}</span>
+          <span>${name}${isDemo ? ' · DEMO' : ''}</span>
         </div>
         <div class="chip-bottom">
           <p class="chip-val">HEX: ${upperHex}</p>
@@ -522,52 +523,52 @@
 
     const TYPOGRAPHY = [
       {
-        role: 'H1 · GEIST LIGHT · 160PX · 110% LINE · 0% TRACKING · #FFFFFF',
-        sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: var(--font-body); font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
-        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
+        role: 'H1 · GEIST LIGHT · 160PX · 110% LINE · 0% TRACKING · #FFFFFF + #DF1717 KEYWORD',
+        sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span>',
+        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
+        previewStyle: "font-family: var(--font-body); font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
       },
       {
-        role: 'H2 · GEIST MONO LIGHT · 96PX · 110% LINE · 0% TRACKING · #FFFFFF',
-        sample: 'CHANGE THE GAME ↘',
-        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
+        role: 'H2 · GEIST MONO LIGHT · 96PX · 110% LINE · 0% TRACKING · #FFFFFF + #808080 ↘',
+        sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span> <span style="color:#808080;">↘</span>',
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
       },
       {
         role: 'H3 · GEIST MONO EXTRALIGHT · 64PX · 110% LINE · 0% TRACKING · #FFFFFF',
-        sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: var(--font-header); font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
+        sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span>',
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
+        previewStyle: "font-family: var(--font-header); font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
       },
       {
-        role: 'H4 · GEIST MONO LIGHT · 48PX · 110% LINE · 0% TRACKING · GREY-L',
-        sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #E8E5E0;",
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #E8E5E0;"
+        role: 'H4 · GEIST MONO LIGHT · 48PX · 110% LINE · 0% TRACKING · #FFFFFF',
+        sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span>',
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
       },
       {
-        role: 'H5 · GEIST MONO REGULAR · 32PX · 110% LINE · +4% TRACKING · ACCENT-L',
-        sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-l);",
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-l);"
+        role: 'H5 · GEIST MONO REGULAR · 32PX · 110% LINE · +4% TRACKING · #FFFFFF',
+        sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span>',
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #FFFFFF;",
+        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #FFFFFF;"
       },
       {
-        role: 'H6 · GEIST MONO LIGHT · 24PX · 130% LINE · +1% TRACKING · GREY-L',
-        sample: 'WE DELIVER CHANGE IN COMPANIES',
-        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: #E8E5E0;",
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: #E8E5E0;"
+        role: 'H6 · GEIST MONO LIGHT · 24PX · 130% LINE · +1% TRACKING · #FFFFFF',
+        sampleHtml: 'WE DELIVER CHANGE IN <span class="kw-red">COMPANIES</span>',
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: #FFFFFF;",
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: #FFFFFF;"
       },
       {
-        role: 'BODY · GEIST REGULAR · 24PX · 130% LINE · 0% TRACKING · #FFFFFF · MAX-WIDTH 66CH',
-        sample: 'We deliver change in companies. We change the game of business.',
-        previewStyle: "font-family: var(--font-body); font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #FFFFFF; max-width: 66ch; white-space: normal;",
-        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #FFFFFF; max-width: 66ch;"
+        role: 'BODY · GEIST REGULAR · 24PX · 130% LINE · 0% TRACKING · GREY-L (#EBE7E0) · MAX-WIDTH 66CH',
+        sampleHtml: 'We deliver change in companies. We change the game of business.',
+        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #EBE7E0; max-width: 66ch;",
+        previewStyle: "font-family: var(--font-body); font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #EBE7E0; max-width: 66ch; white-space: normal;"
       },
       {
-        role: 'MICRO · GEIST MONO REGULAR · 14PX · 110% LINE · +4% TRACKING · GREY-L',
-        sample: 'COURT OF MORAVIA · EXPERT GUILD',
-        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #E8E5E0;",
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #E8E5E0;"
+        role: 'MICRO · GEIST MONO REGULAR · 14PX · 110% LINE · +4% TRACKING · GREY (#808080)',
+        sampleHtml: 'COURT OF MORAVIA · EXPERT GUILD',
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #808080;",
+        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #808080;"
       }
     ];
 
@@ -575,22 +576,22 @@
       {
         name: '1 INTRO SLIDE',
         tag: 'MAX-WIDTH 250PX LOGO',
-        spec: 'INTRO SLIDE: Fixed 1920x1080 grid (66px top/bottom bars, corners: com-logo + com-d12), primary logo constrained to max-width: 250px, uppercase h1 display headline (#FFFFFF).',
+        spec: 'INTRO SLIDE: Fixed 1920x1080 grid (66px rails on all 4 sides, corners: com-logo + com-d12 in #424242), primary logo constrained to max-width: 250px, uppercase h1 display headline (#FFFFFF with 2-4 word #DF1717 highlight).',
         render: () => `
           <div class="slide-body" style="justify-content:center; gap:12px;">
             <div class="slide-intro-logo" id="mini-intro-logo"></div>
-            <h4 class="slide-h2" style="font-size:16px;">WE CHANGE THE GAME OF BUSINESS</h4>
+            <h4 class="slide-h2" style="font-size:16px;">WE CHANGE THE <span class="kw-red">GAME OF BUSINESS</span></h4>
           </div>`
       },
       {
         name: '2 TEXT · 1 COLUMN',
         tag: 'RIGHT-ALIGNED 66CH',
-        spec: 'TEXT SLIDE (1 COL): Section number + h2 title with grey-l ↘ + subtitle, single body block (max-width: 66ch) aligned right.',
+        spec: 'TEXT SLIDE (1 COL): Section number (#808080) + h2 title (#FFFFFF with #808080 ↘) + subtitle, single body block (color: #EBE7E0; max-width: 66ch) aligned right.',
         render: () => `
           <div class="slide-body">
             <div class="slide-head-block">
               <span class="slide-num">1</span>
-              <h4 class="slide-h2">DIAGNOSTIKA REALITY <span>↘</span></h4>
+              <h4 class="slide-h2">DIAGNOSTIKA <span class="kw-red">REALITY</span> <span>↘</span></h4>
               <p class="slide-sub">POJMENOVÁNÍ SKUTEČNÉHO STAVU FIRMY</p>
             </div>
             <div style="width:66%; margin-left:auto;">
@@ -601,12 +602,12 @@
       {
         name: '3 TEXT · 2 COLUMNS',
         tag: 'RIGHT-ALIGNED 66CH + NEG SPACE',
-        spec: 'TEXT SLIDE (2 COLS): Header block + 2 columns capped at max-width: 66ch aligned to the right, preserving deliberate negative space on the left.',
+        spec: 'TEXT SLIDE (2 COLS): Header block + 2 columns capped at max-width: 66ch (color: #EBE7E0) aligned to the right, preserving deliberate negative space on the left.',
         render: () => `
           <div class="slide-body">
             <div class="slide-head-block">
               <span class="slide-num">2</span>
-              <h4 class="slide-h2">DVA PILÍŘE ZMĚNY <span>↘</span></h4>
+              <h4 class="slide-h2">DVA PILÍŘE <span class="kw-red">ZMĚNY</span> <span>↘</span></h4>
               <p class="slide-sub">SYSTÉM A LIDSKÁ ODPOVĚDNOST</p>
             </div>
             <div class="slide-cols slide-cols--2-right">
@@ -618,30 +619,30 @@
       {
         name: '4 TEXT · 3 COLUMNS',
         tag: 'STRETCH FILL WIDTH',
-        spec: 'TEXT SLIDE (3 COLS): Header block + 3 columns stretched (flex: 1) to fill the full width of the content safe-zone.',
+        spec: 'TEXT SLIDE (3 COLS): Header block + 3 columns stretched (flex: 1, color: #EBE7E0) to fill the full width of the content safe-zone.',
         render: () => `
           <div class="slide-body">
             <div class="slide-head-block">
               <span class="slide-num">3</span>
-              <h4 class="slide-h2">TŘI FÁZE SPOLUPRÁCE <span>↘</span></h4>
+              <h4 class="slide-h2">TŘI FÁZE <span class="kw-red">SPOLUPRÁCE</span> <span>↘</span></h4>
               <p class="slide-sub">OD SBĚRU DAT PO ŠKÁLOVÁNÍ</p>
             </div>
             <div class="slide-cols slide-cols--3">
-              <p class="slide-p">01 Hloubkové rozhovory a mapování úzkých hrdel v týmu.</p>
-              <p class="slide-p">02 Návrh herních mechanik a simulace klíčových situací.</p>
-              <p class="slide-p">03 Přenos nástrojů interním lídrům do každodenní praxe.</p>
+              <p class="slide-p">1 Hloubkové rozhovory a mapování úzkých hrdel v týmu.</p>
+              <p class="slide-p">2 Návrh herních mechanik a simulace klíčových situací.</p>
+              <p class="slide-p">3 Přenos nástrojů interním lídrům do každodenní praxe.</p>
             </div>
           </div>`
       },
       {
         name: '5 TEXT · 4 COLUMNS',
         tag: 'FULL WIDTH GRID',
-        spec: 'TEXT SLIDE (4 COLS): Header block + 4 equal columns spanning the entire slide width.',
+        spec: 'TEXT SLIDE (4 COLS): Header block + 4 equal columns spanning the entire slide width (color: #EBE7E0).',
         render: () => `
           <div class="slide-body">
             <div class="slide-head-block">
               <span class="slide-num">4</span>
-              <h4 class="slide-h2">ČTYŘI PRINCIPY GILDA <span>↘</span></h4>
+              <h4 class="slide-h2">ČTYŘI PRINCIPY <span class="kw-red">GILDA</span> <span>↘</span></h4>
               <p class="slide-sub">ZÁKLADNÍ OPERAČNÍ RÁMEC</p>
             </div>
             <div class="slide-cols slide-cols--4">
@@ -655,13 +656,13 @@
       {
         name: '6 HEADLINE + VERBOX',
         tag: 'FLUSH ALIGNED SPLIT',
-        spec: 'HEADLINE + VERBOX: Left column holds overhanging number + h2 ↘ + optional subtitle; right column holds flush-aligned VERBOX (hug header + stacked blocks).',
+        spec: 'HEADLINE + VERBOX: Left column holds overhanging number + h2 ↘ + optional subtitle; right column holds flush-aligned VERBOX (hug header + stacked #EBE7E0 blocks, #424242 borders).',
         render: () => `
           <div class="slide-body">
             <div class="slide-split-verbox">
               <div class="slide-head-block">
                 <span class="slide-num">5</span>
-                <h4 class="slide-h2">NOSNÁ TEZE <span>↘</span></h4>
+                <h4 class="slide-h2">NOSNÁ <span class="kw-red">TEZE</span> <span>↘</span></h4>
                 <p class="slide-sub">KONTEXT PROBLÉMU</p>
               </div>
               <div>
@@ -677,12 +678,12 @@
       {
         name: '7 HEADLINE + HORBOX (2 COLS)',
         tag: 'MAX 1 HORBOX / SLIDE',
-        spec: 'HEADLINE + HORBOX (2 COLS): Top headline block + single HORBOX below with hug header and 2 horizontal columns.',
+        spec: 'HEADLINE + HORBOX (2 COLS): Top headline block + single HORBOX below with hug header (#FFFFFF) and 2 horizontal columns (#EBE7E0) in #424242 borders.',
         render: () => `
           <div class="slide-body">
             <div class="slide-head-block">
               <span class="slide-num">6</span>
-              <h4 class="slide-h2">ARCHITEKTURA ŘEŠENÍ <span>↘</span></h4>
+              <h4 class="slide-h2">ARCHITEKTURA <span class="kw-red">ŘEŠENÍ</span> <span>↘</span></h4>
               <p class="slide-sub">DVĚ ROVINY INTERVENCE</p>
             </div>
             <div>
@@ -697,12 +698,12 @@
       {
         name: '8 HEADLINE + HORBOX (3 COLS)',
         tag: 'MAX 3 COLUMNS',
-        spec: 'HEADLINE + HORBOX (3 COLS): Top headline block + single HORBOX below with hug header and 3 horizontal columns.',
+        spec: 'HEADLINE + HORBOX (3 COLS): Top headline block + single HORBOX below with hug header (#FFFFFF) and 3 horizontal columns (#EBE7E0) in #424242 borders.',
         render: () => `
           <div class="slide-body">
             <div class="slide-head-block">
               <span class="slide-num">7</span>
-              <h4 class="slide-h2">ROADMAPA IMPLEMENTACE <span>↘</span></h4>
+              <h4 class="slide-h2">ROADMAPA <span class="kw-red">IMPLEMENTACE</span> <span>↘</span></h4>
               <p class="slide-sub">KVARTÁLNÍ CYKLUS</p>
             </div>
             <div>
@@ -718,12 +719,12 @@
       {
         name: '9 HEADER + SBOX (2 CARDS)',
         tag: 'EQUAL HEIGHT PAIR',
-        spec: 'HEADER + SBOX (2 CARDS): Top headline + 2 equal-height SBOX cards side-by-side (100% width h5 headers).',
+        spec: 'HEADER + SBOX (2 CARDS): Top headline + 2 equal-height SBOX cards side-by-side (100% width #FFFFFF headers, #EBE7E0 body, #424242 borders).',
         render: () => `
           <div class="slide-body">
             <div class="slide-head-block">
               <span class="slide-num">8</span>
-              <h4 class="slide-h2">SROVNÁNÍ PŘÍSTUPŮ <span>↘</span></h4>
+              <h4 class="slide-h2">SROVNÁNÍ <span class="kw-red">PŘÍSTUPŮ</span> <span>↘</span></h4>
             </div>
             <div class="slide-mini-sbox-grid slide-mini-sbox-grid--2">
               <div class="slide-mini-sbox">
@@ -740,12 +741,12 @@
       {
         name: '10 HEADER + SBOX (3 CARDS)',
         tag: 'MAX 3 PER ROW',
-        spec: 'HEADER + SBOX (3 CARDS): Top headline + 3 equal-height SBOX cards in a single row.',
+        spec: 'HEADER + SBOX (3 CARDS): Top headline + 3 equal-height SBOX cards in a single row (#424242 borders).',
         render: () => `
           <div class="slide-body">
             <div class="slide-head-block">
               <span class="slide-num">9</span>
-              <h4 class="slide-h2">TŘI PILÍŘE PRODUKTU <span>↘</span></h4>
+              <h4 class="slide-h2">TŘI PILÍŘE <span class="kw-red">PRODUKTU</span> <span>↘</span></h4>
             </div>
             <div class="slide-mini-sbox-grid slide-mini-sbox-grid--3">
               <div class="slide-mini-sbox">
@@ -766,28 +767,28 @@
       {
         name: '11 HEADER + SBOX (2X2 GRID)',
         tag: '4 EQUAL CARDS',
-        spec: 'HEADER + SBOX (2x2 GRID): Top headline + 4 equal-height SBOX cards arranged in a 2x2 matrix.',
+        spec: 'HEADER + SBOX (2x2 GRID): Top headline + 4 equal-height SBOX cards arranged in a 2x2 matrix (#424242 borders).',
         render: () => `
           <div class="slide-body">
             <div class="slide-head-block">
               <span class="slide-num">10</span>
-              <h4 class="slide-h2">MATICE VÝSTUPŮ <span>↘</span></h4>
+              <h4 class="slide-h2">MATICE <span class="kw-red">VÝSTUPŮ</span> <span>↘</span></h4>
             </div>
             <div class="slide-mini-sbox-grid slide-mini-sbox-grid--2x2">
               <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">01 STRUKTURA</div>
+                <div class="slide-mini-sbox-head">1 STRUKTURA</div>
                 <div class="slide-mini-sbox-body"><p class="slide-p">Jasné role.</p></div>
               </div>
               <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">02 RYCHLOST</div>
+                <div class="slide-mini-sbox-head">2 RYCHLOST</div>
                 <div class="slide-mini-sbox-body"><p class="slide-p">Krátké cykly.</p></div>
               </div>
               <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">03 DATA</div>
+                <div class="slide-mini-sbox-head">3 DATA</div>
                 <div class="slide-mini-sbox-body"><p class="slide-p">Tvrdé metriky.</p></div>
               </div>
               <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">04 DOPAD</div>
+                <div class="slide-mini-sbox-head">4 DOPAD</div>
                 <div class="slide-mini-sbox-body"><p class="slide-p">Měřitelný růst.</p></div>
               </div>
             </div>
@@ -796,11 +797,11 @@
       {
         name: '12 OUTRO & CONTACTS',
         tag: 'CLICKABLE MAILTO & TEL',
-        spec: 'OUTRO SLIDE: Red accent for long decks, clickable mailto: and tel:+420712345678 links (formatted with spaces in display text).',
+        spec: 'OUTRO SLIDE: Pure black canvas + Red (#DF1717) interactive buttons with clickable mailto: and tel:+420712345678 links (formatted with spaces in display text).',
         render: () => `
           <div class="slide-body" style="justify-content:center; gap:10px;">
             <span class="slide-num">KONTAKT</span>
-            <h4 class="slide-h2">POJĎME ZMĚNIT HRU <span>↘</span></h4>
+            <h4 class="slide-h2">POJĎME ZMĚNIT <span class="kw-red">HRU</span> <span>↘</span></h4>
             <div class="slide-contact-links">
               <span class="slide-contact-link">INFO@COURTOFMORAVIA.COM</span>
               <span class="slide-contact-link">+420 712 345 678</span>
@@ -866,27 +867,26 @@
 
     applyCornerMarks(currentPairA, currentPairB);
 
-    document.getElementById('corner-tl').addEventListener('click', () => copySvgWithActiveColor(currentPairA));
-    document.getElementById('corner-br').addEventListener('click', () => copySvgWithActiveColor(currentPairA));
-    document.getElementById('corner-tr').addEventListener('click', () => copySvgWithActiveColor(currentPairB));
-    document.getElementById('corner-bl').addEventListener('click', () => copySvgWithActiveColor(currentPairB));
+    document.getElementById('corner-tl').addEventListener('click', () => copySvgXml(currentPairA, '#424242'));
+    document.getElementById('corner-br').addEventListener('click', () => copySvgXml(currentPairA, '#424242'));
+    document.getElementById('corner-tr').addEventListener('click', () => copySvgXml(currentPairB, '#424242'));
+    document.getElementById('corner-bl').addEventListener('click', () => copySvgXml(currentPairB, '#424242'));
 
-    const assetLogoAlt = SVG_ASSETS.find(a => a.id === 'com-logo-alt');
     const assetBarcodeLong = SVG_ASSETS.find(a => a.id === 'com-barcode-long');
     const assetBarcodeShort = SVG_ASSETS.find(a => a.id === 'com-barcode-short');
     const assetPdf417 = SVG_ASSETS.find(a => a.id === 'com-pdf417');
 
-    mountSvg(document.getElementById('footer-logo-alt'), assetLogoAlt);
     mountSvg(document.getElementById('footer-barcode-long'), assetBarcodeLong);
     mountSvg(document.getElementById('footer-barcode-short'), assetBarcodeShort);
-    mountSvg(document.getElementById('footer-pdf417'), assetPdf417);
+    mountSvg(document.getElementById('side-left-pdf417'), assetPdf417);
+    mountSvg(document.getElementById('side-right-barcode'), assetBarcodeShort);
 
-    document.getElementById('footer-logo-alt').addEventListener('click', () => copySvgWithActiveColor(assetLogoAlt));
-    document.getElementById('footer-pdf417').addEventListener('click', () => copySvgWithActiveColor(assetPdf417));
     document.getElementById('footer-barcode').addEventListener('click', () => {
       const isShort = window.matchMedia('(max-width: 720px)').matches;
-      copySvgWithActiveColor(isShort ? assetBarcodeShort : assetBarcodeLong);
+      copySvgXml(isShort ? assetBarcodeShort : assetBarcodeLong, '#424242');
     });
+    document.getElementById('side-left-pdf417').addEventListener('click', () => copySvgXml(assetPdf417, '#424242'));
+    document.getElementById('side-right-barcode').addEventListener('click', () => copySvgXml(assetBarcodeShort, '#424242'));
 
     function renderBrandMarks() {
       const mainContainer = document.getElementById('main-logo-container');
@@ -911,7 +911,7 @@
 
         card.appendChild(stage);
         card.appendChild(meta);
-        card.addEventListener('click', () => copySvgWithActiveColor(asset));
+        card.addEventListener('click', () => copySvgXml(asset, '#424242'));
 
         if (asset.isMain) {
           mainContainer.appendChild(card);
@@ -929,9 +929,9 @@
       ACCENT_FAMILIES.forEach(fam => {
         const rowGrid = document.createElement('div');
         rowGrid.className = 'chips-row-grid';
-        rowGrid.appendChild(createColorChip(`${fam.name}-L`, fam.l, '#000000'));
-        rowGrid.appendChild(createColorChip(`${fam.name}`, fam.base, '#000000'));
-        rowGrid.appendChild(createColorChip(`${fam.name}-D`, fam.d, '#FFFFFF'));
+        rowGrid.appendChild(createColorChip(`${fam.name}-L`, fam.l, '#000000', fam.demo));
+        rowGrid.appendChild(createColorChip(`${fam.name}`, fam.base, '#000000', fam.demo));
+        rowGrid.appendChild(createColorChip(`${fam.name}-D`, fam.d, '#FFFFFF', fam.demo));
         container.appendChild(rowGrid);
       });
 
@@ -939,7 +939,7 @@
         const rowGrid = document.createElement('div');
         rowGrid.className = 'chips-row-grid';
         row.forEach(item => {
-          rowGrid.appendChild(createColorChip(item.name, item.hex, item.textColor));
+          rowGrid.appendChild(createColorChip(item.name, item.hex, item.textColor, false));
         });
         container.appendChild(rowGrid);
       });
@@ -952,7 +952,7 @@
       row.className = 'type-row';
       row.innerHTML = `
         <div class="type-specs">${t.role}</div>
-        <div class="type-sample" style="${t.previewStyle}">${t.sample}</div>
+        <div class="type-sample" style="${t.previewStyle}">${t.sampleHtml}</div>
       `;
       row.addEventListener('click', () => copyText(t.cssCopy, t.role.split('·')[0].trim()));
       typoContainer.appendChild(row);
@@ -1034,7 +1034,7 @@
         document.querySelectorAll('[data-set-accent]').forEach(b => b.classList.remove('is-active'));
         btn.classList.add('is-active');
         advanceChapterCorners();
-        showToast('ACCENT ' + accent.toUpperCase());
+        showToast(accent === 'red' ? 'ACCENT RED (PRODUCTION)' : `${accent.toUpperCase()} (DEMO ONLY — FORBIDDEN FOR AGENTS)`);
       });
     });
 
