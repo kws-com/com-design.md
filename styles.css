@@ -222,11 +222,12 @@ a:hover {
 }
 
 @media (max-width: 720px) {
-.barcode-long-wrap {
-  display: none;
-}
-.barcode-short-wrap {
-  display: block;
+  .barcode-long-wrap {
+    display: none;
+  }
+  .barcode-short-wrap {
+    display: block;
+  }
 }
 
 .nav-links {
