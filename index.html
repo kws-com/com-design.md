@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DESIGN.MD — Court of Moravia</title>
-  <meta name="description" content="Design system tokens, brand marks, component geometry, and LLM specification for Court of Moravia." />
+  <meta name="description" content="Design system tokens, brand marks, slide compositions, and LLM specification for Court of Moravia." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@200;300;400;500&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -19,22 +19,27 @@
 
     <div class="chrome-center chrome-center--top">
       <nav class="nav-links" aria-label="Primary sections">
-        <a href="#palette">01 Palette</a>
-        <a href="#typography">02 Typography</a>
-        <a href="#marks">03 Brand Marks</a>
-        <a href="#primitives">04 Components</a>
-        <a href="#llm-docs">05 DESIGN.MD</a>
+        <a href="#palette" data-open-accordion="palette">PALETTE</a>
+        <span class="nav-sep">|</span>
+        <a href="#typography" data-open-accordion="typography">TYPOGRAPHY</a>
+        <span class="nav-sep">|</span>
+        <a href="#marks" data-open-accordion="marks">SHAPES</a>
+        <span class="nav-sep">|</span>
+        <a href="#primitives" data-open-accordion="primitives">COMPONENTS</a>
+        <span class="nav-sep">|</span>
+        <a href="#slides" data-open-accordion="slides">SLIDES</a>
+        <span class="nav-sep">|</span>
+        <a href="#llm-docs">DESIGN.MD</a>
       </nav>
 
-      <div class="accent-switcher" role="group" aria-label="Select composition accent family">
-        <span class="accent-label">Accent</span>
-        <button type="button" class="accent-btn is-active" data-set-accent="red" style="background:#DF1717" title="Red (#DF1717)"></button>
-        <button type="button" class="accent-btn" data-set-accent="blue" style="background:#196FE6" title="Blue (#196FE6)"></button>
-        <button type="button" class="accent-btn" data-set-accent="green" style="background:#1AE51A" title="Green (#1AE51A)"></button>
-        <button type="button" class="accent-btn" data-set-accent="orange" style="background:#FF5500" title="Orange (#FF5500)"></button>
-        <button type="button" class="accent-btn" data-set-accent="yellow" style="background:#E5C41A" title="Yellow (#E5C41A)"></button>
-        <button type="button" class="accent-btn" data-set-accent="teal" style="background:#14A9B8" title="Teal (#14A9B8)"></button>
-        <button type="button" class="accent-btn" data-set-accent="violet" style="background:#8019E5" title="Violet (#8019E5)"></button>
+      <div class="accent-switcher" role="group" aria-label="Accent color">
+        <button type="button" class="accent-btn is-active" data-set-accent="red" style="background:#DF1717" title="Red"></button>
+        <button type="button" class="accent-btn" data-set-accent="blue" style="background:#196FE6" title="Blue"></button>
+        <button type="button" class="accent-btn" data-set-accent="green" style="background:#1AE51A" title="Green"></button>
+        <button type="button" class="accent-btn" data-set-accent="orange" style="background:#FF5500" title="Orange"></button>
+        <button type="button" class="accent-btn" data-set-accent="yellow" style="background:#E5C41A" title="Yellow"></button>
+        <button type="button" class="accent-btn" data-set-accent="teal" style="background:#14A9B8" title="Teal"></button>
+        <button type="button" class="accent-btn" data-set-accent="violet" style="background:#8019E5" title="Violet"></button>
       </div>
     </div>
 
@@ -49,15 +54,15 @@
       <section class="hero">
         <h1 class="hero-display">WE CHANGE THE GAME OF BUSINESS</h1>
         <p class="hero-body">
-          A technical frame. A human purpose. Click any color chip, typography specimen, SVG brand mark, or component primitive to copy its exact code or token.
+          A technical frame. A human purpose. Click any color chip, typography specimen, SVG shape, slide composition, or component primitive to copy its exact code or token.
         </p>
 
         <div class="hero-actions">
           <button type="button" class="btn" id="copy-design-md-hero">
             Copy DESIGN.MD for LLMs
           </button>
-          <button type="button" class="btn btn--side" id="copy-css-vars">
-            Copy CSS Variables
+          <button type="button" class="btn btn--side" id="download-all-fonts">
+            Download Fonts
           </button>
           <a href="DESIGN.md" download="DESIGN.md" class="btn btn--side">
             Download DESIGN.md
@@ -66,160 +71,192 @@
       </section>
 
       <section id="palette" class="section">
-        <div class="section-header">
-          <span class="section-eyebrow">01</span>
+        <button type="button" class="accordion-trigger" aria-expanded="false">
+          <span class="section-eyebrow">1</span>
           <h2 class="section-title">Color System<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+        </button>
+
+        <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Ordered sequence: Red, Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black. Each row presents Light (-L), Base, and Dark (-D) variants with self-inherited borders.
+              Ordered sequence: Red, Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black. Documents up to 20 pages and 5 chapters use a single accent family; longer decks use Red for Intro and Outro while inner chapters follow the palette order.
             </p>
           </div>
+          <div id="all-color-rows"></div>
         </div>
-
-        <div id="all-color-rows"></div>
       </section>
 
       <section id="typography" class="section">
-        <div class="section-header">
-          <span class="section-eyebrow">02</span>
+        <button type="button" class="accordion-trigger" aria-expanded="false">
+          <span class="section-eyebrow">2</span>
           <h2 class="section-title">Core Typography<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+        </button>
+
+        <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Rendered at 1:1 scale. Geist is used exclusively for h1, body text, and the lower CTA label. Geist Mono is used for everything else, set in uppercase.
+              Rendered at 1:1 scale. Geist is used exclusively for h1, body text, and the lower CTA label. Geist Mono is used for everything else, set in uppercase. Client deliverables always export to PDF with embedded fonts.
             </p>
+            <div class="section-actions">
+              <a href="./fonts/geist.zip" download="geist.zip" class="btn">Download Geist</a>
+              <a href="./fonts/geist-mono.zip" download="geist-mono.zip" class="btn btn--side">Download Geist Mono</a>
+            </div>
           </div>
-        </div>
 
-        <div class="type-list" id="typography-container"></div>
+          <div class="type-list" id="typography-container"></div>
+        </div>
       </section>
 
       <section id="marks" class="section">
-        <div class="section-header">
-          <span class="section-eyebrow">03</span>
-          <h2 class="section-title">Brand Marks<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+        <button type="button" class="accordion-trigger" aria-expanded="false">
+          <span class="section-eyebrow">3</span>
+          <h2 class="section-title">Shapes &amp; Marks<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+        </button>
+
+        <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Vector assets imported from ./svgs/ with proportional scale-fill rendering. Click any mark to copy its SVG XML code.
+              Shapes are copied with the currently selected web accent color baked into their SVG XML so pasting into Figma or Illustrator preserves your chosen color. Source files use fill="currentColor" in HTML/CSS.
             </p>
           </div>
-        </div>
 
-        <div class="marks-main-wrap" id="main-logo-container"></div>
-        <div class="marks-grid" id="marks-grid-container"></div>
+          <div class="marks-main-wrap" id="main-logo-container"></div>
+          <div class="marks-grid" id="marks-grid-container"></div>
+        </div>
       </section>
 
       <section id="primitives" class="section">
-        <div class="section-header">
-          <span class="section-eyebrow">04</span>
+        <button type="button" class="accordion-trigger" aria-expanded="false">
+          <span class="section-eyebrow">4</span>
           <h2 class="section-title">Component Primitives<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+        </button>
+
+        <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
               Composite blocks never carry an outer wrapper border as a whole—borders and fills apply strictly to their inner frames on a pure black background.
             </p>
           </div>
+
+          <div class="primitives-stack">
+
+            <div class="primitive-unit">
+              <p class="primitive-micro-desc">VERBOX — Vertical stack container with hug h5 header (padding 24px 48px) and 64px vertical item gap</p>
+              <div class="verbox" data-copy-snippet="VERBOX: Top hug h5 header (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l)) + bottom box (border: 1px solid var(--accent-d); padding: 64px 72px; gap: 64px) with h6 (color: var(--accent-l), gap: 24px) + body (max-width: 66ch).">
+                <h5 class="verbox-header">VERBOX HEADER</h5>
+                <div class="verbox-body">
+                  <div class="text-pair">
+                    <h6 class="text-pair-h6">1 RADIKÁLNÍ UPŘÍMNOST</h6>
+                    <p class="box-body-text">
+                      Pojmenováváme věci pravými jmény. Bez korporátní vaty, s respektem k lidem a fokusem na výsledek. Obsah verboxu je řazený vertikálně pod sebou s mezerou 64px.
+                    </p>
+                  </div>
+                  <div class="text-pair">
+                    <h6 class="text-pair-h6">2 MĚŘITELNÝ DOPAD</h6>
+                    <p class="box-body-text">
+                      Každý zásah do fungování firmy musí mít jasný cíl a ověřitelný posun v každodenní praxi týmu. Šířka odstavce nepřesahuje 66ch.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="primitive-unit">
+              <p class="primitive-micro-desc">HORBOX — Horizontal multi-column container (max 3 columns) with hug h5 header (padding 24px 48px) and 56px column gap</p>
+              <div class="horbox" data-copy-snippet="HORBOX: Top hug h5 header (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l)) + horizontal row box (border: 1px solid var(--accent-d); padding: 64px 72px; gap: 56px, max 3 cols) with h6 (color: var(--accent-l), gap: 24px) + body (max-width: 66ch).">
+                <h5 class="horbox-header">HORBOX HEADER</h5>
+                <div class="horbox-body">
+                  <div class="text-pair">
+                    <h6 class="text-pair-h6">DIAGNOSTIKA</h6>
+                    <p class="box-body-text">
+                      Mapujeme skutečné chování týmu a úzká hrdla rozhodování místo povrchových dojmů.
+                    </p>
+                  </div>
+                  <div class="text-pair">
+                    <h6 class="text-pair-h6">INTERVENCE</h6>
+                    <p class="box-body-text">
+                      Navrhujeme konkrétní herní a procesní mechanismy, které mění návyky v reálném čase.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="primitive-unit">
+              <p class="primitive-micro-desc">SBOX — Equal-height small boxes with 100% full-width h5 header and 48px 56px body frame</p>
+              <div class="sbox-grid">
+                <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l); padding: 24px 40px) + bottom frame (border: 1px solid var(--accent-d); padding: 48px 56px) with body text (max-width: 66ch).">
+                  <h5 class="sbox-header">FILTERED TRUTH</h5>
+                  <div class="sbox-body">
+                    <p class="box-body-text">
+                      Diagnostika reálného stavu firmy bez zkreslení management reporty. Hlavička h5 vyplňuje 100 % šířky boxu.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l); padding: 24px 40px) + bottom frame (border: 1px solid var(--accent-d); padding: 48px 56px) with body text (max-width: 66ch).">
+                  <h5 class="sbox-header">TALENT OPTIMIZATION</h5>
+                  <div class="sbox-body">
+                    <p class="box-body-text">
+                      Sladění silných stránek lidí s klíčovými byznysovými cíli a jasnou odpovědností za výsledek.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="primitive-unit">
+              <p class="primitive-micro-desc">ORDERED LIST — Top-aligned hugging number cell paired with full-bordered uppercase h6 regular text frame</p>
+              <div class="com-ordered-list">
+                <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular uppercase).">
+                  <div class="com-ol-num">1</div>
+                  <div class="com-ol-text">POJMENUJEME SKUTEČNÝ PROBLÉM BEZ KORPORÁTNÍHO BALASTU</div>
+                </div>
+                <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular uppercase).">
+                  <div class="com-ol-num">2</div>
+                  <div class="com-ol-text">NAVRHNEME SYSTÉM A HERNÍ MECHANIKY, KTERÉ V TÝMU PŘENESOU ODPOVĚDNOST Z JEDNOTLIVCE NA CELEK A ODSTRANÍ ROZHODOVACÍ PARALÝZU</div>
+                </div>
+                <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular uppercase).">
+                  <div class="com-ol-num">3</div>
+                  <div class="com-ol-text">PŘEDÁME NÁSTROJE INTERNÍM LÍDRŮM DO KAŽDODENNÍ PRAXE</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="primitive-unit">
+              <p class="primitive-micro-desc">CTA BUTTON — Two-part action block with hug h6 context header and 32px Geist Medium underlined trigger</p>
+              <div>
+                <a href="#llm-docs" class="cta-block" data-copy-snippet="Two-Part CTA Button: Top hug frame (padding: 24px 40px; background: #000000; border: 1px solid var(--accent-d); h6 accent-l) + Bottom frame (padding: 40px 48px; background: var(--accent-l); font-family: 'Geist'; font-size: 32px; font-weight: 500; text-decoration: underline; color: #000000).">
+                  <span class="cta-top">READY TO IMPLEMENT THIS SYSTEM</span>
+                  <span class="cta-bottom">COPY FULL SPECIFICATION</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
         </div>
+      </section>
 
-        <div class="primitives-stack">
+      <section id="slides" class="section">
+        <button type="button" class="accordion-trigger" aria-expanded="false">
+          <span class="section-eyebrow">5</span>
+          <h2 class="section-title">Slide Compositions<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+        </button>
 
-          <div class="primitive-unit">
-            <p class="primitive-micro-desc">VERBOX — Vertical stack container with hug h5 header (padding 24px 48px) and 64px vertical item gap</p>
-            <div class="verbox" data-copy-snippet="VERBOX: Top hug h5 header (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l)) + bottom box (border: 1px solid var(--accent-d); padding: 64px 72px; gap: 64px) with h6 (color: var(--accent-l), gap: 24px) + body (max-width: 66ch).">
-              <h5 class="verbox-header">VERBOX HEADER</h5>
-              <div class="verbox-body">
-                <div class="text-pair">
-                  <h6 class="text-pair-h6">01 RADIKÁLNÍ UPŘÍMNOST</h6>
-                  <p class="box-body-text">
-                    Pojmenováváme věci pravými jmény. Bez korporátní vaty, s respektem k lidem a fokusem na výsledek. Obsah verboxu je řazený vertikálně pod sebou s mezerou 64px.
-                  </p>
-                </div>
-                <div class="text-pair">
-                  <h6 class="text-pair-h6">02 MĚŘITELNÝ DOPAD</h6>
-                  <p class="box-body-text">
-                    Každý zásah do fungování firmy musí mít jasný cíl a ověřitelný posun v každodenní praxi týmu. Šířka odstavce nepřesahuje 66ch.
-                  </p>
-                </div>
-              </div>
-            </div>
+        <div class="accordion-panel">
+          <div class="section-desc-wrap">
+            <p class="section-desc">
+              3x4 showcase of standardized 1920x1080 slide compositions and permutations. Click any slide specimen to copy its layout specification for LLM deck generation.
+            </p>
           </div>
 
-          <div class="primitive-unit">
-            <p class="primitive-micro-desc">HORBOX — Horizontal multi-column container with unified hug h5 header (padding 24px 48px) and 56px column gap</p>
-            <div class="horbox" data-copy-snippet="HORBOX: Top hug h5 header (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l)) + horizontal row box (border: 1px solid var(--accent-d); padding: 64px 72px; gap: 56px) with h6 (color: var(--accent-l), gap: 24px) + body (max-width: 66ch).">
-              <h5 class="horbox-header">HORBOX HEADER</h5>
-              <div class="horbox-body">
-                <div class="text-pair">
-                  <h6 class="text-pair-h6">DIAGNOSTIKA</h6>
-                  <p class="box-body-text">
-                    Mapujeme skutečné chování týmu a úzká hrdla rozhodování místo povrchových dojmů.
-                  </p>
-                </div>
-                <div class="text-pair">
-                  <h6 class="text-pair-h6">INTERVENCE</h6>
-                  <p class="box-body-text">
-                    Navrhujeme konkrétní herní a procesní mechanismy, které mění návyky v reálném čase.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="primitive-unit">
-            <p class="primitive-micro-desc">SBOX — Small box with 100% full-width h5 header and 48px 56px body frame</p>
-            <div class="sbox-grid">
-              <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l); padding: 24px 40px) + bottom frame (border: 1px solid var(--accent-d); padding: 48px 56px) with body text (max-width: 66ch).">
-                <h5 class="sbox-header">FILTERED TRUTH</h5>
-                <div class="sbox-body">
-                  <p class="box-body-text">
-                    Diagnostika reálného stavu firmy bez zkreslení management reporty. Hlavička h5 vyplňuje 100 % šířky boxu.
-                  </p>
-                </div>
-              </div>
-
-              <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; border: 1px solid var(--accent-d); background: #000000; color: var(--color-grey-l); padding: 24px 40px) + bottom frame (border: 1px solid var(--accent-d); padding: 48px 56px) with body text (max-width: 66ch).">
-                <h5 class="sbox-header">TALENT OPTIMIZATION</h5>
-                <div class="sbox-body">
-                  <p class="box-body-text">
-                    Sladění silných stránek lidí s klíčovými byznysovými cíli a jasnou odpovědností za výsledek.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="primitive-unit">
-            <p class="primitive-micro-desc">ORDERED LIST — Top-aligned hugging number cell paired with full-bordered uppercase h6 regular text frame</p>
-            <div class="com-ordered-list">
-              <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular uppercase).">
-                <div class="com-ol-num">1</div>
-                <div class="com-ol-text">POJMENUJEME SKUTEČNÝ PROBLÉM BEZ KORPORÁTNÍHO BALASTU</div>
-              </div>
-              <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular uppercase).">
-                <div class="com-ol-num">2</div>
-                <div class="com-ol-text">NAVRHNEME SYSTÉM A HERNÍ MECHANIKY, KTERÉ V TÝMU PŘENESOU ODPOVĚDNOST Z JEDNOTLIVCE NA CELEK A ODSTRANÍ ROZHODOVACÍ PARALÝZU</div>
-              </div>
-              <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--accent-d); background: #000000; color: var(--accent-l); h6 regular uppercase).">
-                <div class="com-ol-num">3</div>
-                <div class="com-ol-text">PŘEDÁME NÁSTROJE INTERNÍM LÍDRŮM DO KAŽDODENNÍ PRAXE</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="primitive-unit">
-            <p class="primitive-micro-desc">CTA BUTTON — Two-part action block with hug h6 context header and 32px Geist Medium underlined trigger</p>
-            <div>
-              <a href="#llm-docs" class="cta-block" data-copy-snippet="Two-Part CTA Button: Top hug frame (padding: 24px 40px; background: #000000; border: 1px solid var(--accent-d); h6 accent-l) + Bottom frame (padding: 40px 48px; background: var(--accent-l); font-family: 'Geist'; font-size: 32px; font-weight: 500; text-decoration: underline; color: #000000).">
-                <span class="cta-top">READY TO IMPLEMENT THIS SYSTEM</span>
-                <span class="cta-bottom">COPY FULL SPECIFICATION</span>
-              </a>
-            </div>
-          </div>
-
+          <div class="slides-grid-3x4" id="slides-showcase-grid"></div>
         </div>
       </section>
 
       <section id="llm-docs" class="section">
         <div class="section-header">
-          <span class="section-eyebrow">05</span>
+          <span class="section-eyebrow">6</span>
           <h2 class="section-title">DESIGN.MD<span class="arrow-glyph" aria-hidden="true">↘</span></h2>
           <div class="section-desc-wrap">
             <p class="section-desc">
@@ -249,7 +286,12 @@
     </div>
 
     <div class="chrome-center chrome-center--bottom">
-      <div class="slot-edge-h"></div>
+        <div class="footer-edge-slot footer-edge-slot--alt" id="footer-logo-alt" title="Click to copy com-logo-alt.svg"></div>
+        <div class="footer-edge-slot footer-edge-slot--barcode" id="footer-barcode" title="Click to copy barcode SVG">
+            <div class="barcode-long-wrap" id="footer-barcode-long"></div>
+            <div class="barcode-short-wrap" id="footer-barcode-short"></div>
+        </div>
+        <div class="footer-edge-slot footer-edge-slot--pdf417" id="footer-pdf417" title="Click to cop
     </div>
 
     <div class="chrome-end chrome-end--right" id="corner-br">
@@ -261,23 +303,32 @@
 
   <script>
     const SVG_ASSETS = [
-      { id: 'com-logo-full', name: 'COM LOGO FULL', file: './svgs/com-logo-full.svg', isMain: true },
-      { id: 'com-logo',      name: 'COM LOGO',      file: './svgs/com-logo.svg',      isMain: false },
-      { id: 'com-d4',        name: 'COM D2',        file: './svgs/com-d4.svg',        isMain: false },
-      { id: 'com-d6',        name: 'COM D6',        file: './svgs/com-d6.svg',        isMain: false },
-      { id: 'com-d8',        name: 'COM D8',        file: './svgs/com-d8.svg',        isMain: false },
-      { id: 'com-d10',       name: 'COM D10',       file: './svgs/com-d10.svg',       isMain: false },
-      { id: 'com-d12',       name: 'COM D12',       file: './svgs/com-d12.svg',       isMain: false },
-      { id: 'com-d20',       name: 'COM D20',       file: './svgs/com-d20.svg',       isMain: false },
-      { id: 'com-aztec-a',   name: 'COM AZTEC A',   file: './svgs/com-aztec-a.svg',   isMain: false },
-      { id: 'com-aztec-b',   name: 'COM AZTEC B',   file: './svgs/com-aztec-b.svg',   isMain: false },
-      { id: 'com-c',         name: 'COM C',         file: './svgs/com-c.svg',         isMain: false },
-      { id: 'com-o',         name: 'COM O',         file: './svgs/com-o.svg',         isMain: false },
-      { id: 'com-m',         name: 'COM M',         file: './svgs/com-m.svg',         isMain: false },
-      { id: 'com-g',         name: 'COM G',         file: './svgs/com-g.svg',         isMain: false }
+      { id: 'com-logo-full', name: 'COM LOGO FULL', file: './svgs/com-logo-full.svg', isMain: true, isGuild: false },
+      { id: 'com-logo',      name: 'COM LOGO',      file: './svgs/com-logo.svg',      isMain: false, isGuild: false },
+      { id: 'com-d2',        name: 'COM D2',        file: './svgs/com-d2.svg',        isMain: false, isGuild: false },
+      { id: 'com-d6',        name: 'COM D6',        file: './svgs/com-d6.svg',        isMain: false, isGuild: false },
+      { id: 'com-d8',        name: 'COM D8',        file: './svgs/com-d8.svg',        isMain: false, isGuild: false },
+      { id: 'com-d10',       name: 'COM D10',       file: './svgs/com-d10.svg',       isMain: false, isGuild: false },
+      { id: 'com-d12',       name: 'COM D12',       file: './svgs/com-d12.svg',       isMain: false, isGuild: false },
+      { id: 'com-d20',       name: 'COM D20',       file: './svgs/com-d20.svg',       isMain: false, isGuild: false },
+      { id: 'com-aztec-a',   name: 'COM AZTEC A',   file: './svgs/com-aztec-a.svg',   isMain: false, isGuild: false },
+      { id: 'com-aztec-b',   name: 'COM AZTEC B',   file: './svgs/com-aztec-b.svg',   isMain: false, isGuild: false },
+      { id: 'com-c',         name: 'COM C',         file: './svgs/com-c.svg',         isMain: false, isGuild: false },
+      { id: 'com-o',         name: 'COM O',         file: './svgs/com-o.svg',         isMain: false, isGuild: false },
+      { id: 'com-m',         name: 'COM M',         file: './svgs/com-m.svg',         isMain: false, isGuild: false },
+      { id: 'com-g',         name: 'COM G',         file: './svgs/com-g.svg',         isMain: false, isGuild: true },
+      { id: 'com-logo-alt',      name: 'COM LOGO ALT (BOTTOM ONLY)',  file: './svgs/com-logo-alt.svg',      isMain: false, isGuild: false },
+      { id: 'com-barcode-long',  name: 'COM BARCODE LONG (EDGES)',    file: './svgs/com-barcode-long.svg',  isMain: false, isGuild: false },
+      { id: 'com-barcode-short', name: 'COM BARCODE SHORT (EDGES)',   file: './svgs/com-barcode-short.svg', isMain: false, isGuild: false },
+      { id: 'com-pdf417',        name: 'COM PDF417 (BOTTOM ONLY)',    file: './svgs/com-pdf417.svg',        isMain: false, isGuild: false }
     ];
 
     const svgCache = new Map();
+
+    function getActiveAccentHex() {
+      const val = getComputedStyle(document.documentElement).getPropertyValue('--accent-l').trim();
+      return val || '#F65656';
+    }
 
     async function loadSvgData(filePath) {
       if (svgCache.has(filePath)) return svgCache.get(filePath);
@@ -333,10 +384,19 @@
       }
     }
 
-    async function copySvgFile(asset) {
+    async function copySvgWithActiveColor(asset) {
+      const hex = getActiveAccentHex();
       const data = await loadSvgData(asset.file);
-      if (data && data.rawXml) {
-        await copyText(data.rawXml, asset.name + ' SVG');
+      if (data && data.templateSvg) {
+        const clone = data.templateSvg.cloneNode(true);
+        clone.removeAttribute('class');
+        clone.querySelectorAll('[fill="currentColor"]').forEach(el => el.setAttribute('fill', hex));
+        clone.querySelectorAll('[stroke="currentColor"]').forEach(el => el.setAttribute('stroke', hex));
+        if (clone.getAttribute('fill') === 'currentColor') {
+          clone.setAttribute('fill', hex);
+        }
+        const serialized = new XMLSerializer().serializeToString(clone);
+        await copyText(serialized, `${asset.name} (${hex})`);
       } else {
         await copyText(asset.file, asset.file);
       }
@@ -449,50 +509,288 @@
       {
         role: 'H1 · GEIST LIGHT · 160PX · 110% LINE · 0% TRACKING · #FFFFFF',
         sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
+        previewStyle: "font-family: var(--font-body); font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
         cssCopy: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
       },
       {
         role: 'H2 · GEIST MONO LIGHT · 96PX · 110% LINE · 0% TRACKING · #FFFFFF',
         sample: 'CHANGE THE GAME ↘',
-        previewStyle: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
         cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
       },
       {
         role: 'H3 · GEIST MONO EXTRALIGHT · 64PX · 110% LINE · 0% TRACKING · #FFFFFF',
         sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: 'Geist Mono', monospace; font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
+        previewStyle: "font-family: var(--font-header); font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
         cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
       },
       {
         role: 'H4 · GEIST MONO LIGHT · 48PX · 110% LINE · 0% TRACKING · GREY-L',
         sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #E8E5E0;",
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #E8E5E0;",
         cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #E8E5E0;"
       },
       {
         role: 'H5 · GEIST MONO REGULAR · 32PX · 110% LINE · +4% TRACKING · ACCENT-L',
         sample: 'CHANGE THE GAME',
-        previewStyle: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-l);",
+        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-l);",
         cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-l);"
       },
       {
         role: 'H6 · GEIST MONO LIGHT · 24PX · 130% LINE · +1% TRACKING · GREY-L',
         sample: 'WE DELIVER CHANGE IN COMPANIES',
-        previewStyle: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: #E8E5E0;",
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: #E8E5E0;",
         cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: #E8E5E0;"
       },
       {
         role: 'BODY · GEIST REGULAR · 24PX · 130% LINE · 0% TRACKING · #FFFFFF · MAX-WIDTH 66CH',
         sample: 'We deliver change in companies. We change the game of business.',
-        previewStyle: "font-family: 'Geist', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #FFFFFF; max-width: 66ch; white-space: normal;",
+        previewStyle: "font-family: var(--font-body); font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #FFFFFF; max-width: 66ch; white-space: normal;",
         cssCopy: "font-family: 'Geist', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #FFFFFF; max-width: 66ch;"
       },
       {
         role: 'MICRO · GEIST MONO REGULAR · 14PX · 110% LINE · +4% TRACKING · GREY-L',
         sample: 'COURT OF MORAVIA · EXPERT GUILD',
-        previewStyle: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #E8E5E0;",
+        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #E8E5E0;",
         cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #E8E5E0;"
+      }
+    ];
+
+    const SLIDE_SPECIMENS = [
+      {
+        name: '1 INTRO SLIDE',
+        tag: 'MAX-WIDTH 250PX LOGO',
+        spec: 'INTRO SLIDE: Fixed 1920x1080 grid (66px top/bottom bars, corners: com-logo + com-d12), primary logo constrained to max-width: 250px, uppercase h1 display headline (#FFFFFF).',
+        render: () => `
+          <div class="slide-body" style="justify-content:center; gap:12px;">
+            <div class="slide-intro-logo" id="mini-intro-logo"></div>
+            <h4 class="slide-h2" style="font-size:16px;">WE CHANGE THE GAME OF BUSINESS</h4>
+          </div>`
+      },
+      {
+        name: '2 TEXT · 1 COLUMN',
+        tag: 'RIGHT-ALIGNED 66CH',
+        spec: 'TEXT SLIDE (1 COL): Section number + h2 title with grey-l ↘ + subtitle, single body block (max-width: 66ch) aligned right.',
+        render: () => `
+          <div class="slide-body">
+            <div class="slide-head-block">
+              <span class="slide-num">1</span>
+              <h4 class="slide-h2">DIAGNOSTIKA REALITY <span>↘</span></h4>
+              <p class="slide-sub">POJMENOVÁNÍ SKUTEČNÉHO STAVU FIRMY</p>
+            </div>
+            <div style="width:66%; margin-left:auto;">
+              <p class="slide-p">Systematický přístup k rozvoji týmů bez korporátní vaty. Odstavec nepřesahuje 66ch a drží pravé zarovnání.</p>
+            </div>
+          </div>`
+      },
+      {
+        name: '3 TEXT · 2 COLUMNS',
+        tag: 'RIGHT-ALIGNED 66CH + NEG SPACE',
+        spec: 'TEXT SLIDE (2 COLS): Header block + 2 columns capped at max-width: 66ch aligned to the right, preserving deliberate negative space on the left.',
+        render: () => `
+          <div class="slide-body">
+            <div class="slide-head-block">
+              <span class="slide-num">2</span>
+              <h4 class="slide-h2">DVA PILÍŘE ZMĚNY <span>↘</span></h4>
+              <p class="slide-sub">SYSTÉM A LIDSKÁ ODPOVĚDNOST</p>
+            </div>
+            <div class="slide-cols slide-cols--2-right">
+              <p class="slide-p">První sloupec definuje jasná pravidla hry a odstraňuje rozhodovací paralýzu.</p>
+              <p class="slide-p">Druhý sloupec přenáší vlastnictví výsledků z jednotlivce na celý tým.</p>
+            </div>
+          </div>`
+      },
+      {
+        name: '4 TEXT · 3 COLUMNS',
+        tag: 'STRETCH FILL WIDTH',
+        spec: 'TEXT SLIDE (3 COLS): Header block + 3 columns stretched (flex: 1) to fill the full width of the content safe-zone.',
+        render: () => `
+          <div class="slide-body">
+            <div class="slide-head-block">
+              <span class="slide-num">3</span>
+              <h4 class="slide-h2">TŘI FÁZE SPOLUPRÁCE <span>↘</span></h4>
+              <p class="slide-sub">OD SBĚRU DAT PO ŠKÁLOVÁNÍ</p>
+            </div>
+            <div class="slide-cols slide-cols--3">
+              <p class="slide-p">01 Hloubkové rozhovory a mapování úzkých hrdel v týmu.</p>
+              <p class="slide-p">02 Návrh herních mechanik a simulace klíčových situací.</p>
+              <p class="slide-p">03 Přenos nástrojů interním lídrům do každodenní praxe.</p>
+            </div>
+          </div>`
+      },
+      {
+        name: '5 TEXT · 4 COLUMNS',
+        tag: 'FULL WIDTH GRID',
+        spec: 'TEXT SLIDE (4 COLS): Header block + 4 equal columns spanning the entire slide width.',
+        render: () => `
+          <div class="slide-body">
+            <div class="slide-head-block">
+              <span class="slide-num">4</span>
+              <h4 class="slide-h2">ČTYŘI PRINCIPY GILDA <span>↘</span></h4>
+              <p class="slide-sub">ZÁKLADNÍ OPERAČNÍ RÁMEC</p>
+            </div>
+            <div class="slide-cols slide-cols--4">
+              <p class="slide-p">Radikální upřímnost bez zkreslení.</p>
+              <p class="slide-p">Měřitelný dopad na byznys.</p>
+              <p class="slide-p">Rychlá zpětná vazba v praxi.</p>
+              <p class="slide-p">Dlouhodobá udržitelnost týmu.</p>
+            </div>
+          </div>`
+      },
+      {
+        name: '6 HEADLINE + VERBOX',
+        tag: 'FLUSH ALIGNED SPLIT',
+        spec: 'HEADLINE + VERBOX: Left column holds overhanging number + h2 ↘ + optional subtitle; right column holds flush-aligned VERBOX (hug header + stacked blocks).',
+        render: () => `
+          <div class="slide-body">
+            <div class="slide-split-verbox">
+              <div class="slide-head-block">
+                <span class="slide-num">5</span>
+                <h4 class="slide-h2">NOSNÁ TEZE <span>↘</span></h4>
+                <p class="slide-sub">KONTEXT PROBLÉMU</p>
+              </div>
+              <div>
+                <div class="slide-mini-box-head">VERBOX HEADER</div>
+                <div class="slide-mini-box-body">
+                  <p class="slide-p">První textový blok rozvíjející hlavní myšlenku boxu.</p>
+                  <p class="slide-p">Druhý textový blok s vlastním kontextem.</p>
+                </div>
+              </div>
+            </div>
+          </div>`
+      },
+      {
+        name: '7 HEADLINE + HORBOX (2 COLS)',
+        tag: 'MAX 1 HORBOX / SLIDE',
+        spec: 'HEADLINE + HORBOX (2 COLS): Top headline block + single HORBOX below with hug header and 2 horizontal columns.',
+        render: () => `
+          <div class="slide-body">
+            <div class="slide-head-block">
+              <span class="slide-num">6</span>
+              <h4 class="slide-h2">ARCHITEKTURA ŘEŠENÍ <span>↘</span></h4>
+              <p class="slide-sub">DVĚ ROVINY INTERVENCE</p>
+            </div>
+            <div>
+              <div class="slide-mini-box-head">HORBOX HEADER</div>
+              <div class="slide-mini-box-body" style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+                <p class="slide-p">DIAGNOSTIKA: Sběr tvrdých dat bez domněnek.</p>
+                <p class="slide-p">EXEKUCE: Okamžitá aplikace do procesů firmy.</p>
+              </div>
+            </div>
+          </div>`
+      },
+      {
+        name: '8 HEADLINE + HORBOX (3 COLS)',
+        tag: 'MAX 3 COLUMNS',
+        spec: 'HEADLINE + HORBOX (3 COLS): Top headline block + single HORBOX below with hug header and 3 horizontal columns.',
+        render: () => `
+          <div class="slide-body">
+            <div class="slide-head-block">
+              <span class="slide-num">7</span>
+              <h4 class="slide-h2">ROADMAPA IMPLEMENTACE <span>↘</span></h4>
+              <p class="slide-sub">KVARTÁLNÍ CYKLUS</p>
+            </div>
+            <div>
+              <div class="slide-mini-box-head">HORBOX · 3 SLOUPCE</div>
+              <div class="slide-mini-box-body" style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px;">
+                <p class="slide-p">MĚSÍC 1: Audit a data.</p>
+                <p class="slide-p">MĚSÍC 2: Herní simulace.</p>
+                <p class="slide-p">MĚSÍC 3: Škálování.</p>
+              </div>
+            </div>
+          </div>`
+      },
+      {
+        name: '9 HEADER + SBOX (2 CARDS)',
+        tag: 'EQUAL HEIGHT PAIR',
+        spec: 'HEADER + SBOX (2 CARDS): Top headline + 2 equal-height SBOX cards side-by-side (100% width h5 headers).',
+        render: () => `
+          <div class="slide-body">
+            <div class="slide-head-block">
+              <span class="slide-num">8</span>
+              <h4 class="slide-h2">SROVNÁNÍ PŘÍSTUPŮ <span>↘</span></h4>
+            </div>
+            <div class="slide-mini-sbox-grid slide-mini-sbox-grid--2">
+              <div class="slide-mini-sbox">
+                <div class="slide-mini-sbox-head">FILTERED TRUTH</div>
+                <div class="slide-mini-sbox-body"><p class="slide-p">Reálný obraz firmy bez zkreslení.</p></div>
+              </div>
+              <div class="slide-mini-sbox">
+                <div class="slide-mini-sbox-head">TALENT OPTIMIZATION</div>
+                <div class="slide-mini-sbox-body"><p class="slide-p">Sladění lidí s byznys cíli.</p></div>
+              </div>
+            </div>
+          </div>`
+      },
+      {
+        name: '10 HEADER + SBOX (3 CARDS)',
+        tag: 'MAX 3 PER ROW',
+        spec: 'HEADER + SBOX (3 CARDS): Top headline + 3 equal-height SBOX cards in a single row.',
+        render: () => `
+          <div class="slide-body">
+            <div class="slide-head-block">
+              <span class="slide-num">9</span>
+              <h4 class="slide-h2">TŘI PILÍŘE PRODUKTU <span>↘</span></h4>
+            </div>
+            <div class="slide-mini-sbox-grid slide-mini-sbox-grid--3">
+              <div class="slide-mini-sbox">
+                <div class="slide-mini-sbox-head">HRA</div>
+                <div class="slide-mini-sbox-body"><p class="slide-p">Simulace reality.</p></div>
+              </div>
+              <div class="slide-mini-sbox">
+                <div class="slide-mini-sbox-head">REFLEXE</div>
+                <div class="slide-mini-sbox-body"><p class="slide-p">Zpětná vazba.</p></div>
+              </div>
+              <div class="slide-mini-sbox">
+                <div class="slide-mini-sbox-head">PŘENOS</div>
+                <div class="slide-mini-sbox-body"><p class="slide-p">Akční kroky.</p></div>
+              </div>
+            </div>
+          </div>`
+      },
+      {
+        name: '11 HEADER + SBOX (2X2 GRID)',
+        tag: '4 EQUAL CARDS',
+        spec: 'HEADER + SBOX (2x2 GRID): Top headline + 4 equal-height SBOX cards arranged in a 2x2 matrix.',
+        render: () => `
+          <div class="slide-body">
+            <div class="slide-head-block">
+              <span class="slide-num">10</span>
+              <h4 class="slide-h2">MATICE VÝSTUPŮ <span>↘</span></h4>
+            </div>
+            <div class="slide-mini-sbox-grid slide-mini-sbox-grid--2x2">
+              <div class="slide-mini-sbox">
+                <div class="slide-mini-sbox-head">01 STRUKTURA</div>
+                <div class="slide-mini-sbox-body"><p class="slide-p">Jasné role.</p></div>
+              </div>
+              <div class="slide-mini-sbox">
+                <div class="slide-mini-sbox-head">02 RYCHLOST</div>
+                <div class="slide-mini-sbox-body"><p class="slide-p">Krátké cykly.</p></div>
+              </div>
+              <div class="slide-mini-sbox">
+                <div class="slide-mini-sbox-head">03 DATA</div>
+                <div class="slide-mini-sbox-body"><p class="slide-p">Tvrdé metriky.</p></div>
+              </div>
+              <div class="slide-mini-sbox">
+                <div class="slide-mini-sbox-head">04 DOPAD</div>
+                <div class="slide-mini-sbox-body"><p class="slide-p">Měřitelný růst.</p></div>
+              </div>
+            </div>
+          </div>`
+      },
+      {
+        name: '12 OUTRO & CONTACTS',
+        tag: 'CLICKABLE MAILTO & TEL',
+        spec: 'OUTRO SLIDE: Red accent for long decks, clickable mailto: and tel:+420712345678 links (formatted with spaces in display text).',
+        render: () => `
+          <div class="slide-body" style="justify-content:center; gap:10px;">
+            <span class="slide-num">KONTAKT</span>
+            <h4 class="slide-h2">POJĎME ZMĚNIT HRU <span>↘</span></h4>
+            <div class="slide-contact-links">
+              <span class="slide-contact-link">INFO@COURTOFMORAVIA.COM</span>
+              <span class="slide-contact-link">+420 712 345 678</span>
+            </div>
+          </div>`
       }
     ];
 
@@ -508,15 +806,22 @@
 
 When generating UI, web pages, slide decks, or digital assets for **Court of Moravia (COM)**, strictly follow these rules:
 
-1. **01 PURE BLACK CANVAS ONLY:** Pure black (\`#000000\`) is the **only** surface background color used across pages, \`verbox\`, \`horbox\`, \`sbox\`, color chips, and layout containers. Never use \`#121212\` (\`black-l\`) inside boxes or cards—the only exception is button and interactive hover states (\`rgba(accent-d, 0.40)\`).
-2. **02 ACCENT ROLES & SELF-BORDERS:** Choose **one accent family per composition** (defaulting to **Red** \`#DF1717\`). The canonical palette sequence is: **Red, Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black**.
-   * **Interactive Elements:** Every interactive element (buttons, links, active controls, hover text) uses \`--accent-l\` (\`#F65656\` for Red) or transitions to \`--accent-l\` on hover.
-   * **Structural Lines & Decorative Elements:** Every border, hairline divider, and non-textual decorative element uses \`--accent-d\` (\`#910606\` for Red)—except color swatches, which inherit the border color of the swatch itself (e.g., a \`green-d\` swatch has a \`green-d\` border).
+1. **01 PURE BLACK CANVAS ONLY:** Pure black (\`#000000\`) is the **only** surface background color used across pages, slides, \`verbox\`, \`horbox\`, \`sbox\`, color chips, and layout containers. Never use \`#121212\` (\`black-l\`) inside boxes or cards—the only exception is button and interactive hover states (\`rgba(accent-d, 0.40)\`).
+2. **02 ACCENT ROLES & COLOR USAGE RULES:** Choose **one accent family per composition** (defaulting to **Red** \`#DF1717\`). The canonical palette sequence is: **Red, Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black**.
+   * **Single-Accent Documents (≤ 20 pages and ≤ 5 chapters):** The entire document uses **one single accent family** from start to finish (defaulting to Red).
+   * **Multi-Chapter Long Documents (> 20 pages and/or > 5 explicitly named chapters):** \`INTRO\` and \`OUTRO\` (contacts / about us) sections use **Red**, while inner chapters progress sequentially through the canonical palette order: **Blue → Green → Orange → Yellow → Teal → Violet**.
+   * **Interactive Elements:** Every interactive element uses \`--accent-l\` (or transitions to \`--accent-l\` on hover).
+   * **Structural Lines & Decorative Elements:** Every border, hairline divider, and non-textual decorative element uses \`--accent-d\`—except color swatches, which inherit the border color of the swatch itself.
 3. **03 STRICT TEXT COLOR ROLES:** Pure white (\`#FFFFFF\`) is strictly reserved for \`h1\`–\`h3\` headers and \`body\` text (plus the value breakdown inside color chips). All other text, eyebrows, labels, and subheadings (\`h4\`–\`h6\`, \`micro\`) must use \`grey-l\` (\`#E8E5E0\`) or \`--accent\` / \`--accent-l\`.
-4. **04 TYPOGRAPHY ROLES & MEASURE:** \`Geist\` is used exclusively for \`h1\` display titles, \`body\` text, and the bottom label of CTA buttons. \`Geist Mono\` is used for everything else (\`h2\`–\`h6\`, box headers, ordered lists, navigation, and standard buttons). All text outside \`body\` copy uses \`text-transform: uppercase\`. Body paragraphs must never exceed \`max-width: 66ch\` to ensure optimal reading measure.
-5. **05 SPACING, MOTION & PROPORTIONAL RHYTHM:** Standard spacing is strictly based on multiples of \`8px\` (\`0px\` or minimum \`8px\`, typically larger). Vertical gaps between \`body\` text and headings scale proportionally: at least \`24px\` below \`h3\`–\`h6\`, at least \`40px\` below \`h2\`, and at least \`64px\` below \`h1\`. Interactive transitions use \`transition: all .15s ease-in-out\`—no excessive or decorative animations.
-6. **06 GEOMETRY & COMPONENT BOUNDARIES:** Favor flat, angular marks and crisp \`0px\` border-radius rectangular framing. Composite components (\`horbox\`, \`verbox\`, \`sbox\`, \`cta-button\`, ordered lists) **never have an outer wrapper border as a whole**—borders and fills apply strictly to their individual inner parts. Global outline/stroke alignment is **center** (\`outline-offset: 0\`). For non-web deliverables (slide decks, print), standard border stroke width is \`2px\`.
-7. **07 FUNCTIONAL MINIMALISM:** Zero decorative "tech larp" or terminal cosplay—do not use \`//\`, \`/\`, or bracketed flavor text (e.g., \`[CLICK TO COPY]\`) as inline dividers or decorative labels. Minimize eyebrow text (\`h5\` section numbers) to an absolute minimum.
+4. **04 TYPOGRAPHY ROLES, SELF-HOSTED FONTS & MEASURE:** \`Geist\` is used exclusively for \`h1\` display titles, \`body\` text, and the bottom label of CTA buttons. \`Geist Mono\` is used for everything else (\`h2\`–\`h6\`, box headers, ordered lists, navigation, and standard buttons). All text outside \`body\` copy uses \`text-transform: uppercase\`. Body paragraphs must never exceed \`max-width: 66ch\`.
+   * **Font Embedding:** Never rely solely on external Google Fonts CDN during PDF generation; always load local self-hosted font files (\`./fonts/\`) via \`@font-face\` and embed them into exported PDFs.
+5. **05 SPACING, NUMBERING & MOTION:** Standard spacing is strictly based on multiples of \`8px\` (\`0px\` or minimum \`8px\`, typically larger). Vertical gaps between \`body\` text and headings scale proportionally: at least \`24px\` below \`h3\`–\`h6\`, at least \`40px\` below \`h2\`, and at least \`64px\` below \`h1\`.
+   * **Leading Zeros Convention:** Use a leading zero (\`01\`, \`02\`...) on numbered chapters, pages, or items **only** when the total count of those elements in the document exceeds 10; otherwise use unpadded numbers (\`1\`, \`2\`, \`3\`...).
+   * **Transitions:** Interactive transitions use \`transition: all .15s ease-in-out\`—no excessive animations.
+6. **06 GEOMETRY, BOUNDARIES & EXPORT FORMAT:** Favor flat, angular marks and crisp \`0px\` border-radius rectangular framing. Composite components (\`horbox\`, \`verbox\`, \`sbox\`, \`cta-button\`, ordered lists) **never have an outer wrapper border as a whole**. Global outline/stroke alignment is **center** (\`outline-offset: 0\`). For non-web deliverables (slide decks, print), standard border stroke width is \`2px\`.
+   * **Mandatory PDF Export:** Client-facing presentations and documents must **always** be exported and delivered as **PDF**—never as \`.pptx\` or \`.docx\`, which break font embedding and layout consistency across operating systems.
+7. **07 FUNCTIONAL MINIMALISM & WEB LINKS:** Zero decorative "tech larp" or terminal cosplay—do not use \`//\`, \`/\`, or bracketed flavor text as inline dividers. Minimize eyebrow text (\`h5\` section numbers) to an absolute minimum.
+   * **Web Link Hover:** Standard \`<a>\` links on web pages use \`color: var(--accent-d); text-decoration-line: line-through;\` on hover.
 
 ---
 
@@ -544,20 +849,13 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 | \`--color-black-l\` | \`#121212\` | Reserved token only — never used as a card or box background |
 | \`--color-black\` | \`#000000\` | Universal background canvas and primary filled-element text |
 
-### Color Chip Specification
-* **Grid Layout:** 3-column rows (\`red-l, red, red-d\`, \`blue-l, blue, blue-d\`, etc.) preserved across all viewport widths by scaling typography and padding proportionally on smaller screens.
-* **Self-Inherited Borders:** Both frames of a color chip use \`1px solid $color\` (e.g., \`GREEN-D\` uses a \`#067008\` border).
-* **Two-Part Structure:**
-  1. **Top Swatch Frame:** \`padding: 32px 40px\`, \`background-color: $color\`, \`color: #000000\` (or \`#FFFFFF\` on dark shades), displaying the \`h5\` token name.
-  2. **Bottom Spec Frame:** \`padding: 32px 40px\`, \`background-color: #000000\`, \`color: #FFFFFF\`, \`display: flex; flex-direction: column; gap: 24px\`, listing **HEX**, **RGB**, **HSL**, and **OKLCH**.
-
 ---
 
 ## 3. Typography System
 
-### Font Families
-* \`--font-body\`: \`'Geist', sans-serif\` — Used **only** for \`h1\`, \`body\` text, and the lower CTA button label.
-* \`--font-header\`: \`'Geist Mono', monospace\` — Used for **everything else** (\`h2\`–\`h6\`, box headers, ordered lists, navigation, and standard buttons).
+### Font Families & Local Packages
+* \`--font-body\`: \`'Geist', sans-serif\` — Used **only** for \`h1\`, \`body\` text, and the lower CTA button label. (Downloadable bundle: \`./fonts/geist.zip\`).
+* \`--font-header\`: \`'Geist Mono', monospace\` — Used for **everything else** (\`h2\`–\`h6\`, box headers, ordered lists, navigation, and standard buttons). (Downloadable bundle: \`./fonts/geist-mono.zip\`).
 
 ### Type Scale & Color Rules
 | Style / Role | Font Family | Weight | Size | Line Height | Tracking | Color | Case |
@@ -578,96 +876,54 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 
 ---
 
-## 4. Brand Marks & Vector Assets (\`./svgs/\`)
+## 4. Brand Marks, `currentColor` & Corner Pairing Rules (`./svgs/`)
 
-External SVG files stored in \`./svgs/\` are imported without stretching (\`preserveAspectRatio="xMidYMid meet"\`) and inherit \`--accent-l\`:
-
-* **Primary Full-Width Lockup:** \`./svgs/com-logo-full.svg\` — Spans \`width: 100%\` of the container as the primary brand lockup.
-* **Standalone Icons (13 Files):**
-  * \`./svgs/com-logo.svg\`
-  * \`./svgs/com-d4.svg\`
-  * \`./svgs/com-d6.svg\`
-  * \`./svgs/com-d8.svg\`
-  * \`./svgs/com-d10.svg\`
-  * \`./svgs/com-d12.svg\`
-  * \`./svgs/com-d20.svg\`
-  * \`./svgs/com-aztec-a.svg\`
-  * \`./svgs/com-aztec-b.svg\`
-  * \`./svgs/com-c.svg\`
-  * \`./svgs/com-o.svg\`
-  * \`./svgs/com-m.svg\`
-  * \`./svgs/com-g.svg\`
+* **SVG Coloring (`fill="currentColor"`):** Source SVG files in `./svgs/` use `fill="black"`. Whenever injecting an SVG into HTML, CSS, or Figma/Illustrator exports, switch `fill` to `currentColor` (or the active hex color) so marks dynamically inherit the active accent color.
+* **Primary Full-Width Lockup:** `./svgs/com-logo-full.svg` — Spans `width: 100%` in showcases; in `INTRO` slides, constrain to `max-width: 250px`.
+* **Guild Emblem (`./svgs/com-g.svg`):** Used **exclusively** in Guild presentations when explicitly requested by the prompt author—never in standard CoM decks.
+* +* **Edge & Perimeter Ornaments (4 Files):**
+* `./svgs/com-barcode-long.svg` — Displays centered along any stretched edge rail (**top, bottom, left, or right**) **only when there is sufficient space** for its full length (rotated `90deg` on vertical left edge or `-90deg` on vertical right edge).
+* `./svgs/com-barcode-short.svg` — Automatic compact fallback displayed along any stretched edge rail whenever space is too narrow for `com-barcode-long.svg`.
+* `./svgs/com-logo-alt.svg` — Pixel/modular `COM` wordmark displayed **exclusively on the bottom edge** (footer / bottom slide rail).
+* `./svgs/com-pdf417.svg` — High-density 2D barcode block displayed **exclusively on the bottom edge** (footer / bottom slide rail).
+* **Chapter / Section Corner Pairing Protocol:**
+  * Corner marks are placed in diagonal pairs (`Top-Left + Bottom-Right` share Mark A; `Top-Right + Bottom-Left` share Mark B) and **stay constant across all slides within a single chapter/section**.
+  * **Default `INTRO` / Chapter 1 Pair:** `com-logo.svg` + `com-d12.svg`.
+  * **Subsequent Chapters Progression:**
+    * Slot A cycles sequentially through the identity letters: `com-logo.svg` → `com-c.svg` → `com-o.svg` → `com-m.svg` → `com-logo.svg` (repeating).
+    * Slot B selects randomly from the polyhedral dice pool `{com-d2.svg, com-d6.svg, com-d8.svg, com-d10.svg, com-d20.svg}` **excluding** `com-d12.svg` and the currently active die (preventing consecutive sections from sharing the same die).
 
 ---
 
-## 5. Buttons, Motion & Interactive Hover States
+## 5. Slide Deck Grid, Overflow Protection & Compositions (\`1920 × 1080\`)
 
-* **Standard Transition:** \`transition: all .15s ease-in-out;\` across all interactive controls. No excessive animations.
-* **Unified Hover State:** \`background-color: rgba(var(--accent-d), 0.40)\`, \`color: var(--accent-l)\`, \`border-color: var(--accent-l)\`.
-* **Main Button (Primary CTA):**
-  * Default: \`color: #000000\`, \`background-color: var(--accent-l)\`, \`border: 1px solid var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`.
-* **Side Button (Alternative Choice):**
-  * Default: \`color: var(--accent-l)\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`.
-* **Two-Part \`CTA\` Button (No outer wrapper border):**
-  1. **Top Frame:** \`width: fit-content\` (\`hug\`), \`padding: 24px 40px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, containing an \`h6\` (\`color: var(--accent-l)\`, uppercase).
-  2. **Bottom Action Frame (directly underneath, \`0px\` gap):** \`padding: 40px 48px\`, \`background-color: var(--accent-l)\`, \`border: 1px solid var(--accent-l)\`, containing \`font-family: 'Geist'\`, \`font-size: 32px\`, \`font-weight: 500\`, \`text-decoration: underline\`, \`text-transform: uppercase\`, \`color: #000000\`.
+* **Fixed Frame & Footer Guardrail:** Every slide uses a locked \`1920 × 1080px\` (\`16:9\`) grid (\`grid-template-rows: 66px 1fr 66px; overflow: hidden;\`). Content inside the center \`1fr\` safe-zone must **never** overflow or push the bottom bar off the slide—if content exceeds the safe height, split it across two slides.
+* **\`INTRO\` Slide:** Features the primary logo constrained to \`max-width: 250px\`, uppercase \`h1\` title (\`#FFFFFF\`), and corner pair \`com-logo.svg\` + \`com-d12.svg\`.
+* **\`OUTRO\` / Contact Slide Links:** All email and phone buttons must be functional interactive links (\`mailto:name@courtofmoravia.com\` and \`tel:+420712345678\` without spaces in the \`href\`, while displaying formatted spaces \`+420 712 345 678\` in the UI).
+
+### Core Slide Compositions
+1. **\`TEXT\` Slide (1 to 4 Columns):**
+   * Header block (\`[optional number]\` + \`[h2 title ↘]\` + \`[strongly recommended subtitle]\`), followed by a right-aligned text container:
+     * **4 columns:** Spans the full slide width.
+     * **3 columns:** Text blocks stretch (\`flex: 1\`) to fill the full width.
+     * **2 columns:** Enforces \`max-width: 66ch\` per column and aligns right, creating deliberate negative space on the left.
+2. **\`HEADLINE + VERBOX\` Slide:**
+   * \`VERBOX\` aligns flush with the start of the headline (\`h2\`), with an optional section number overhanging above. The \`VERBOX\` carries its own core thesis in \`verbox-header\` (\`width: fit-content\`, \`padding: 24px 48px\`), followed by vertically stacked text blocks (\`gap: 64px\`) with optional \`h6\` subheaders.
+3. **\`HEADLINE + HORBOX\` Slide:**
+   * Maximum **1 \`HORBOX\` per slide**, containing up to **3 horizontal columns** (\`gap: 56px\`). The \`horbox-header\` states the overarching thesis, while each column expands a specific aspect with its own \`h6\` header (\`24px\` gap to \`body\`).
+4. **\`HEADER + SBOX\` Slide:**
+   * Used for **2 to 4** standalone pillars/theses following the main slide headline: either **2–3 cards in a single row** or a **2×2 grid**. All \`SBOX\` cards on a slide must share **equal height** (either by editing copy to match length or stretching grid rows via \`align-items: stretch\` so bottom borders align cleanly without jagged steps).
 
 ---
 
 ## 6. Component Specifications (No Outer Wrapper Borders)
 
-Composite components never carry a single border around the entire unit; only their specified child frames are bordered or filled. All surfaces sit on \`#000000\`.
-
-### A. Section / Big Header
-1. **Eyebrow (\`h5\`):** Optional section number or minimal label (\`color: var(--accent-l)\` or \`grey-l\`). Keep to an absolute minimum.
-2. **Gap:** \`32px\` vertical spacing between \`h5\` and \`h2\`.
-3. **Title (\`h2\`):** \`color: #FFFFFF\`, uppercase \`Geist Mono\`, ending with a trailing \`↘\` glyph styled in \`color: var(--color-grey-l)\`.
-4. **Section Description:** \`body\` text (\`max-width: 66ch\`, \`color: #FFFFFF\`) placed inside a wrapper with \`padding: 56px 88px 24px\`.
-
-### B. \`VERBOX\` (Vertical Box — Content Stacked in a Column)
-* **No outer wrapper border.**
-* **Top Header Frame (\`h5\`):** \`width: fit-content\` (\`hug\`), \`padding: 24px 48px\`, \`border: 1px solid var(--accent-d)\`, \`background-color: #000000\`, \`color: var(--color-grey-l)\` (\`Geist Mono\`, \`32px\`, uppercase).
-* **Content Frame (directly underneath, \`0px\` gap):** \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`padding: 64px 72px\`, \`display: flex; flex-direction: column; gap: 64px\`.
-* **Content Items:** Either plain \`body\` paragraphs (\`max-width: 66ch\`, \`color: #FFFFFF\`) or \`h6\` (\`color: var(--accent-l)\`, uppercase) + \`body\` pairs with \`gap: 24px\` between the \`h6\` and its paragraph.
-
-### C. \`HORBOX\` (Horizontal Box — Columns in a Row)
-* **No outer wrapper border.**
-* **Top Header Frame (\`h5\`):** \`width: fit-content\` (\`hug\`), \`padding: 24px 48px\`, \`border: 1px solid var(--accent-d)\`, \`background-color: #000000\`, \`color: var(--color-grey-l)\` (\`Geist Mono\`, \`32px\`, uppercase).
-* **Content Frame (directly underneath, \`0px\` gap):** \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`padding: 64px 72px\`, arranged horizontally in a row with \`gap: 56px\` between individual \`body\` blocks or \`h6\` (\`color: var(--accent-l)\`) + \`body\` (\`gap: 24px\`) pairs.
-
-### D. \`SBOX\` (Small Box)
-* **No outer wrapper border.**
-* **Top Header (\`h5\`):** \`width: 100%\` (fills the entire width of the \`sbox\`), \`padding: 24px 40px\`, \`border: 1px solid var(--accent-d)\`, \`background-color: #000000\`, \`color: var(--color-grey-l)\` (\`Geist Mono\`, \`32px\`, uppercase).
-* **Content Frame (directly underneath, \`0px\` gap):** \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`padding: 48px 56px\`, containing \`body\` text (\`max-width: 66ch\`, \`color: #FFFFFF\`).
-
-### E. Ordered Lists
-* **No outer wrapper border.** Each list row consists of two flush (\`0px\` gap) side-by-side frames (\`align-items: flex-start\` so the number cell hugs its content):
-  1. **Number Cell (Left):** \`padding: 24px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\`, \`color: var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`font-weight: 400\` (\`h6\` regular — never bold). Hugs the number with no trailing dot.
-  2. **Text Cell (Right):** \`padding: 24px 48px\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-d)\` (**full 4-sided border**, including left border), \`color: var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`font-weight: 400\` (\`h6\` regular — never bold, uppercase).
-
----
-
-## 7. Sticky Topbar & Sticky Footer Shell (Diagonal Paired Corner Marks)
-
-The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px\` tall (\`66px 1fr 66px\`):
-
-* **Corner Squares (\`66px × 66px\`):** House centered standalone brand marks from \`./svgs/\` (\`color: var(--accent-l)\`):
-  * **Diagonal Pair A:** Top-Left and Bottom-Right share the same icon.
-  * **Diagonal Pair B:** Top-Right and Bottom-Left share a different icon.
-  * Whenever the active accent color changes, the two diagonal pairs randomize to new distinct icons from the standalone \`./svgs/\` set (excluding \`com-logo-full.svg\`).
-* **Center Stretch Cell (\`1fr\`):**
-  * **Topbar Center:** \`border-bottom: 1px solid var(--accent-d)\`, housing the navigation menu and accent switcher.
-  * **Footer Center:** \`border-top: 1px solid var(--accent-d)\`.
-
----
-
-## 8. Strict Anti-Patterns (Do NOT Generate)
-* **No \`black-l\` (\`#121212\`) backgrounds:** Pure \`#000000\` is the only background used in layout containers, boxes, and cards.
-* **No bold font-weight on ordered lists:** Ordered list numbers and text use \`font-weight: 400\` (Regular), never bold.
-* **No outer wrapper borders on composite blocks:** Never wrap \`horbox\`, \`verbox\`, \`sbox\`, \`cta-button\`, or ordered list items in an extra outer border.
-* **No rounded corners:** \`0px\` sharp corners everywhere.
-* **No off-role white text:** Never use \`#FFFFFF\` for \`h4\`–\`h6\`, labels, eyebrows, or metadata (use \`grey-l\` or \`--accent-l\`).
-* **No paragraphs wider than \`66ch\`:** Always cap \`body\` text measure at \`max-width: 66ch\`.
+* **Main Button:** \`color: #000000\`, \`background-color: var(--accent-l)\`, \`border: 1px solid var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`. Hover: \`color: var(--accent-l)\`, \`background-color: rgba(var(--accent-d), 0.40)\`.
+* **Side Button:** \`color: var(--accent-l)\`, \`background-color: #000000\`, \`border: 1px solid var(--accent-l)\`, \`font-family: 'Geist Mono'\`, \`text-transform: uppercase\`. Hover: \`color: var(--accent-l)\`, \`background-color: rgba(var(--accent-d), 0.40)\`.
+* **Two-Part \`CTA\` Button:** Top hug frame (\`padding: 24px 40px\`, \`#000000\`, \`1px solid var(--accent-d)\`, \`h6\` \`--accent-l\`) + bottom frame (\`padding: 40px 48px\`, \`var(--accent-l)\`, \`Geist\` \`32px\` Medium underlined \`#000000\`).
+* **\`VERBOX\` / \`HORBOX\` Header:** \`width: fit-content\`, \`padding: 24px 48px\`, \`border: 1px solid var(--accent-d)\`, \`background-color: #000000\`, \`color: var(--color-grey-l)\` (\`h5\` \`32px\` \`Geist Mono\` uppercase).
+* **\`SBOX\` Header:** \`width: 100%\`, \`padding: 24px 40px\`, \`border: 1px solid var(--accent-d)\`, \`background-color: #000000\`, \`color: var(--color-grey-l)\` (\`h5\` \`32px\` \`Geist Mono\` uppercase).
+* **Ordered Lists:** Left hugging number cell (\`padding: 24px\`, \`1px solid var(--accent-d)\`, \`#000000\`, \`h6\` regular \`--accent-l\`, no trailing dot) + right full-bordered text cell (\`padding: 24px 48px\`, \`1px solid var(--accent-d)\`, \`#000000\`, \`h6\` regular uppercase \`--accent-l\`).
 `;
 
     let toastTimer;
@@ -694,9 +950,13 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
       }
     }
 
-    const STANDALONE_SVGS = SVG_ASSETS.filter(a => !a.isMain);
-    let currentPairA = STANDALONE_SVGS[0];
-    let currentPairB = STANDALONE_SVGS[12];
+    const LETTER_CYCLE = ['com-logo', 'com-c', 'com-o', 'com-m'];
+    const DICE_POOL = ['com-d2', 'com-d6', 'com-d8', 'com-d10', 'com-d20'];
+
+    let letterIndex = 0;
+    let currentDieId = 'com-d12';
+    let currentPairA = SVG_ASSETS.find(a => a.id === 'com-logo');
+    let currentPairB = SVG_ASSETS.find(a => a.id === 'com-d12');
 
     function applyCornerMarks(assetA, assetB) {
       currentPairA = assetA;
@@ -708,21 +968,42 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
       mountSvg(document.getElementById('slot-bl'), assetB);
     }
 
-    function randomizeCornerPairs() {
-      const pool = [...STANDALONE_SVGS];
-      const idxA = Math.floor(Math.random() * pool.length);
-      const assetA = pool.splice(idxA, 1)[0];
-      const idxB = Math.floor(Math.random() * pool.length);
-      const assetB = pool[idxB];
-      applyCornerMarks(assetA, assetB);
+    function advanceChapterCorners() {
+      letterIndex = (letterIndex + 1) % LETTER_CYCLE.length;
+      const nextLetterId = LETTER_CYCLE[letterIndex];
+      const nextAssetA = SVG_ASSETS.find(a => a.id === nextLetterId);
+
+      const availableDice = DICE_POOL.filter(id => id !== currentDieId);
+      const nextDieId = availableDice[Math.floor(Math.random() * availableDice.length)];
+      currentDieId = nextDieId;
+      const nextAssetB = SVG_ASSETS.find(a => a.id === nextDieId);
+
+      applyCornerMarks(nextAssetA, nextAssetB);
     }
 
     applyCornerMarks(currentPairA, currentPairB);
 
-    document.getElementById('corner-tl').addEventListener('click', () => copySvgFile(currentPairA));
-    document.getElementById('corner-br').addEventListener('click', () => copySvgFile(currentPairA));
-    document.getElementById('corner-tr').addEventListener('click', () => copySvgFile(currentPairB));
-    document.getElementById('corner-bl').addEventListener('click', () => copySvgFile(currentPairB));
+    document.getElementById('corner-tl').addEventListener('click', () => copySvgWithActiveColor(currentPairA));
+    document.getElementById('corner-br').addEventListener('click', () => copySvgWithActiveColor(currentPairA));
+    document.getElementById('corner-tr').addEventListener('click', () => copySvgWithActiveColor(currentPairB));
+    document.getElementById('corner-bl').addEventListener('click', () => copySvgWithActiveColor(currentPairB));
+
+    const assetLogoAlt = SVG_ASSETS.find(a => a.id === 'com-logo-alt');
+    const assetBarcodeLong = SVG_ASSETS.find(a => a.id === 'com-barcode-long');
+    const assetBarcodeShort = SVG_ASSETS.find(a => a.id === 'com-barcode-short');
+    const assetPdf417 = SVG_ASSETS.find(a => a.id === 'com-pdf417');
+
+    mountSvg(document.getElementById('footer-logo-alt'), assetLogoAlt);
+    mountSvg(document.getElementById('footer-barcode-long'), assetBarcodeLong);
+    mountSvg(document.getElementById('footer-barcode-short'), assetBarcodeShort);
+    mountSvg(document.getElementById('footer-pdf417'), assetPdf417);
+
+    document.getElementById('footer-logo-alt').addEventListener('click', () => copySvgWithActiveColor(assetLogoAlt));
+    document.getElementById('footer-pdf417').addEventListener('click', () => copySvgWithActiveColor(assetPdf417));
+    document.getElementById('footer-barcode').addEventListener('click', () => {
+      const isShort = window.matchMedia('(max-width: 720px)').matches;
+      copySvgWithActiveColor(isShort ? assetBarcodeShort : assetBarcodeLong);
+    });
 
     function renderBrandMarks() {
       const mainContainer = document.getElementById('main-logo-container');
@@ -747,7 +1028,7 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
 
         card.appendChild(stage);
         card.appendChild(meta);
-        card.addEventListener('click', () => copySvgFile(asset));
+        card.addEventListener('click', () => copySvgWithActiveColor(asset));
 
         if (asset.isMain) {
           mainContainer.appendChild(card);
@@ -794,6 +1075,69 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
       typoContainer.appendChild(row);
     });
 
+    function renderSlidesShowcase() {
+      const grid = document.getElementById('slides-showcase-grid');
+      grid.innerHTML = '';
+
+      SLIDE_SPECIMENS.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'slide-card';
+        card.innerHTML = `
+          <div class="slide-frame">
+            <div class="slide-chrome slide-chrome--top">
+              <div class="slide-corner slide-corner--l">◆</div>
+              <div></div>
+              <div class="slide-corner slide-corner--r">◈</div>
+            </div>
+            ${s.render()}
+            <div class="slide-chrome slide-chrome--bottom">
+              <div class="slide-corner slide-corner--l">◈</div>
+              <div></div>
+              <div class="slide-corner slide-corner--r">◆</div>
+            </div>
+          </div>
+          <div class="slide-meta">
+            <span class="slide-name">${s.name}</span>
+            <span class="slide-tag">${s.tag}</span>
+          </div>
+        `;
+        card.addEventListener('click', () => copyText(s.spec, s.name));
+        grid.appendChild(card);
+      });
+
+      const introLogoSlot = document.getElementById('mini-intro-logo');
+      if (introLogoSlot) {
+        mountSvg(introLogoSlot, SVG_ASSETS[0]);
+      }
+    }
+    renderSlidesShowcase();
+
+    function toggleAccordionSection(section, forceOpen = null) {
+      const trigger = section.querySelector('.accordion-trigger');
+      const arrow = section.querySelector('.arrow-glyph');
+      if (!trigger || !arrow) return;
+
+      const willOpen = forceOpen !== null ? forceOpen : !section.classList.contains('is-open');
+      section.classList.toggle('is-open', willOpen);
+      trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      arrow.textContent = willOpen ? '↗' : '↘';
+    }
+
+    document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const section = trigger.closest('.section');
+        if (section) toggleAccordionSection(section);
+      });
+    });
+
+    document.querySelectorAll('[data-open-accordion]').forEach(link => {
+      link.addEventListener('click', () => {
+        const targetId = link.getAttribute('data-open-accordion');
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) toggleAccordionSection(targetSection, true);
+      });
+    });
+
     document.querySelectorAll('[data-copy-snippet]').forEach(el => {
       el.addEventListener('click', () => {
         copyText(el.dataset.copySnippet, 'COMPONENT SPEC');
@@ -808,7 +1152,7 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
         document.documentElement.setAttribute('data-accent', accent);
         document.querySelectorAll('[data-set-accent]').forEach(b => b.classList.remove('is-active'));
         btn.classList.add('is-active');
-        randomizeCornerPairs();
+        advanceChapterCorners();
         showToast('ACCENT ' + accent.toUpperCase());
       });
     });
@@ -820,24 +1164,22 @@ The viewport is framed by a **sticky topbar** and **sticky footer**, each \`66px
       copyText(DESIGN_MD_RAW, 'DESIGN.MD');
     });
 
-    document.getElementById('copy-css-vars').addEventListener('click', () => {
-      const rootVars = `:root {
-  --color-red-d: #910606; --color-red: #DF1717; --color-red-l: #F65656;
-  --color-blue-d: #063B91; --color-blue: #196FE6; --color-blue-l: #9EC4FA;
-  --color-green-d: #067008; --color-green: #1AE51A; --color-green-l: #9EFAB0;
-  --color-orange-d: #913606; --color-orange: #FF5500; --color-orange-l: #FFB899;
-  --color-yellow-d: #917806; --color-yellow: #E5C41A; --color-yellow-l: #FFEE99;
-  --color-teal-d: #068691; --color-teal: #14A9B8; --color-teal-l: #9EF2FA;
-  --color-violet-d: #4D0691; --color-violet: #8019E5; --color-violet-l: #A99EFA;
-  --color-white: #FFFFFF;
-  --color-grey-l: #E8E5E0;
-  --color-grey-d: #808080;
-  --color-black-l: #121212;
-  --color-black: #000000;
-  --font-body: 'Geist', sans-serif;
-  --font-header: 'Geist Mono', monospace;
-}`;
-      copyText(rootVars, 'CSS VARIABLES');
+    document.getElementById('download-all-fonts').addEventListener('click', () => {
+      const files = [
+        { href: './fonts/geist.zip', name: 'geist.zip' },
+        { href: './fonts/geist-mono.zip', name: 'geist-mono.zip' }
+      ];
+      files.forEach((f, idx) => {
+        setTimeout(() => {
+          const a = document.createElement('a');
+          a.href = f.href;
+          a.download = f.name;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }, idx * 250);
+      });
+      showToast('DOWNLOADING GEIST + GEIST MONO');
     });
   </script>
 </body>

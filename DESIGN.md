@@ -10,15 +10,22 @@
 
 When generating UI, web pages, slide decks, or digital assets for **Court of Moravia (COM)**, strictly follow these rules:
 
-1. **01 PURE BLACK CANVAS ONLY:** Pure black (`#000000`) is the **only** surface background color used across pages, `verbox`, `horbox`, `sbox`, color chips, and layout containers. Never use `#121212` (`black-l`) inside boxes or cards—the only exception is button and interactive hover states (`rgba(accent-d, 0.40)`).
-2. **02 ACCENT ROLES & SELF-BORDERS:** Choose **one accent family per composition** (defaulting to **Red** `#DF1717`). The canonical palette sequence is: **Red, Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black**.
-   * **Interactive Elements:** Every interactive element (buttons, links, active controls, hover text) uses `--accent-l` (`#F65656` for Red) or transitions to `--accent-l` on hover.
-   * **Structural Lines & Decorative Elements:** Every border, hairline divider, and non-textual decorative element uses `--accent-d` (`#910606` for Red)—except color swatches, which inherit the border color of the swatch itself (e.g., a `green-d` swatch has a `green-d` border).
+1. **01 PURE BLACK CANVAS ONLY:** Pure black (`#000000`) is the **only** surface background color used across pages, slides, `verbox`, `horbox`, `sbox`, color chips, and layout containers. Never use `#121212` (`black-l`) inside boxes or cards—the only exception is button and interactive hover states (`rgba(accent-d, 0.40)`).
+2. **02 ACCENT ROLES & COLOR USAGE RULES:** Choose **one accent family per composition** (defaulting to **Red** `#DF1717`). The canonical palette sequence is: **Red, Blue, Green, Orange, Yellow, Teal, Violet, White + Grey, Black**.
+   * **Single-Accent Documents (≤ 20 pages and ≤ 5 chapters):** The entire document uses **one single accent family** from start to finish (defaulting to Red).
+   * **Multi-Chapter Long Documents (> 20 pages and/or > 5 explicitly named chapters):** `INTRO` and `OUTRO` (contacts / about us) sections use **Red**, while inner chapters progress sequentially through the canonical palette order: **Blue → Green → Orange → Yellow → Teal → Violet**.
+   * **Interactive Elements:** Every interactive element uses `--accent-l` (or transitions to `--accent-l` on hover).
+   * **Structural Lines & Decorative Elements:** Every border, hairline divider, and non-textual decorative element uses `--accent-d`—except color swatches, which inherit the border color of the swatch itself.
 3. **03 STRICT TEXT COLOR ROLES:** Pure white (`#FFFFFF`) is strictly reserved for `h1`–`h3` headers and `body` text (plus the value breakdown inside color chips). All other text, eyebrows, labels, and subheadings (`h4`–`h6`, `micro`) must use `grey-l` (`#E8E5E0`) or `--accent` / `--accent-l`.
-4. **04 TYPOGRAPHY ROLES & MEASURE:** `Geist` is used exclusively for `h1` display titles, `body` text, and the bottom label of CTA buttons. `Geist Mono` is used for everything else (`h2`–`h6`, box headers, ordered lists, navigation, and standard buttons). All text outside `body` copy uses `text-transform: uppercase`. Body paragraphs must never exceed `max-width: 66ch` to ensure optimal reading measure.
-5. **05 SPACING, MOTION & PROPORTIONAL RHYTHM:** Standard spacing is strictly based on multiples of `8px` (`0px` or minimum `8px`, typically larger). Vertical gaps between `body` text and headings scale proportionally: at least `24px` below `h3`–`h6`, at least `40px` below `h2`, and at least `64px` below `h1`. Interactive transitions use `transition: all .15s ease-in-out`—no excessive or decorative animations.
-6. **06 GEOMETRY & COMPONENT BOUNDARIES:** Favor flat, angular marks and crisp `0px` border-radius rectangular framing. Composite components (`horbox`, `verbox`, `sbox`, `cta-button`, ordered lists) **never have an outer wrapper border as a whole**—borders and fills apply strictly to their individual inner parts. Global outline/stroke alignment is **center** (`outline-offset: 0`). For non-web deliverables (slide decks, print), standard border stroke width is `2px`.
-7. **07 FUNCTIONAL MINIMALISM:** Zero decorative "tech larp" or terminal cosplay—do not use `//`, `/`, or bracketed flavor text (e.g., `[CLICK TO COPY]`) as inline dividers or decorative labels. Minimize eyebrow text (`h5` section numbers) to an absolute minimum.
+4. **04 TYPOGRAPHY ROLES, SELF-HOSTED FONTS & MEASURE:** `Geist` is used exclusively for `h1` display titles, `body` text, and the bottom label of CTA buttons. `Geist Mono` is used for everything else (`h2`–`h6`, box headers, ordered lists, navigation, and standard buttons). All text outside `body` copy uses `text-transform: uppercase`. Body paragraphs must never exceed `max-width: 66ch`.
+   * **Font Embedding:** Never rely solely on external Google Fonts CDN during PDF generation; always load local self-hosted font files (`./fonts/`) via `@font-face` and embed them into exported PDFs.
+5. **05 SPACING, NUMBERING & MOTION:** Standard spacing is strictly based on multiples of `8px` (`0px` or minimum `8px`, typically larger). Vertical gaps between `body` text and headings scale proportionally: at least `24px` below `h3`–`h6`, at least `40px` below `h2`, and at least `64px` below `h1`.
+   * **Leading Zeros Convention:** Use a leading zero (`01`, `02`...) on numbered chapters, pages, or items **only** when the total count of those elements in the document exceeds 10; otherwise use unpadded numbers (`1`, `2`, `3`...).
+   * **Transitions:** Interactive transitions use `transition: all .15s ease-in-out`—no excessive animations.
+6. **06 GEOMETRY, BOUNDARIES & EXPORT FORMAT:** Favor flat, angular marks and crisp `0px` border-radius rectangular framing. Composite components (`horbox`, `verbox`, `sbox`, `cta-button`, ordered lists) **never have an outer wrapper border as a whole**. Global outline/stroke alignment is **center** (`outline-offset: 0`). For non-web deliverables (slide decks, print), standard border stroke width is `2px`.
+   * **Mandatory PDF Export:** Client-facing presentations and documents must **always** be exported and delivered as **PDF**—never as `.pptx` or `.docx`, which break font embedding and layout consistency across operating systems.
+7. **07 FUNCTIONAL MINIMALISM & WEB LINKS:** Zero decorative "tech larp" or terminal cosplay—do not use `//`, `/`, or bracketed flavor text as inline dividers. Minimize eyebrow text (`h5` section numbers) to an absolute minimum.
+   * **Web Link Hover:** Standard `<a>` links on web pages use `color: var(--accent-d); text-decoration-line: line-through;` on hover.
 
 ---
 
@@ -46,20 +53,13 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 | `--color-black-l` | `#121212` | Reserved token only — never used as a card or box background |
 | `--color-black` | `#000000` | Universal background canvas and primary filled-element text |
 
-### Color Chip Specification
-* **Grid Layout:** 3-column rows (`red-l, red, red-d`, `blue-l, blue, blue-d`, etc.) preserved across all viewport widths by scaling typography and padding proportionally on smaller screens.
-* **Self-Inherited Borders:** Both frames of a color chip use `1px solid $color` (e.g., `GREEN-D` uses a `#067008` border).
-* **Two-Part Structure:**
-  1. **Top Swatch Frame:** `padding: 32px 40px`, `background-color: $color`, `color: #000000` (or `#FFFFFF` on dark shades), displaying the `h5` token name.
-  2. **Bottom Spec Frame:** `padding: 32px 40px`, `background-color: #000000`, `color: #FFFFFF`, `display: flex; flex-direction: column; gap: 24px`, listing **HEX**, **RGB**, **HSL**, and **OKLCH**.
-
 ---
 
 ## 3. Typography System
 
-### Font Families
-* `--font-body`: `'Geist', sans-serif` — Used **only** for `h1`, `body` text, and the lower CTA button label.
-* `--font-header`: `'Geist Mono', monospace` — Used for **everything else** (`h2`–`h6`, box headers, ordered lists, navigation, and standard buttons).
+### Font Families & Local Packages
+* `--font-body`: `'Geist', sans-serif` — Used **only** for `h1`, `body` text, and the lower CTA button label. (Downloadable bundle: `./fonts/geist.zip`).
+* `--font-header`: `'Geist Mono', monospace` — Used for **everything else** (`h2`–`h6`, box headers, ordered lists, navigation, and standard buttons). (Downloadable bundle: `./fonts/geist-mono.zip`).
 
 ### Type Scale & Color Rules
 | Style / Role | Font Family | Weight | Size | Line Height | Tracking | Color | Case |
@@ -80,93 +80,51 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 
 ---
 
-## 4. Brand Marks & Vector Assets (`./svgs/`)
+## 4. Brand Marks, `currentColor` & Corner Pairing Rules (`./svgs/`)
 
-External SVG files stored in `./svgs/` are imported without stretching (`object-fit: contain` / proportional scaling) and recolored via CSS filters/masks or inline SVG injection:
-
-* **Primary Full-Width Lockup:** `./svgs/com-logo-full.svg` — Spans `width: 100%` of the container as the primary brand lockup.
-* **Standalone Icons (13 Files):**
-  * `./svgs/com-logo.svg`
-  * `./svgs/com-d4.svg`
-  * `./svgs/com-d6.svg`
-  * `./svgs/com-d8.svg`
-  * `./svgs/com-d10.svg`
-  * `./svgs/com-d12.svg`
-  * `./svgs/com-d20.svg`
-  * `./svgs/com-aztec-a.svg`
-  * `./svgs/com-aztec-b.svg`
-  * `./svgs/com-c.svg`
-  * `./svgs/com-o.svg`
-  * `./svgs/com-m.svg`
-  * `./svgs/com-g.svg`
+* **SVG Coloring (`fill="currentColor"`):** Source SVG files in `./svgs/` use `fill="black"`. Whenever injecting an SVG into HTML, CSS, or Figma/Illustrator exports, switch `fill` to `currentColor` (or the active hex color) so marks dynamically inherit the active accent color.
+* **Primary Full-Width Lockup:** `./svgs/com-logo-full.svg` — Spans `width: 100%` in showcases; in `INTRO` slides, constrain to `max-width: 250px`.
+* **Guild Emblem (`./svgs/com-g.svg`):** Used **exclusively** in Guild presentations when explicitly requested by the prompt author—never in standard CoM decks.
+* +* **Edge & Perimeter Ornaments (4 Files):**
+* `./svgs/com-barcode-long.svg` — Displays centered along any stretched edge rail (**top, bottom, left, or right**) **only when there is sufficient space** for its full length (rotated `90deg` on vertical left edge or `-90deg` on vertical right edge).
+* `./svgs/com-barcode-short.svg` — Automatic compact fallback displayed along any stretched edge rail whenever space is too narrow for `com-barcode-long.svg`.
+* `./svgs/com-logo-alt.svg` — Pixel/modular `COM` wordmark displayed **exclusively on the bottom edge** (footer / bottom slide rail).
+* `./svgs/com-pdf417.svg` — High-density 2D barcode block displayed **exclusively on the bottom edge** (footer / bottom slide rail).
+* **Chapter / Section Corner Pairing Protocol:**
+  * Corner marks are placed in diagonal pairs (`Top-Left + Bottom-Right` share Mark A; `Top-Right + Bottom-Left` share Mark B) and **stay constant across all slides within a single chapter/section**.
+  * **Default `INTRO` / Chapter 1 Pair:** `com-logo.svg` + `com-d12.svg`.
+  * **Subsequent Chapters Progression:**
+    * Slot A cycles sequentially through the identity letters: `com-logo.svg` → `com-c.svg` → `com-o.svg` → `com-m.svg` → `com-logo.svg` (repeating).
+    * Slot B selects randomly from the polyhedral dice pool `{com-d2.svg, com-d6.svg, com-d8.svg, com-d10.svg, com-d20.svg}` **excluding** `com-d12.svg` and the currently active die (preventing consecutive sections from sharing the same die).
 
 ---
 
-## 5. Buttons, Motion & Interactive Hover States
+## 5. Slide Deck Grid, Overflow Protection & Compositions (`1920 × 1080`)
 
-* **Standard Transition:** `transition: all .15s ease-in-out;` across all interactive controls. No excessive animations.
-* **Unified Hover State:** `background-color: rgba(var(--accent-d), 0.40)`, `color: var(--accent-l)`, `border-color: var(--accent-l)`.
-* **Main Button (Primary CTA):**
-  * Default: `color: #000000`, `background-color: var(--accent-l)`, `border: 1px solid var(--accent-l)`, `font-family: 'Geist Mono'`, `text-transform: uppercase`.
-* **Side Button (Alternative Choice):**
-  * Default: `color: var(--accent-l)`, `background-color: #000000`, `border: 1px solid var(--accent-l)`, `font-family: 'Geist Mono'`, `text-transform: uppercase`.
-* **Two-Part `CTA` Button (No outer wrapper border):**
-  1. **Top Frame:** `width: fit-content` (`hug`), `padding: 24px 40px`, `background-color: #000000`, `border: 1px solid var(--accent-d)`, containing an `h6` (`color: var(--accent-l)`, uppercase).
-  2. **Bottom Action Frame (directly underneath, `0px` gap):** `padding: 40px 48px`, `background-color: var(--accent-l)`, `border: 1px solid var(--accent-l)`, containing `font-family: 'Geist'`, `font-size: 32px`, `font-weight: 500`, `text-decoration: underline`, `text-transform: uppercase`, `color: #000000`.
+* **Fixed Frame & Footer Guardrail:** Every slide uses a locked `1920 × 1080px` (`16:9`) grid (`grid-template-rows: 66px 1fr 66px; overflow: hidden;`). Content inside the center `1fr` safe-zone must **never** overflow or push the bottom bar off the slide—if content exceeds the safe height, split it across two slides.
+* **`INTRO` Slide:** Features the primary logo constrained to `max-width: 250px`, uppercase `h1` title (`#FFFFFF`), and corner pair `com-logo.svg` + `com-d12.svg`.
+* **`OUTRO` / Contact Slide Links:** All email and phone buttons must be functional interactive links (`mailto:name@courtofmoravia.com` and `tel:+420712345678` without spaces in the `href`, while displaying formatted spaces `+420 712 345 678` in the UI).
+
+### Core Slide Compositions
+1. **`TEXT` Slide (1 to 4 Columns):**
+   * Header block (`[optional number]` + `[h2 title ↘]` + `[strongly recommended subtitle]`), followed by a right-aligned text container:
+     * **4 columns:** Spans the full slide width.
+     * **3 columns:** Text blocks stretch (`flex: 1`) to fill the full width.
+     * **2 columns:** Enforces `max-width: 66ch` per column and aligns right, creating deliberate negative space on the left.
+2. **`HEADLINE + VERBOX` Slide:**
+   * `VERBOX` aligns flush with the start of the headline (`h2`), with an optional section number overhanging above. The `VERBOX` carries its own core thesis in `verbox-header` (`width: fit-content`, `padding: 24px 48px`), followed by vertically stacked text blocks (`gap: 64px`) with optional `h6` subheaders.
+3. **`HEADLINE + HORBOX` Slide:**
+   * Maximum **1 `HORBOX` per slide**, containing up to **3 horizontal columns** (`gap: 56px`). The `horbox-header` states the overarching thesis, while each column expands a specific aspect with its own `h6` header (`24px` gap to `body`).
+4. **`HEADER + SBOX` Slide:**
+   * Used for **2 to 4** standalone pillars/theses following the main slide headline: either **2–3 cards in a single row** or a **2×2 grid**. All `SBOX` cards on a slide must share **equal height** (either by editing copy to match length or stretching grid rows via `align-items: stretch` so bottom borders align cleanly without jagged steps).
 
 ---
 
 ## 6. Component Specifications (No Outer Wrapper Borders)
 
-Composite components never carry a single border around the entire unit; only their specified child frames are bordered or filled. All surfaces sit on `#000000`.
-
-### A. Section / Big Header
-1. **Eyebrow (`h5`):** Optional section number or minimal label (`color: var(--accent-l)` or `grey-l`). Keep to an absolute minimum.
-2. **Gap:** `32px` vertical spacing between `h5` and `h2`.
-3. **Title (`h2`):** `color: #FFFFFF`, uppercase `Geist Mono`, ending with a trailing `↘` glyph styled in `color: var(--color-grey-l)`.
-4. **Section Description:** `body` text (`max-width: 66ch`, `color: #FFFFFF`) placed inside a wrapper with `padding: 56px 88px 24px`.
-
-### B. `VERBOX` (Vertical Box — Content Stacked in a Column)
-* **No outer wrapper border.**
-* **Top Header Frame (`h5`):** `width: fit-content` (`hug`), `padding: 24px 48px`, `border: 1px solid var(--accent-d)`, `background-color: #000000`, `color: var(--color-grey-l)` (`Geist Mono`, `32px`, uppercase).
-* **Content Frame (directly underneath, `0px` gap):** `background-color: #000000`, `border: 1px solid var(--accent-d)`, `padding: 64px 72px`, `display: flex; flex-direction: column; gap: 64px`.
-* **Content Items:** Either plain `body` paragraphs (`max-width: 66ch`, `color: #FFFFFF`) or `h6` (`color: var(--accent-l)`, uppercase) + `body` pairs with `gap: 24px` between the `h6` and its paragraph.
-
-### C. `HORBOX` (Horizontal Box — Columns in a Row)
-* **No outer wrapper border.**
-* **Top Header Frame (`h5`):** `width: fit-content` (`hug`), `padding: 24px 48px`, `border: 1px solid var(--accent-d)`, `background-color: #000000`, `color: var(--color-grey-l)` (`Geist Mono`, `32px`, uppercase).
-* **Content Frame (directly underneath, `0px` gap):** `background-color: #000000`, `border: 1px solid var(--accent-d)`, `padding: 64px 72px`, arranged horizontally in a row with `gap: 56px` between individual `body` blocks or `h6` (`color: var(--accent-l)`) + `body` (`gap: 24px`) pairs.
-
-### D. `SBOX` (Small Box)
-* **No outer wrapper border.**
-* **Top Header (`h5`):** `width: 100%` (fills the entire width of the `sbox`), `padding: 24px 40px`, `border: 1px solid var(--accent-d)`, `background-color: #000000`, `color: var(--color-grey-l)` (`Geist Mono`, `32px`, uppercase).
-* **Content Frame (directly underneath, `0px` gap):** `background-color: #000000`, `border: 1px solid var(--accent-d)`, `padding: 48px 56px`, containing `body` text (`max-width: 66ch`, `color: #FFFFFF`).
-
-### E. Ordered Lists
-* **No outer wrapper border.** Each list row consists of two flush (`0px` gap) side-by-side frames (`align-items: flex-start` so the number cell hugs its content):
-  1. **Number Cell (Left):** `padding: 24px`, `background-color: #000000`, `border: 1px solid var(--accent-d)`, `color: var(--accent-l)`, `font-family: 'Geist Mono'`, `font-weight: 400` (`h6` regular — never bold). Hugs the number with no trailing dot.
-  2. **Text Cell (Right):** `padding: 24px 48px`, `background-color: #000000`, `border: 1px solid var(--accent-d)` (**full 4-sided border**, including left border), `color: var(--accent-l)`, `font-family: 'Geist Mono'`, `font-weight: 400` (`h6` regular — never bold, uppercase).
-
----
-
-## 7. Sticky Topbar & Sticky Footer Shell (Diagonal Paired Corner Marks)
-
-The viewport is framed by a **sticky topbar** and **sticky footer**, each `66px` tall (`66px 1fr 66px`):
-
-* **Corner Squares (`66px × 66px`):** House centered standalone brand marks from `./svgs/` (`color: var(--accent-l)`):
-  * **Diagonal Pair A:** Top-Left and Bottom-Right share the same icon.
-  * **Diagonal Pair B:** Top-Right and Bottom-Left share a different icon.
-  * Whenever the active accent color changes, the two diagonal pairs randomize to new distinct icons from the standalone `./svgs/` set (excluding `com-logo-full.svg`).
-* **Center Stretch Cell (`1fr`):**
-  * **Topbar Center:** `border-bottom: 1px solid var(--accent-d)`, housing the navigation menu and accent switcher.
-  * **Footer Center:** `border-top: 1px solid var(--accent-d)`.
-
----
-
-## 8. Strict Anti-Patterns (Do NOT Generate)
-* **No `black-l` (`#121212`) backgrounds:** Pure `#000000` is the only background used in layout containers, boxes, and cards.
-* **No bold font-weight on ordered lists:** Ordered list numbers and text use `font-weight: 400` (Regular), never bold.
-* **No outer wrapper borders on composite blocks:** Never wrap `horbox`, `verbox`, `sbox`, `cta-button`, or ordered list items in an extra outer border.
-* **No rounded corners:** `0px` sharp corners everywhere.
-* **No off-role white text:** Never use `#FFFFFF` for `h4`–`h6`, labels, eyebrows, or metadata (use `grey-l` or `--accent-l`).
-* **No paragraphs wider than `66ch`:** Always cap `body` text measure at `max-width: 66ch`.
+* **Main Button:** `color: #000000`, `background-color: var(--accent-l)`, `border: 1px solid var(--accent-l)`, `font-family: 'Geist Mono'`, `text-transform: uppercase`. Hover: `color: var(--accent-l)`, `background-color: rgba(var(--accent-d), 0.40)`.
+* **Side Button:** `color: var(--accent-l)`, `background-color: #000000`, `border: 1px solid var(--accent-l)`, `font-family: 'Geist Mono'`, `text-transform: uppercase`. Hover: `color: var(--accent-l)`, `background-color: rgba(var(--accent-d), 0.40)`.
+* **Two-Part `CTA` Button:** Top hug frame (`padding: 24px 40px`, `#000000`, `1px solid var(--accent-d)`, `h6` `--accent-l`) + bottom frame (`padding: 40px 48px`, `var(--accent-l)`, `Geist` `32px` Medium underlined `#000000`).
+* **`VERBOX` / `HORBOX` Header:** `width: fit-content`, `padding: 24px 48px`, `border: 1px solid var(--accent-d)`, `background-color: #000000`, `color: var(--color-grey-l)` (`h5` `32px` `Geist Mono` uppercase).
+* **`SBOX` Header:** `width: 100%`, `padding: 24px 40px`, `border: 1px solid var(--accent-d)`, `background-color: #000000`, `color: var(--color-grey-l)` (`h5` `32px` `Geist Mono` uppercase).
+* **Ordered Lists:** Left hugging number cell (`padding: 24px`, `1px solid var(--accent-d)`, `#000000`, `h6` regular `--accent-l`, no trailing dot) + right full-bordered text cell (`padding: 24px 48px`, `1px solid var(--accent-d)`, `#000000`, `h6` regular uppercase `--accent-l`).
