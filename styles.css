@@ -11,49 +11,11 @@
   --color-red: #DF1717;
   --color-red-l: #F65656;
 
-  --color-blue-d: #063B91;
-  --color-blue: #196FE6;
-  --color-blue-l: #9EC4FA;
-
-  --color-green-d: #067008;
-  --color-green: #1AE51A;
-  --color-green-l: #9EFAB0;
-
-  --color-orange-d: #913606;
-  --color-orange: #FF5500;
-  --color-orange-l: #FFB899;
-
-  --color-yellow-d: #917806;
-  --color-yellow: #E5C41A;
-  --color-yellow-l: #FFEE99;
-
-  --color-teal-d: #068691;
-  --color-teal: #14A9B8;
-  --color-teal-l: #9EF2FA;
-
-  --color-violet-d: #4D0691;
-  --color-violet: #8019E5;
-  --color-violet-l: #A99EFA;
-
-  --accent-d: var(--color-red-d);
-  --accent-d-40: var(--color-red-d-40);
-  --accent: var(--color-red);
-  --accent-l: var(--color-red-l);
-
   --font-body: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-header: 'Geist Mono', monospace;
 
-  --stroke-web: 1px;
-  --stroke-deck: 2px;
+  --stroke-base: 1px;
 }
-
-[data-accent="red"]    { --accent-d: var(--color-red-d);    --accent-d-40: rgba(145, 6, 6, 0.40);    --accent: var(--color-red);    --accent-l: var(--color-red-l); }
-[data-accent="blue"]   { --accent-d: var(--color-blue-d);   --accent-d-40: rgba(6, 59, 145, 0.40);   --accent: var(--color-blue);   --accent-l: var(--color-blue-l); }
-[data-accent="green"]  { --accent-d: var(--color-green-d);  --accent-d-40: rgba(6, 112, 8, 0.40);    --accent: var(--color-green);  --accent-l: var(--color-green-l); }
-[data-accent="orange"] { --accent-d: var(--color-orange-d); --accent-d-40: rgba(145, 54, 6, 0.40);   --accent: var(--color-orange); --accent-l: var(--color-orange-l); }
-[data-accent="yellow"] { --accent-d: var(--color-yellow-d); --accent-d-40: rgba(145, 120, 6, 0.40);  --accent: var(--color-yellow); --accent-l: var(--color-yellow-l); }
-[data-accent="teal"]   { --accent-d: var(--color-teal-d);   --accent-d-40: rgba(6, 134, 145, 0.40);  --accent: var(--color-teal);   --accent-l: var(--color-teal-l); }
-[data-accent="violet"] { --accent-d: var(--color-violet-d); --accent-d-40: rgba(77, 6, 145, 0.40);   --accent: var(--color-violet); --accent-l: var(--color-violet-l); }
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -109,7 +71,9 @@ a:hover {
   display: grid;
   grid-template-columns: 66px minmax(0, 1fr) 66px;
   min-height: 66px;
-  background-color: var(--color-black);
+  background: rgba(0, 0, 0, 0.01);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .chrome-bar--top {
@@ -129,13 +93,9 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-black);
   color: var(--color-grey-d);
-  cursor: pointer;
-}
-
-.chrome-end:hover {
-  color: var(--color-red);
+  pointer-events: none;
+  user-select: none;
 }
 
 .chrome-end--tl::after {
@@ -144,7 +104,7 @@ a:hover {
   right: 0;
   top: 14px;
   bottom: 14px;
-  width: 2px;
+  width: 1px;
   background-color: var(--color-grey-d);
 }
 .chrome-end--tl::before {
@@ -153,7 +113,7 @@ a:hover {
   bottom: 0;
   left: 14px;
   right: 14px;
-  height: 2px;
+  height: 1px;
   background-color: var(--color-grey-d);
 }
 
@@ -163,7 +123,7 @@ a:hover {
   left: 0;
   top: 14px;
   bottom: 14px;
-  width: 2px;
+  width: 1px;
   background-color: var(--color-grey-d);
 }
 .chrome-end--tr::before {
@@ -172,7 +132,7 @@ a:hover {
   bottom: 0;
   left: 14px;
   right: 14px;
-  height: 2px;
+  height: 1px;
   background-color: var(--color-grey-d);
 }
 
@@ -182,7 +142,7 @@ a:hover {
   right: 0;
   top: 14px;
   bottom: 14px;
-  width: 2px;
+  width: 1px;
   background-color: var(--color-grey-d);
 }
 .chrome-end--bl::before {
@@ -191,7 +151,7 @@ a:hover {
   top: 0;
   left: 14px;
   right: 14px;
-  height: 2px;
+  height: 1px;
   background-color: var(--color-grey-d);
 }
 
@@ -201,7 +161,7 @@ a:hover {
   left: 0;
   top: 14px;
   bottom: 14px;
-  width: 2px;
+  width: 1px;
   background-color: var(--color-grey-d);
 }
 .chrome-end--br::before {
@@ -210,7 +170,7 @@ a:hover {
   top: 0;
   left: 14px;
   right: 14px;
-  height: 2px;
+  height: 1px;
   background-color: var(--color-grey-d);
 }
 
@@ -222,7 +182,6 @@ a:hover {
   flex-wrap: wrap;
   gap: 16px;
   padding: 16px 32px;
-  background-color: var(--color-black);
 }
 
 .chrome-center--top::after {
@@ -231,12 +190,14 @@ a:hover {
   bottom: 0;
   left: 12px;
   right: 12px;
-  height: 2px;
+  height: 1px;
   background-color: var(--color-grey-d);
 }
 
 .chrome-center--bottom {
   justify-content: center;
+  pointer-events: none;
+  user-select: none;
 }
 
 .chrome-center--bottom::before {
@@ -245,7 +206,7 @@ a:hover {
   top: 0;
   left: 12px;
   right: 12px;
-  height: 2px;
+  height: 1px;
   background-color: var(--color-grey-d);
 }
 
@@ -259,6 +220,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  user-select: none;
 }
 
 .side-rail--left {
@@ -270,24 +232,18 @@ a:hover {
 }
 
 .side-rail-slot {
-  pointer-events: auto;
-  width: 22px;
-  height: 112px;
+  width: 30px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-grey-d);
-  cursor: pointer;
-}
-
-.side-rail-slot:hover {
-  color: var(--color-red);
 }
 
 .side-rail-slot .svg-inline,
 .side-rail-slot .svg-fallback {
-  width: 112px;
-  height: 22px;
+  width: 120px;
+  height: 30px;
   max-width: none;
   max-height: none;
 }
@@ -325,16 +281,11 @@ a:hover {
 }
 
 .footer-edge-slot {
-  height: 20px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-grey-d);
-  cursor: pointer;
-}
-
-.footer-edge-slot:hover {
-  color: var(--color-red);
 }
 
 .footer-edge-slot--barcode {
@@ -389,30 +340,6 @@ a:hover {
 .nav-sep {
   color: var(--color-grey-d);
   user-select: none;
-}
-
-.accent-switcher {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.accent-btn {
-  width: 24px;
-  height: 24px;
-  border: 1px solid var(--color-grey-d);
-  cursor: pointer;
-  padding: 0;
-}
-
-.accent-btn:hover {
-  border-color: var(--color-red);
-}
-
-.accent-btn.is-active {
-  outline: 2px solid var(--color-red);
-  outline-offset: 0;
 }
 
 @media (max-width: 768px) {
@@ -526,12 +453,12 @@ a:hover {
 }
 
 .section-desc-wrap {
-  padding: 56px 88px 24px;
+  padding: 24px 88px 64px;
 }
 
 @media (max-width: 768px) {
   .section-desc-wrap {
-    padding: 40px 24px 16px;
+    padding: 24px 24px 40px;
   }
 }
 
@@ -601,22 +528,22 @@ a:hover {
 }
 
 .btn:hover {
-  color: var(--color-red);
+  color: var(--color-red-d);
   background-color: var(--color-red-d-40);
-  border-color: var(--color-red);
+  border-color: var(--color-red-d);
   text-decoration: none;
 }
 
 .btn--side {
   color: var(--color-red);
   background-color: var(--color-black);
-  border: 1px solid var(--color-red-d);
+  border: 1px solid var(--color-red);
 }
 
 .btn--side:hover {
-  color: var(--color-red);
+  color: var(--color-red-d);
   background-color: var(--color-red-d-40);
-  border-color: var(--color-red);
+  border-color: var(--color-red-d);
   text-decoration: none;
 }
 
@@ -663,9 +590,9 @@ a:hover {
 }
 
 .cta-block:hover .cta-bottom {
-  color: var(--color-red);
+  color: var(--color-red-d);
   background-color: var(--color-red-d-40);
-  border-color: var(--color-red);
+  border-color: var(--color-red-d);
 }
 
 .chips-row-grid {
@@ -698,9 +625,14 @@ a:hover {
   border: 1px solid var(--chip-color);
   border-bottom: none;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   gap: 8px;
+}
+
+.chip-role {
+  font-size: clamp(9px, 1vw, 12px);
+  letter-spacing: 0.04em;
+  opacity: 0.85;
 }
 
 .chip-bottom {
@@ -843,7 +775,7 @@ a:hover {
   color: var(--color-grey-l);
 }
 
-.mark-file {
+.mark-usage {
   font-family: var(--font-header);
   font-size: 12px;
   font-weight: 400;

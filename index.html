@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-accent="red">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,7 @@
 <body>
 
   <header class="chrome-bar chrome-bar--top">
-    <div class="chrome-end chrome-end--tl" id="corner-tl">
+    <div class="chrome-end chrome-end--tl">
       <div class="corner-svg-slot" id="slot-tl"></div>
     </div>
 
@@ -31,29 +31,19 @@
         <span class="nav-sep">|</span>
         <a href="#llm-docs">DESIGN.MD</a>
       </nav>
-
-      <div class="accent-switcher" role="group" aria-label="Demo accent showcase">
-        <button type="button" class="accent-btn is-active" data-set-accent="red" style="background:#DF1717" title="Red"></button>
-        <button type="button" class="accent-btn" data-set-accent="blue" style="background:#196FE6" title="Blue"></button>
-        <button type="button" class="accent-btn" data-set-accent="green" style="background:#1AE51A" title="Green"></button>
-        <button type="button" class="accent-btn" data-set-accent="orange" style="background:#FF5500" title="Orange"></button>
-        <button type="button" class="accent-btn" data-set-accent="yellow" style="background:#E5C41A" title="Yellow"></button>
-        <button type="button" class="accent-btn" data-set-accent="teal" style="background:#14A9B8" title="Teal"></button>
-        <button type="button" class="accent-btn" data-set-accent="violet" style="background:#8019E5" title="Violet"></button>
-      </div>
     </div>
 
-    <div class="chrome-end chrome-end--tr" id="corner-tr">
+    <div class="chrome-end chrome-end--tr">
       <div class="corner-svg-slot" id="slot-tr"></div>
     </div>
   </header>
 
-  <aside class="side-rail side-rail--left" aria-label="Left perimeter ornament">
-    <div class="side-rail-slot" id="side-left-pdf417" title="Click to copy com-pdf417.svg"></div>
+  <aside class="side-rail side-rail--left" aria-hidden="true">
+    <div class="side-rail-slot" id="side-left-rail"></div>
   </aside>
 
-  <aside class="side-rail side-rail--right" aria-label="Right perimeter ornament">
-    <div class="side-rail-slot" id="side-right-barcode" title="Click to copy com-barcode-short.svg"></div>
+  <aside class="side-rail side-rail--right" aria-hidden="true">
+    <div class="side-rail-slot" id="side-right-rail"></div>
   </aside>
 
   <main class="page-main">
@@ -87,7 +77,7 @@
         <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Production systems use strictly black (#000000), white (#FFFFFF), the grey scale (grey-l #EBE7E0, grey #808080, grey-d #424242), and Red (#DF1717). Other accent colors below are showcased for demonstrative purposes only and are forbidden for agents.
+              Production systems use strictly Red, White, Grey, and Black. Each color swatch carries its explicit role label and self-inherited 1px border.
             </p>
           </div>
           <div id="all-color-rows"></div>
@@ -142,7 +132,7 @@
         <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Composite blocks never carry an outer wrapper border as a whole—borders apply strictly to inner frames in grey-d (#424242) on a pure black background.
+              Composite blocks never carry an outer wrapper border as a whole—borders apply strictly to inner frames in 1px grey-d (#424242) on a pure black background.
             </p>
           </div>
 
@@ -289,18 +279,18 @@
   </main>
 
   <footer class="chrome-bar chrome-bar--bottom">
-    <div class="chrome-end chrome-end--bl" id="corner-bl">
+    <div class="chrome-end chrome-end--bl">
       <div class="corner-svg-slot" id="slot-bl"></div>
     </div>
 
     <div class="chrome-center chrome-center--bottom">
-      <div class="footer-edge-slot footer-edge-slot--barcode" id="footer-barcode" title="Click to copy barcode SVG">
+      <div class="footer-edge-slot footer-edge-slot--barcode">
         <div class="barcode-long-wrap" id="footer-barcode-long"></div>
         <div class="barcode-short-wrap" id="footer-barcode-short"></div>
       </div>
     </div>
 
-    <div class="chrome-end chrome-end--br" id="corner-br">
+    <div class="chrome-end chrome-end--br">
       <div class="corner-svg-slot" id="slot-br"></div>
     </div>
   </footer>
@@ -309,24 +299,24 @@
 
   <script>
     const SVG_ASSETS = [
-      { id: 'com-logo-full',     name: 'COM LOGO FULL',               file: './svgs/com-logo-full.svg',     isMain: true,  isGuild: false },
-      { id: 'com-logo',          name: 'COM LOGO',                    file: './svgs/com-logo.svg',          isMain: false, isGuild: false },
-      { id: 'com-d2',            name: 'COM D2',                      file: './svgs/com-d2.svg',            isMain: false, isGuild: false },
-      { id: 'com-d6',            name: 'COM D6',                      file: './svgs/com-d6.svg',            isMain: false, isGuild: false },
-      { id: 'com-d8',            name: 'COM D8',                      file: './svgs/com-d8.svg',            isMain: false, isGuild: false },
-      { id: 'com-d10',           name: 'COM D10',                     file: './svgs/com-d10.svg',           isMain: false, isGuild: false },
-      { id: 'com-d12',           name: 'COM D12',                     file: './svgs/com-d12.svg',           isMain: false, isGuild: false },
-      { id: 'com-d20',           name: 'COM D20',                     file: './svgs/com-d20.svg',           isMain: false, isGuild: false },
-      { id: 'com-aztec-a',       name: 'COM AZTEC A',                 file: './svgs/com-aztec-a.svg',       isMain: false, isGuild: false },
-      { id: 'com-aztec-b',       name: 'COM AZTEC B',                 file: './svgs/com-aztec-b.svg',       isMain: false, isGuild: false },
-      { id: 'com-c',             name: 'COM C',                       file: './svgs/com-c.svg',             isMain: false, isGuild: false },
-      { id: 'com-o',             name: 'COM O',                       file: './svgs/com-o.svg',             isMain: false, isGuild: false },
-      { id: 'com-m',             name: 'COM M',                       file: './svgs/com-m.svg',             isMain: false, isGuild: false },
-      { id: 'com-g',             name: 'COM G',                       file: './svgs/com-g.svg',             isMain: false, isGuild: true  },
-      { id: 'com-logo-alt',      name: 'COM LOGO ALT (BOTTOM ONLY)',  file: './svgs/com-logo-alt.svg',      isMain: false, isGuild: false },
-      { id: 'com-barcode-long',  name: 'COM BARCODE LONG (EDGES)',    file: './svgs/com-barcode-long.svg',  isMain: false, isGuild: false },
-      { id: 'com-barcode-short', name: 'COM BARCODE SHORT (EDGES)',   file: './svgs/com-barcode-short.svg', isMain: false, isGuild: false },
-      { id: 'com-pdf417',        name: 'COM PDF417 (LATERAL/BOTTOM)', file: './svgs/com-pdf417.svg',        isMain: false, isGuild: false }
+      { id: 'com-logo-full',     name: 'LOGO FULL',     usage: 'Primary Logo',       file: './svgs/com-logo-full.svg',     isMain: true  },
+      { id: 'com-logo',          name: 'LOGO',          usage: 'Corner',             file: './svgs/com-logo.svg',          isMain: false },
+      { id: 'com-d4',            name: 'D4',            usage: 'Corner',             file: './svgs/com-d4.svg',            isMain: false },
+      { id: 'com-d6',            name: 'D6',            usage: 'Corner',             file: './svgs/com-d6.svg',            isMain: false },
+      { id: 'com-d8',            name: 'D8',            usage: 'Corner',             file: './svgs/com-d8.svg',            isMain: false },
+      { id: 'com-d10',           name: 'D10',           usage: 'Corner',             file: './svgs/com-d10.svg',           isMain: false },
+      { id: 'com-d12',           name: 'D12',           usage: 'Corner',             file: './svgs/com-d12.svg',           isMain: false },
+      { id: 'com-d20',           name: 'D20',           usage: 'Corner',             file: './svgs/com-d20.svg',           isMain: false },
+      { id: 'com-aztec-a',       name: 'AZTEC A',       usage: 'Corner',             file: './svgs/com-aztec-a.svg',       isMain: false },
+      { id: 'com-aztec-b',       name: 'AZTEC B',       usage: 'Corner',             file: './svgs/com-aztec-b.svg',       isMain: false },
+      { id: 'com-c',             name: 'C',             usage: 'Corner',             file: './svgs/com-c.svg',             isMain: false },
+      { id: 'com-o',             name: 'O',             usage: 'Corner',             file: './svgs/com-o.svg',             isMain: false },
+      { id: 'com-m',             name: 'M',             usage: 'Corner',             file: './svgs/com-m.svg',             isMain: false },
+      { id: 'com-g',             name: 'G',             usage: 'Corner',             file: './svgs/com-g.svg',             isMain: false },
+      { id: 'com-logo-alt',      name: 'LOGO ALT',      usage: 'Lateral, Vertical',  file: './svgs/com-logo-alt.svg',      isMain: false },
+      { id: 'com-barcode-long',  name: 'BARCODE LONG',  usage: 'Lateral, Vertical',  file: './svgs/com-barcode-long.svg',  isMain: false },
+      { id: 'com-barcode-short', name: 'BARCODE SHORT', usage: 'Lateral, Vertical',  file: './svgs/com-barcode-short.svg', isMain: false },
+      { id: 'com-pdf417',        name: 'PDF417',        usage: 'Lateral, Vertical',  file: './svgs/com-pdf417.svg',        isMain: false }
     ];
 
     const svgCache = new Map();
@@ -417,26 +407,21 @@
       }
     }
 
-    const ACCENT_FAMILIES = [
-      { id: 'red',    name: 'RED',    l: '#F65656', base: '#DF1717', d: '#910606', demo: false },
-      { id: 'blue',   name: 'BLUE',   l: '#9EC4FA', base: '#196FE6', d: '#063B91', demo: true  },
-      { id: 'green',  name: 'GREEN',  l: '#9EFAB0', base: '#1AE51A', d: '#067008', demo: true  },
-      { id: 'orange', name: 'ORANGE', l: '#FFB899', base: '#FF5500', d: '#913606', demo: true  },
-      { id: 'yellow', name: 'YELLOW', l: '#FFEE99', base: '#E5C41A', d: '#917806', demo: true  },
-      { id: 'teal',   name: 'TEAL',   l: '#9EF2FA', base: '#14A9B8', d: '#068691', demo: true  },
-      { id: 'violet', name: 'VIOLET', l: '#A99EFA', base: '#8019E5', d: '#4D0691', demo: true  }
-    ];
-
-    const NEUTRAL_ROWS = [
+    const COLOR_ROWS = [
       [
-        { name: 'WHITE',   hex: '#FFFFFF', textColor: '#000000' },
-        { name: 'GREY-L',  hex: '#EBE7E0', textColor: '#000000' },
-        { name: 'GREY',    hex: '#808080', textColor: '#000000' }
+        { name: 'RED-L',   hex: '#F65656', textColor: '#000000', role: 'Interactive (passive)' },
+        { name: 'RED',     hex: '#DF1717', textColor: '#000000', role: 'Interactive (passive)' },
+        { name: 'RED-D',   hex: '#910606', textColor: '#FFFFFF', role: 'Interactive (hover)' }
       ],
       [
-        { name: 'GREY-D',  hex: '#424242', textColor: '#FFFFFF' },
-        { name: 'BLACK-L', hex: '#121212', textColor: '#FFFFFF' },
-        { name: 'BLACK',   hex: '#000000', textColor: '#FFFFFF' }
+        { name: 'WHITE',   hex: '#FFFFFF', textColor: '#000000', role: 'Passive (text)' },
+        { name: 'GREY-L',  hex: '#EBE7E0', textColor: '#000000', role: 'Passive (text)' },
+        { name: 'GREY',    hex: '#808080', textColor: '#000000', role: 'Passive (text)' }
+      ],
+      [
+        { name: 'GREY-D',  hex: '#424242', textColor: '#FFFFFF', role: 'Background' },
+        { name: 'BLACK-L', hex: '#121212', textColor: '#FFFFFF', role: 'Background' },
+        { name: 'BLACK',   hex: '#000000', textColor: '#FFFFFF', role: 'Background' }
       ]
     ];
 
@@ -495,7 +480,7 @@
       return `oklch(${Lpct}% ${Cval} ${Hdeg})`;
     }
 
-    function createColorChip(name, hex, textColor, isDemo = false) {
+    function createColorChip(name, hex, textColor, roleLabel) {
       const chip = document.createElement('div');
       chip.className = 'color-chip';
       const upperHex = hex.toUpperCase();
@@ -508,7 +493,8 @@
 
       chip.innerHTML = `
         <div class="chip-top" style="background-color:${upperHex}; color:${textColor};">
-          <span>${name}${isDemo ? ' · DEMO' : ''}</span>
+          <span>${name}</span>
+          <span class="chip-role">${roleLabel}</span>
         </div>
         <div class="chip-bottom">
           <p class="chip-val">HEX: ${upperHex}</p>
@@ -576,7 +562,7 @@
       {
         name: '1 INTRO SLIDE',
         tag: 'MAX-WIDTH 250PX LOGO',
-        spec: 'INTRO SLIDE: Fixed 1920x1080 grid (66px rails on all 4 sides, corners: com-logo + com-d12 in #424242), primary logo constrained to max-width: 250px, uppercase h1 display headline (#FFFFFF with 2-4 word #DF1717 highlight).',
+        spec: 'INTRO SLIDE: Fixed 1920x1080 grid (66px rails on all 4 sides, corners: com-logo + com-d12 in #424242, 1px borders), primary logo constrained to max-width: 250px, uppercase h1 display headline (#FFFFFF with 2-4 word #DF1717 highlight).',
         render: () => `
           <div class="slide-body" style="justify-content:center; gap:12px;">
             <div class="slide-intro-logo" id="mini-intro-logo"></div>
@@ -656,7 +642,7 @@
       {
         name: '6 HEADLINE + VERBOX',
         tag: 'FLUSH ALIGNED SPLIT',
-        spec: 'HEADLINE + VERBOX: Left column holds overhanging number + h2 ↘ + optional subtitle; right column holds flush-aligned VERBOX (hug header + stacked #EBE7E0 blocks, #424242 borders).',
+        spec: 'HEADLINE + VERBOX: Left column holds overhanging number + h2 ↘ + optional subtitle; right column holds flush-aligned VERBOX (hug header + stacked #EBE7E0 blocks, 1px #424242 borders).',
         render: () => `
           <div class="slide-body">
             <div class="slide-split-verbox">
@@ -678,7 +664,7 @@
       {
         name: '7 HEADLINE + HORBOX (2 COLS)',
         tag: 'MAX 1 HORBOX / SLIDE',
-        spec: 'HEADLINE + HORBOX (2 COLS): Top headline block + single HORBOX below with hug header (#FFFFFF) and 2 horizontal columns (#EBE7E0) in #424242 borders.',
+        spec: 'HEADLINE + HORBOX (2 COLS): Top headline block + single HORBOX below with hug header (#FFFFFF) and 2 horizontal columns (#EBE7E0) in 1px #424242 borders.',
         render: () => `
           <div class="slide-body">
             <div class="slide-head-block">
@@ -698,7 +684,7 @@
       {
         name: '8 HEADLINE + HORBOX (3 COLS)',
         tag: 'MAX 3 COLUMNS',
-        spec: 'HEADLINE + HORBOX (3 COLS): Top headline block + single HORBOX below with hug header (#FFFFFF) and 3 horizontal columns (#EBE7E0) in #424242 borders.',
+        spec: 'HEADLINE + HORBOX (3 COLS): Top headline block + single HORBOX below with hug header (#FFFFFF) and 3 horizontal columns (#EBE7E0) in 1px #424242 borders.',
         render: () => `
           <div class="slide-body">
             <div class="slide-head-block">
@@ -719,7 +705,7 @@
       {
         name: '9 HEADER + SBOX (2 CARDS)',
         tag: 'EQUAL HEIGHT PAIR',
-        spec: 'HEADER + SBOX (2 CARDS): Top headline + 2 equal-height SBOX cards side-by-side (100% width #FFFFFF headers, #EBE7E0 body, #424242 borders).',
+        spec: 'HEADER + SBOX (2 CARDS): Top headline + 2 equal-height SBOX cards side-by-side (100% width #FFFFFF headers, #EBE7E0 body, 1px #424242 borders).',
         render: () => `
           <div class="slide-body">
             <div class="slide-head-block">
@@ -741,7 +727,7 @@
       {
         name: '10 HEADER + SBOX (3 CARDS)',
         tag: 'MAX 3 PER ROW',
-        spec: 'HEADER + SBOX (3 CARDS): Top headline + 3 equal-height SBOX cards in a single row (#424242 borders).',
+        spec: 'HEADER + SBOX (3 CARDS): Top headline + 3 equal-height SBOX cards in a single row (1px #424242 borders).',
         render: () => `
           <div class="slide-body">
             <div class="slide-head-block">
@@ -767,7 +753,7 @@
       {
         name: '11 HEADER + SBOX (2X2 GRID)',
         tag: '4 EQUAL CARDS',
-        spec: 'HEADER + SBOX (2x2 GRID): Top headline + 4 equal-height SBOX cards arranged in a 2x2 matrix (#424242 borders).',
+        spec: 'HEADER + SBOX (2x2 GRID): Top headline + 4 equal-height SBOX cards arranged in a 2x2 matrix (1px #424242 borders).',
         render: () => `
           <div class="slide-body">
             <div class="slide-head-block">
@@ -834,59 +820,21 @@
       }
     }
 
-    const LETTER_CYCLE = ['com-logo', 'com-c', 'com-o', 'com-m'];
-    const DICE_POOL = ['com-d2', 'com-d6', 'com-d8', 'com-d10', 'com-d20'];
-
-    let letterIndex = 0;
-    let currentDieId = 'com-d12';
-    let currentPairA = SVG_ASSETS.find(a => a.id === 'com-logo');
-    let currentPairB = SVG_ASSETS.find(a => a.id === 'com-d12');
-
-    function applyCornerMarks(assetA, assetB) {
-      currentPairA = assetA;
-      currentPairB = assetB;
-
-      mountSvg(document.getElementById('slot-tl'), assetA);
-      mountSvg(document.getElementById('slot-br'), assetA);
-      mountSvg(document.getElementById('slot-tr'), assetB);
-      mountSvg(document.getElementById('slot-bl'), assetB);
-    }
-
-    function advanceChapterCorners() {
-      letterIndex = (letterIndex + 1) % LETTER_CYCLE.length;
-      const nextLetterId = LETTER_CYCLE[letterIndex];
-      const nextAssetA = SVG_ASSETS.find(a => a.id === nextLetterId);
-
-      const availableDice = DICE_POOL.filter(id => id !== currentDieId);
-      const nextDieId = availableDice[Math.floor(Math.random() * availableDice.length)];
-      currentDieId = nextDieId;
-      const nextAssetB = SVG_ASSETS.find(a => a.id === nextDieId);
-
-      applyCornerMarks(nextAssetA, nextAssetB);
-    }
-
-    applyCornerMarks(currentPairA, currentPairB);
-
-    document.getElementById('corner-tl').addEventListener('click', () => copySvgXml(currentPairA, '#424242'));
-    document.getElementById('corner-br').addEventListener('click', () => copySvgXml(currentPairA, '#424242'));
-    document.getElementById('corner-tr').addEventListener('click', () => copySvgXml(currentPairB, '#424242'));
-    document.getElementById('corner-bl').addEventListener('click', () => copySvgXml(currentPairB, '#424242'));
-
+    const assetLogo = SVG_ASSETS.find(a => a.id === 'com-logo');
+    const assetD12 = SVG_ASSETS.find(a => a.id === 'com-d12');
     const assetBarcodeLong = SVG_ASSETS.find(a => a.id === 'com-barcode-long');
     const assetBarcodeShort = SVG_ASSETS.find(a => a.id === 'com-barcode-short');
-    const assetPdf417 = SVG_ASSETS.find(a => a.id === 'com-pdf417');
+
+    mountSvg(document.getElementById('slot-tl'), assetLogo);
+    mountSvg(document.getElementById('slot-br'), assetLogo);
+    mountSvg(document.getElementById('slot-tr'), assetD12);
+    mountSvg(document.getElementById('slot-bl'), assetD12);
 
     mountSvg(document.getElementById('footer-barcode-long'), assetBarcodeLong);
     mountSvg(document.getElementById('footer-barcode-short'), assetBarcodeShort);
-    mountSvg(document.getElementById('side-left-pdf417'), assetPdf417);
-    mountSvg(document.getElementById('side-right-barcode'), assetBarcodeShort);
 
-    document.getElementById('footer-barcode').addEventListener('click', () => {
-      const isShort = window.matchMedia('(max-width: 720px)').matches;
-      copySvgXml(isShort ? assetBarcodeShort : assetBarcodeLong, '#424242');
-    });
-    document.getElementById('side-left-pdf417').addEventListener('click', () => copySvgXml(assetPdf417, '#424242'));
-    document.getElementById('side-right-barcode').addEventListener('click', () => copySvgXml(assetBarcodeShort, '#424242'));
+    mountSvg(document.getElementById('side-left-rail'), assetBarcodeShort);
+    mountSvg(document.getElementById('side-right-rail'), assetBarcodeShort);
 
     function renderBrandMarks() {
       const mainContainer = document.getElementById('main-logo-container');
@@ -906,7 +854,7 @@
         meta.className = 'mark-meta';
         meta.innerHTML = `
           <span class="mark-name">${asset.name}</span>
-          <span class="mark-file">${asset.file}</span>
+          <span class="mark-usage">${asset.usage}</span>
         `;
 
         card.appendChild(stage);
@@ -926,20 +874,11 @@
       const container = document.getElementById('all-color-rows');
       container.innerHTML = '';
 
-      ACCENT_FAMILIES.forEach(fam => {
-        const rowGrid = document.createElement('div');
-        rowGrid.className = 'chips-row-grid';
-        rowGrid.appendChild(createColorChip(`${fam.name}-L`, fam.l, '#000000', fam.demo));
-        rowGrid.appendChild(createColorChip(`${fam.name}`, fam.base, '#000000', fam.demo));
-        rowGrid.appendChild(createColorChip(`${fam.name}-D`, fam.d, '#FFFFFF', fam.demo));
-        container.appendChild(rowGrid);
-      });
-
-      NEUTRAL_ROWS.forEach(row => {
+      COLOR_ROWS.forEach(row => {
         const rowGrid = document.createElement('div');
         rowGrid.className = 'chips-row-grid';
         row.forEach(item => {
-          rowGrid.appendChild(createColorChip(item.name, item.hex, item.textColor, false));
+          rowGrid.appendChild(createColorChip(item.name, item.hex, item.textColor, item.role));
         });
         container.appendChild(rowGrid);
       });
@@ -1024,17 +963,6 @@
     document.querySelectorAll('[data-copy-snippet]').forEach(el => {
       el.addEventListener('click', () => {
         copyText(el.dataset.copySnippet, 'COMPONENT SPEC');
-      });
-    });
-
-    document.querySelectorAll('[data-set-accent]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const accent = btn.dataset.setAccent;
-        document.documentElement.setAttribute('data-accent', accent);
-        document.querySelectorAll('[data-set-accent]').forEach(b => b.classList.remove('is-active'));
-        btn.classList.add('is-active');
-        advanceChapterCorners();
-        showToast(accent === 'red' ? 'ACCENT RED (PRODUCTION)' : `${accent.toUpperCase()} (DEMO ONLY — FORBIDDEN FOR AGENTS)`);
       });
     });
 
