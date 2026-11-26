@@ -4,324 +4,676 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DESIGN.MD — Court of Moravia</title>
-  <meta name="description" content="Design system tokens, brand marks, slide compositions, and LLM specification for Court of Moravia." />
+  <meta name="description" content="Single source of truth for Court of Moravia visual identity, tokens, shapes, and UI components." />
+
+  <!-- Geist & Geist Mono Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@200;300;400;500&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <header class="chrome-bar chrome-bar--top">
-    <div class="chrome-end chrome-end--tl">
-      <div class="corner-svg-slot" id="slot-tl"></div>
-    </div>
+  <!-- Synced Lateral Rails (Non-interactive, -90deg Left / +90deg Right, 30px height) -->
+  <div class="lateral-rail lateral-rail--left" aria-hidden="true">
+    <svg viewBox="0 0 180 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="3" width="3" height="24" fill="currentColor"/>
+      <rect x="6" y="3" width="1" height="24" fill="currentColor"/>
+      <rect x="10" y="3" width="5" height="24" fill="currentColor"/>
+      <rect x="19" y="3" width="2" height="24" fill="currentColor"/>
+      <rect x="24" y="3" width="1" height="24" fill="currentColor"/>
+      <rect x="29" y="3" width="4" height="24" fill="currentColor"/>
+      <rect x="37" y="3" width="2" height="24" fill="currentColor"/>
+      <rect x="43" y="3" width="6" height="24" fill="currentColor"/>
+      <rect x="53" y="3" width="1" height="24" fill="currentColor"/>
+      <rect x="58" y="3" width="3" height="24" fill="currentColor"/>
+      <rect x="65" y="3" width="2" height="24" fill="currentColor"/>
+      <rect x="71" y="3" width="5" height="24" fill="currentColor"/>
+      <rect x="80" y="3" width="1" height="24" fill="currentColor"/>
+      <rect x="85" y="3" width="4" height="24" fill="currentColor"/>
+      <rect x="93" y="3" width="2" height="24" fill="currentColor"/>
+      <rect x="99" y="3" width="3" height="24" fill="currentColor"/>
+      <rect x="106" y="3" width="6" height="24" fill="currentColor"/>
+      <rect x="116" y="3" width="1" height="24" fill="currentColor"/>
+      <rect x="121" y="3" width="4" height="24" fill="currentColor"/>
+      <rect x="129" y="3" width="2" height="24" fill="currentColor"/>
+      <rect x="135" y="3" width="5" height="24" fill="currentColor"/>
+      <rect x="144" y="3" width="1" height="24" fill="currentColor"/>
+      <rect x="149" y="3" width="3" height="24" fill="currentColor"/>
+      <rect x="156" y="3" width="2" height="24" fill="currentColor"/>
+      <rect x="162" y="3" width="6" height="24" fill="currentColor"/>
+      <rect x="172" y="3" width="2" height="24" fill="currentColor"/>
+      <rect x="177" y="3" width="3" height="24" fill="currentColor"/>
+    </svg>
+  </div>
 
-    <div class="chrome-center chrome-center--top">
-      <nav class="nav-links" aria-label="Primary sections">
-        <a href="#palette" data-open-accordion="palette">PALETTE</a>
-        <span class="nav-sep">|</span>
-        <a href="#typography" data-open-accordion="typography">TYPOGRAPHY</a>
-        <span class="nav-sep">|</span>
-        <a href="#marks" data-open-accordion="marks">SHAPES</a>
-        <span class="nav-sep">|</span>
-        <a href="#primitives" data-open-accordion="primitives">COMPONENTS</a>
-        <span class="nav-sep">|</span>
-        <a href="#slides" data-open-accordion="slides">SLIDES</a>
-        <span class="nav-sep">|</span>
-        <a href="#llm-docs">DESIGN.MD</a>
-      </nav>
-    </div>
+  <div class="lateral-rail lateral-rail--right" aria-hidden="true">
+    <svg viewBox="0 0 180 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="3" width="3" height="24" fill="currentColor"/>
+      <rect x="6" y="3" width="1" height="24" fill="currentColor"/>
+      <rect x="10" y="3" width="5" height="24" fill="currentColor"/>
+      <rect x="19" y="3" width="2" height="24" fill="currentColor"/>
+      <rect x="24" y="3" width="1" height="24" fill="currentColor"/>
+      <rect x="29" y="3" width="4" height="24" fill="currentColor"/>
+      <rect x="37" y="3" width="2" height="24" fill="currentColor"/>
+      <rect x="43" y="3" width="6" height="24" fill="currentColor"/>
+      <rect x="53" y="3" width="1" height="24" fill="currentColor"/>
+      <rect x="58" y="3" width="3" height="24" fill="currentColor"/>
+      <rect x="65" y="3" width="2" height="24" fill="currentColor"/>
+      <rect x="71" y="3" width="5" height="24" fill="currentColor"/>
+      <rect x="80" y="3" width="1" height="24" fill="currentColor"/>
+      <rect x="85" y="3" width="4" height="24" fill="currentColor"/>
+      <rect x="93" y="3" width="2" height="24" fill="currentColor"/>
+      <rect x="99" y="3" width="3" height="24" fill="currentColor"/>
+      <rect x="106" y="3" width="6" height="24" fill="currentColor"/>
+      <rect x="116" y="3" width="1" height="24" fill="currentColor"/>
+      <rect x="121" y="3" width="4" height="24" fill="currentColor"/>
+      <rect x="129" y="3" width="2" height="24" fill="currentColor"/>
+      <rect x="135" y="3" width="5" height="24" fill="currentColor"/>
+      <rect x="144" y="3" width="1" height="24" fill="currentColor"/>
+      <rect x="149" y="3" width="3" height="24" fill="currentColor"/>
+      <rect x="156" y="3" width="2" height="24" fill="currentColor"/>
+      <rect x="162" y="3" width="6" height="24" fill="currentColor"/>
+      <rect x="172" y="3" width="2" height="24" fill="currentColor"/>
+      <rect x="177" y="3" width="3" height="24" fill="currentColor"/>
+    </svg>
+  </div>
 
-    <div class="chrome-end chrome-end--tr">
-      <div class="corner-svg-slot" id="slot-tr"></div>
-    </div>
+  <!-- Sticky Navigation Bar -->
+  <header class="control-bar">
+    <nav class="nav-links" aria-label="Primary sections">
+      <a href="#palette">01 / Palette</a>
+      <a href="#typography">02 / Typography</a>
+      <a href="#shapes">03 / Shapes &amp; Marks</a>
+      <a href="#ui-components">04 / UI Components</a>
+      <a href="#rules">05 / Rules &amp; Grid</a>
+      <a href="#llm-docs">06 / DESIGN.MD</a>
+    </nav>
+    <span class="nav-meta">COM // SINGLE SOURCE OF TRUTH</span>
   </header>
 
-  <aside class="side-rail side-rail--left" aria-hidden="true">
-    <div class="side-rail-slot" id="side-left-rail"></div>
-  </aside>
+  <!-- Technical Perimeter Frame (Non-interactive) -->
+  <div class="com-frame">
 
-  <aside class="side-rail side-rail--right" aria-hidden="true">
-    <div class="side-rail-slot" id="side-right-rail"></div>
-  </aside>
+    <!-- Top Frame Bar -->
+    <div class="frame-bar" aria-hidden="true">
+      <span class="frame-corner-slot">
+        <svg viewBox="0 0 30 30" fill="none"><polygon points="15,2 28,26 2,26" stroke="currentColor" stroke-width="2"/><line x1="15" y1="2" x2="15" y2="26" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>COM // DESIGN SYSTEM</span>
+      </span>
+      <span>SNAPSHOT: 26 NOV 2026</span>
+      <span class="frame-corner-slot">
+        <span>01 // RED-MONO</span>
+        <svg viewBox="0 0 30 30" fill="none"><rect x="4" y="4" width="22" height="22" stroke="currentColor" stroke-width="2"/><line x1="4" y1="4" x2="26" y2="26" stroke="currentColor" stroke-width="1.5"/></svg>
+      </span>
+    </div>
 
-  <main class="page-main">
-    <div class="main-container">
+    <main class="main-container">
 
+      <!-- HERO -->
       <section class="hero">
-        <h1 class="hero-display">WE CHANGE THE <span class="kw-red">GAME OF BUSINESS</span></h1>
-        <p class="hero-body">
-          A technical frame. A human purpose. Click any color chip, typography specimen, SVG shape, slide composition, or component primitive to copy its exact code or token.
-        </p>
+        <div class="hero-kicker">
+          <span>COURT OF MORAVIA</span>
+          <span>//</span>
+          <span>DESIGN SYSTEM SPECIFICATION</span>
+        </div>
+        <h1 class="hero-display">WE CHANGE THE GAME OF BUSINESS</h1>
+        <p class="hero-sub">A technical frame. A human purpose.</p>
 
         <div class="hero-actions">
           <button type="button" class="btn" id="copy-design-md-hero">
             Copy DESIGN.MD for LLMs
           </button>
-          <button type="button" class="btn btn--side" id="download-all-fonts">
-            Download Fonts
+          <button type="button" class="btn btn--secondary" id="copy-css-vars">
+            Copy CSS :root Variables
           </button>
-          <a href="./DESIGN.md" download="DESIGN.md" class="btn btn--side">
+          <a href="./DESIGN.md" download="DESIGN.md" class="btn btn--secondary">
             Download DESIGN.md
           </a>
         </div>
       </section>
 
+      <!-- 01 / COLOR & SURFACE SYSTEM -->
       <section id="palette" class="section">
-        <button type="button" class="accordion-trigger" aria-expanded="false">
-          <span class="section-eyebrow">1</span>
-          <h2 class="section-title">Color <span class="kw-red">System</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
-        </button>
-
-        <div class="accordion-panel">
-          <div class="section-desc-wrap">
-            <p class="section-desc">
-              Production systems use strictly Red, White, Grey, and Black. Each color swatch carries its explicit role label and self-inherited 1px border.
-            </p>
-          </div>
-          <div id="all-color-rows"></div>
+        <div class="section-header">
+          <span class="section-index">01 / PALETTE &amp; SURFACES</span>
+          <h2 class="section-title">Color System</h2>
         </div>
+        <div class="section-desc-wrap">
+          <p class="section-desc">
+            Pure black, pure white, calibrated neutral greys, and the red accent family. Click any swatch to copy its token or value.
+          </p>
+        </div>
+
+        <div class="palette-grid" id="palette-container"></div>
       </section>
 
+      <!-- 02 / TYPOGRAPHY SYSTEM -->
       <section id="typography" class="section">
-        <button type="button" class="accordion-trigger" aria-expanded="false">
-          <span class="section-eyebrow">2</span>
-          <h2 class="section-title">Core <span class="kw-red">Typography</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
-        </button>
+        <div class="section-header">
+          <span class="section-index">02 / HIERARCHY — GEIST + GEIST MONO</span>
+          <h2 class="section-title">Core Typography</h2>
+        </div>
+        <div class="section-desc-wrap">
+          <p class="section-desc">
+            Large, light, uppercase headlines (<code>Geist</code>) paired with sentence-case body copy (<code>max-width: 66ch</code>) and technical monospaced labels (<code>Geist Mono</code>). Click any row to copy its CSS declaration.
+          </p>
+        </div>
 
-        <div class="accordion-panel">
-          <div class="section-desc-wrap">
-            <p class="section-desc">
-              Rendered at 1:1 scale. Headings h1–h6 are pure white (#FFFFFF) with optional 2–4 word highlights in Red (#DF1717). Body text is always grey-l (#EBE7E0) capped at 66ch.
-            </p>
-            <div class="section-actions">
-              <a href="./fonts/geist.zip" download="geist.zip" class="btn">Download Geist</a>
-              <a href="./fonts/geist-mono.zip" download="geist-mono.zip" class="btn btn--side">Download Geist Mono</a>
-            </div>
-          </div>
+        <div class="type-list" id="typography-container"></div>
 
-          <div class="type-list" id="typography-container"></div>
+        <div class="scale-tokens-bar" aria-label="Extended numeric scale tokens">
+          <span class="section-index" style="margin:0; width:100%;">Extended Numeric Scale, Stroke &amp; Blur Tokens (Click to copy)</span>
+          <div class="token-pill" data-copy="88px">tera: <span>88px</span></div>
+          <div class="token-pill" data-copy="72px">giga: <span>72px</span></div>
+          <div class="token-pill" data-copy="64px">mega: <span>64px</span></div>
+          <div class="token-pill" data-copy="56px">kilo: <span>56px</span></div>
+          <div class="token-pill" data-copy="48px">micro: <span>48px</span></div>
+          <div class="token-pill" data-copy="40px">nano: <span>40px</span></div>
+          <div class="token-pill" data-copy="32px">pico: <span>32px</span></div>
+          <div class="token-pill" data-copy="24px">femto: <span>24px</span></div>
+          <div class="token-pill" data-copy="1px">stroke-thin: <span>1px</span></div>
+          <div class="token-pill" data-copy="2px">stroke-base: <span>2px</span></div>
+          <div class="token-pill" data-copy="20px">--blur-m: <span>20px</span></div>
         </div>
       </section>
 
-      <section id="marks" class="section">
-        <button type="button" class="accordion-trigger" aria-expanded="false">
-          <span class="section-eyebrow">3</span>
-          <h2 class="section-title">Shapes &amp; <span class="kw-red">Marks</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
-        </button>
+      <!-- 03 / SHAPES & MARKS -->
+      <section id="shapes" class="section">
+        <div class="section-header">
+          <span class="section-index">03 / VECTOR ASSETS</span>
+          <h2 class="section-title">Shapes &amp; Marks</h2>
+        </div>
+        <div class="section-desc-wrap">
+          <p class="section-desc">
+            Structured into five functional groups: <strong>Main</strong>, <strong>Corners</strong>, <strong>Rails</strong>, <strong>Controls</strong>, and <strong>Icons</strong>. Click any item to copy its clean SVG markup.
+          </p>
+        </div>
 
-        <div class="accordion-panel">
-          <div class="section-desc-wrap">
-            <p class="section-desc">
-              Non-interactive decorative shapes render in grey-d (#424242); interactive shapes render in Red (#DF1717). Click any mark to copy its SVG XML.
-            </p>
+        <!-- 3A. MAIN -->
+        <div class="shapes-group">
+          <div class="shapes-group-header">
+            <h3 class="shapes-group-title">Main</h3>
+            <p class="shapes-group-rule">Primary lockup (<code>logo-full</code>) alongside compact wordmark (<code>logo</code>).</p>
           </div>
+          <div class="shapes-grid shapes-grid--main" id="shapes-main"></div>
+        </div>
 
-          <div class="marks-main-wrap" id="main-logo-container"></div>
-          <div class="marks-grid" id="marks-grid-container"></div>
+        <!-- 3B. CORNERS -->
+        <div class="shapes-group">
+          <div class="shapes-group-header">
+            <h3 class="shapes-group-title">Corners</h3>
+            <p class="shapes-group-rule">Usage: <strong>Corner</strong> — Placed in the four frame corner slots (<code>30px</code> standard height).</p>
+          </div>
+          <div class="shapes-grid" id="shapes-corners"></div>
+        </div>
+
+        <!-- 3C. RAILS -->
+        <div class="shapes-group">
+          <div class="shapes-group-header">
+            <h3 class="shapes-group-title">Rails</h3>
+            <p class="shapes-group-rule">Usage: <strong>Lateral, Vertical</strong> — Synced perimeter bars rotated <code>-90deg</code> / <code>+90deg</code> (<code>30px</code> height).</p>
+          </div>
+          <div class="shapes-grid" id="shapes-rails"></div>
+        </div>
+
+        <!-- 3D. CONTROLS -->
+        <div class="shapes-group">
+          <div class="shapes-group-header">
+            <h3 class="shapes-group-title">Controls</h3>
+            <p class="shapes-group-rule"><code>arrow-big</code> navigates major sections/pages; <code>arrow-small</code> is a single rotatable SVG for intra-component controls; <code>radio</code> tracks section progress.</p>
+          </div>
+          <div class="shapes-grid" id="shapes-controls"></div>
+        </div>
+
+        <!-- 3E. ICONS -->
+        <div class="shapes-group" style="margin-bottom: 0;">
+          <div class="shapes-group-header">
+            <h3 class="shapes-group-title">Icons</h3>
+            <p class="shapes-group-rule">Category markers for card headers.</p>
+          </div>
+          <div class="shapes-disclaimer">
+            <strong>DISCLAIMER // RARE USAGE:</strong> These icons are vectorized glyphs from the Nerd Font build of <code>Geist Mono</code>. Do not bundle the full Geist Mono Nerd Font into repositories—these marks are used rarely and are crafted manually by a human (Kevin).
+          </div>
+          <div class="shapes-grid" id="shapes-icons"></div>
         </div>
       </section>
 
-      <section id="primitives" class="section">
-        <button type="button" class="accordion-trigger" aria-expanded="false">
-          <span class="section-eyebrow">4</span>
-          <h2 class="section-title">Component <span class="kw-red">Primitives</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
-        </button>
+      <!-- 04 / UI COMPONENTS (WEB SPECIFICATION) -->
+      <section id="ui-components" class="section">
+        <div class="section-header">
+          <span class="section-index">04 / INTERACTIVE &amp; STRUCTURAL PRIMITIVES</span>
+          <h2 class="section-title">UI Components</h2>
+        </div>
+        <div class="section-desc-wrap">
+          <p class="section-desc">
+            Canonical web UI rules: passive containers stay strictly sharp (<code>0px</code>) with <code>--blur-bg</code> + <code>blur(--blur-m)</code>, while interactive buttons and small directional controls use full pill rounding (<code>999px</code>) so they read unmistakably as clickable controls.
+          </p>
+        </div>
 
-        <div class="accordion-panel">
-          <div class="section-desc-wrap">
-            <p class="section-desc">
-              Composite blocks never carry an outer wrapper border as a whole—borders apply strictly to inner frames in 1px grey-d (#424242) on a pure black background.
-            </p>
-          </div>
+        <div class="ui-showcase-stack">
 
-          <div class="primitives-stack">
-
-            <div class="primitive-unit">
-              <p class="primitive-micro-desc">VERBOX — Vertical stack container with hug h5 header (padding 24px 48px) and 64px vertical item gap</p>
-              <div class="verbox" data-copy-snippet="VERBOX: Top hug h5 header (padding: 24px 48px; border: 1px solid var(--color-grey-d); background: #000000; color: #FFFFFF) + bottom box (border: 1px solid var(--color-grey-d); padding: 64px 72px; gap: 64px) with h6 (#FFFFFF, gap: 24px) + body (color: var(--color-grey-l); max-width: 66ch).">
-                <h5 class="verbox-header">VERBOX <span class="kw-red">HEADER</span></h5>
-                <div class="verbox-body">
-                  <div class="text-pair">
-                    <h6 class="text-pair-h6">1 RADIKÁLNÍ <span class="kw-red">UPŘÍMNOST</span></h6>
-                    <p class="box-body-text">
-                      Pojmenováváme věci pravými jmény. Bez korporátní vaty, s respektem k lidem a fokusem na výsledek. Obsah verboxu je řazený vertikálně pod sebou s mezerou 64px.
-                    </p>
-                  </div>
-                  <div class="text-pair">
-                    <h6 class="text-pair-h6">2 MĚŘITELNÝ <span class="kw-red">DOPAD</span></h6>
-                    <p class="box-body-text">
-                      Každý zásah do fungování firmy musí mít jasný cíl a ověřitelný posun v každodenní praxi týmu. Šířka odstavce nepřesahuje 66ch.
-                    </p>
-                  </div>
+          <!-- 1. TOPBAR + BOTTOMBAR -->
+          <article class="ui-spec-block">
+            <div class="ui-spec-header">
+              <h3 class="ui-spec-title">01 // Topbar &amp; Bottombar</h3>
+              <span class="ui-spec-note">Web only: background: var(--blur-bg) + backdrop-filter: blur(--blur-m) + 1px grey-d border (Never use blur in PDF/posts)</span>
+            </div>
+            <div class="ui-spec-body">
+              <div class="chrome-demo">
+                <div class="chrome-demo-bar chrome-demo-bar--top">
+                  <span>[CORNER MARK] COM // TOPBAR</span>
+                  <span>BLUR: 20PX (--BLUR-M)</span>
+                  <span>[CORNER MARK]</span>
+                </div>
+                <div style="padding: 24px; text-align: center; font-family: var(--font-header); font-size: 12px; color: var(--color-grey-l);">
+                  CONTENT VIEWPORT — TRANSLUCENT BARS FRAME THE LIVE WEB CANVAS
+                </div>
+                <div class="chrome-demo-bar chrome-demo-bar--bottom">
+                  <span>[CORNER MARK] IČO // LEGAL</span>
+                  <span>WE DELIVER CHANGE IN COMPANIES</span>
+                  <span>[CORNER MARK]</span>
                 </div>
               </div>
             </div>
+          </article>
 
-            <div class="primitive-unit">
-              <p class="primitive-micro-desc">HORBOX — Horizontal multi-column container (max 3 columns) with hug h5 header (padding 24px 48px) and 56px column gap</p>
-              <div class="horbox" data-copy-snippet="HORBOX: Top hug h5 header (padding: 24px 48px; border: 1px solid var(--color-grey-d); background: #000000; color: #FFFFFF) + horizontal row box (border: 1px solid var(--color-grey-d); padding: 64px 72px; gap: 56px, max 3 cols) with h6 (#FFFFFF, gap: 24px) + body (color: var(--color-grey-l); max-width: 66ch).">
-                <h5 class="horbox-header">HORBOX <span class="kw-red">HEADER</span></h5>
-                <div class="horbox-body">
-                  <div class="text-pair">
-                    <h6 class="text-pair-h6">DIAGNOSTIKA</h6>
-                    <p class="box-body-text">
-                      Mapujeme skutečné chování týmu a úzká hrdla rozhodování místo povrchových dojmů.
-                    </p>
-                  </div>
-                  <div class="text-pair">
-                    <h6 class="text-pair-h6">INTERVENCE</h6>
-                    <p class="box-body-text">
-                      Navrhujeme konkrétní herní a procesní mechanismy, které mění návyky v reálném čase.
-                    </p>
-                  </div>
+          <!-- 2. LINKS & BUTTONS (ALL STATES) -->
+          <article class="ui-spec-block">
+            <div class="ui-spec-header">
+              <h3 class="ui-spec-title">02 // Links (&lt;a&gt;), Main Buttons &amp; Secondary Buttons</h3>
+              <span class="ui-spec-note">Links: --accent + underline + affixed ↗ (hover: --accent-d + line-through) | Buttons: rounded 999px</span>
+            </div>
+            <div class="ui-spec-body">
+              <div class="states-row">
+                <!-- Link States -->
+                <div class="state-item">
+                  <span class="state-label">&lt;a&gt; Default</span>
+                  <a href="#ui-components" class="com-link" onclick="return false;">Explore case study</a>
+                </div>
+                <div class="state-item">
+                  <span class="state-label">&lt;a&gt; Hover</span>
+                  <a href="#ui-components" class="com-link link-hover-preview" onclick="return false;">Explore case study</a>
+                </div>
+
+                <!-- Main Button States -->
+                <div class="state-item">
+                  <span class="state-label">Main Button (Default)</span>
+                  <button type="button" class="btn">Book discovery call</button>
+                </div>
+                <div class="state-item">
+                  <span class="state-label">Main Button (Hover)</span>
+                  <button type="button" class="btn btn-main-hover-preview">Book discovery call</button>
+                </div>
+
+                <!-- Secondary / Other Button States -->
+                <div class="state-item">
+                  <span class="state-label">Other Button (Default)</span>
+                  <button type="button" class="btn btn--secondary">Download brief</button>
+                </div>
+                <div class="state-item">
+                  <span class="state-label">Other Button (Hover)</span>
+                  <button type="button" class="btn btn--secondary btn-sec-hover-preview">Download brief</button>
                 </div>
               </div>
             </div>
+          </article>
 
-            <div class="primitive-unit">
-              <p class="primitive-micro-desc">SBOX — Equal-height small boxes with 100% full-width h5 header and 48px 56px body frame</p>
+          <!-- 3. CANONICAL SBOX -->
+          <article class="ui-spec-block">
+            <div class="ui-spec-header">
+              <h3 class="ui-spec-title">03 // Canonical SBOX</h3>
+              <span class="ui-spec-note">border: 1px solid var(--color-grey-d) · color: var(--color-grey-l) · background: var(--blur-bg) + blur(var(--blur-m))</span>
+            </div>
+            <div class="ui-spec-body">
               <div class="sbox-grid">
-                <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; border: 1px solid var(--color-grey-d); background: #000000; color: #FFFFFF; padding: 24px 40px) + bottom frame (border: 1px solid var(--color-grey-d); padding: 48px 56px) with body text (color: var(--color-grey-l); max-width: 66ch).">
-                  <h5 class="sbox-header">FILTERED <span class="kw-red">TRUTH</span></h5>
-                  <div class="sbox-body">
-                    <p class="box-body-text">
-                      Diagnostika reálného stavu firmy bez zkreslení management reporty. Hlavička h5 vyplňuje 100 % šířky boxu.
-                    </p>
+                <div class="sbox-card">
+                  <div class="sbox-card-header">01 // FILTERED TRUTH</div>
+                  <p class="sbox-card-body">Diagnostika reálného stavu firmy bez zkreslení management reporty. Ostré hrany, poloprůhledný povrch a 20px blur.</p>
+                </div>
+                <div class="sbox-card">
+                  <div class="sbox-card-header">02 // TALENT OPTIMIZATION</div>
+                  <p class="sbox-card-body">Sladění silných stránek lidí s klíčovými byznysovými cíli. Jednotný vizuální styl napříč celým systémem.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. ACCORDION (STATIC, HOVER, ACTIVE) -->
+          <article class="ui-spec-block">
+            <div class="ui-spec-header">
+              <h3 class="ui-spec-title">04 // Accordion (Static, Hover &amp; Active)</h3>
+              <span class="ui-spec-note">Click items below to test interactive toggle</span>
+            </div>
+            <div class="ui-spec-body">
+              <div class="accordion-list" id="demo-accordion">
+                <div class="acc-item">
+                  <button type="button" class="acc-trigger">
+                    <span>01 / Static State — Jak probíhá úvodní diagnostika?</span>
+                    <span>+</span>
+                  </button>
+                  <div class="acc-panel" hidden>
+                    Krátký, intenzivní audit rozhodovacích procesů a týmové dynamiky během prvních dvou týdnů spolupráce.
                   </div>
                 </div>
-
-                <div class="sbox" data-copy-snippet="SBOX: Top h5 header (width: 100%; border: 1px solid var(--color-grey-d); background: #000000; color: #FFFFFF; padding: 24px 40px) + bottom frame (border: 1px solid var(--color-grey-d); padding: 48px 56px) with body text (color: var(--color-grey-l); max-width: 66ch).">
-                  <h5 class="sbox-header">TALENT <span class="kw-red">OPTIMIZATION</span></h5>
-                  <div class="sbox-body">
-                    <p class="box-body-text">
-                      Sladění silných stránek lidí s klíčovými byznysovými cíli a jasnou odpovědností za výsledek.
-                    </p>
+                <div class="acc-item is-hover-preview">
+                  <button type="button" class="acc-trigger">
+                    <span>02 / Hover State — Jak měříme dopad změny ve firmě?</span>
+                    <span>+</span>
+                  </button>
+                  <div class="acc-panel" hidden>
+                    Definujeme konkrétní behaviorální a byznysové metriky před spuštěním první intervence.
+                  </div>
+                </div>
+                <div class="acc-item is-active">
+                  <button type="button" class="acc-trigger">
+                    <span>03 / Active State — Proč využíváme Serious Games?</span>
+                    <span>−</span>
+                  </button>
+                  <div class="acc-panel">
+                    Simulace reálných byznysových situací odhalí vzorce chování týmu během několika hodin místo měsíců teoretických workshopů.
                   </div>
                 </div>
               </div>
             </div>
+          </article>
 
-            <div class="primitive-unit">
-              <p class="primitive-micro-desc">ORDERED LIST — Top-aligned hugging number cell paired with full-bordered uppercase h6 regular text frame</p>
-              <div class="com-ordered-list">
-                <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--color-grey-d); background: #000000; color: var(--color-red); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--color-grey-d); background: #000000; color: #FFFFFF; h6 regular uppercase).">
-                  <div class="com-ol-num">1</div>
-                  <div class="com-ol-text">POJMENUJEME SKUTEČNÝ <span class="kw-red">PROBLÉM</span> BEZ KORPORÁTNÍHO BALASTU</div>
+          <!-- 5. QUOTE CAROUSEL -->
+          <article class="ui-spec-block">
+            <div class="ui-spec-header">
+              <h3 class="ui-spec-title">05 // Quote Carousel</h3>
+              <span class="ui-spec-note">Centered body copy + circular pill arrow controls (arrow-small) + radio progress indicators</span>
+            </div>
+            <div class="ui-spec-body">
+              <div class="quote-carousel">
+                <button type="button" class="icon-circle-btn" aria-label="Previous quote">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="transform: rotate(180deg);"><path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="2"/></svg>
+                </button>
+                <div class="quote-center">
+                  <p class="quote-text">„Court of Moravia nám během jediného kvartálu pomohli rozklíčovat místa, kde se nám zadrhávala exekutiva.“</p>
+                  <span class="quote-author">JAN NOVÁK // CEO, PARTNER COMPANY</span>
                 </div>
-                <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--color-grey-d); background: #000000; color: var(--color-red); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--color-grey-d); background: #000000; color: #FFFFFF; h6 regular uppercase).">
-                  <div class="com-ol-num">2</div>
-                  <div class="com-ol-text">NAVRHNEME SYSTÉM A HERNÍ MECHANIKY, KTERÉ V TÝMU PŘENESOU <span class="kw-red">ODPOVĚDNOST</span> Z JEDNOTLIVCE NA CELEK</div>
-                </div>
-                <div class="com-ol-item" data-copy-snippet="Ordered List Row: Left hugging number cell (padding: 24px; border: 1px solid var(--color-grey-d); background: #000000; color: var(--color-red); h6 regular) + Right text cell (padding: 24px 48px; border: 1px solid var(--color-grey-d); background: #000000; color: #FFFFFF; h6 regular uppercase).">
-                  <div class="com-ol-num">3</div>
-                  <div class="com-ol-text">PŘEDÁME NÁSTROJE INTERNÍM LÍDRŮM DO <span class="kw-red">KAŽDODENNÍ PRAXE</span></div>
+                <button type="button" class="icon-circle-btn" aria-label="Next quote">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="2"/></svg>
+                </button>
+                <div class="quote-dots" aria-hidden="true">
+                  <span style="width:10px; height:10px; border-radius:999px; background:var(--accent); display:inline-block;"></span>
+                  <span style="width:10px; height:10px; border-radius:999px; border:1px solid var(--color-grey-l); display:inline-block;"></span>
+                  <span style="width:10px; height:10px; border-radius:999px; border:1px solid var(--color-grey-l); display:inline-block;"></span>
                 </div>
               </div>
             </div>
+          </article>
 
-            <div class="primitive-unit">
-              <p class="primitive-micro-desc">CTA BUTTON — Two-part action block with hug h6 context header and 32px Geist Medium underlined trigger</p>
-              <div>
-                <a href="#llm-docs" class="cta-block" data-copy-snippet="Two-Part CTA Button: Top hug frame (padding: 24px 40px; background: #000000; border: 1px solid var(--color-grey-d); h6 #FFFFFF) + Bottom frame (padding: 40px 48px; background: var(--color-red); font-family: 'Geist'; font-size: 32px; font-weight: 500; text-decoration: underline; color: #000000).">
-                  <span class="cta-top">READY TO IMPLEMENT THIS SYSTEM</span>
-                  <span class="cta-bottom">COPY FULL SPECIFICATION</span>
-                </a>
+          <!-- 6. TEAM CARD & MINIMAL FORM -->
+          <div class="ui-two-col">
+            <article class="ui-spec-block">
+              <div class="ui-spec-header">
+                <h3 class="ui-spec-title">06 // Team Card</h3>
+                <span class="ui-spec-note">filter: grayscale(100%) contrast(1.25)</span>
               </div>
-            </div>
+              <div class="ui-spec-body">
+                <div class="team-card">
+                  <div class="team-photo-wrap">
+                    <div class="team-photo-placeholder" role="img" aria-label="High-contrast black and white portrait"></div>
+                  </div>
+                  <div class="team-info">
+                    <h4 class="team-name">Tomáš Kovář</h4>
+                    <span class="team-role">Managing Partner</span>
+                    <span class="team-contact">tomas@courtofmoravia.com</span>
+                  </div>
+                </div>
+              </div>
+            </article>
 
+            <article class="ui-spec-block">
+              <div class="ui-spec-header">
+                <h3 class="ui-spec-title">07 // Minimal Form</h3>
+                <span class="ui-spec-note">Bottom-bordered inputs + pill CTA</span>
+              </div>
+              <div class="ui-spec-body">
+                <form class="minimal-form" onsubmit="event.preventDefault(); showToast('FORM SUBMITTED');">
+                  <div class="minimal-field">
+                    <label for="demo-email">Work E-mail</label>
+                    <input id="demo-email" type="email" class="minimal-input" placeholder="name@company.com" />
+                  </div>
+                  <button type="submit" class="btn">Send</button>
+                </form>
+              </div>
+            </article>
           </div>
+
+          <!-- 8. SHADER (EXPERIMENTAL — WEB ONLY) -->
+          <article class="ui-spec-block">
+            <div class="ui-spec-header">
+              <h3 class="ui-spec-title">08 // Ambient Shader (Experimental — Web Only)</h3>
+              <span class="ui-spec-note">Color on Hero &rarr; Grayscale &amp; darkened on scroll + bottom footer curtain for legibility</span>
+            </div>
+            <div class="ui-spec-body">
+              <div class="shader-grid">
+                <div class="shader-box shader-box--color">
+                  <span class="shader-tag">State A // Hero (Full Color)</span>
+                  <span style="font-family: var(--font-header); font-size: 12px; color: var(--color-white);">ACTIVE RED SHADER BACKDROP</span>
+                </div>
+                <div class="shader-box shader-box--scrolled">
+                  <span class="shader-tag">State B // Scrolled &amp; Footer Curtain</span>
+                  <span style="font-family: var(--font-header); font-size: 12px; color: var(--color-grey-l);">GRAYSCALE + DARKENED FOR LEGIBILITY</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
         </div>
       </section>
 
-      <section id="slides" class="section">
-        <button type="button" class="accordion-trigger" aria-expanded="false">
-          <span class="section-eyebrow">5</span>
-          <h2 class="section-title">Slide <span class="kw-red">Compositions</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
-        </button>
+      <!-- 05 / DESIGN CONVENTIONS & VIEWPORT RULES -->
+      <section id="rules" class="section">
+        <div class="section-header">
+          <span class="section-index">05 / COMPOSITION, SCROLL &amp; LEGIBILITY</span>
+          <h2 class="section-title">Design Conventions</h2>
+        </div>
+        <div class="section-desc-wrap">
+          <p class="section-desc">
+            Master grid <code>main</code>: 1 stretch row + 1 stretch column with <code>136px</code> inset for static formats and responsive web framing with <code>1px</code> gutters.
+          </p>
+        </div>
 
-        <div class="accordion-panel">
-          <div class="section-desc-wrap">
-            <p class="section-desc">
-              3x4 showcase of standardized 1920x1080 slide compositions and permutations. Click any slide specimen to copy its layout specification for LLM deck generation.
-            </p>
-          </div>
+        <div class="rules-grid">
+          <article class="rule-card">
+            <span class="rule-num">01 / PALETTE &amp; SURFACES</span>
+            <p class="rule-text">Black (#000000), white (#FFFFFF), greys (#424242 / #EBE7E0), and the red accent family. Web containers use <code>--blur-bg</code> + <code>blur(--blur-m)</code>.</p>
+          </article>
+          <article class="rule-card">
+            <span class="rule-num">02 / SHAPE CONTRAST</span>
+            <p class="rule-text">Passive containers and frames are strictly <code>0px</code> sharp. Interactive buttons and directional controls are pill-rounded (<code>999px</code>) so they look clickable at first glance.</p>
+          </article>
+          <article class="rule-card">
+            <span class="rule-num">03 / WEB SCROLL MODES</span>
+            <p class="rule-text">Locked section-snap scroll is reserved for sales landing pages. Content-heavy sites (docs, articles) and all screens <code>&le; 960px</code> always use unlocked natural scroll.</p>
+          </article>
+          <article class="rule-card">
+            <span class="rule-num">04 / FOOTER LEGIBILITY</span>
+            <p class="rule-text">The final section of a web page applies a dark bottom curtain over the shader so team cards, client logos (in <code>--color-grey-l</code>), and legal details remain crisp.</p>
+          </article>
+        </div>
 
-          <div class="slides-grid-3x4" id="slides-showcase-grid"></div>
+        <div class="antipatterns-box">
+          <h3 class="antipatterns-title">Strict Anti-Patterns (LLM Guardrails)</h3>
+          <ul class="antipatterns-list">
+            <li><strong>No rounded passive containers:</strong> Never apply <code>border-radius</code> to cards, SBOX blocks, accordions, or frames (0px only).</li>
+            <li><strong>No multi-color rainbows:</strong> Never introduce blue, green, yellow, or violet accents—stick to Black, White, Greys, and Red.</li>
+            <li><strong>No off-brand fonts:</strong> Never substitute Geist or Geist Mono with Inter, Roboto, serif, or script fonts.</li>
+            <li><strong>No blur in static exports:</strong> Never apply <code>backdrop-filter: blur()</code> when generating PDFs or static posts.</li>
+          </ul>
         </div>
       </section>
 
+      <!-- 06 / RAW DESIGN.MD FOR LLMS -->
       <section id="llm-docs" class="section">
         <div class="section-header">
-          <span class="section-eyebrow">6</span>
-          <h2 class="section-title">DESIGN.<span class="kw-red">MD</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
-          <div class="section-desc-wrap">
-            <p class="section-desc">
-              Machine-readable design system specification ready to paste directly into LLM system prompts.
-            </p>
-          </div>
+          <span class="section-index">06 / MACHINE-READABLE SPECIFICATION</span>
+          <h2 class="section-title">DESIGN.MD</h2>
+        </div>
+        <div class="section-desc-wrap">
+          <p class="section-desc">
+            Canonical specification loaded directly from <code>./DESIGN.md</code>, ready to copy into LLMs or coding agents.
+          </p>
         </div>
 
         <div class="code-panel">
           <div class="code-panel-header">
-            <span class="code-filename">DESIGN.md</span>
+            <span class="code-filename">DESIGN.md — Single Source of Truth</span>
             <div class="code-actions">
               <button type="button" class="btn" id="copy-design-md-panel">Copy Markdown</button>
-              <a href="./DESIGN.md" download="DESIGN.md" class="btn btn--side">Download .md</a>
+              <a href="./DESIGN.md" download="DESIGN.md" class="btn btn--secondary">Download .md</a>
             </div>
           </div>
           <pre class="code-block" id="raw-markdown-display">Loading DESIGN.md...</pre>
         </div>
       </section>
 
-    </div>
-  </main>
+    </main>
 
-  <footer class="chrome-bar chrome-bar--bottom">
-    <div class="chrome-end chrome-end--bl">
-      <div class="corner-svg-slot" id="slot-bl"></div>
+    <!-- Bottom Frame Bar (Non-interactive) -->
+    <div class="frame-bar frame-bar--bottom" aria-hidden="true">
+      <span class="frame-corner-slot">
+        <svg viewBox="0 0 30 30" fill="none"><polygon points="15,2 28,15 15,28 2,15" stroke="currentColor" stroke-width="2"/></svg>
+        <span>WE DELIVER CHANGE IN COMPANIES</span>
+      </span>
+      <span>COURT OF MORAVIA // EXPERT GUILD</span>
+      <span class="frame-corner-slot">
+        <span>END OF SPEC</span>
+        <svg viewBox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="11" stroke="currentColor" stroke-width="2"/><circle cx="15" cy="15" r="3" fill="currentColor"/></svg>
+      </span>
     </div>
+  </div>
 
-    <div class="chrome-center chrome-center--bottom">
-      <div class="footer-edge-slot footer-edge-slot--barcode">
-        <div class="barcode-long-wrap" id="footer-barcode-long"></div>
-        <div class="barcode-short-wrap" id="footer-barcode-short"></div>
-      </div>
-    </div>
-
-    <div class="chrome-end chrome-end--br">
-      <div class="corner-svg-slot" id="slot-br"></div>
-    </div>
-  </footer>
-
+  <!-- Copy Feedback Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
-    const SVG_ASSETS = [
-      { id: 'com-logo-full',     name: 'LOGO FULL',     usage: 'Primary Logo',       file: './svgs/com-logo-full.svg',     isMain: true  },
-      { id: 'com-logo',          name: 'LOGO',          usage: 'Corner',             file: './svgs/com-logo.svg',          isMain: false },
-      { id: 'com-d4',            name: 'D4',            usage: 'Corner',             file: './svgs/com-d4.svg',            isMain: false },
-      { id: 'com-d6',            name: 'D6',            usage: 'Corner',             file: './svgs/com-d6.svg',            isMain: false },
-      { id: 'com-d8',            name: 'D8',            usage: 'Corner',             file: './svgs/com-d8.svg',            isMain: false },
-      { id: 'com-d10',           name: 'D10',           usage: 'Corner',             file: './svgs/com-d10.svg',           isMain: false },
-      { id: 'com-d12',           name: 'D12',           usage: 'Corner',             file: './svgs/com-d12.svg',           isMain: false },
-      { id: 'com-d20',           name: 'D20',           usage: 'Corner',             file: './svgs/com-d20.svg',           isMain: false },
-      { id: 'com-aztec-a',       name: 'AZTEC A',       usage: 'Corner',             file: './svgs/com-aztec-a.svg',       isMain: false },
-      { id: 'com-aztec-b',       name: 'AZTEC B',       usage: 'Corner',             file: './svgs/com-aztec-b.svg',       isMain: false },
-      { id: 'com-c',             name: 'C',             usage: 'Corner',             file: './svgs/com-c.svg',             isMain: false },
-      { id: 'com-o',             name: 'O',             usage: 'Corner',             file: './svgs/com-o.svg',             isMain: false },
-      { id: 'com-m',             name: 'M',             usage: 'Corner',             file: './svgs/com-m.svg',             isMain: false },
-      { id: 'com-g',             name: 'G',             usage: 'Corner',             file: './svgs/com-g.svg',             isMain: false },
-      { id: 'com-logo-alt',      name: 'LOGO ALT',      usage: 'Lateral, Vertical',  file: './svgs/com-logo-alt.svg',      isMain: false },
-      { id: 'com-barcode-long',  name: 'BARCODE LONG',  usage: 'Lateral, Vertical',  file: './svgs/com-barcode-long.svg',  isMain: false },
-      { id: 'com-barcode-short', name: 'BARCODE SHORT', usage: 'Lateral, Vertical',  file: './svgs/com-barcode-short.svg', isMain: false },
-      { id: 'com-pdf417',        name: 'PDF417',        usage: 'Lateral, Vertical',  file: './svgs/com-pdf417.svg',        isMain: false }
+    const PALETTE_TOKENS = [
+      { token: '--color-black',  name: 'BLACK',   value: '#000000', role: 'Background' },
+      { token: '--color-grey-d', name: 'GREY-D',  value: '#424242', role: 'Borders / Lines' },
+      { token: '--color-grey-l', name: 'GREY-L',  value: '#EBE7E0', role: 'Passive (Text)' },
+      { token: '--color-white',  name: 'WHITE',   value: '#FFFFFF', role: 'Main CTA / Text' },
+      { token: '--color-red-d',  name: 'RED-D',   value: '#910606', role: 'Interactive (Hover)' },
+      { token: '--color-red',    name: 'RED',     value: '#DF1717', role: 'Interactive (Passive)' },
+      { token: '--color-red-l',  name: 'RED-L',   value: '#F65656', role: 'Highlight Tint' },
+      { token: '--blur-bg',      name: 'BLUR-BG', value: 'rgba(0, 0, 0, 0.5)', role: 'Web Surface + blur(--blur-m)', isBlur: true }
     ];
 
-    const svgCache = new Map();
+    const TYPOGRAPHY = [
+      {
+        role: 'h1 / Geist Light',
+        meta: '160px · 110% line · 0% tracking · UPPERCASE',
+        sample: 'CHANGE THE GAME',
+        previewStyle: "font-family: var(--font-body); font-weight: 300; font-size: clamp(36px, 5vw, 72px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase;",
+        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase;"
+      },
+      {
+        role: 'h2 / Geist Light',
+        meta: '96px · 110% line · 0% tracking · UPPERCASE',
+        sample: 'CHANGE THE GAME',
+        previewStyle: "font-family: var(--font-body); font-weight: 300; font-size: clamp(30px, 4vw, 56px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase;",
+        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase;"
+      },
+      {
+        role: 'h3 / Geist Mono ExtraLight',
+        meta: '64px · 110% line · 0% tracking · UPPERCASE',
+        sample: 'CHANGE THE GAME',
+        previewStyle: "font-family: var(--font-header); font-weight: 200; font-size: clamp(26px, 3.2vw, 44px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase;",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase;"
+      },
+      {
+        role: 'h4 / Geist Mono Light',
+        meta: '48px · 110% line · 0% tracking · UPPERCASE',
+        sample: 'CHANGE THE GAME',
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: clamp(22px, 2.6vw, 36px); line-height: 1.1; letter-spacing: 0; text-transform: uppercase;",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase;"
+      },
+      {
+        role: 'h5 / Geist Mono Regular',
+        meta: '32px · 110% line · +4% tracking · UPPERCASE',
+        sample: 'CHANGE THE GAME',
+        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: clamp(20px, 2vw, 28px); line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase;",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase;"
+      },
+      {
+        role: 'h6 / Geist Mono Light',
+        meta: '24px · 130% line · +1% tracking · Technical',
+        sample: 'We deliver change in companies.',
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em;",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em;"
+      },
+      {
+        role: 'body / Geist Regular',
+        meta: '24px · 130% line · 0% tracking · Sentence case (max 66ch)',
+        sample: 'We deliver change in companies. We change the game of business.',
+        previewStyle: "font-family: var(--font-body); font-weight: 400; font-size: 22px; line-height: 1.3; letter-spacing: 0;",
+        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; max-width: 66ch;"
+      },
+      {
+        role: 'micro / Geist Mono Regular',
+        meta: '14px · 110% line · +4% tracking · UPPERCASE',
+        sample: '01 / PALETTE — GEOMETRY FOLLOWS THE SOURCE COMPONENT',
+        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase;",
+        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase;"
+      }
+    ];
+
+    const SHAPES_DATA = {
+      main: [
+        {
+          name: 'logo-full',
+          usage: 'Primary Lockup',
+          svg: '<svg viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="24" fill="currentColor" font-family="Geist Mono, monospace" font-weight="500" font-size="24" letter-spacing="4">COM</text><line x1="64" y1="4" x2="64" y2="38" stroke="currentColor" stroke-width="1.5"/><text x="76" y="17" fill="currentColor" font-family="Geist Mono, monospace" font-size="10" letter-spacing="1.5">COURT OF MORAVIA</text><text x="76" y="33" fill="currentColor" font-family="Geist Mono, monospace" font-size="10" letter-spacing="1.5">EXPERT GUILD</text></svg>'
+        },
+        {
+          name: 'logo',
+          usage: 'Compact Mark',
+          svg: '<svg viewBox="0 0 96 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="94" height="34" stroke="currentColor" stroke-width="2"/><text x="48" y="25" text-anchor="middle" fill="currentColor" font-family="Geist Mono, monospace" font-weight="500" font-size="20" letter-spacing="4">COM</text></svg>'
+        }
+      ],
+      corners: [
+        { name: 'd4', usage: 'Corner', svg: '<svg viewBox="0 0 36 36" fill="none"><polygon points="18,3 33,31 3,31" stroke="currentColor" stroke-width="2"/><line x1="18" y1="3" x2="18" y2="31" stroke="currentColor" stroke-width="1.5"/></svg>' },
+        { name: 'd6', usage: 'Corner', svg: '<svg viewBox="0 0 36 36" fill="none"><rect x="5" y="5" width="26" height="26" stroke="currentColor" stroke-width="2"/><line x1="5" y1="5" x2="31" y2="31" stroke="currentColor" stroke-width="1.5"/></svg>' },
+        { name: 'd8', usage: 'Corner', svg: '<svg viewBox="0 0 36 36" fill="none"><polygon points="18,2 34,18 18,34 2,18" stroke="currentColor" stroke-width="2"/><line x1="2" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="1.5"/></svg>' },
+        { name: 'd10', usage: 'Corner', svg: '<svg viewBox="0 0 36 36" fill="none"><polygon points="18,2 32,14 26,33 10,33 4,14" stroke="currentColor" stroke-width="2"/><polyline points="4,14 18,21 32,14" stroke="currentColor" stroke-width="1.5"/></svg>' },
+        { name: 'd12', usage: 'Corner', svg: '<svg viewBox="0 0 36 36" fill="none"><polygon points="18,2 31,9 31,27 18,34 5,27 5,9" stroke="currentColor" stroke-width="2"/><polygon points="18,9 25,13 25,23 18,27 11,23 11,13" stroke="currentColor" stroke-width="1.5"/></svg>' },
+        { name: 'd20', usage: 'Corner', svg: '<svg viewBox="0 0 36 36" fill="none"><polygon points="18,2 32,10 32,26 18,34 4,26 4,10" stroke="currentColor" stroke-width="2"/><polygon points="18,6 28,24 8,24" stroke="currentColor" stroke-width="1.5"/></svg>' },
+        { name: 'c', usage: 'Corner', svg: '<svg viewBox="0 0 36 36" fill="none"><path d="M27 9H9V27H27" stroke="currentColor" stroke-width="2.5"/></svg>' },
+        { name: 'o', usage: 'Corner', svg: '<svg viewBox="0 0 36 36" fill="none"><rect x="8" y="8" width="20" height="20" stroke="currentColor" stroke-width="2.5"/></svg>' },
+        { name: 'm', usage: 'Corner', svg: '<svg viewBox="0 0 36 36" fill="none"><path d="M6 28V8L18 20L30 8V28" stroke="currentColor" stroke-width="2.5"/></svg>' },
+        { name: 'g', usage: 'Corner', svg: '<svg viewBox="0 0 36 36" fill="none"><path d="M27 9H9V27H27V18H18" stroke="currentColor" stroke-width="2.5"/></svg>' },
+        { name: 'aztec-a', usage: 'Corner', svg: '<svg viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" stroke="currentColor" stroke-width="2"/><rect x="10" y="10" width="16" height="16" stroke="currentColor" stroke-width="2"/><rect x="15" y="15" width="6" height="6" fill="currentColor"/></svg>' },
+        { name: 'aztec-b', usage: 'Corner', svg: '<svg viewBox="0 0 36 36" fill="none"><path d="M4 4H32V32H10V10H26V26H16V16H20" stroke="currentColor" stroke-width="2"/></svg>' },
+        { name: 'logo-alt', usage: 'Corner', svg: '<svg viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" stroke="currentColor" stroke-width="2"/><line x1="4" y1="18" x2="32" y2="18" stroke="currentColor" stroke-width="2"/><line x1="18" y1="4" x2="18" y2="32" stroke="currentColor" stroke-width="2"/></svg>' }
+      ],
+      rails: [
+        { name: 'barcode-long', usage: 'Lateral, Vertical', svg: '<svg viewBox="0 0 120 30" fill="none"><rect x="2" y="3" width="3" height="24" fill="currentColor"/><rect x="8" y="3" width="1" height="24" fill="currentColor"/><rect x="12" y="3" width="5" height="24" fill="currentColor"/><rect x="21" y="3" width="2" height="24" fill="currentColor"/><rect x="27" y="3" width="4" height="24" fill="currentColor"/><rect x="35" y="3" width="1" height="24" fill="currentColor"/><rect x="40" y="3" width="6" height="24" fill="currentColor"/><rect x="50" y="3" width="2" height="24" fill="currentColor"/><rect x="56" y="3" width="3" height="24" fill="currentColor"/><rect x="63" y="3" width="5" height="24" fill="currentColor"/><rect x="72" y="3" width="1" height="24" fill="currentColor"/><rect x="77" y="3" width="4" height="24" fill="currentColor"/><rect x="85" y="3" width="2" height="24" fill="currentColor"/><rect x="91" y="3" width="6" height="24" fill="currentColor"/><rect x="101" y="3" width="2" height="24" fill="currentColor"/><rect x="107" y="3" width="4" height="24" fill="currentColor"/><rect x="115" y="3" width="3" height="24" fill="currentColor"/></svg>' },
+        { name: 'barcode-short', usage: 'Lateral, Vertical', svg: '<svg viewBox="0 0 64 30" fill="none"><rect x="2" y="3" width="3" height="24" fill="currentColor"/><rect x="8" y="3" width="1" height="24" fill="currentColor"/><rect x="13" y="3" width="5" height="24" fill="currentColor"/><rect x="22" y="3" width="2" height="24" fill="currentColor"/><rect x="28" y="3" width="4" height="24" fill="currentColor"/><rect x="36" y="3" width="2" height="24" fill="currentColor"/><rect x="42" y="3" width="5" height="24" fill="currentColor"/><rect x="51" y="3" width="1" height="24" fill="currentColor"/><rect x="56" y="3" width="4" height="24" fill="currentColor"/></svg>' },
+        { name: 'pdf417', usage: 'Lateral, Vertical', svg: '<svg viewBox="0 0 110 30" fill="none"><rect x="2" y="3" width="4" height="24" fill="currentColor"/><rect x="8" y="3" width="2" height="24" fill="currentColor"/><rect x="13" y="3" width="8" height="6" fill="currentColor"/><rect x="23" y="3" width="5" height="6" fill="currentColor"/><rect x="30" y="3" width="10" height="6" fill="currentColor"/><rect x="13" y="12" width="5" height="6" fill="currentColor"/><rect x="20" y="12" width="12" height="6" fill="currentColor"/><rect x="34" y="12" width="6" height="6" fill="currentColor"/><rect x="13" y="21" width="10" height="6" fill="currentColor"/><rect x="25" y="21" width="6" height="6" fill="currentColor"/><rect x="33" y="21" width="7" height="6" fill="currentColor"/><rect x="44" y="3" width="3" height="24" fill="currentColor"/><rect x="50" y="3" width="9" height="6" fill="currentColor"/><rect x="61" y="3" width="6" height="6" fill="currentColor"/><rect x="50" y="12" width="6" height="6" fill="currentColor"/><rect x="58" y="12" width="9" height="6" fill="currentColor"/><rect x="50" y="21" width="11" height="6" fill="currentColor"/><rect x="63" y="21" width="4" height="6" fill="currentColor"/><rect x="71" y="3" width="4" height="24" fill="currentColor"/><rect x="78" y="3" width="2" height="24" fill="currentColor"/><rect x="84" y="3" width="8" height="6" fill="currentColor"/><rect x="94" y="3" width="5" height="6" fill="currentColor"/><rect x="84" y="12" width="5" height="6" fill="currentColor"/><rect x="91" y="12" width="8" height="6" fill="currentColor"/><rect x="84" y="21" width="9" height="6" fill="currentColor"/><rect x="95" y="21" width="4" height="6" fill="currentColor"/><rect x="102" y="3" width="2" height="24" fill="currentColor"/><rect x="106" y="3" width="3" height="24" fill="currentColor"/></svg>' }
+      ],
+      controls: [
+        { name: 'arrow-big', usage: 'Section / Page Nav', svg: '<svg viewBox="0 0 36 36" fill="none"><path d="M18 4V30M18 30L7 19M18 30L29 19" stroke="currentColor" stroke-width="2"/></svg>' },
+        { name: 'arrow-small', usage: 'Rotatable Component Nav', svg: '<svg viewBox="0 0 36 36" fill="none"><path d="M8 18H28M28 18L19 9M28 18L19 27" stroke="currentColor" stroke-width="2"/></svg>' },
+        { name: 'radio', usage: 'Progress Default', svg: '<svg viewBox="0 0 36 36" fill="none"><rect x="11" y="11" width="14" height="14" transform="rotate(45 18 18)" stroke="currentColor" stroke-width="2"/></svg>' },
+        { name: 'radio-hover', usage: 'Progress Hover', svg: '<svg viewBox="0 0 36 36" fill="none"><rect x="11" y="11" width="14" height="14" transform="rotate(45 18 18)" stroke="#DF1717" stroke-width="2"/><rect x="15" y="15" width="6" height="6" transform="rotate(45 18 18)" fill="#DF1717"/></svg>' },
+        { name: 'radio-active', usage: 'Progress Active', svg: '<svg viewBox="0 0 36 36" fill="none"><rect x="10" y="10" width="16" height="16" transform="rotate(45 18 18)" fill="#DF1717" stroke="#DF1717" stroke-width="2"/></svg>' }
+      ],
+      icons: [
+        { name: 'icon-coffee', usage: 'Rare / Nerd Font', svg: '<svg viewBox="0 0 36 36" fill="none"><path d="M7 13H24V22C24 25.3137 21.3137 28 18 28H13C9.68629 28 7 25.3137 7 22V13Z" stroke="currentColor" stroke-width="2"/><path d="M24 15H27C28.6569 15 30 16.3431 30 18C30 19.6569 28.6569 21 27 21H24" stroke="currentColor" stroke-width="2"/><line x1="12" y1="7" x2="12" y2="10" stroke="currentColor" stroke-width="2"/><line x1="18" y1="7" x2="18" y2="10" stroke="currentColor" stroke-width="2"/></svg>' },
+        { name: 'icon-crown', usage: 'Rare / Nerd Font', svg: '<svg viewBox="0 0 36 36" fill="none"><path d="M5 26L8 11L18 19L28 11L31 26H5Z" stroke="currentColor" stroke-width="2"/><line x1="5" y1="30" x2="31" y2="30" stroke="currentColor" stroke-width="2"/></svg>' },
+        { name: 'icon-gear', usage: 'Rare / Nerd Font', svg: '<svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="5" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="18" r="11" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"/></svg>' },
+        { name: 'icon-tool', usage: 'Rare / Nerd Font', svg: '<svg viewBox="0 0 36 36" fill="none"><path d="M22 7C18.5 7 16 9.5 16 13C16 13.8 16.1 14.5 16.4 15.2L7 24.6L11.4 29L20.8 19.6C21.5 19.9 22.2 20 23 20C26.5 20 29 17.5 29 14C29 13.2 28.8 12.4 28.5 11.7L24.5 15.7L20.3 11.5L24.3 7.5C23.6 7.2 22.8 7 22 7Z" stroke="currentColor" stroke-width="2"/></svg>' }
+      ]
+    };
+
     let designMdContent = '';
 
+    // Load ./DESIGN.md directly
     async function loadDesignMdFile() {
       const displayEl = document.getElementById('raw-markdown-display');
       try {
@@ -335,467 +687,7 @@
     }
     loadDesignMdFile();
 
-    async function loadSvgData(filePath) {
-      if (svgCache.has(filePath)) return svgCache.get(filePath);
-      try {
-        const res = await fetch(filePath);
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const rawXml = await res.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(rawXml, 'image/svg+xml');
-        const svgEl = doc.querySelector('svg');
-        if (!svgEl) throw new Error('Invalid SVG');
-
-        svgEl.removeAttribute('width');
-        svgEl.removeAttribute('height');
-        svgEl.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-        svgEl.classList.add('svg-inline');
-
-        svgEl.querySelectorAll('[fill]').forEach(el => {
-          const val = el.getAttribute('fill');
-          if (val && val.toLowerCase() !== 'none') {
-            el.setAttribute('fill', 'currentColor');
-          }
-        });
-        svgEl.querySelectorAll('[stroke]').forEach(el => {
-          const val = el.getAttribute('stroke');
-          if (val && val.toLowerCase() !== 'none') {
-            el.setAttribute('stroke', 'currentColor');
-          }
-        });
-        if (!svgEl.querySelector('[fill], [stroke]')) {
-          svgEl.setAttribute('fill', 'currentColor');
-        }
-
-        const data = { rawXml, templateSvg: svgEl };
-        svgCache.set(filePath, data);
-        return data;
-      } catch (err) {
-        return null;
-      }
-    }
-
-    async function mountSvg(container, asset) {
-      if (!container || !asset) return;
-      container.innerHTML = '';
-      const data = await loadSvgData(asset.file);
-      if (data && data.templateSvg) {
-        container.appendChild(data.templateSvg.cloneNode(true));
-      } else {
-        const img = document.createElement('img');
-        img.src = asset.file;
-        img.alt = asset.name;
-        img.className = 'svg-fallback';
-        container.appendChild(img);
-      }
-    }
-
-    async function copySvgXml(asset, colorHex = '#424242') {
-      const data = await loadSvgData(asset.file);
-      if (data && data.templateSvg) {
-        const clone = data.templateSvg.cloneNode(true);
-        clone.removeAttribute('class');
-        clone.querySelectorAll('[fill="currentColor"]').forEach(el => el.setAttribute('fill', colorHex));
-        clone.querySelectorAll('[stroke="currentColor"]').forEach(el => el.setAttribute('stroke', colorHex));
-        if (clone.getAttribute('fill') === 'currentColor') {
-          clone.setAttribute('fill', colorHex);
-        }
-        const serialized = new XMLSerializer().serializeToString(clone);
-        await copyText(serialized, `${asset.name} (${colorHex})`);
-      } else {
-        await copyText(asset.file, asset.file);
-      }
-    }
-
-    const COLOR_ROWS = [
-      [
-        { name: 'RED-L',   hex: '#F65656', textColor: '#000000', role: 'Interactive (passive)' },
-        { name: 'RED',     hex: '#DF1717', textColor: '#000000', role: 'Interactive (passive)' },
-        { name: 'RED-D',   hex: '#910606', textColor: '#FFFFFF', role: 'Interactive (hover)' }
-      ],
-      [
-        { name: 'WHITE',   hex: '#FFFFFF', textColor: '#000000', role: 'Passive (text)' },
-        { name: 'GREY-L',  hex: '#EBE7E0', textColor: '#000000', role: 'Passive (text)' },
-        { name: 'GREY',    hex: '#808080', textColor: '#000000', role: 'Passive (text)' }
-      ],
-      [
-        { name: 'GREY-D',  hex: '#424242', textColor: '#FFFFFF', role: 'Background' },
-        { name: 'BLACK-L', hex: '#121212', textColor: '#FFFFFF', role: 'Background' },
-        { name: 'BLACK',   hex: '#000000', textColor: '#FFFFFF', role: 'Background' }
-      ]
-    ];
-
-    function hexToRgbObj(hex) {
-      const clean = hex.replace('#', '');
-      const num = parseInt(clean, 16);
-      return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
-    }
-
-    function formatRgb(hex) {
-      const { r, g, b } = hexToRgbObj(hex);
-      return `rgb(${r}, ${g}, ${b})`;
-    }
-
-    function formatHsl(hex) {
-      let { r, g, b } = hexToRgbObj(hex);
-      r /= 255; g /= 255; b /= 255;
-      const max = Math.max(r, g, b), min = Math.min(r, g, b);
-      let h = 0, s = 0, l = (max + min) / 2;
-      if (max !== min) {
-        const d = max - min;
-        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-        switch (max) {
-          case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-          case g: h = (b - r) / d + 2; break;
-          case b: h = (r - g) / d + 4; break;
-        }
-        h /= 6;
-      }
-      return `hsl(${Math.round(h * 360)}, ${Math.round(s * 100)}%, ${Math.round(l * 100)}%)`;
-    }
-
-    function formatOklch(hex) {
-      let { r, g, b } = hexToRgbObj(hex);
-      const toLinear = c => {
-        c /= 255;
-        return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
-      };
-      const lr = toLinear(r), lg = toLinear(g), lb = toLinear(b);
-      const l = 0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb;
-      const m = 0.2119034982 * lr + 0.6806995451 * lg + 0.1073969566 * lb;
-      const s = 0.0883024619 * lr + 0.2817188376 * lg + 0.6299787005 * lb;
-
-      const l_ = Math.cbrt(l), m_ = Math.cbrt(m), s_ = Math.cbrt(s);
-      const L = 0.2104542553 * l_ + 0.7936177850 * m_ - 0.0040720468 * s_;
-      const a = 1.9779984951 * l_ - 2.4285922050 * m_ + 0.4505937099 * s_;
-      const bVal = 0.0259040371 * l_ + 0.7827717662 * m_ - 0.8086757660 * s_;
-
-      const C = Math.sqrt(a * a + bVal * bVal);
-      let H = Math.atan2(bVal, a) * (180 / Math.PI);
-      if (H < 0) H += 360;
-
-      const Lpct = (L * 100).toFixed(1);
-      const Cval = C.toFixed(3);
-      const Hdeg = C < 0.0005 ? '0' : Math.round(H);
-      return `oklch(${Lpct}% ${Cval} ${Hdeg})`;
-    }
-
-    function createColorChip(name, hex, textColor, roleLabel) {
-      const chip = document.createElement('div');
-      chip.className = 'color-chip';
-      const upperHex = hex.toUpperCase();
-      const borderCol = upperHex === '#000000' ? '#424242' : upperHex;
-      chip.style.setProperty('--chip-color', borderCol);
-
-      const rgbStr = formatRgb(upperHex);
-      const hslStr = formatHsl(upperHex);
-      const oklchStr = formatOklch(upperHex);
-
-      chip.innerHTML = `
-        <div class="chip-top" style="background-color:${upperHex}; color:${textColor};">
-          <span>${name}</span>
-          <span class="chip-role">${roleLabel}</span>
-        </div>
-        <div class="chip-bottom">
-          <p class="chip-val">HEX: ${upperHex}</p>
-          <p class="chip-val">RGB: ${rgbStr}</p>
-          <p class="chip-val">HSL: ${hslStr}</p>
-          <p class="chip-val">OKLCH: ${oklchStr}</p>
-        </div>
-      `;
-      chip.addEventListener('click', () => copyText(upperHex, `${name} ${upperHex}`));
-      return chip;
-    }
-
-    const TYPOGRAPHY = [
-      {
-        role: 'H1 · GEIST LIGHT · 160PX · 110% LINE · 0% TRACKING · #FFFFFF + #DF1717 KEYWORD',
-        sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span>',
-        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
-        previewStyle: "font-family: var(--font-body); font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
-      },
-      {
-        role: 'H2 · GEIST MONO LIGHT · 96PX · 110% LINE · 0% TRACKING · #FFFFFF + #808080 ↘',
-        sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span> <span style="color:#808080;">↘</span>',
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
-        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
-      },
-      {
-        role: 'H3 · GEIST MONO EXTRALIGHT · 64PX · 110% LINE · 0% TRACKING · #FFFFFF',
-        sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span>',
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
-        previewStyle: "font-family: var(--font-header); font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
-      },
-      {
-        role: 'H4 · GEIST MONO LIGHT · 48PX · 110% LINE · 0% TRACKING · #FFFFFF',
-        sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span>',
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
-        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
-      },
-      {
-        role: 'H5 · GEIST MONO REGULAR · 32PX · 110% LINE · +4% TRACKING · #FFFFFF',
-        sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span>',
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #FFFFFF;",
-        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #FFFFFF;"
-      },
-      {
-        role: 'H6 · GEIST MONO LIGHT · 24PX · 130% LINE · +1% TRACKING · #FFFFFF',
-        sampleHtml: 'WE DELIVER CHANGE IN <span class="kw-red">COMPANIES</span>',
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: #FFFFFF;",
-        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: #FFFFFF;"
-      },
-      {
-        role: 'BODY · GEIST REGULAR · 24PX · 130% LINE · 0% TRACKING · GREY-L (#EBE7E0) · MAX-WIDTH 66CH',
-        sampleHtml: 'We deliver change in companies. We change the game of business.',
-        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #EBE7E0; max-width: 66ch;",
-        previewStyle: "font-family: var(--font-body); font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #EBE7E0; max-width: 66ch; white-space: normal;"
-      },
-      {
-        role: 'MICRO · GEIST MONO REGULAR · 14PX · 110% LINE · +4% TRACKING · GREY (#808080)',
-        sampleHtml: 'COURT OF MORAVIA · EXPERT GUILD',
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #808080;",
-        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #808080;"
-      }
-    ];
-
-    const SLIDE_SPECIMENS = [
-      {
-        name: '1 INTRO SLIDE',
-        tag: 'MAX-WIDTH 250PX LOGO',
-        spec: 'INTRO SLIDE: Fixed 1920x1080 grid (66px rails on all 4 sides, corners: com-logo + com-d12 in #424242, 1px borders), primary logo constrained to max-width: 250px, uppercase h1 display headline (#FFFFFF with 2-4 word #DF1717 highlight).',
-        render: () => `
-          <div class="slide-body" style="justify-content:center; gap:12px;">
-            <div class="slide-intro-logo" id="mini-intro-logo"></div>
-            <h4 class="slide-h2" style="font-size:16px;">WE CHANGE THE <span class="kw-red">GAME OF BUSINESS</span></h4>
-          </div>`
-      },
-      {
-        name: '2 TEXT · 1 COLUMN',
-        tag: 'RIGHT-ALIGNED 66CH',
-        spec: 'TEXT SLIDE (1 COL): Section number (#808080) + h2 title (#FFFFFF with #808080 ↘) + subtitle, single body block (color: #EBE7E0; max-width: 66ch) aligned right.',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">1</span>
-              <h4 class="slide-h2">DIAGNOSTIKA <span class="kw-red">REALITY</span> <span>↘</span></h4>
-              <p class="slide-sub">POJMENOVÁNÍ SKUTEČNÉHO STAVU FIRMY</p>
-            </div>
-            <div style="width:66%; margin-left:auto;">
-              <p class="slide-p">Systematický přístup k rozvoji týmů bez korporátní vaty. Odstavec nepřesahuje 66ch a drží pravé zarovnání.</p>
-            </div>
-          </div>`
-      },
-      {
-        name: '3 TEXT · 2 COLUMNS',
-        tag: 'RIGHT-ALIGNED 66CH + NEG SPACE',
-        spec: 'TEXT SLIDE (2 COLS): Header block + 2 columns capped at max-width: 66ch (color: #EBE7E0) aligned to the right, preserving deliberate negative space on the left.',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">2</span>
-              <h4 class="slide-h2">DVA PILÍŘE <span class="kw-red">ZMĚNY</span> <span>↘</span></h4>
-              <p class="slide-sub">SYSTÉM A LIDSKÁ ODPOVĚDNOST</p>
-            </div>
-            <div class="slide-cols slide-cols--2-right">
-              <p class="slide-p">První sloupec definuje jasná pravidla hry a odstraňuje rozhodovací paralýzu.</p>
-              <p class="slide-p">Druhý sloupec přenáší vlastnictví výsledků z jednotlivce na celý tým.</p>
-            </div>
-          </div>`
-      },
-      {
-        name: '4 TEXT · 3 COLUMNS',
-        tag: 'STRETCH FILL WIDTH',
-        spec: 'TEXT SLIDE (3 COLS): Header block + 3 columns stretched (flex: 1, color: #EBE7E0) to fill the full width of the content safe-zone.',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">3</span>
-              <h4 class="slide-h2">TŘI FÁZE <span class="kw-red">SPOLUPRÁCE</span> <span>↘</span></h4>
-              <p class="slide-sub">OD SBĚRU DAT PO ŠKÁLOVÁNÍ</p>
-            </div>
-            <div class="slide-cols slide-cols--3">
-              <p class="slide-p">1 Hloubkové rozhovory a mapování úzkých hrdel v týmu.</p>
-              <p class="slide-p">2 Návrh herních mechanik a simulace klíčových situací.</p>
-              <p class="slide-p">3 Přenos nástrojů interním lídrům do každodenní praxe.</p>
-            </div>
-          </div>`
-      },
-      {
-        name: '5 TEXT · 4 COLUMNS',
-        tag: 'FULL WIDTH GRID',
-        spec: 'TEXT SLIDE (4 COLS): Header block + 4 equal columns spanning the entire slide width (color: #EBE7E0).',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">4</span>
-              <h4 class="slide-h2">ČTYŘI PRINCIPY <span class="kw-red">GILDA</span> <span>↘</span></h4>
-              <p class="slide-sub">ZÁKLADNÍ OPERAČNÍ RÁMEC</p>
-            </div>
-            <div class="slide-cols slide-cols--4">
-              <p class="slide-p">Radikální upřímnost bez zkreslení.</p>
-              <p class="slide-p">Měřitelný dopad na byznys.</p>
-              <p class="slide-p">Rychlá zpětná vazba v praxi.</p>
-              <p class="slide-p">Dlouhodobá udržitelnost týmu.</p>
-            </div>
-          </div>`
-      },
-      {
-        name: '6 HEADLINE + VERBOX',
-        tag: 'FLUSH ALIGNED SPLIT',
-        spec: 'HEADLINE + VERBOX: Left column holds overhanging number + h2 ↘ + optional subtitle; right column holds flush-aligned VERBOX (hug header + stacked #EBE7E0 blocks, 1px #424242 borders).',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-split-verbox">
-              <div class="slide-head-block">
-                <span class="slide-num">5</span>
-                <h4 class="slide-h2">NOSNÁ <span class="kw-red">TEZE</span> <span>↘</span></h4>
-                <p class="slide-sub">KONTEXT PROBLÉMU</p>
-              </div>
-              <div>
-                <div class="slide-mini-box-head">VERBOX HEADER</div>
-                <div class="slide-mini-box-body">
-                  <p class="slide-p">První textový blok rozvíjející hlavní myšlenku boxu.</p>
-                  <p class="slide-p">Druhý textový blok s vlastním kontextem.</p>
-                </div>
-              </div>
-            </div>
-          </div>`
-      },
-      {
-        name: '7 HEADLINE + HORBOX (2 COLS)',
-        tag: 'MAX 1 HORBOX / SLIDE',
-        spec: 'HEADLINE + HORBOX (2 COLS): Top headline block + single HORBOX below with hug header (#FFFFFF) and 2 horizontal columns (#EBE7E0) in 1px #424242 borders.',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">6</span>
-              <h4 class="slide-h2">ARCHITEKTURA <span class="kw-red">ŘEŠENÍ</span> <span>↘</span></h4>
-              <p class="slide-sub">DVĚ ROVINY INTERVENCE</p>
-            </div>
-            <div>
-              <div class="slide-mini-box-head">HORBOX HEADER</div>
-              <div class="slide-mini-box-body" style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-                <p class="slide-p">DIAGNOSTIKA: Sběr tvrdých dat bez domněnek.</p>
-                <p class="slide-p">EXEKUCE: Okamžitá aplikace do procesů firmy.</p>
-              </div>
-            </div>
-          </div>`
-      },
-      {
-        name: '8 HEADLINE + HORBOX (3 COLS)',
-        tag: 'MAX 3 COLUMNS',
-        spec: 'HEADLINE + HORBOX (3 COLS): Top headline block + single HORBOX below with hug header (#FFFFFF) and 3 horizontal columns (#EBE7E0) in 1px #424242 borders.',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">7</span>
-              <h4 class="slide-h2">ROADMAPA <span class="kw-red">IMPLEMENTACE</span> <span>↘</span></h4>
-              <p class="slide-sub">KVARTÁLNÍ CYKLUS</p>
-            </div>
-            <div>
-              <div class="slide-mini-box-head">HORBOX · 3 SLOUPCE</div>
-              <div class="slide-mini-box-body" style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px;">
-                <p class="slide-p">MĚSÍC 1: Audit a data.</p>
-                <p class="slide-p">MĚSÍC 2: Herní simulace.</p>
-                <p class="slide-p">MĚSÍC 3: Škálování.</p>
-              </div>
-            </div>
-          </div>`
-      },
-      {
-        name: '9 HEADER + SBOX (2 CARDS)',
-        tag: 'EQUAL HEIGHT PAIR',
-        spec: 'HEADER + SBOX (2 CARDS): Top headline + 2 equal-height SBOX cards side-by-side (100% width #FFFFFF headers, #EBE7E0 body, 1px #424242 borders).',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">8</span>
-              <h4 class="slide-h2">SROVNÁNÍ <span class="kw-red">PŘÍSTUPŮ</span> <span>↘</span></h4>
-            </div>
-            <div class="slide-mini-sbox-grid slide-mini-sbox-grid--2">
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">FILTERED TRUTH</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Reálný obraz firmy bez zkreslení.</p></div>
-              </div>
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">TALENT OPTIMIZATION</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Sladění lidí s byznys cíli.</p></div>
-              </div>
-            </div>
-          </div>`
-      },
-      {
-        name: '10 HEADER + SBOX (3 CARDS)',
-        tag: 'MAX 3 PER ROW',
-        spec: 'HEADER + SBOX (3 CARDS): Top headline + 3 equal-height SBOX cards in a single row (1px #424242 borders).',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">9</span>
-              <h4 class="slide-h2">TŘI PILÍŘE <span class="kw-red">PRODUKTU</span> <span>↘</span></h4>
-            </div>
-            <div class="slide-mini-sbox-grid slide-mini-sbox-grid--3">
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">HRA</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Simulace reality.</p></div>
-              </div>
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">REFLEXE</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Zpětná vazba.</p></div>
-              </div>
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">PŘENOS</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Akční kroky.</p></div>
-              </div>
-            </div>
-          </div>`
-      },
-      {
-        name: '11 HEADER + SBOX (2X2 GRID)',
-        tag: '4 EQUAL CARDS',
-        spec: 'HEADER + SBOX (2x2 GRID): Top headline + 4 equal-height SBOX cards arranged in a 2x2 matrix (1px #424242 borders).',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">10</span>
-              <h4 class="slide-h2">MATICE <span class="kw-red">VÝSTUPŮ</span> <span>↘</span></h4>
-            </div>
-            <div class="slide-mini-sbox-grid slide-mini-sbox-grid--2x2">
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">1 STRUKTURA</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Jasné role.</p></div>
-              </div>
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">2 RYCHLOST</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Krátké cykly.</p></div>
-              </div>
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">3 DATA</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Tvrdé metriky.</p></div>
-              </div>
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">4 DOPAD</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Měřitelný růst.</p></div>
-              </div>
-            </div>
-          </div>`
-      },
-      {
-        name: '12 OUTRO & CONTACTS',
-        tag: 'CLICKABLE MAILTO & TEL',
-        spec: 'OUTRO SLIDE: Pure black canvas + Red (#DF1717) interactive buttons with clickable mailto: and tel:+420712345678 links (formatted with spaces in display text).',
-        render: () => `
-          <div class="slide-body" style="justify-content:center; gap:10px;">
-            <span class="slide-num">KONTAKT</span>
-            <h4 class="slide-h2">POJĎME ZMĚNIT <span class="kw-red">HRU</span> <span>↘</span></h4>
-            <div class="slide-contact-links">
-              <span class="slide-contact-link">INFO@COURTOFMORAVIA.COM</span>
-              <span class="slide-contact-link">+420 712 345 678</span>
-            </div>
-          </div>`
-      }
-    ];
-
+    // Toast & Clipboard helpers
     let toastTimer;
     function showToast(message) {
       const toast = document.getElementById('toast');
@@ -808,7 +700,7 @@
     async function copyText(text, label) {
       try {
         await navigator.clipboard.writeText(text);
-        showToast('COPIED ' + (label || text));
+        showToast('COPIED: ' + (label || text));
       } catch (err) {
         const ta = document.createElement('textarea');
         ta.value = text;
@@ -816,179 +708,129 @@
         ta.select();
         document.execCommand('copy');
         document.body.removeChild(ta);
-        showToast('COPIED ' + (label || text));
+        showToast('COPIED: ' + (label || text));
       }
     }
 
-    const assetLogo = SVG_ASSETS.find(a => a.id === 'com-logo');
-    const assetD12 = SVG_ASSETS.find(a => a.id === 'com-d12');
-    const assetBarcodeLong = SVG_ASSETS.find(a => a.id === 'com-barcode-long');
-    const assetBarcodeShort = SVG_ASSETS.find(a => a.id === 'com-barcode-short');
+    // Render Palette
+    const paletteContainer = document.getElementById('palette-container');
+    PALETTE_TOKENS.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'swatch-card';
+      card.title = 'Click to copy ' + item.value;
+      const previewClass = item.isBlur ? 'swatch-preview swatch-preview--blur' : 'swatch-preview';
+      const previewStyle = item.isBlur ? '' : `background:${item.value};`;
+      card.innerHTML = `
+        <div class="${previewClass}" style="${previewStyle}"></div>
+        <div class="swatch-meta">
+          <span class="swatch-role-badge">${item.role}</span>
+          <div class="swatch-name">
+            <span>${item.name}</span>
+            <span class="swatch-hex">${item.value}</span>
+          </div>
+        </div>
+      `;
+      card.addEventListener('click', () => copyText(item.value, `${item.name} (${item.value})`));
+      paletteContainer.appendChild(card);
+    });
 
-    mountSvg(document.getElementById('slot-tl'), assetLogo);
-    mountSvg(document.getElementById('slot-br'), assetLogo);
-    mountSvg(document.getElementById('slot-tr'), assetD12);
-    mountSvg(document.getElementById('slot-bl'), assetD12);
-
-    mountSvg(document.getElementById('footer-barcode-long'), assetBarcodeLong);
-    mountSvg(document.getElementById('footer-barcode-short'), assetBarcodeShort);
-
-    mountSvg(document.getElementById('side-left-rail'), assetBarcodeShort);
-    mountSvg(document.getElementById('side-right-rail'), assetBarcodeShort);
-
-    function renderBrandMarks() {
-      const mainContainer = document.getElementById('main-logo-container');
-      const gridContainer = document.getElementById('marks-grid-container');
-      mainContainer.innerHTML = '';
-      gridContainer.innerHTML = '';
-
-      SVG_ASSETS.forEach(asset => {
-        const card = document.createElement('div');
-        card.className = 'mark-card' + (asset.isMain ? ' mark-card--main' : '');
-
-        const stage = document.createElement('div');
-        stage.className = 'mark-stage';
-        mountSvg(stage, asset);
-
-        const meta = document.createElement('div');
-        meta.className = 'mark-meta';
-        meta.innerHTML = `
-          <span class="mark-name">${asset.name}</span>
-          <span class="mark-usage">${asset.usage}</span>
-        `;
-
-        card.appendChild(stage);
-        card.appendChild(meta);
-        card.addEventListener('click', () => copySvgXml(asset, '#424242'));
-
-        if (asset.isMain) {
-          mainContainer.appendChild(card);
-        } else {
-          gridContainer.appendChild(card);
-        }
-      });
-    }
-    renderBrandMarks();
-
-    function renderAllColorRows() {
-      const container = document.getElementById('all-color-rows');
-      container.innerHTML = '';
-
-      COLOR_ROWS.forEach(row => {
-        const rowGrid = document.createElement('div');
-        rowGrid.className = 'chips-row-grid';
-        row.forEach(item => {
-          rowGrid.appendChild(createColorChip(item.name, item.hex, item.textColor, item.role));
-        });
-        container.appendChild(rowGrid);
-      });
-    }
-    renderAllColorRows();
-
+    // Render Typography
     const typoContainer = document.getElementById('typography-container');
     TYPOGRAPHY.forEach(t => {
       const row = document.createElement('div');
       row.className = 'type-row';
+      row.title = 'Click to copy CSS rule';
       row.innerHTML = `
-        <div class="type-specs">${t.role}</div>
-        <div class="type-sample" style="${t.previewStyle}">${t.sampleHtml}</div>
+        <div class="type-specs">
+          <strong>${t.role}</strong>
+          <span>${t.meta}</span>
+          <span style="color:var(--color-white); margin-top:4px;">[CLICK TO COPY CSS]</span>
+        </div>
+        <div class="type-sample" style="${t.previewStyle}">${t.sample}</div>
       `;
-      row.addEventListener('click', () => copyText(t.cssCopy, t.role.split('·')[0].trim()));
+      row.addEventListener('click', () => copyText(t.cssCopy, t.role + ' CSS'));
       typoContainer.appendChild(row);
     });
 
-    function renderSlidesShowcase() {
-      const grid = document.getElementById('slides-showcase-grid');
-      grid.innerHTML = '';
-
-      SLIDE_SPECIMENS.forEach(s => {
+    // Render Shapes Groups
+    function renderShapeGroup(containerId, items) {
+      const container = document.getElementById(containerId);
+      items.forEach(item => {
         const card = document.createElement('div');
-        card.className = 'slide-card';
+        card.className = 'shape-card';
+        card.title = 'Click to copy SVG: ' + item.name;
         card.innerHTML = `
-          <div class="slide-frame">
-            <div class="slide-chrome slide-chrome--top">
-              <div class="slide-corner slide-corner--l">◆</div>
-              <div></div>
-              <div class="slide-corner slide-corner--r">◈</div>
-            </div>
-            ${s.render()}
-            <div class="slide-chrome slide-chrome--bottom">
-              <div class="slide-corner slide-corner--l">◈</div>
-              <div></div>
-              <div class="slide-corner slide-corner--r">◆</div>
-            </div>
-          </div>
-          <div class="slide-meta">
-            <span class="slide-name">${s.name}</span>
-            <span class="slide-tag">${s.tag}</span>
+          <div class="shape-preview">${item.svg}</div>
+          <div class="shape-meta">
+            <span class="shape-name">${item.name}</span>
+            <span class="shape-usage">${item.usage}</span>
           </div>
         `;
-        card.addEventListener('click', () => copyText(s.spec, s.name));
-        grid.appendChild(card);
+        card.addEventListener('click', () => copyText(item.svg, item.name.toUpperCase() + ' SVG'));
+        container.appendChild(card);
       });
-
-      const introLogoSlot = document.getElementById('mini-intro-logo');
-      if (introLogoSlot) {
-        mountSvg(introLogoSlot, SVG_ASSETS[0]);
-      }
-    }
-    renderSlidesShowcase();
-
-    function toggleAccordionSection(section, forceOpen = null) {
-      const trigger = section.querySelector('.accordion-trigger');
-      const arrow = section.querySelector('.arrow-glyph');
-      if (!trigger || !arrow) return;
-
-      const willOpen = forceOpen !== null ? forceOpen : !section.classList.contains('is-open');
-      section.classList.toggle('is-open', willOpen);
-      trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-      arrow.textContent = willOpen ? '↗' : '↘';
     }
 
-    document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+    renderShapeGroup('shapes-main', SHAPES_DATA.main);
+    renderShapeGroup('shapes-corners', SHAPES_DATA.corners);
+    renderShapeGroup('shapes-rails', SHAPES_DATA.rails);
+    renderShapeGroup('shapes-controls', SHAPES_DATA.controls);
+    renderShapeGroup('shapes-icons', SHAPES_DATA.icons);
+
+    // Interactive Demo Accordion
+    document.querySelectorAll('#demo-accordion .acc-trigger').forEach(trigger => {
       trigger.addEventListener('click', () => {
-        const section = trigger.closest('.section');
-        if (section) toggleAccordionSection(section);
+        const item = trigger.parentElement;
+        const panel = item.querySelector('.acc-panel');
+        const indicator = trigger.querySelector('span:last-child');
+        const isOpen = item.classList.contains('is-active');
+
+        if (isOpen) {
+          item.classList.remove('is-active');
+          panel.hidden = true;
+          indicator.textContent = '+';
+        } else {
+          item.classList.add('is-active');
+          panel.hidden = false;
+          indicator.textContent = '−';
+        }
       });
     });
 
-    document.querySelectorAll('[data-open-accordion]').forEach(link => {
-      link.addEventListener('click', () => {
-        const targetId = link.getAttribute('data-open-accordion');
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) toggleAccordionSection(targetSection, true);
-      });
+    // Numeric Scale Pills
+    document.querySelectorAll('.token-pill').forEach(pill => {
+      pill.addEventListener('click', () => copyText(pill.dataset.copy, pill.textContent.trim()));
     });
 
-    document.querySelectorAll('[data-copy-snippet]').forEach(el => {
-      el.addEventListener('click', () => {
-        copyText(el.dataset.copySnippet, 'COMPONENT SPEC');
-      });
-    });
-
+    // Copy DESIGN.MD Buttons
     document.getElementById('copy-design-md-hero').addEventListener('click', () => {
-      if (designMdContent) copyText(designMdContent, 'DESIGN.MD');
+      if (designMdContent) copyText(designMdContent, 'FULL DESIGN.MD');
     });
     document.getElementById('copy-design-md-panel').addEventListener('click', () => {
-      if (designMdContent) copyText(designMdContent, 'DESIGN.MD');
+      if (designMdContent) copyText(designMdContent, 'FULL DESIGN.MD');
     });
 
-    document.getElementById('download-all-fonts').addEventListener('click', () => {
-      const files = [
-        { href: './fonts/geist.zip', name: 'geist.zip' },
-        { href: './fonts/geist-mono.zip', name: 'geist-mono.zip' }
-      ];
-      files.forEach((f, idx) => {
-        setTimeout(() => {
-          const a = document.createElement('a');
-          a.href = f.href;
-          a.download = f.name;
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-        }, idx * 250);
-      });
-      showToast('DOWNLOADING GEIST + GEIST MONO');
+    // Copy CSS Variables Button
+    document.getElementById('copy-css-vars').addEventListener('click', () => {
+      const rootVars = `:root {
+  --color-black: #000000;
+  --color-grey-d: #424242;
+  --color-grey-l: #EBE7E0;
+  --color-white: #FFFFFF;
+  --blur-m: 20px;
+  --blur-bg: rgba(0, 0, 0, 0.5);
+  --color-red-d: #910606;
+  --color-red: #DF1717;
+  --color-red-l: #F65656;
+  --accent-d: var(--color-red-d);
+  --accent: var(--color-red);
+  --accent-l: var(--color-red-l);
+  --font-body: 'Geist', sans-serif;
+  --font-header: 'Geist Mono', monospace;
+  --stroke-thin: 1px;
+  --stroke-base: 2px;
+}`;
+      copyText(rootVars, 'CSS :ROOT VARIABLES');
     });
   </script>
 </body>
