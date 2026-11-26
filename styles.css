@@ -287,20 +287,22 @@ right: 0;
 }
 
 .side-rail-slot {
-width: 37px;
-height: 140px;
-display: flex;
-align-items: center;
-justify-content: center;
-color: var(--color-grey-d);
+  width: 37px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-grey-d);
+  overflow: visible;
 }
 
 .side-rail-slot .svg-inline,
 .side-rail-slot .svg-fallback {
-width: 140px;
-height: 37px;
-max-width: none;
-max-height: none;
+  width: 280px;
+  height: 37px;
+  max-width: none;
+  max-height: none;
+  flex-shrink: 0;
 }
 
 .side-rail--left .side-rail-slot .svg-inline,
@@ -420,11 +422,23 @@ display: none;
 MAIN CONTAINER & ACCORDION SECTIONS
 ========================================================================== */
 
+#bg-shader-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(28px) grayscale(100%) brightness(0.5);
+}
+
 .page-main {
-flex: 1;
-background-color: var(--color-black);
-padding-left: 66px;
-padding-right: 66px;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  background-color: transparent;
+  padding-left: 66px;
+  padding-right: 66px;
 }
 
 @media (max-width: 768px) {
@@ -976,50 +990,18 @@ flex-direction: column;
 gap: var(--space-2);
 }
 
-.chrome-long-swatch {
-display: grid;
-grid-template-columns: 56px 1fr 56px;
-min-height: 64px;
-border: var(--border-width-thin) solid var(--color-grey-d);
-background: var(--blur-bg);
-backdrop-filter: blur(var(--blur-m));
--webkit-backdrop-filter: blur(var(--blur-m));
+.chrome-bar--demo {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  width: 100%;
+  margin: 0;
+  z-index: 1;
 }
 
-.chrome-long-corner {
-width: 56px;
-height: 64px;
-display: flex;
-align-items: center;
-justify-content: center;
-color: var(--color-grey-d);
-border-right: var(--border-width-thin) solid var(--color-grey-d);
-overflow: hidden;
-}
-
-.chrome-long-corner:last-child {
-border-right: none;
-border-left: var(--border-width-thin) solid var(--color-grey-d);
-}
-
-.chrome-long-corner .svg-inline,
-.chrome-long-corner svg {
-width: 24px;
-height: 24px;
-max-width: 24px;
-max-height: 24px;
-}
-
-.chrome-long-center {
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 0 var(--space-3);
-font-family: var(--font-header);
-font-size: var(--font-size-micro);
-letter-spacing: 0.04em;
-text-transform: uppercase;
-color: var(--color-grey-l);
+.nav-label {
+  color: var(--color-grey);
+  margin-right: var(--space-1);
 }
 
 /* 2-Column Swatch Pairs for Links, Main Button & Alt Button */

@@ -183,31 +183,52 @@
 
           <div class="ui-stack">
 
-            <!-- Topbar & Bottombar (Two Long Stacked Swatches) -->
-            <div class="ui-unit">
-              <div class="ui-unit-head">
-                <h3 class="ui-unit-title">Topbar &amp; Bottombar</h3>
-                <p class="ui-unit-note">Web only: --blur-bg + blur(--blur-m) + 1px grey-d border + corner slots (never use blur in PDF or posts)</p>
-              </div>
-              <div class="chrome-swatches-col">
-                <div class="chrome-long-swatch">
-                  <div class="chrome-long-corner" id="demo-chrome-tl"></div>
-                  <div class="chrome-long-center">
-                    <span>COURT OF MORAVIA</span>
-                    <span>TOPBAR · BLUR(--BLUR-M)</span>
+          <!-- Topbar & Bottombar (1:1 in individual frames) -->
+          <div class="ui-unit">
+            <div class="ui-unit-head">
+              <h3 class="ui-unit-title">Topbar &amp; Bottombar</h3>
+              <p class="ui-unit-note">Web only: --blur-bg + blur(--blur-m) + 1px grey-d border + corner slots (never use blur in PDF or posts)</p>
+            </div>
+
+            <div class="chrome-swatches-col">
+              <!-- Topbar Frame -->
+              <div class="ui-framed-center">
+                <div class="chrome-bar chrome-bar--demo">
+                  <div class="chrome-end chrome-end--tl">
+                    <div class="corner-svg-slot" id="demo-chrome-tl"></div>
                   </div>
-                  <div class="chrome-long-corner" id="demo-chrome-tr"></div>
+                  <div class="chrome-center chrome-center--top">
+                    <nav class="nav-links" aria-label="Demo navigation">
+                      <span class="nav-label">MENU:</span>
+                      <a href="#ui" onclick="return false;">ITEM1</a>
+                      <span class="nav-sep">|</span>
+                      <a href="#ui" onclick="return false;">ITEM2</a>
+                      <span class="nav-sep">|</span>
+                      <a href="#ui" onclick="return false;">ITEM3</a>
+                    </nav>
+                  </div>
+                  <div class="chrome-end chrome-end--tr">
+                    <div class="corner-svg-slot" id="demo-chrome-tr"></div>
+                  </div>
                 </div>
-                <div class="chrome-long-swatch">
-                  <div class="chrome-long-corner" id="demo-chrome-bl"></div>
-                  <div class="chrome-long-center">
-                    <span>© 2026 COURT OF MORAVIA</span>
-                    <span>BOTTOMBAR · BLUR(--BLUR-M)</span>
+              </div>
+
+              <!-- Bottombar Frame -->
+              <div class="ui-framed-center">
+                <div class="chrome-bar chrome-bar--demo">
+                  <div class="chrome-end chrome-end--bl">
+                    <div class="corner-svg-slot" id="demo-chrome-bl"></div>
                   </div>
-                  <div class="chrome-long-corner" id="demo-chrome-br"></div>
+                  <div class="chrome-center chrome-center--bottom">
+                    <div class="footer-edge-slot footer-edge-slot--barcode" id="demo-chrome-barcode"></div>
+                  </div>
+                  <div class="chrome-end chrome-end--br">
+                    <div class="corner-svg-slot" id="demo-chrome-br"></div>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
 
             <!-- Links, Main Button & Alt Button (2-Column Swatch Rows) -->
             <div class="ui-unit">
@@ -940,6 +961,7 @@
     mountSvg(document.getElementById('side-right-rail'), assetBarcodeShort);
 
     /* UI Component Specimens using ./svgs/ */
+    mountSvg(document.getElementById('demo-chrome-barcode'), assetBarcodeShort);
     mountSvg(document.getElementById('demo-chrome-tl'), assetLogo);
     mountSvg(document.getElementById('demo-chrome-tr'), assetD12);
     mountSvg(document.getElementById('demo-chrome-bl'), assetD12);
@@ -1296,6 +1318,8 @@
 
     initDodecaShader('shader-preview-color', 1.0);
     initDodecaShader('shader-preview-bw', 0.0);
+    initDodecaShader('bg-shader-canvas', 0.0);
   </script>
-</body>
+</
+<canvas id="bg-shader-canvas" aria-hidden="true"></canvas>
 </html>
