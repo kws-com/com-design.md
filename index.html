@@ -29,6 +29,10 @@
         <span class="nav-sep">|</span>
         <a href="#slides" data-open-accordion="slides">SLIDES</a>
         <span class="nav-sep">|</span>
+        <a href="#tokens" data-open-accordion="tokens">TOKENS</a>
+        <span class="nav-sep">|</span>
+        <a href="#reasoning" data-open-accordion="reasoning">REASONING</a>
+        <span class="nav-sep">|</span>
         <a href="#llm-docs">DESIGN.MD</a>
       </nav>
     </div>
@@ -52,7 +56,7 @@
       <section class="hero">
         <h1 class="hero-display">WE CHANGE THE <span class="kw-red">GAME OF BUSINESS</span></h1>
         <p class="hero-body">
-          A technical frame. A human purpose. Click any color chip, typography specimen, SVG shape, UI component, or slide composition to copy its exact code or token.
+          A technical frame. A human purpose. Click any color swatch, typography specimen, SVG shape, UI component, slide composition, or design token to copy its exact code or value.
         </p>
 
         <div class="hero-actions">
@@ -60,7 +64,7 @@
             Copy DESIGN.MD for LLMs
           </button>
           <button type="button" class="btn btn--side" id="download-all-fonts">
-            Download Fonts
+            Stáhnout fonty
           </button>
           <a href="./DESIGN.md" download="DESIGN.md" class="btn btn--side">
             Download DESIGN.md
@@ -78,7 +82,7 @@
         <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Production systems use strictly Red, White, Grey, and Black. Each color swatch carries its explicit role label and self-inherited 1px border.
+              Production systems use strictly Red, White, Grey, and Black. Click the top part of a swatch to copy its CSS token, or the bottom block to copy its HEX code.
             </p>
           </div>
           <div id="all-color-rows"></div>
@@ -95,31 +99,14 @@
         <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Rendered at 1:1 scale. Headings h1–h6 are pure white (#FFFFFF) with optional 2–4 word highlights in Red (#DF1717). Body text is always grey-l (#EBE7E0) capped at 66ch.
+              Rendered at 1:1 scale. Headings h1–h6 are White (--color-white) (#FFFFFF) with optional 2–4 word highlights in Red (--color-red) (#DF1717). Body text is always Grey-L (--color-grey-l) (#EBE7E0) capped at 66ch.
             </p>
             <div class="section-actions">
-              <a href="./fonts/geist.zip" download="geist.zip" class="btn">Download Geist</a>
-              <a href="./fonts/geist-mono.zip" download="geist-mono.zip" class="btn btn--side">Download Geist Mono</a>
+              <button type="button" class="btn" id="download-all-fonts-typo">Stáhnout fonty</button>
             </div>
           </div>
 
           <div class="type-list" id="typography-container"></div>
-
-          <div class="spacing-scale-bar" aria-label="8px spacing scale">
-            <span class="section-eyebrow" style="margin:0; width:100%;">8px Spacing &amp; Blur Scale (Click to copy)</span>
-            <div class="scale-chip" data-copy="8px">8px</div>
-            <div class="scale-chip" data-copy="16px">16px</div>
-            <div class="scale-chip" data-copy="24px">24px</div>
-            <div class="scale-chip" data-copy="32px">32px</div>
-            <div class="scale-chip" data-copy="40px">40px</div>
-            <div class="scale-chip" data-copy="48px">48px</div>
-            <div class="scale-chip" data-copy="56px">56px</div>
-            <div class="scale-chip" data-copy="64px">64px</div>
-            <div class="scale-chip" data-copy="72px">72px</div>
-            <div class="scale-chip" data-copy="88px">88px</div>
-            <div class="scale-chip" data-copy="96px">96px</div>
-            <div class="scale-chip" data-copy="20px">--blur-m: 20px</div>
-          </div>
         </div>
       </section>
 
@@ -133,11 +120,10 @@
         <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Loaded directly from <code>./svgs/</code> and organized by function. Non-interactive shapes render in grey-d (#424242); interactive controls render in Red (#DF1717). Click any mark to copy its SVG XML.
+              Loaded directly from <code>./svgs/</code> and organized by function. Non-interactive shapes render in Grey-D (--color-grey-d) (#424242); interactive controls render in Red (--color-red) (#DF1717). Click any mark to copy its SVG XML.
             </p>
           </div>
 
-          <!-- Main -->
           <div class="shapes-subsection">
             <div class="shapes-subhead">
               <h3>Main</h3>
@@ -146,34 +132,30 @@
             <div class="marks-main-grid" id="shapes-main"></div>
           </div>
 
-          <!-- Corners -->
           <div class="shapes-subsection">
             <div class="shapes-subhead">
               <h3>Corners</h3>
-              <p>Placed in the four corner slots of the perimeter frame (<code>30px</code> height).</p>
+              <p>Placed in diagonal pairs in the four corner slots of the perimeter frame (<code>30px</code> height).</p>
             </div>
             <div class="marks-grid" id="shapes-corners"></div>
           </div>
 
-          <!-- Rails -->
           <div class="shapes-subsection">
             <div class="shapes-subhead">
               <h3>Rails</h3>
-              <p>Lateral and vertical perimeter elements rotated <code>-90deg</code> / <code>+90deg</code> (<code>30px</code> height).</p>
+              <p>Perimeter barcode elements rendered at <code>37px</code> height. <code>barcode-long</code> spans full width when space permits; <code>barcode-short</code> and <code>pdf417</code> split compact rails.</p>
             </div>
-            <div class="marks-grid" id="shapes-rails"></div>
+            <div class="rails-layout-grid" id="shapes-rails"></div>
           </div>
 
-          <!-- Controls -->
           <div class="shapes-subsection">
             <div class="shapes-subhead">
               <h3>Controls</h3>
-              <p><code>arrow-big</code> navigates large sections and pages; <code>arrow-small</code> is a single rotatable SVG for intra-component controls; <code>radio</code> tracks progress.</p>
+              <p><code>arrow-big</code> navigates large sections and pages; <code>arrow-small</code> rotates as needed for intra-component controls; <code>radio</code> tracks progress (hover changes color only).</p>
             </div>
             <div class="marks-grid" id="shapes-controls"></div>
           </div>
 
-          <!-- Icons -->
           <div class="shapes-subsection">
             <div class="shapes-subhead">
               <h3>Icons</h3>
@@ -197,72 +179,108 @@
         <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
-              Web UI specification: passive containers remain sharp (<code>0px</code>) with <code>--blur-bg</code> and <code>blur(--blur-m)</code>, while interactive buttons and directional arrow controls use pill rounding (<code>999px</code>) so they look clickable at first glance.
+              Web UI swatches: passive containers remain sharp (<code>0px</code>) with <code>--blur-bg</code> and <code>blur(--blur-m)</code>, while interactive buttons and directional arrow controls use pill rounding (<code>999px</code>) so they look clickable at first glance.
             </p>
           </div>
 
           <div class="ui-stack">
 
-            <!-- Topbar + Bottombar -->
+            <!-- Topbar & Bottombar (Two Long Stacked Swatches) -->
             <div class="ui-unit">
               <div class="ui-unit-head">
                 <h3 class="ui-unit-title">Topbar &amp; Bottombar</h3>
                 <p class="ui-unit-note">Web only: --blur-bg + blur(--blur-m) + 1px grey-d border + corner slots (never use blur in PDF or posts)</p>
               </div>
-              <div class="chrome-specimen">
-                <div class="chrome-specimen-bar chrome-specimen-bar--top">
-                  <div class="chrome-specimen-corner" id="demo-chrome-tl"></div>
-                  <div class="chrome-specimen-mid">
+              <div class="chrome-swatches-col">
+                <div class="chrome-long-swatch">
+                  <div class="chrome-long-corner" id="demo-chrome-tl"></div>
+                  <div class="chrome-long-center">
                     <span>COURT OF MORAVIA</span>
                     <span>TOPBAR · BLUR(--BLUR-M)</span>
                   </div>
-                  <div class="chrome-specimen-corner" id="demo-chrome-tr"></div>
+                  <div class="chrome-long-corner" id="demo-chrome-tr"></div>
                 </div>
-                <div style="padding: 24px; text-align: center; font-family: var(--font-header); font-size: 13px; color: var(--color-grey);">
-                  VIEWPORT SAFE ZONE
-                </div>
-                <div class="chrome-specimen-bar chrome-specimen-bar--bottom">
-                  <div class="chrome-specimen-corner" id="demo-chrome-bl"></div>
-                  <div class="chrome-specimen-mid">
+                <div class="chrome-long-swatch">
+                  <div class="chrome-long-corner" id="demo-chrome-bl"></div>
+                  <div class="chrome-long-center">
                     <span>© 2026 COURT OF MORAVIA</span>
                     <span>BOTTOMBAR · BLUR(--BLUR-M)</span>
                   </div>
-                  <div class="chrome-specimen-corner" id="demo-chrome-br"></div>
+                  <div class="chrome-long-corner" id="demo-chrome-br"></div>
                 </div>
               </div>
             </div>
 
-            <!-- Links & Buttons -->
+            <!-- Links, Main Button & Alt Button (2-Column Swatch Rows) -->
             <div class="ui-unit">
               <div class="ui-unit-head">
                 <h3 class="ui-unit-title">Links &amp; Buttons</h3>
-                <p class="ui-unit-note">Links: --color-red + underline + affixed ↗ (hover: --color-red-d + line-through) · Buttons: rounded 999px</p>
+                <p class="ui-unit-note">Default vs. Hover swatches</p>
               </div>
-              <div class="ui-surface-box">
-                <div class="states-grid">
-                  <div class="state-cell">
-                    <span class="state-caption">&lt;a&gt; Default</span>
-                    <a href="#ui" onclick="return false;">Případová studie</a>
+              <div class="control-swatches-stack">
+                <!-- Row 1: Link Types -->
+                <div class="control-swatch-pair">
+                  <div class="control-swatch">
+                    <div class="control-swatch-preview">
+                      <a href="#ui" onclick="return false;">Případová studie</a>
+                    </div>
+                    <div class="control-swatch-meta">
+                      <span>&lt;a&gt; Link · Default</span>
+                      <span>--color-red + underline + ↗</span>
+                    </div>
                   </div>
-                  <div class="state-cell">
-                    <span class="state-caption">&lt;a&gt; Hover</span>
-                    <a href="#ui" class="preview-link-hover" onclick="return false;">Případová studie</a>
+                  <div class="control-swatch">
+                    <div class="control-swatch-preview">
+                      <a href="#ui" class="preview-link-hover" onclick="return false;">Případová studie</a>
+                    </div>
+                    <div class="control-swatch-meta">
+                      <span>&lt;a&gt; Link · Hover</span>
+                      <span>--color-red-d + line-through</span>
+                    </div>
                   </div>
-                  <div class="state-cell">
-                    <span class="state-caption">Main Button · Default</span>
-                    <button type="button" class="btn">Promluvme si</button>
+                </div>
+
+                <!-- Row 2: Main Button -->
+                <div class="control-swatch-pair">
+                  <div class="control-swatch">
+                    <div class="control-swatch-preview">
+                      <button type="button" class="btn">Promluvme si</button>
+                    </div>
+                    <div class="control-swatch-meta">
+                      <span>Main Button · Default</span>
+                      <span>bg: white · fg: black</span>
+                    </div>
                   </div>
-                  <div class="state-cell">
-                    <span class="state-caption">Main Button · Hover</span>
-                    <button type="button" class="btn preview-btn-main-hover">Promluvme si</button>
+                  <div class="control-swatch">
+                    <div class="control-swatch-preview">
+                      <button type="button" class="btn preview-btn-main-hover">Promluvme si</button>
+                    </div>
+                    <div class="control-swatch-meta">
+                      <span>Main Button · Hover</span>
+                      <span>bg: black · border+fg: white</span>
+                    </div>
                   </div>
-                  <div class="state-cell">
-                    <span class="state-caption">Other Button · Default</span>
-                    <button type="button" class="btn btn--side">Ozvěte se mi</button>
+                </div>
+
+                <!-- Row 3: Alt Button -->
+                <div class="control-swatch-pair">
+                  <div class="control-swatch">
+                    <div class="control-swatch-preview">
+                      <button type="button" class="btn btn--side">Ozvěte se mi</button>
+                    </div>
+                    <div class="control-swatch-meta">
+                      <span>Alt Button · Default</span>
+                      <span>bg: red · fg: black</span>
+                    </div>
                   </div>
-                  <div class="state-cell">
-                    <span class="state-caption">Other Button · Hover</span>
-                    <button type="button" class="btn btn--side preview-btn-sec-hover">Ozvěte se mi</button>
+                  <div class="control-swatch">
+                    <div class="control-swatch-preview">
+                      <button type="button" class="btn btn--side preview-btn-sec-hover">Ozvěte se mi</button>
+                    </div>
+                    <div class="control-swatch-meta">
+                      <span>Alt Button · Hover</span>
+                      <span>bg: black · border+fg: red</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -353,28 +371,30 @@
               </div>
             </div>
 
-            <!-- Team Card -->
+            <!-- Team Card (Wrapped in Frame & Centered) -->
             <div class="ui-unit">
               <div class="ui-unit-head">
                 <h3 class="ui-unit-title">Team Card</h3>
                 <p class="ui-unit-note">Portraits always grayscale + boosted contrast: filter: grayscale(100%) contrast(1.25)</p>
               </div>
-              <div class="demo-team-card">
-                <div class="demo-team-photo" role="img" aria-label="High-contrast grayscale portrait"></div>
-                <div class="demo-team-info">
-                  <h4 class="demo-team-name">Petr Pouchlý</h4>
-                  <p class="demo-team-bio">Business mentor, který desítky let učí, jak se firmy dělají správně.</p>
+              <div class="ui-framed-center">
+                <div class="demo-team-card">
+                  <div class="demo-team-photo" role="img" aria-label="High-contrast grayscale portrait"></div>
+                  <div class="demo-team-info">
+                    <h4 class="demo-team-name">Petr Pouchlý</h4>
+                    <p class="demo-team-bio">Business mentor, který desítky let učí, jak se firmy dělají správně.</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- Minimal Form -->
+            <!-- Minimal Form (Centered) -->
             <div class="ui-unit">
               <div class="ui-unit-head">
                 <h3 class="ui-unit-title">Minimal Form</h3>
                 <p class="ui-unit-note">Bottom-bordered input + pill CTA button</p>
               </div>
-              <div class="ui-surface-box">
+              <div class="ui-framed-center">
                 <form class="demo-minimal-form" onsubmit="event.preventDefault(); showToast('FORM SUBMITTED');">
                   <div class="demo-minimal-field">
                     <label for="demo-contact-input" class="demo-minimal-label">Nebo nám nechte kontakt</label>
@@ -385,20 +405,27 @@
               </div>
             </div>
 
-            <!-- Shader (Experimental — Web Only) -->
+            <!-- Animated Shader (Experimental — Web Only) -->
             <div class="ui-unit">
               <div class="ui-unit-head">
                 <h3 class="ui-unit-title">Shader</h3>
-                <p class="ui-unit-note">Experimental — Web only (Hero color vs. scrolled grayscale + darkened footer curtain)</p>
+                <p class="ui-unit-note">Experimental — Web only (Animated WebGL2 geometry: Hero color vs. scrolled grayscale + footer curtain)</p>
               </div>
               <div class="demo-shader-grid">
-                <div class="demo-shader-rect demo-shader-rect--color">
-                  <span class="demo-shader-badge">Hero · Full Color</span>
-                  <span style="font-family: var(--font-header); font-size: 12px; color: var(--color-white);">WEBGL DODECAHEDRON BACKDROP</span>
+                <div class="demo-shader-rect">
+                  <canvas class="demo-shader-canvas" id="shader-preview-color" aria-hidden="true"></canvas>
+                  <div class="demo-shader-overlay">
+                    <span class="demo-shader-badge">Hero · Full Color</span>
+                    <span style="font-family: var(--font-header); font-size: 0.75rem; color: var(--color-white);">ACTIVE RED SHADER BACKDROP</span>
+                  </div>
                 </div>
                 <div class="demo-shader-rect demo-shader-rect--bw">
-                  <span class="demo-shader-badge">Scrolled · Grayscale + Footer Curtain</span>
-                  <span style="font-family: var(--font-header); font-size: 12px; color: var(--color-grey-l);">DESATURATED &amp; DARKENED FOR LEGIBILITY</span>
+                  <canvas class="demo-shader-canvas" id="shader-preview-bw" aria-hidden="true"></canvas>
+                  <div class="demo-shader-curtain" aria-hidden="true"></div>
+                  <div class="demo-shader-overlay">
+                    <span class="demo-shader-badge">Scrolled · Grayscale + Footer Curtain</span>
+                    <span style="font-family: var(--font-header); font-size: 0.75rem; color: var(--color-grey-l);">DESATURATED &amp; DARKENED FOR LEGIBILITY</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -407,7 +434,7 @@
         </div>
       </section>
 
-      <!-- 5. SLIDE COMPOSITIONS -->
+      <!-- 5. SLIDE COMPOSITIONS (2x6) -->
       <section id="slides" class="section">
         <button type="button" class="accordion-trigger" aria-expanded="false">
           <span class="section-eyebrow">5</span>
@@ -417,18 +444,74 @@
         <div class="accordion-panel">
           <div class="section-desc-wrap">
             <p class="section-desc">
-              3x4 showcase of standardized 1920x1080 slide compositions and permutations. Click any slide specimen to copy its layout specification for LLM deck generation.
+              2x6 showcase of standardized 1920x1080 slide compositions with canonical SVG corner and rail marks. Click any slide specimen to copy its layout specification for LLM deck generation.
             </p>
           </div>
 
-          <div class="slides-grid-3x4" id="slides-showcase-grid"></div>
+          <div class="slides-grid-2x6" id="slides-showcase-grid"></div>
         </div>
       </section>
 
-      <!-- 6. DESIGN.MD -->
+      <!-- 6. DESIGN TOKENS TABLE -->
+      <section id="tokens" class="section">
+        <button type="button" class="accordion-trigger" aria-expanded="false">
+          <span class="section-eyebrow">6</span>
+          <h2 class="section-title">Design <span class="kw-red">Tokens</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+        </button>
+
+        <div class="accordion-panel">
+          <div class="section-desc-wrap">
+            <p class="section-desc">
+              Complete reference table of CSS custom properties used across the system. Click any row to copy its CSS variable name.
+            </p>
+          </div>
+
+          <div class="tokens-table-wrap">
+            <table class="tokens-table">
+              <thead>
+                <tr>
+                  <th>Název</th>
+                  <th>Hodnota</th>
+                  <th>Popis</th>
+                </tr>
+              </thead>
+              <tbody id="tokens-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. REASONING -->
+      <section id="reasoning" class="section">
+        <button type="button" class="accordion-trigger" aria-expanded="false">
+          <span class="section-eyebrow">7</span>
+          <h2 class="section-title">Design <span class="kw-red">Reasoning</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
+        </button>
+
+        <div class="accordion-panel">
+          <div class="section-desc-wrap">
+            <p class="section-desc">
+              Architectural rationale behind the Court of Moravia visual system, loaded from <code>./REASONING.md</code>.
+            </p>
+          </div>
+
+          <div class="code-panel">
+            <div class="code-panel-header">
+              <span class="code-filename">REASONING.md</span>
+              <div class="code-actions">
+                <button type="button" class="btn" id="copy-reasoning-btn">Copy Markdown</button>
+                <a href="./REASONING.md" download="REASONING.md" class="btn btn--side">Download .md</a>
+              </div>
+            </div>
+            <pre class="code-block" id="reasoning-markdown-display">Loading REASONING.md...</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. DESIGN.MD -->
       <section id="llm-docs" class="section">
         <div class="section-header">
-          <span class="section-eyebrow">6</span>
+          <span class="section-eyebrow">8</span>
           <h2 class="section-title">DESIGN.<span class="kw-red">MD</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
           <div class="section-desc-wrap">
             <p class="section-desc">
@@ -474,58 +557,139 @@
   <script>
     const SVG_ASSETS = [
       // Main
-      { id: 'com-logo-full',     name: 'LOGO FULL',     group: 'main',     usage: 'Primary Lockup',       file: './svgs/com-logo-full.svg'     },
-      { id: 'com-logo',          name: 'LOGO',          group: 'main',     usage: 'Compact Mark',         file: './svgs/com-logo.svg'          },
+      { id: 'com-logo-full',     name: 'LOGO FULL',     group: 'main',     note: 'Primary Lockup',       file: './svgs/com-logo-full.svg'     },
+      { id: 'com-logo',          name: 'LOGO',          group: 'main',     note: 'Compact Mark',         file: './svgs/com-logo.svg'          },
 
       // Corners
-      { id: 'com-d4',            name: 'D4',            group: 'corners',  usage: 'Corner',               file: './svgs/com-d4.svg'            },
-      { id: 'com-d6',            name: 'D6',            group: 'corners',  usage: 'Corner',               file: './svgs/com-d6.svg'            },
-      { id: 'com-d8',            name: 'D8',            group: 'corners',  usage: 'Corner',               file: './svgs/com-d8.svg'            },
-      { id: 'com-d10',           name: 'D10',           group: 'corners',  usage: 'Corner',               file: './svgs/com-d10.svg'           },
-      { id: 'com-d12',           name: 'D12',           group: 'corners',  usage: 'Corner',               file: './svgs/com-d12.svg'           },
-      { id: 'com-d20',           name: 'D20',           group: 'corners',  usage: 'Corner',               file: './svgs/com-d20.svg'           },
-      { id: 'com-aztec-a',       name: 'AZTEC A',       group: 'corners',  usage: 'Corner',               file: './svgs/com-aztec-a.svg'       },
-      { id: 'com-aztec-b',       name: 'AZTEC B',       group: 'corners',  usage: 'Corner',               file: './svgs/com-aztec-b.svg'       },
-      { id: 'com-c',             name: 'C',             group: 'corners',  usage: 'Corner',               file: './svgs/com-c.svg'             },
-      { id: 'com-o',             name: 'O',             group: 'corners',  usage: 'Corner',               file: './svgs/com-o.svg'             },
-      { id: 'com-m',             name: 'M',             group: 'corners',  usage: 'Corner',               file: './svgs/com-m.svg'             },
-      { id: 'com-g',             name: 'G',             group: 'corners',  usage: 'Corner (Guild)',       file: './svgs/com-g.svg'             },
-      { id: 'com-logo-alt',      name: 'LOGO ALT',      group: 'corners',  usage: 'Corner',               file: './svgs/com-logo-alt.svg'      },
+      { id: 'com-d4',            name: 'D4',            group: 'corners',  file: './svgs/com-d4.svg'            },
+      { id: 'com-d6',            name: 'D6',            group: 'corners',  file: './svgs/com-d6.svg'            },
+      { id: 'com-d8',            name: 'D8',            group: 'corners',  file: './svgs/com-d8.svg'            },
+      { id: 'com-d10',           name: 'D10',           group: 'corners',  file: './svgs/com-d10.svg'           },
+      { id: 'com-d12',           name: 'D12',           group: 'corners',  file: './svgs/com-d12.svg'           },
+      { id: 'com-d20',           name: 'D20',           group: 'corners',  file: './svgs/com-d20.svg'           },
+      { id: 'com-aztec-a',       name: 'AZTEC A',       group: 'corners',  file: './svgs/com-aztec-a.svg'       },
+      { id: 'com-aztec-b',       name: 'AZTEC B',       group: 'corners',  file: './svgs/com-aztec-b.svg'       },
+      { id: 'com-c',             name: 'C',             group: 'corners',  file: './svgs/com-c.svg'             },
+      { id: 'com-o',             name: 'O',             group: 'corners',  file: './svgs/com-o.svg'             },
+      { id: 'com-m',             name: 'M',             group: 'corners',  file: './svgs/com-m.svg'             },
+      { id: 'com-g',             name: 'G',             group: 'corners',  note: 'Guild Only',           file: './svgs/com-g.svg'             },
+      { id: 'com-logo-alt',      name: 'LOGO ALT',      group: 'corners',  file: './svgs/com-logo-alt.svg'      },
 
-      // Rails
-      { id: 'com-barcode-long',  name: 'BARCODE LONG',  group: 'rails',    usage: 'Lateral, Vertical',    file: './svgs/com-barcode-long.svg'  },
-      { id: 'com-barcode-short', name: 'BARCODE SHORT', group: 'rails',    usage: 'Lateral, Vertical',    file: './svgs/com-barcode-short.svg' },
-      { id: 'com-pdf417',        name: 'PDF417',        group: 'rails',    usage: 'Lateral, Vertical',    file: './svgs/com-pdf417.svg'        },
+      // Rails (37px height)
+      { id: 'com-barcode-long',  name: 'BARCODE LONG',  group: 'rails',    note: 'Full-Width Rail',      file: './svgs/com-barcode-long.svg',  isFullRail: true },
+      { id: 'com-barcode-short', name: 'BARCODE SHORT', group: 'rails',    note: 'Compact Rail',         file: './svgs/com-barcode-short.svg' },
+      { id: 'com-pdf417',        name: 'PDF417',        group: 'rails',    note: 'Bottom / Compact Rail',file: './svgs/com-pdf417.svg'        },
 
-      // Controls
-      { id: 'com-arrow-big',     name: 'ARROW BIG',     group: 'controls', usage: 'Section / Page Nav',   file: './svgs/com-arrow-big.svg'     },
-      { id: 'com-arrow-small',   name: 'ARROW SMALL',   group: 'controls', usage: 'Component Nav (Rot.)', file: './svgs/com-arrow-small.svg'   },
-      { id: 'com-radio',         name: 'RADIO',         group: 'controls', usage: 'Default Node',         file: './svgs/com-radio.svg'         },
-      { id: 'com-radio-hover',   name: 'RADIO HOVER',   group: 'controls', usage: 'Hover Node',           file: './svgs/com-radio-hover.svg'   },
-      { id: 'com-radio-active',  name: 'RADIO ACTIVE',  group: 'controls', usage: 'Active Node',          file: './svgs/com-radio-active.svg'  },
+      // Controls (radio + radio-hover unified)
+      { id: 'com-arrow-big',     name: 'ARROW BIG',     group: 'controls', note: 'Section / Page Nav',   file: './svgs/com-arrow-big.svg'     },
+      { id: 'com-arrow-small',   name: 'ARROW SMALL',   group: 'controls', note: 'Rotatable Control',    file: './svgs/com-arrow-small.svg'   },
+      { id: 'com-radio',         name: 'RADIO',         group: 'controls', note: 'Hover Changes Color',  file: './svgs/com-radio.svg'         },
+      { id: 'com-radio-active',  name: 'RADIO ACTIVE',  group: 'controls', note: 'Active Node',          file: './svgs/com-radio-active.svg'  },
 
       // Icons
-      { id: 'com-icon-coffee',   name: 'ICON COFFEE',   group: 'icons',    usage: 'Card Header',          file: './svgs/com-icon-coffee.svg'   },
-      { id: 'com-icon-crown',    name: 'ICON CROWN',    group: 'icons',    usage: 'Card Header',          file: './svgs/com-icon-crown.svg'    },
-      { id: 'com-icon-gear',     name: 'ICON GEAR',     group: 'icons',    usage: 'Card Header',          file: './svgs/com-icon-gear.svg'     },
-      { id: 'com-icon-tool',     name: 'ICON TOOL',     group: 'icons',    usage: 'Card Header',          file: './svgs/com-icon-tool.svg'     }
+      { id: 'com-icon-coffee',   name: 'ICON COFFEE',   group: 'icons',    file: './svgs/com-icon-coffee.svg'   },
+      { id: 'com-icon-crown',    name: 'ICON CROWN',    group: 'icons',    file: './svgs/com-icon-crown.svg'    },
+      { id: 'com-icon-gear',     name: 'ICON GEAR',     group: 'icons',    file: './svgs/com-icon-gear.svg'     },
+      { id: 'com-icon-tool',     name: 'ICON TOOL',     group: 'icons',    file: './svgs/com-icon-tool.svg'     }
+    ];
+
+    const DESIGN_TOKENS_CATEGORIES = [
+      {
+        category: 'Barvy',
+        tokens: [
+          { name: '--color-black',    value: '#000000',              desc: 'Primární pozadí plátna a text uvnitř vyplněných tlačítek' },
+          { name: '--color-grey-d',   value: '#424242',              desc: 'Strukturální linky, rámečky, oddělovače a neinteraktivní SVG tvary' },
+          { name: '--color-grey',     value: '#808080',              desc: 'Sekundární popisky, čísla sekcí a koncová šipka ↘ u nadpisů' },
+          { name: '--color-grey-l',   value: '#EBE7E0',              desc: 'Primární barva běžného textu (body) a světlých neutrálních povrchů' },
+          { name: '--color-white',    value: '#FFFFFF',              desc: 'Nadpisy h1–h6 (s volitelným zvýrazněním 2–4 slov v červené) a výplň hlavního tlačítka' },
+          { name: '--color-red-d',    value: '#910606',              desc: 'Hover stav textových odkazů (line-through) a tmavý akcent' },
+          { name: '--color-red-d-40', value: 'rgba(145, 6, 6, 0.40)',desc: 'Poloprůhledný hover podklad interaktivních řádků a karet' },
+          { name: '--color-red',      value: '#DF1717',              desc: 'Primární interaktivní akcent, odkazy, sekundární tlačítka a zvýraznění klíčových slov' }
+        ]
+      },
+      {
+        category: 'Písma',
+        tokens: [
+          { name: '--font-body',      value: "'Geist', sans-serif",              desc: 'Písmo pro displejový nadpis h1, běžný odstavcový text (max 66ch) a spodní část CTA' },
+          { name: '--font-header',    value: "'Geist Mono', monospace",          desc: 'Písmo pro technické nadpisy h2–h6, hlavičky boxů, seznamy, navigaci a tlačítka' },
+          { name: '--font-size-h1',   value: 'clamp(2.75rem, 8.33vw, 10rem)',    desc: 'Hlavní displejový nadpis (44px → 160px, Geist Light, řádkování 110 %)' },
+          { name: '--font-size-h2',   value: 'clamp(2rem, 5vw, 6rem)',           desc: 'Nadpis sekce (32px → 96px, Geist Mono Light, řádkování 110 %)' },
+          { name: '--font-size-h3',   value: 'clamp(1.75rem, 3.33vw, 4rem)',     desc: 'Technický nadpis (28px → 64px, Geist Mono ExtraLight, řádkování 110 %)' },
+          { name: '--font-size-h4',   value: 'clamp(1.5rem, 2.5vw, 3rem)',       desc: 'Podnadpis / titulek decku (24px → 48px, Geist Mono Light, řádkování 110 %)' },
+          { name: '--font-size-h5',   value: 'clamp(1.25rem, 1.67vw, 2rem)',     desc: 'Hlavičky boxů SBOX / VERBOX / HORBOX (20px → 32px, Geist Mono Regular, tracking +4 %)' },
+          { name: '--font-size-h6',   value: 'clamp(1.125rem, 1.25vw, 1.5rem)',  desc: 'Dílčí podnadpisy a položky seznamů (18px → 24px, Geist Mono Light, řádkování 130 %)' },
+          { name: '--font-size-body', value: 'clamp(1rem, 1.25vw, 1.5rem)',      desc: 'Odstavcový text pro čtení (16px → 24px, Geist Regular, řádkování 130 %)' },
+          { name: '--font-size-micro',value: '0.875rem',                         desc: 'Popisky, navigace, tlačítka a metadata (14px, Geist Mono Regular, tracking +4 %)' }
+        ]
+      },
+      {
+        category: 'Spacing',
+        tokens: [
+          { name: '--space-1',  value: '0.5rem',                        desc: '8px — Základní krok osmičkové mřížky, drobné mezery mezi ikonou a textem' },
+          { name: '--space-2',  value: '1rem',                          desc: '16px — Mezery mezi tlačítky, položkami seznamů, akordeonu a kompaktní padding' },
+          { name: '--space-3',  value: '1.5rem',                        desc: '24px — Minimální mezera pod h3–h6, vertikální padding hlaviček boxů a mezery v gridu' },
+          { name: '--space-4',  value: 'clamp(1.5rem, 2vw, 2rem)',      desc: '24px → 32px — Mezera mezi číslem sekce a nadpisem, vnitřní padding SBOX karet' },
+          { name: '--space-5',  value: 'clamp(1.5rem, 2.5vw, 2.5rem)',  desc: '24px → 40px — Minimální mezera pod h2, horizontální padding hlaviček boxů' },
+          { name: '--space-6',  value: 'clamp(1.5rem, 3vw, 3rem)',      desc: '24px → 48px — Vertikální rytmus sekcí a vnitřní padding těla SBOX' },
+          { name: '--space-7',  value: 'clamp(2rem, 3.5vw, 3.5rem)',    desc: '32px → 56px — Horizontální mezera mezi sloupci v HORBOX a rozestupy UI bloků' },
+          { name: '--space-8',  value: 'clamp(2rem, 4vw, 4rem)',        desc: '32px → 64px — Minimální mezera pod h1, vertikální rozestup položek ve VERBOX' },
+          { name: '--space-9',  value: 'clamp(2rem, 4.5vw, 4.5rem)',    desc: '32px → 72px — Horizontální vnitřní padding obsahu uvnitř VERBOX a HORBOX' },
+          { name: '--space-11', value: 'clamp(1.5rem, 5.5vw, 5.5rem)',  desc: '24px → 88px — Horizontální odsazení popisu sekce (.section-desc-wrap)' },
+          { name: '--space-12', value: 'clamp(3rem, 6vw, 6rem)',        desc: '48px → 96px — Vnější vertikální odsazení hlavního kontejneru a sekcí' }
+        ]
+      },
+      {
+        category: 'Blur',
+        tokens: [
+          { name: '--blur-m',  value: '1.25rem',           desc: '20px — Standardní webový backdrop blur pro lišty, karty a boxy (pouze web, nikdy PDF/posty)' },
+          { name: '--blur-bg', value: 'rgba(0, 0, 0, 0.5)',desc: 'Poloprůhledný černý podklad párovaný s backdrop-filter: blur(var(--blur-m))' }
+        ]
+      },
+      {
+        category: 'Border Width',
+        tokens: [
+          { name: '--border-width-thin',  value: '1px', desc: 'Výchozí tloušťka rámečků, oddělovačů a mřížky na webu' },
+          { name: '--border-width-thick', value: '2px', desc: 'Tloušťka rámečků ve slide decku (1920 × 1080) a tiskových výstupech' }
+        ]
+      },
+      {
+        category: 'Border Radius',
+        tokens: [
+          { name: '--radius-none', value: '0px',   desc: 'Povinné ostré rohy pro všechny pasivní kontejnery, karty, boxy, akordeony a rámy' },
+          { name: '--radius-pill', value: '999px', desc: 'Plné zaoblení vyhrazené výhradně pro interaktivní tlačítka a kruhové ovládací šipky' }
+        ]
+      }
     ];
 
     const svgCache = new Map();
     let designMdContent = '';
+    let reasoningMdContent = '';
 
-    async function loadDesignMdFile() {
-      const displayEl = document.getElementById('raw-markdown-display');
+    async function loadMarkdownFile(path, displayId, fallbackText) {
+      const displayEl = document.getElementById(displayId);
       try {
-        const res = await fetch('./DESIGN.md');
+        const res = await fetch(path);
         if (!res.ok) throw new Error('HTTP ' + res.status);
-        designMdContent = await res.text();
-        displayEl.textContent = designMdContent;
+        const text = await res.text();
+        displayEl.textContent = text;
+        return text;
       } catch (err) {
-        displayEl.textContent = 'Unable to load ./DESIGN.md via fetch. Open via HTTP server or download DESIGN.md directly.';
+        displayEl.textContent = fallbackText;
+        return fallbackText;
       }
     }
-    loadDesignMdFile();
+
+    loadMarkdownFile('./DESIGN.md', 'raw-markdown-display', 'Unable to load ./DESIGN.md via fetch.').then(txt => {
+      designMdContent = txt;
+    });
+
+    loadMarkdownFile(
+      './REASONING.md',
+      'reasoning-markdown-display',
+      '# Design Reasoning — Court of Moravia\n\nSoubor `./REASONING.md` zatím není v repozitáři vytvořen. Vlož do kořene repozitáře soubor `REASONING.md` s popisem designových rozhodnutí a automaticky se zde vykreslí.'
+    ).then(txt => {
+      reasoningMdContent = txt;
+    });
 
     async function loadSvgData(filePath) {
       if (svgCache.has(filePath)) return svgCache.get(filePath);
@@ -602,21 +766,20 @@
       }
     }
 
+    /* Color Swatches (--color-red-l and --color-black-l removed) */
     const COLOR_ROWS = [
       [
-        { name: 'RED-L',   hex: '#F65656', textColor: '#000000', role: 'Highlight tint' },
-        { name: 'RED',     hex: '#DF1717', textColor: '#000000', role: 'Interactive (passive)' },
-        { name: 'RED-D',   hex: '#910606', textColor: '#FFFFFF', role: 'Interactive (hover)' }
+        { name: 'RED',    token: '--color-red',    hex: '#DF1717', textColor: '#000000', role: 'Interactive (passive)' },
+        { name: 'RED-D',  token: '--color-red-d',  hex: '#910606', textColor: '#FFFFFF', role: 'Interactive (hover)' }
       ],
       [
-        { name: 'WHITE',   hex: '#FFFFFF', textColor: '#000000', role: 'Headers / Main button' },
-        { name: 'GREY-L',  hex: '#EBE7E0', textColor: '#000000', role: 'Passive (text)' },
-        { name: 'GREY',    hex: '#808080', textColor: '#000000', role: 'Labels / Eyebrows' }
+        { name: 'WHITE',  token: '--color-white',  hex: '#FFFFFF', textColor: '#000000', role: 'Headers / Main button' },
+        { name: 'GREY-L', token: '--color-grey-l', hex: '#EBE7E0', textColor: '#000000', role: 'Passive (text)' },
+        { name: 'GREY',   token: '--color-grey',   hex: '#808080', textColor: '#000000', role: 'Labels / Eyebrows' }
       ],
       [
-        { name: 'GREY-D',  hex: '#424242', textColor: '#FFFFFF', role: 'Borders / Lines' },
-        { name: 'BLACK-L', hex: '#121212', textColor: '#FFFFFF', role: 'Reserved token' },
-        { name: 'BLACK',   hex: '#000000', textColor: '#FFFFFF', role: 'Background' }
+        { name: 'GREY-D', token: '--color-grey-d', hex: '#424242', textColor: '#FFFFFF', role: 'Borders / Lines' },
+        { name: 'BLACK',  token: '--color-black',  hex: '#000000', textColor: '#FFFFFF', role: 'Background' }
       ]
     ];
 
@@ -675,10 +838,10 @@
       return `oklch(${Lpct}% ${Cval} ${Hdeg})`;
     }
 
-    function createColorChip(name, hex, textColor, roleLabel) {
+    function createColorChip(item) {
       const chip = document.createElement('div');
       chip.className = 'color-chip';
-      const upperHex = hex.toUpperCase();
+      const upperHex = item.hex.toUpperCase();
       const borderCol = upperHex === '#000000' ? '#424242' : upperHex;
       chip.style.setProperty('--chip-color', borderCol);
 
@@ -687,69 +850,72 @@
       const oklchStr = formatOklch(upperHex);
 
       chip.innerHTML = `
-        <div class="chip-top" style="background-color:${upperHex}; color:${textColor};">
-          <span>${name}</span>
-          <span class="chip-role">${roleLabel}</span>
+        <div class="chip-top" style="background-color:${upperHex}; color:${item.textColor};" title="Click to copy token ${item.token}">
+          <span>${item.name}</span>
+          <span class="chip-token">${item.token}</span>
+          <span class="chip-role">${item.role}</span>
         </div>
-        <div class="chip-bottom">
+        <div class="chip-bottom" title="Click to copy HEX ${upperHex}">
           <p class="chip-val">HEX: ${upperHex}</p>
           <p class="chip-val">RGB: ${rgbStr}</p>
           <p class="chip-val">HSL: ${hslStr}</p>
           <p class="chip-val">OKLCH: ${oklchStr}</p>
         </div>
       `;
-      chip.addEventListener('click', () => copyText(upperHex, `${name} ${upperHex}`));
+
+      chip.querySelector('.chip-top').addEventListener('click', () => copyText(`var(${item.token})`, item.token));
+      chip.querySelector('.chip-bottom').addEventListener('click', () => copyText(upperHex, upperHex));
       return chip;
     }
 
     const TYPOGRAPHY = [
       {
-        role: 'H1 · GEIST LIGHT · 160PX · 110% LINE · 0% TRACKING · #FFFFFF + #DF1717 KEYWORD',
+        role: 'H1 · GEIST LIGHT · clamp(2.75rem, 8.33vw, 10rem) · 110% LINE · 0% TRACKING · White (--color-white) (#FFFFFF) + Red (--color-red) (#DF1717)',
         sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span>',
-        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
-        previewStyle: "font-family: var(--font-body); font-weight: 300; font-size: 160px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
+        cssCopy: "font-family: var(--font-body); font-weight: 300; font-size: var(--font-size-h1); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);",
+        previewStyle: "font-family: var(--font-body); font-weight: 300; font-size: var(--font-size-h1); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);"
       },
       {
-        role: 'H2 · GEIST MONO LIGHT · 96PX · 110% LINE · 0% TRACKING · #FFFFFF + #808080 ↘',
-        sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span> <span style="color:#808080;">↘</span>',
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
-        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 96px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
+        role: 'H2 · GEIST MONO LIGHT · clamp(2rem, 5vw, 6rem) · 110% LINE · 0% TRACKING · White (--color-white) (#FFFFFF) + Red (--color-red) (#DF1717)',
+        sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span> <span style="color:var(--color-grey);">↘</span>',
+        cssCopy: "font-family: var(--font-header); font-weight: 300; font-size: var(--font-size-h2); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);",
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: var(--font-size-h2); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);"
       },
       {
-        role: 'H3 · GEIST MONO EXTRALIGHT · 64PX · 110% LINE · 0% TRACKING · #FFFFFF',
+        role: 'H3 · GEIST MONO EXTRALIGHT · clamp(1.75rem, 3.33vw, 4rem) · 110% LINE · 0% TRACKING · White (--color-white) (#FFFFFF) + Red (--color-red) (#DF1717)',
         sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span>',
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
-        previewStyle: "font-family: var(--font-header); font-weight: 200; font-size: 64px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
+        cssCopy: "font-family: var(--font-header); font-weight: 200; font-size: var(--font-size-h3); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);",
+        previewStyle: "font-family: var(--font-header); font-weight: 200; font-size: var(--font-size-h3); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);"
       },
       {
-        role: 'H4 · GEIST MONO LIGHT · 48PX · 110% LINE · 0% TRACKING · #FFFFFF',
+        role: 'H4 · GEIST MONO LIGHT · clamp(1.5rem, 2.5vw, 3rem) · 110% LINE · 0% TRACKING · White (--color-white) (#FFFFFF) + Red (--color-red) (#DF1717)',
         sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span>',
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;",
-        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 48px; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: #FFFFFF;"
+        cssCopy: "font-family: var(--font-header); font-weight: 300; font-size: var(--font-size-h4); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);",
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: var(--font-size-h4); line-height: 1.1; letter-spacing: 0; text-transform: uppercase; color: var(--color-white);"
       },
       {
-        role: 'H5 · GEIST MONO REGULAR · 32PX · 110% LINE · +4% TRACKING · #FFFFFF',
+        role: 'H5 · GEIST MONO REGULAR · clamp(1.25rem, 1.67vw, 2rem) · 110% LINE · +4% TRACKING · White (--color-white) (#FFFFFF) + Red (--color-red) (#DF1717)',
         sampleHtml: 'CHANGE THE <span class="kw-red">GAME</span>',
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #FFFFFF;",
-        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 32px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #FFFFFF;"
+        cssCopy: "font-family: var(--font-header); font-weight: 400; font-size: var(--font-size-h5); line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-white);",
+        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: var(--font-size-h5); line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-white);"
       },
       {
-        role: 'H6 · GEIST MONO LIGHT · 24PX · 130% LINE · +1% TRACKING · #FFFFFF',
+        role: 'H6 · GEIST MONO LIGHT · clamp(1.125rem, 1.25vw, 1.5rem) · 130% LINE · +1% TRACKING · White (--color-white) (#FFFFFF) + Red (--color-red) (#DF1717)',
         sampleHtml: 'WE DELIVER CHANGE IN <span class="kw-red">COMPANIES</span>',
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: #FFFFFF;",
-        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: 24px; line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: #FFFFFF;"
+        cssCopy: "font-family: var(--font-header); font-weight: 300; font-size: var(--font-size-h6); line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: var(--color-white);",
+        previewStyle: "font-family: var(--font-header); font-weight: 300; font-size: var(--font-size-h6); line-height: 1.3; letter-spacing: 0.01em; text-transform: uppercase; color: var(--color-white);"
       },
       {
-        role: 'BODY · GEIST REGULAR · 24PX · 130% LINE · 0% TRACKING · GREY-L (#EBE7E0) · MAX-WIDTH 66CH',
+        role: 'BODY · GEIST REGULAR · clamp(1rem, 1.25vw, 1.5rem) · 130% LINE · 0% TRACKING · Grey-L (--color-grey-l) (#EBE7E0) · MAX-WIDTH 66CH',
         sampleHtml: 'We deliver change in companies. We change the game of business.',
-        cssCopy: "font-family: 'Geist', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #EBE7E0; max-width: 66ch;",
-        previewStyle: "font-family: var(--font-body); font-weight: 400; font-size: 24px; line-height: 1.3; letter-spacing: 0; color: #EBE7E0; max-width: 66ch; white-space: normal;"
+        cssCopy: "font-family: var(--font-body); font-weight: 400; font-size: var(--font-size-body); line-height: 1.3; letter-spacing: 0; color: var(--color-grey-l); max-width: 66ch;",
+        previewStyle: "font-family: var(--font-body); font-weight: 400; font-size: var(--font-size-body); line-height: 1.3; letter-spacing: 0; color: var(--color-grey-l); max-width: 66ch; white-space: normal;"
       },
       {
-        role: 'MICRO · GEIST MONO REGULAR · 14PX · 110% LINE · +4% TRACKING · GREY (#808080)',
+        role: 'MICRO · GEIST MONO REGULAR · 0.875rem (14PX) · 110% LINE · +4% TRACKING · Grey (--color-grey) (#808080)',
         sampleHtml: 'COURT OF MORAVIA · EXPERT GUILD',
-        cssCopy: "font-family: 'Geist Mono', monospace; font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #808080;",
-        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: 14px; line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: #808080;"
+        cssCopy: "font-family: var(--font-header); font-weight: 400; font-size: var(--font-size-micro); line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-grey);",
+        previewStyle: "font-family: var(--font-header); font-weight: 400; font-size: var(--font-size-micro); line-height: 1.1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-grey);"
       }
     ];
 
@@ -759,9 +925,9 @@
         tag: 'MAX-WIDTH 250PX LOGO',
         spec: 'INTRO SLIDE: Fixed 1920x1080 grid (66px rails on all 4 sides, corners: com-logo + com-d12 in #424242, 2px borders), primary logo constrained to max-width: 250px, uppercase h1 display headline (#FFFFFF with 2-4 word #DF1717 highlight).',
         render: () => `
-          <div class="slide-body" style="justify-content:center; gap:12px;">
-            <div class="slide-intro-logo" id="mini-intro-logo"></div>
-            <h4 class="slide-h2" style="font-size:16px;">WE CHANGE THE <span class="kw-red">GAME OF BUSINESS</span></h4>
+          <div class="slide-body" style="justify-content:center; gap:14px;">
+            <div class="slide-intro-logo" data-slide-svg="com-logo-full"></div>
+            <h4 class="slide-h2" style="font-size:18px;">WE CHANGE THE <span class="kw-red">GAME OF BUSINESS</span></h4>
           </div>`
       },
       {
@@ -869,7 +1035,7 @@
             </div>
             <div>
               <div class="slide-mini-box-head">HORBOX HEADER</div>
-              <div class="slide-mini-box-body" style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+              <div class="slide-mini-box-body" style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
                 <p class="slide-p">DIAGNOSTIKA: Sběr tvrdých dat bez domněnek.</p>
                 <p class="slide-p">EXEKUCE: Okamžitá aplikace do procesů firmy.</p>
               </div>
@@ -889,7 +1055,7 @@
             </div>
             <div>
               <div class="slide-mini-box-head">HORBOX · 3 SLOUPCE</div>
-              <div class="slide-mini-box-body" style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px;">
+              <div class="slide-mini-box-body" style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px;">
                 <p class="slide-p">MĚSÍC 1: Audit a data.</p>
                 <p class="slide-p">MĚSÍC 2: Herní simulace.</p>
                 <p class="slide-p">MĚSÍC 3: Škálování.</p>
@@ -978,9 +1144,9 @@
       {
         name: '12 OUTRO & CONTACTS',
         tag: 'CLICKABLE MAILTO & TEL',
-        spec: 'OUTRO SLIDE: Pure black canvas + Red (#DF1717) interactive buttons with clickable mailto: and tel:+420712345678 links (formatted with spaces in display text).',
+        spec: 'OUTRO SLIDE: Pure black canvas + Red (#DF1717) pill interactive buttons with clickable mailto: and tel:+420712345678 links (formatted with spaces in display text).',
         render: () => `
-          <div class="slide-body" style="justify-content:center; gap:10px;">
+          <div class="slide-body" style="justify-content:center; gap:12px;">
             <span class="slide-num">KONTAKT</span>
             <h4 class="slide-h2">POJĎME ZMĚNIT <span class="kw-red">HRU</span> <span>↘</span></h4>
             <div class="slide-contact-links">
@@ -1016,6 +1182,7 @@
     }
 
     const assetLogo = SVG_ASSETS.find(a => a.id === 'com-logo');
+    const assetLogoFull = SVG_ASSETS.find(a => a.id === 'com-logo-full');
     const assetD12 = SVG_ASSETS.find(a => a.id === 'com-d12');
     const assetBarcodeLong = SVG_ASSETS.find(a => a.id === 'com-barcode-long');
     const assetBarcodeShort = SVG_ASSETS.find(a => a.id === 'com-barcode-short');
@@ -1023,7 +1190,7 @@
     const assetRadio = SVG_ASSETS.find(a => a.id === 'com-radio');
     const assetRadioActive = SVG_ASSETS.find(a => a.id === 'com-radio-active');
 
-    // Outer Chrome Slots
+    /* Outer Chrome Slots */
     mountSvg(document.getElementById('slot-tl'), assetLogo);
     mountSvg(document.getElementById('slot-br'), assetLogo);
     mountSvg(document.getElementById('slot-tr'), assetD12);
@@ -1035,7 +1202,7 @@
     mountSvg(document.getElementById('side-left-rail'), assetBarcodeShort);
     mountSvg(document.getElementById('side-right-rail'), assetBarcodeShort);
 
-    // UI Component Specimens using actual ./svgs/
+    /* UI Component Specimens using ./svgs/ */
     mountSvg(document.getElementById('demo-chrome-tl'), assetLogo);
     mountSvg(document.getElementById('demo-chrome-tr'), assetD12);
     mountSvg(document.getElementById('demo-chrome-bl'), assetD12);
@@ -1063,7 +1230,10 @@
         if (!target) return;
 
         const card = document.createElement('div');
-        card.className = 'mark-card' + (asset.group === 'main' ? ' mark-card--main' : '');
+        let extraClass = '';
+        if (asset.group === 'main') extraClass = ' mark-card--main';
+        if (asset.group === 'rails') extraClass = ' mark-card--rail' + (asset.isFullRail ? ' mark-card--rail-full' : '');
+        card.className = 'mark-card' + extraClass;
 
         const stage = document.createElement('div');
         stage.className = 'mark-stage';
@@ -1073,7 +1243,7 @@
         meta.className = 'mark-meta';
         meta.innerHTML = `
           <span class="mark-name">${asset.name}</span>
-          <span class="mark-usage">${asset.usage}</span>
+          ${asset.note ? `<span class="mark-note">${asset.note}</span>` : ''}
         `;
 
         card.appendChild(stage);
@@ -1092,7 +1262,7 @@
         const rowGrid = document.createElement('div');
         rowGrid.className = 'chips-row-grid';
         row.forEach(item => {
-          rowGrid.appendChild(createColorChip(item.name, item.hex, item.textColor, item.role));
+          rowGrid.appendChild(createColorChip(item));
         });
         container.appendChild(rowGrid);
       });
@@ -1111,12 +1281,7 @@
       typoContainer.appendChild(row);
     });
 
-    // 8px Spacing Scale Chips
-    document.querySelectorAll('.scale-chip').forEach(chip => {
-      chip.addEventListener('click', () => copyText(chip.dataset.copy, chip.textContent.trim()));
-    });
-
-    // Interactive Demo Accordion inside UI Components
+    /* Interactive Demo Accordion inside UI Components */
     document.querySelectorAll('#ui-demo-accordion .demo-acc-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.parentElement;
@@ -1130,6 +1295,7 @@
       });
     });
 
+    /* Render 2x6 Slides with Canonical ./svgs/ Corner & Rail Marks */
     function renderSlidesShowcase() {
       const grid = document.getElementById('slides-showcase-grid');
       grid.innerHTML = '';
@@ -1140,15 +1306,15 @@
         card.innerHTML = `
           <div class="slide-frame">
             <div class="slide-chrome slide-chrome--top">
-              <div class="slide-corner slide-corner--l">◆</div>
-              <div></div>
-              <div class="slide-corner slide-corner--r">◈</div>
+              <div class="slide-corner slide-corner--l" data-slide-svg="com-logo"></div>
+              <div class="slide-rail-mid" data-slide-svg="com-barcode-short"></div>
+              <div class="slide-corner slide-corner--r" data-slide-svg="com-d12"></div>
             </div>
             ${s.render()}
             <div class="slide-chrome slide-chrome--bottom">
-              <div class="slide-corner slide-corner--l">◈</div>
-              <div></div>
-              <div class="slide-corner slide-corner--r">◆</div>
+              <div class="slide-corner slide-corner--l" data-slide-svg="com-d12"></div>
+              <div class="slide-rail-mid" data-slide-svg="com-barcode-long"></div>
+              <div class="slide-corner slide-corner--r" data-slide-svg="com-logo"></div>
             </div>
           </div>
           <div class="slide-meta">
@@ -1160,12 +1326,39 @@
         grid.appendChild(card);
       });
 
-      const introLogoSlot = document.getElementById('mini-intro-logo');
-      if (introLogoSlot) {
-        mountSvg(introLogoSlot, SVG_ASSETS[0]);
-      }
+      grid.querySelectorAll('[data-slide-svg]').forEach(slot => {
+        const asset = SVG_ASSETS.find(a => a.id === slot.dataset.slideSvg);
+        if (asset) mountSvg(slot, asset);
+      });
     }
     renderSlidesShowcase();
+
+    /* Render 3-Column Design Tokens Table */
+    function renderTokensTable() {
+      const tbody = document.getElementById('tokens-table-body');
+      tbody.innerHTML = '';
+
+      DESIGN_TOKENS_CATEGORIES.forEach(cat => {
+        const catTr = document.createElement('tr');
+        catTr.className = 'tokens-cat-row';
+        catTr.innerHTML = `<td colspan="3">${cat.category}</td>`;
+        tbody.appendChild(catTr);
+
+        cat.tokens.forEach(tok => {
+          const tr = document.createElement('tr');
+          tr.className = 'tokens-row';
+          tr.title = `Click to copy var(${tok.name})`;
+          tr.innerHTML = `
+            <td class="token-col-name">${tok.name}</td>
+            <td class="token-col-val">${tok.value}</td>
+            <td class="token-col-desc">${tok.desc}</td>
+          `;
+          tr.addEventListener('click', () => copyText(`var(${tok.name})`, tok.name));
+          tbody.appendChild(tr);
+        });
+      });
+    }
+    renderTokensTable();
 
     function toggleAccordionSection(section, forceOpen = null) {
       const trigger = section.querySelector('.accordion-trigger');
@@ -1199,8 +1392,11 @@
     document.getElementById('copy-design-md-panel').addEventListener('click', () => {
       if (designMdContent) copyText(designMdContent, 'DESIGN.MD');
     });
+    document.getElementById('copy-reasoning-btn').addEventListener('click', () => {
+      if (reasoningMdContent) copyText(reasoningMdContent, 'REASONING.MD');
+    });
 
-    document.getElementById('download-all-fonts').addEventListener('click', () => {
+    function triggerDownloadAllFonts() {
       const files = [
         { href: './fonts/geist.zip', name: 'geist.zip' },
         { href: './fonts/geist-mono.zip', name: 'geist-mono.zip' }
@@ -1216,7 +1412,152 @@
         }, idx * 250);
       });
       showToast('DOWNLOADING GEIST + GEIST MONO');
-    });
+    }
+
+    document.getElementById('download-all-fonts').addEventListener('click', triggerDownloadAllFonts);
+    document.getElementById('download-all-fonts-typo').addEventListener('click', triggerDownloadAllFonts);
+
+    /* Animated WebGL2 Dodecahedron Shader Preview */
+    function initDodecaShader(canvasId, heroMixValue) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const gl = canvas.getContext('webgl2', { antialias: false });
+      if (!gl) return;
+
+      const vsSrc = `#version 300 es
+        in vec2 a_position;
+        void main() { gl_Position = vec4(a_position, 0.0, 1.0); }
+      `;
+
+      const fsSrc = `#version 300 es
+        precision highp float;
+        out vec4 fragColor;
+        uniform float u_time;
+        uniform vec2 u_resolution;
+        uniform float u_heroMix;
+        const float PHI = 1.61803398875;
+
+        mat2 rot(float a) {
+          float s = sin(a), c = cos(a);
+          return mat2(c, -s, s, c);
+        }
+
+        float sdDodecahedron(vec3 p, float r) {
+          vec3 n1 = normalize(vec3(0.0, 1.0, PHI));
+          vec3 n2 = normalize(vec3(1.0, PHI, 0.0));
+          vec3 n3 = normalize(vec3(PHI, 0.0, 1.0));
+          p = abs(p);
+          float d = max(dot(p, n1), max(dot(p, n2), dot(p, n3)));
+          d = max(d, dot(p, vec3(-n1.x, n1.y, n1.z)));
+          d = max(d, dot(p, vec3(n2.x, -n2.y, n2.z)));
+          d = max(d, dot(p, vec3(n3.x, n3.y, -n3.z)));
+          return (d - r) - 0.06;
+        }
+
+        float mapScene(vec3 p) {
+          p.xz *= rot(u_time * 0.35 + 0.4);
+          p.xy *= rot(u_time * 0.22 - 0.2);
+          return sdDodecahedron(p, 1.15);
+        }
+
+        vec3 calcNormal(vec3 p) {
+          vec2 e = vec2(0.008, 0.0);
+          return normalize(vec3(
+            mapScene(p + e.xyy) - mapScene(p - e.xyy),
+            mapScene(p + e.yxy) - mapScene(p - e.yxy),
+            mapScene(p + e.yyx) - mapScene(p - e.yyx)
+          ));
+        }
+
+        void main() {
+          vec2 uv = (gl_FragCoord.xy - 0.5 * u_resolution.xy) / min(u_resolution.x, u_resolution.y);
+          vec3 ro = vec3(0.0, 0.0, 3.6);
+          vec3 rd = normalize(vec3(uv, -1.35));
+          float t = 0.0, minDist = 100.0;
+          bool hit = false;
+
+          for (int i = 0; i < 40; i++) {
+            float d = mapScene(ro + rd * t);
+            minDist = min(minDist, d);
+            if (d < 0.006) { hit = true; break; }
+            if (t > 7.5) break;
+            t += d * 0.9;
+          }
+
+          vec3 redRim = vec3(0.95, 0.14, 0.14);
+          vec3 redMid = vec3(0.48, 0.03, 0.03);
+          vec3 monoRim = vec3(0.62, 0.62, 0.62);
+          vec3 monoMid = vec3(0.24, 0.24, 0.24);
+
+          float halo = exp(-max(minDist, 0.0) * 2.5) * 0.55;
+          vec3 col = mix(monoMid, redMid, u_heroMix) * halo;
+
+          if (hit) {
+            vec3 p = ro + rd * t;
+            vec3 n = calcNormal(p);
+            vec3 keyDir = normalize(vec3(-0.55, 0.80, 0.60));
+            float diff = max(dot(n, keyDir), 0.0);
+            float fres = pow(1.0 - max(dot(n, -rd), 0.0), 2.0);
+            vec3 redSurf = mix(vec3(0.08, 0.01, 0.01), redMid, diff) + redRim * fres * 0.85;
+            vec3 monoSurf = mix(vec3(0.06, 0.06, 0.06), monoMid, diff) + monoRim * fres * 0.8;
+            col = mix(monoSurf, redSurf, u_heroMix);
+          }
+
+          float n = fract(sin(dot(gl_FragCoord.xy, vec2(127.1, 311.7))) * 43758.5453) - 0.5;
+          col = clamp(col + n * 0.07, 0.0, 1.0);
+          fragColor = vec4(col, 1.0);
+        }
+      `;
+
+      function compile(type, src) {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null;
+      }
+
+      const vs = compile(gl.VERTEX_SHADER, vsSrc);
+      const fs = compile(gl.FRAGMENT_SHADER, fsSrc);
+      if (!vs || !fs) return;
+
+      const prog = gl.createProgram();
+      gl.attachShader(prog, vs);
+      gl.attachShader(prog, fs);
+      gl.linkProgram(prog);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+
+      const buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, -1,1, 1,-1, 1,1]), gl.STATIC_DRAW);
+
+      const posLoc = gl.getAttribLocation(prog, 'a_position');
+      const timeLoc = gl.getUniformLocation(prog, 'u_time');
+      const resLoc = gl.getUniformLocation(prog, 'u_resolution');
+      const mixLoc = gl.getUniformLocation(prog, 'u_heroMix');
+      const t0 = performance.now();
+
+      function frame(now) {
+        const w = Math.max(120, Math.floor(canvas.clientWidth * 0.4));
+        const h = Math.max(80, Math.floor(canvas.clientHeight * 0.4));
+        if (canvas.width !== w || canvas.height !== h) {
+          canvas.width = w;
+          canvas.height = h;
+        }
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        gl.useProgram(prog);
+        gl.enableVertexAttribArray(posLoc);
+        gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+        gl.uniform1f(timeLoc, (now - t0) * 0.001);
+        gl.uniform2f(resLoc, canvas.width, canvas.height);
+        gl.uniform1f(mixLoc, heroMixValue);
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+
+    initDodecaShader('shader-preview-color', 1.0);
+    initDodecaShader('shader-preview-bw', 0.0);
   </script>
 </body>
 </html>
