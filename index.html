@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DESIGN.MD — Court of Moravia</title>
-  <meta name="description" content="Design system tokens, brand marks, UI components, slide compositions, and LLM specification for Court of Moravia." />
+  <meta name="description" content="Design system tokens, brand marks, UI components, and LLM specification for Court of Moravia." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@200;300;400;500&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -26,8 +26,6 @@
         <a href="#marks" data-open-accordion="marks">SHAPES</a>
         <span class="nav-sep">|</span>
         <a href="#ui" data-open-accordion="ui">UI</a>
-        <span class="nav-sep">|</span>
-        <a href="#slides" data-open-accordion="slides">SLIDES</a>
         <span class="nav-sep">|</span>
         <a href="#tokens" data-open-accordion="tokens">TOKENS</a>
         <span class="nav-sep">|</span>
@@ -56,7 +54,7 @@
       <section class="hero">
         <h1 class="hero-display">WE CHANGE THE <span class="kw-red">GAME OF BUSINESS</span></h1>
         <p class="hero-body">
-          A technical frame. A human purpose. Click any color swatch, typography specimen, SVG shape, UI component, slide composition, or design token to copy its exact code or value.
+          A technical frame. A human purpose. Click any color swatch, typography specimen, SVG shape, UI component, or design token to copy its exact code or value.
         </p>
 
         <div class="hero-actions">
@@ -218,7 +216,6 @@
                 <p class="ui-unit-note">Default vs. Hover swatches</p>
               </div>
               <div class="control-swatches-stack">
-                <!-- Row 1: Link Types -->
                 <div class="control-swatch-pair">
                   <div class="control-swatch">
                     <div class="control-swatch-preview">
@@ -240,7 +237,6 @@
                   </div>
                 </div>
 
-                <!-- Row 2: Main Button -->
                 <div class="control-swatch-pair">
                   <div class="control-swatch">
                     <div class="control-swatch-preview">
@@ -262,7 +258,6 @@
                   </div>
                 </div>
 
-                <!-- Row 3: Alt Button -->
                 <div class="control-swatch-pair">
                   <div class="control-swatch">
                     <div class="control-swatch-preview">
@@ -312,61 +307,61 @@
               </div>
             </div>
 
-            <!-- Accordion -->
+            <!-- Accordion (Framed + Radio Icons + Red Hover) -->
             <div class="ui-unit">
               <div class="ui-unit-head">
                 <h3 class="ui-unit-title">Accordion</h3>
-                <p class="ui-unit-note">Static, Hover &amp; Active states (click any row to toggle)</p>
+                <p class="ui-unit-note">Active, Hover &amp; Static states with radio indicators (click any row to toggle)</p>
               </div>
-              <div class="demo-acc-stack" id="ui-demo-accordion">
-                <div class="demo-acc-item">
-                  <button type="button" class="demo-acc-btn">
-                    <span>Static — Všechno musím rozhodnout sám</span>
-                    <span>+</span>
-                  </button>
-                  <div class="demo-acc-panel" hidden>
-                    Každá výjimka i drobný zádrhel končí na vašem stole. Firma roste, ale vaše kapacita se stala úzkým hrdlem.
+              <div class="ui-framed-center">
+                <div class="demo-acc-stack" id="ui-demo-accordion">
+                  <div class="demo-acc-item is-open">
+                    <button type="button" class="demo-acc-btn" aria-expanded="true">
+                      <span class="demo-acc-radio" data-acc-radio="active"></span>
+                      <span>Rozhodují jiní, ale já nesu faktickou odpovědnost</span>
+                    </button>
+                    <div class="demo-acc-panel">
+                      Rozhodování a odpovědnost se u vás rozešly. Nejde o špatné lidi, ale o vztah, který není správně nastavený.
+                    </div>
                   </div>
-                </div>
-                <div class="demo-acc-item is-hover-demo">
-                  <button type="button" class="demo-acc-btn">
-                    <span>Hover — Na poradách se hodně řekne, ale málo rozhodne</span>
-                    <span>+</span>
-                  </button>
-                  <div class="demo-acc-panel" hidden>
-                    Diskuse běží v kruhu, protože není jasné, kdo má konečné slovo a jaký je závazný výstup porady.
+                  <div class="demo-acc-item is-hover-demo">
+                    <button type="button" class="demo-acc-btn" aria-expanded="false">
+                      <span class="demo-acc-radio" data-acc-radio="default"></span>
+                      <span>Všechno musím rozhodnout sám</span>
+                    </button>
+                    <div class="demo-acc-panel" hidden>
+                      Každá výjimka i drobný zádrhel končí na vašem stole. Firma roste, ale vaše kapacita se stala úzkým hrdlem.
+                    </div>
                   </div>
-                </div>
-                <div class="demo-acc-item is-open">
-                  <button type="button" class="demo-acc-btn">
-                    <span>Active — Rozhodují jiní, ale já nesu faktickou odpovědnost</span>
-                    <span>−</span>
-                  </button>
-                  <div class="demo-acc-panel">
-                    Rozhodování a odpovědnost se u vás rozešly. Nejde o špatné lidi, ale o vztah, který není správně nastavený.
+                  <div class="demo-acc-item">
+                    <button type="button" class="demo-acc-btn" aria-expanded="false">
+                      <span class="demo-acc-radio" data-acc-radio="default"></span>
+                      <span>Na poradách se hodně řekne, ale málo rozhodne</span>
+                    </button>
+                    <div class="demo-acc-panel" hidden>
+                      Diskuse běží v kruhu, protože není jasné, kdo má konečné slovo a jaký je závazný výstup porady.
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Quote Carousel -->
+            <!-- Quote Carousel (Framed + Clean arrow-small + Pill Position Dots) -->
             <div class="ui-unit">
               <div class="ui-unit-head">
                 <h3 class="ui-unit-title">Quote Carousel</h3>
-                <p class="ui-unit-note">Centered quote + circular pill arrow controls (arrow-small) + radio indicators</p>
+                <p class="ui-unit-note">Centered quote + arrow-small controls + pill position indicators</p>
               </div>
-              <div class="demo-carousel">
-                <div class="demo-carousel-row">
-                  <button type="button" class="icon-circle-btn" aria-label="Previous quote" id="demo-carousel-prev"></button>
-                  <blockquote class="demo-carousel-quote">
-                    „Rozhodují jiní, ale já nesu faktickou odpovědnost.“
-                  </blockquote>
-                  <button type="button" class="icon-circle-btn" aria-label="Next quote" id="demo-carousel-next"></button>
-                </div>
-                <div class="demo-carousel-dots" aria-hidden="true">
-                  <span class="demo-dot is-active" id="demo-dot-1"></span>
-                  <span class="demo-dot" id="demo-dot-2"></span>
-                  <span class="demo-dot" id="demo-dot-3"></span>
+              <div class="ui-framed-center">
+                <div class="demo-carousel">
+                  <div class="demo-carousel-row">
+                    <button type="button" class="demo-arrow-btn" aria-label="Previous quote" id="demo-carousel-prev"></button>
+                    <blockquote class="demo-carousel-quote" id="demo-carousel-quote">
+                      „Rozhodují jiní, ale já nesu faktickou odpovědnost.“
+                    </blockquote>
+                    <button type="button" class="demo-arrow-btn" aria-label="Next quote" id="demo-carousel-next"></button>
+                  </div>
+                  <div class="demo-carousel-dots" id="demo-carousel-dots" role="tablist" aria-label="Quote position"></div>
                 </div>
               </div>
             </div>
@@ -434,28 +429,10 @@
         </div>
       </section>
 
-      <!-- 5. SLIDE COMPOSITIONS (2x6) -->
-      <section id="slides" class="section">
-        <button type="button" class="accordion-trigger" aria-expanded="false">
-          <span class="section-eyebrow">5</span>
-          <h2 class="section-title">Slide <span class="kw-red">Compositions</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
-        </button>
-
-        <div class="accordion-panel">
-          <div class="section-desc-wrap">
-            <p class="section-desc">
-              2x6 showcase of standardized 1920x1080 slide compositions with canonical SVG corner and rail marks. Click any slide specimen to copy its layout specification for LLM deck generation.
-            </p>
-          </div>
-
-          <div class="slides-grid-2x6" id="slides-showcase-grid"></div>
-        </div>
-      </section>
-
-      <!-- 6. DESIGN TOKENS TABLE -->
+      <!-- 5. DESIGN TOKENS TABLE -->
       <section id="tokens" class="section">
         <button type="button" class="accordion-trigger" aria-expanded="false">
-          <span class="section-eyebrow">6</span>
+          <span class="section-eyebrow">5</span>
           <h2 class="section-title">Design <span class="kw-red">Tokens</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
         </button>
 
@@ -481,10 +458,10 @@
         </div>
       </section>
 
-      <!-- 7. REASONING -->
+      <!-- 6. REASONING -->
       <section id="reasoning" class="section">
         <button type="button" class="accordion-trigger" aria-expanded="false">
-          <span class="section-eyebrow">7</span>
+          <span class="section-eyebrow">6</span>
           <h2 class="section-title">Design <span class="kw-red">Reasoning</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
         </button>
 
@@ -508,10 +485,10 @@
         </div>
       </section>
 
-      <!-- 8. DESIGN.MD -->
+      <!-- 7. DESIGN.MD -->
       <section id="llm-docs" class="section">
         <div class="section-header">
-          <span class="section-eyebrow">8</span>
+          <span class="section-eyebrow">7</span>
           <h2 class="section-title">DESIGN.<span class="kw-red">MD</span><span class="arrow-glyph" aria-hidden="true">↘</span></h2>
           <div class="section-desc-wrap">
             <p class="section-desc">
@@ -766,7 +743,6 @@
       }
     }
 
-    /* Color Swatches (--color-red-l and --color-black-l removed) */
     const COLOR_ROWS = [
       [
         { name: 'RED',    token: '--color-red',    hex: '#DF1717', textColor: '#000000', role: 'Interactive (passive)' },
@@ -919,244 +895,6 @@
       }
     ];
 
-    const SLIDE_SPECIMENS = [
-      {
-        name: '1 INTRO SLIDE',
-        tag: 'MAX-WIDTH 250PX LOGO',
-        spec: 'INTRO SLIDE: Fixed 1920x1080 grid (66px rails on all 4 sides, corners: com-logo + com-d12 in #424242, 2px borders), primary logo constrained to max-width: 250px, uppercase h1 display headline (#FFFFFF with 2-4 word #DF1717 highlight).',
-        render: () => `
-          <div class="slide-body" style="justify-content:center; gap:14px;">
-            <div class="slide-intro-logo" data-slide-svg="com-logo-full"></div>
-            <h4 class="slide-h2" style="font-size:18px;">WE CHANGE THE <span class="kw-red">GAME OF BUSINESS</span></h4>
-          </div>`
-      },
-      {
-        name: '2 TEXT · 1 COLUMN',
-        tag: 'RIGHT-ALIGNED 66CH',
-        spec: 'TEXT SLIDE (1 COL): Section number (#808080) + h2 title (#FFFFFF with #808080 ↘) + subtitle, single body block (color: #EBE7E0; max-width: 66ch) aligned right.',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">1</span>
-              <h4 class="slide-h2">DIAGNOSTIKA <span class="kw-red">REALITY</span> <span>↘</span></h4>
-              <p class="slide-sub">POJMENOVÁNÍ SKUTEČNÉHO STAVU FIRMY</p>
-            </div>
-            <div style="width:66%; margin-left:auto;">
-              <p class="slide-p">Systematický přístup k rozvoji týmů bez korporátní vaty. Odstavec nepřesahuje 66ch a drží pravé zarovnání.</p>
-            </div>
-          </div>`
-      },
-      {
-        name: '3 TEXT · 2 COLUMNS',
-        tag: 'RIGHT-ALIGNED 66CH + NEG SPACE',
-        spec: 'TEXT SLIDE (2 COLS): Header block + 2 columns capped at max-width: 66ch (color: #EBE7E0) aligned to the right, preserving deliberate negative space on the left.',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">2</span>
-              <h4 class="slide-h2">DVA PILÍŘE <span class="kw-red">ZMĚNY</span> <span>↘</span></h4>
-              <p class="slide-sub">SYSTÉM A LIDSKÁ ODPOVĚDNOST</p>
-            </div>
-            <div class="slide-cols slide-cols--2-right">
-              <p class="slide-p">První sloupec definuje jasná pravidla hry a odstraňuje rozhodovací paralýzu.</p>
-              <p class="slide-p">Druhý sloupec přenáší vlastnictví výsledků z jednotlivce na celý tým.</p>
-            </div>
-          </div>`
-      },
-      {
-        name: '4 TEXT · 3 COLUMNS',
-        tag: 'STRETCH FILL WIDTH',
-        spec: 'TEXT SLIDE (3 COLS): Header block + 3 columns stretched (flex: 1, color: #EBE7E0) to fill the full width of the content safe-zone.',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">3</span>
-              <h4 class="slide-h2">TŘI FÁZE <span class="kw-red">SPOLUPRÁCE</span> <span>↘</span></h4>
-              <p class="slide-sub">OD SBĚRU DAT PO ŠKÁLOVÁNÍ</p>
-            </div>
-            <div class="slide-cols slide-cols--3">
-              <p class="slide-p">1 Hloubkové rozhovory a mapování úzkých hrdel v týmu.</p>
-              <p class="slide-p">2 Návrh herních mechanik a simulace klíčových situací.</p>
-              <p class="slide-p">3 Přenos nástrojů interním lídrům do každodenní praxe.</p>
-            </div>
-          </div>`
-      },
-      {
-        name: '5 TEXT · 4 COLUMNS',
-        tag: 'FULL WIDTH GRID',
-        spec: 'TEXT SLIDE (4 COLS): Header block + 4 equal columns spanning the entire slide width (color: #EBE7E0).',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">4</span>
-              <h4 class="slide-h2">ČTYŘI PRINCIPY <span class="kw-red">GILDA</span> <span>↘</span></h4>
-              <p class="slide-sub">ZÁKLADNÍ OPERAČNÍ RÁMEC</p>
-            </div>
-            <div class="slide-cols slide-cols--4">
-              <p class="slide-p">Radikální upřímnost bez zkreslení.</p>
-              <p class="slide-p">Měřitelný dopad na byznys.</p>
-              <p class="slide-p">Rychlá zpětná vazba v praxi.</p>
-              <p class="slide-p">Dlouhodobá udržitelnost týmu.</p>
-            </div>
-          </div>`
-      },
-      {
-        name: '6 HEADLINE + VERBOX',
-        tag: 'FLUSH ALIGNED SPLIT',
-        spec: 'HEADLINE + VERBOX: Left column holds overhanging number + h2 ↘ + optional subtitle; right column holds flush-aligned VERBOX (hug header + stacked #EBE7E0 blocks, 2px #424242 borders).',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-split-verbox">
-              <div class="slide-head-block">
-                <span class="slide-num">5</span>
-                <h4 class="slide-h2">NOSNÁ <span class="kw-red">TEZE</span> <span>↘</span></h4>
-                <p class="slide-sub">KONTEXT PROBLÉMU</p>
-              </div>
-              <div>
-                <div class="slide-mini-box-head">VERBOX HEADER</div>
-                <div class="slide-mini-box-body">
-                  <p class="slide-p">První textový blok rozvíjející hlavní myšlenku boxu.</p>
-                  <p class="slide-p">Druhý textový blok s vlastním kontextem.</p>
-                </div>
-              </div>
-            </div>
-          </div>`
-      },
-      {
-        name: '7 HEADLINE + HORBOX (2 COLS)',
-        tag: 'MAX 1 HORBOX / SLIDE',
-        spec: 'HEADLINE + HORBOX (2 COLS): Top headline block + single HORBOX below with hug header (#FFFFFF) and 2 horizontal columns (#EBE7E0) in 2px #424242 borders.',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">6</span>
-              <h4 class="slide-h2">ARCHITEKTURA <span class="kw-red">ŘEŠENÍ</span> <span>↘</span></h4>
-              <p class="slide-sub">DVĚ ROVINY INTERVENCE</p>
-            </div>
-            <div>
-              <div class="slide-mini-box-head">HORBOX HEADER</div>
-              <div class="slide-mini-box-body" style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                <p class="slide-p">DIAGNOSTIKA: Sběr tvrdých dat bez domněnek.</p>
-                <p class="slide-p">EXEKUCE: Okamžitá aplikace do procesů firmy.</p>
-              </div>
-            </div>
-          </div>`
-      },
-      {
-        name: '8 HEADLINE + HORBOX (3 COLS)',
-        tag: 'MAX 3 COLUMNS',
-        spec: 'HEADLINE + HORBOX (3 COLS): Top headline block + single HORBOX below with hug header (#FFFFFF) and 3 horizontal columns (#EBE7E0) in 2px #424242 borders.',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">7</span>
-              <h4 class="slide-h2">ROADMAPA <span class="kw-red">IMPLEMENTACE</span> <span>↘</span></h4>
-              <p class="slide-sub">KVARTÁLNÍ CYKLUS</p>
-            </div>
-            <div>
-              <div class="slide-mini-box-head">HORBOX · 3 SLOUPCE</div>
-              <div class="slide-mini-box-body" style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px;">
-                <p class="slide-p">MĚSÍC 1: Audit a data.</p>
-                <p class="slide-p">MĚSÍC 2: Herní simulace.</p>
-                <p class="slide-p">MĚSÍC 3: Škálování.</p>
-              </div>
-            </div>
-          </div>`
-      },
-      {
-        name: '9 HEADER + SBOX (2 CARDS)',
-        tag: 'EQUAL HEIGHT PAIR',
-        spec: 'HEADER + SBOX (2 CARDS): Top headline + 2 equal-height SBOX cards side-by-side (100% width #FFFFFF headers, #EBE7E0 body, 2px #424242 borders).',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">8</span>
-              <h4 class="slide-h2">SROVNÁNÍ <span class="kw-red">PŘÍSTUPŮ</span> <span>↘</span></h4>
-            </div>
-            <div class="slide-mini-sbox-grid slide-mini-sbox-grid--2">
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">FILTERED TRUTH</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Reálný obraz firmy bez zkreslení.</p></div>
-              </div>
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">TALENT OPTIMIZATION</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Sladění lidí s byznys cíli.</p></div>
-              </div>
-            </div>
-          </div>`
-      },
-      {
-        name: '10 HEADER + SBOX (3 CARDS)',
-        tag: 'MAX 3 PER ROW',
-        spec: 'HEADER + SBOX (3 CARDS): Top headline + 3 equal-height SBOX cards in a single row (2px #424242 borders).',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">9</span>
-              <h4 class="slide-h2">TŘI PILÍŘE <span class="kw-red">PRODUKTU</span> <span>↘</span></h4>
-            </div>
-            <div class="slide-mini-sbox-grid slide-mini-sbox-grid--3">
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">HRA</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Simulace reality.</p></div>
-              </div>
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">REFLEXE</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Zpětná vazba.</p></div>
-              </div>
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">PŘENOS</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Akční kroky.</p></div>
-              </div>
-            </div>
-          </div>`
-      },
-      {
-        name: '11 HEADER + SBOX (2X2 GRID)',
-        tag: '4 EQUAL CARDS',
-        spec: 'HEADER + SBOX (2x2 GRID): Top headline + 4 equal-height SBOX cards arranged in a 2x2 matrix (2px #424242 borders).',
-        render: () => `
-          <div class="slide-body">
-            <div class="slide-head-block">
-              <span class="slide-num">10</span>
-              <h4 class="slide-h2">MATICE <span class="kw-red">VÝSTUPŮ</span> <span>↘</span></h4>
-            </div>
-            <div class="slide-mini-sbox-grid slide-mini-sbox-grid--2x2">
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">1 STRUKTURA</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Jasné role.</p></div>
-              </div>
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">2 RYCHLOST</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Krátké cykly.</p></div>
-              </div>
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">3 DATA</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Tvrdé metriky.</p></div>
-              </div>
-              <div class="slide-mini-sbox">
-                <div class="slide-mini-sbox-head">4 DOPAD</div>
-                <div class="slide-mini-sbox-body"><p class="slide-p">Měřitelný růst.</p></div>
-              </div>
-            </div>
-          </div>`
-      },
-      {
-        name: '12 OUTRO & CONTACTS',
-        tag: 'CLICKABLE MAILTO & TEL',
-        spec: 'OUTRO SLIDE: Pure black canvas + Red (#DF1717) pill interactive buttons with clickable mailto: and tel:+420712345678 links (formatted with spaces in display text).',
-        render: () => `
-          <div class="slide-body" style="justify-content:center; gap:12px;">
-            <span class="slide-num">KONTAKT</span>
-            <h4 class="slide-h2">POJĎME ZMĚNIT <span class="kw-red">HRU</span> <span>↘</span></h4>
-            <div class="slide-contact-links">
-              <span class="slide-contact-link">INFO@COURTOFMORAVIA.COM</span>
-              <span class="slide-contact-link">+420 712 345 678</span>
-            </div>
-          </div>`
-      }
-    ];
-
     let toastTimer;
     function showToast(message) {
       const toast = document.getElementById('toast');
@@ -1182,7 +920,6 @@
     }
 
     const assetLogo = SVG_ASSETS.find(a => a.id === 'com-logo');
-    const assetLogoFull = SVG_ASSETS.find(a => a.id === 'com-logo-full');
     const assetD12 = SVG_ASSETS.find(a => a.id === 'com-d12');
     const assetBarcodeLong = SVG_ASSETS.find(a => a.id === 'com-barcode-long');
     const assetBarcodeShort = SVG_ASSETS.find(a => a.id === 'com-barcode-short');
@@ -1210,9 +947,12 @@
 
     mountSvg(document.getElementById('demo-carousel-prev'), assetArrowSmall, 'rotate(180deg)');
     mountSvg(document.getElementById('demo-carousel-next'), assetArrowSmall);
-    mountSvg(document.getElementById('demo-dot-1'), assetRadioActive);
-    mountSvg(document.getElementById('demo-dot-2'), assetRadio);
-    mountSvg(document.getElementById('demo-dot-3'), assetRadio);
+
+    /* Mount Radio Icons in Accordion */
+    document.querySelectorAll('[data-acc-radio]').forEach(slot => {
+      const isActive = slot.dataset.accRadio === 'active';
+      mountSvg(slot, isActive ? assetRadioActive : assetRadio);
+    });
 
     function renderBrandMarks() {
       const groups = {
@@ -1281,57 +1021,55 @@
       typoContainer.appendChild(row);
     });
 
-    /* Interactive Demo Accordion inside UI Components */
+    /* Interactive Demo Accordion with Radio Icon Swap */
     document.querySelectorAll('#ui-demo-accordion .demo-acc-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.parentElement;
         const panel = item.querySelector('.demo-acc-panel');
-        const sign = btn.querySelector('span:last-child');
-        const isOpen = item.classList.contains('is-open');
+        const radioSlot = btn.querySelector('.demo-acc-radio');
+        const willOpen = !item.classList.contains('is-open');
 
-        item.classList.toggle('is-open', !isOpen);
-        panel.hidden = isOpen;
-        sign.textContent = isOpen ? '+' : '−';
+        item.classList.toggle('is-open', willOpen);
+        item.classList.remove('is-hover-demo');
+        btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        panel.hidden = !willOpen;
+        mountSvg(radioSlot, willOpen ? assetRadioActive : assetRadio);
       });
     });
 
-    /* Render 2x6 Slides with Canonical ./svgs/ Corner & Rail Marks */
-    function renderSlidesShowcase() {
-      const grid = document.getElementById('slides-showcase-grid');
-      grid.innerHTML = '';
+    /* Interactive Demo Quote Carousel with Pill Dots */
+    const DEMO_QUOTES = [
+      '„Rozhodují jiní, ale já nesu faktickou odpovědnost.“',
+      '„Všechno musím nakonec stejně rozhodnout sám.“',
+      '„Na poradách se mluví hodiny, ale výstup nikdo nedrží.“',
+      '„Dohodneme se, ale za měsíc je všechno při starém.“',
+      '„Operativa nám bere energii na jakoukoli změnu.“'
+    ];
+    let demoQuoteIdx = 0;
+    const demoQuoteEl = document.getElementById('demo-carousel-quote');
+    const demoDotsEl = document.getElementById('demo-carousel-dots');
 
-      SLIDE_SPECIMENS.forEach(s => {
-        const card = document.createElement('div');
-        card.className = 'slide-card';
-        card.innerHTML = `
-          <div class="slide-frame">
-            <div class="slide-chrome slide-chrome--top">
-              <div class="slide-corner slide-corner--l" data-slide-svg="com-logo"></div>
-              <div class="slide-rail-mid" data-slide-svg="com-barcode-short"></div>
-              <div class="slide-corner slide-corner--r" data-slide-svg="com-d12"></div>
-            </div>
-            ${s.render()}
-            <div class="slide-chrome slide-chrome--bottom">
-              <div class="slide-corner slide-corner--l" data-slide-svg="com-d12"></div>
-              <div class="slide-rail-mid" data-slide-svg="com-barcode-long"></div>
-              <div class="slide-corner slide-corner--r" data-slide-svg="com-logo"></div>
-            </div>
-          </div>
-          <div class="slide-meta">
-            <span class="slide-name">${s.name}</span>
-            <span class="slide-tag">${s.tag}</span>
-          </div>
-        `;
-        card.addEventListener('click', () => copyText(s.spec, s.name));
-        grid.appendChild(card);
-      });
-
-      grid.querySelectorAll('[data-slide-svg]').forEach(slot => {
-        const asset = SVG_ASSETS.find(a => a.id === slot.dataset.slideSvg);
-        if (asset) mountSvg(slot, asset);
+    function renderDemoDots() {
+      demoDotsEl.innerHTML = '';
+      DEMO_QUOTES.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'demo-dot' + (i === demoQuoteIdx ? ' is-active' : '');
+        dot.setAttribute('aria-label', `Citát ${i + 1}`);
+        dot.addEventListener('click', () => setDemoQuote(i));
+        demoDotsEl.appendChild(dot);
       });
     }
-    renderSlidesShowcase();
+
+    function setDemoQuote(idx) {
+      demoQuoteIdx = (idx + DEMO_QUOTES.length) % DEMO_QUOTES.length;
+      demoQuoteEl.textContent = DEMO_QUOTES[demoQuoteIdx];
+      renderDemoDots();
+    }
+
+    document.getElementById('demo-carousel-prev').addEventListener('click', () => setDemoQuote(demoQuoteIdx - 1));
+    document.getElementById('demo-carousel-next').addEventListener('click', () => setDemoQuote(demoQuoteIdx + 1));
+    renderDemoDots();
 
     /* Render 3-Column Design Tokens Table */
     function renderTokensTable() {

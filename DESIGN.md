@@ -5,9 +5,9 @@
 
 ## 1. Core Design Principles & Rules
 
-When generating UI, web pages, slide decks, or digital assets for **Court of Moravia (COM)**, strictly follow these rules:
+When generating UI, web pages, or digital assets for **Court of Moravia (COM)**, strictly follow these rules (for slide deck layouts, see the separate `com-decks.md` specification):
 
-1. **01 PURE BLACK CANVAS & WEB BLUR SURFACES:** Pure black (`#000000`) is the primary background canvas. In slide decks and static exports, surfaces remain solid `#000000`. On live web interfaces, translucent containers (`topbar`, `bottombar`, `SBOX`, cards, accordions) use `background: var(--blur-bg)` (`rgba(0, 0, 0, 0.5)`) paired with `backdrop-filter: blur(var(--blur-m))` (`1.25rem` / `20px`). Never use backdrop blur when generating PDFs or static posts.
+1. **01 PURE BLACK CANVAS & WEB BLUR SURFACES:** Pure black (`#000000`) is the primary background canvas. In static exports, surfaces remain solid `#000000`. On live web interfaces, translucent containers (`topbar`, `bottombar`, `SBOX`, cards, accordions) use `background: var(--blur-bg)` (`rgba(0, 0, 0, 0.5)`) paired with `backdrop-filter: blur(var(--blur-m))` (`1.25rem` / `20px`). Never use backdrop blur when generating PDFs or static posts.
 2. **02 STRICT MONOCHROME + RED ACCENT SYSTEM:** Production systems use strictly Black (`#000000`), White (`#FFFFFF`), Grey (`#EBE7E0`, `#808080`, `#424242`), and the Red accent family (`#DF1717`, `#910606`).
    * **Structural Lines & Non-Interactive Elements:** Borders, hairline dividers, frame rules, and non-interactive decorative SVG shapes use `--color-grey-d` (`#424242`).
    * **Interactive Elements:** Buttons, links, active controls, and keyword highlights use `--color-red` (`#DF1717`).
@@ -88,10 +88,10 @@ When generating UI, web pages, slide decks, or digital assets for **Court of Mor
 All vector assets live in `./svgs/` and use `currentColor` so they dynamically inherit `--color-grey-d` (non-interactive) or `--color-red` (interactive). They are organized into 5 groups:
 
 1. **Main:**
-   * `./svgs/com-logo-full.svg` — Primary horizontal lockup (`max-width: 250px` in `INTRO` slides).
+   * `./svgs/com-logo-full.svg` — Primary horizontal lockup.
    * `./svgs/com-logo.svg` — Compact `COM` wordmark for headers and corner slots.
 2. **Corners:**
-   * Placed in diagonal pairs (`Top-Left + Bottom-Right` and `Top-Right + Bottom-Left`, `30px × 30px`) inside the `66px × 66px` corner cells: `com-d4.svg`, `com-d6.svg`, `com-d8.svg`, `com-d10.svg`, `com-d12.svg`, `com-d20.svg`, `com-aztec-a.svg`, `com-aztec-b.svg`, `com-c.svg`, `com-o.svg`, `com-m.svg`, `com-g.svg` (Guild decks only), `com-logo-alt.svg`.
+   * Placed in diagonal pairs (`Top-Left + Bottom-Right` and `Top-Right + Bottom-Left`, `30px × 30px`) inside the `66px × 66px` corner cells: `com-d4.svg`, `com-d6.svg`, `com-d8.svg`, `com-d10.svg`, `com-d12.svg`, `com-d20.svg`, `com-aztec-a.svg`, `com-aztec-b.svg`, `com-c.svg`, `com-o.svg`, `com-m.svg`, `com-g.svg` (Guild only), `com-logo-alt.svg`.
 3. **Rails:**
    * Rendered at `37px` height along lateral (`-90deg` left / `+90deg` right) and horizontal perimeter rails: `com-barcode-long.svg` (full-width rail when space permits), `com-barcode-short.svg` (compact rail fallback), `com-pdf417.svg`.
 4. **Controls:**
@@ -130,11 +130,13 @@ All vector assets live in `./svgs/` and use `currentColor` so they dynamically i
 
 ### Accordion
 * Sharp `0px` items stacked vertically (`gap: var(--space-2)`) on `var(--blur-bg)` + `blur(var(--blur-m))` with `var(--border-width-thin) solid var(--color-grey-d)`.
-* **Hover:** Border shifts to `var(--color-red)` and background tints with `var(--color-red-d-40)`.
-* **Active (Expanded):** Border highlights with `var(--color-red)` and reveals `body` copy (`max-width: 66ch`).
+* Each row leads with a radio indicator (`com-radio.svg` when collapsed, `com-radio-active.svg` when expanded) and displays its uppercase title in `var(--color-red)`.
+* **Hover:** Border shifts to `var(--color-red-d)`, background tints with `var(--color-red-d-40)`, radio icon shifts to `var(--color-red-d)`, and title stays `var(--color-red)`.
+* **Active (Expanded):** Border highlights with `var(--color-red)`, radio icon swaps to `com-radio-active.svg` in `var(--color-red)`, and reveals `body` copy (`max-width: 66ch`).
 
 ### Quote Carousel
-* Centered `body` quote copy flanked by circular pill buttons (`border-radius: var(--radius-pill)`) housing `com-arrow-small.svg` (rotated left/right) and `com-radio` pagination nodes below.
+* Centered `body` quote copy flanked by transparent directional buttons housing `com-arrow-small.svg` (`var(--color-red)`, hover `var(--color-red-d)`, rotated `180deg` on the left).
+* Bottom position indicator uses circular `8px` dots (`var(--color-grey-d)`, hover `var(--color-red-d)`) with the active slide stretched into a `24px` pill (`var(--color-red)`).
 
 ### Team Card
 * Two-column border-joined card (`0px` radius, `var(--border-width-thin) solid var(--color-grey-d)`): square `1:1` portrait on the left, `Geist Mono` name and `Geist` bio on the right.
@@ -157,18 +159,9 @@ All vector assets live in `./svgs/` and use `currentColor` so they dynamically i
 
 ---
 
-## 5. Slide Deck Grid & Compositions (`1920 × 1080`)
-
-* **Fixed Frame & Footer Guardrail:** Every slide uses a locked `1920 × 1080px` (`16:9`) perimeter frame (`66px` rails on all 4 sides, `overflow: hidden;`, `var(--border-width-thick)` border strokes). Content inside the center safe-zone must never overflow or push the bottom bar off the slide.
-* **`INTRO` Slide:** Primary logo constrained to `max-width: 250px`, uppercase `h1` title (`--color-white`), and corner pair `com-logo.svg` + `com-d12.svg`.
-* **`OUTRO` / Contact Slide Links:** Functional `mailto:` and `tel:+420712345678` links.
-* **Core Compositions (12 Standard Layouts):** `INTRO`, `TEXT` (1–4 columns), `HEADLINE + VERBOX`, `HEADLINE + HORBOX` (max 1 per slide, max 3 columns), `HEADER + SBOX` (2, 3, or 2×2 cards), and `OUTRO`.
-
----
-
-## 6. Strict Anti-Patterns (Do NOT Generate)
+## 5. Strict Anti-Patterns (Do NOT Generate)
 * **No rounded passive containers:** Never apply `border-radius` to cards, `SBOX` blocks, accordions, team cards, or frames (`0px` only; rounding is reserved strictly for interactive buttons and circular icon controls).
 * **No multi-color rainbows:** Never introduce blue, green, yellow, or violet accents—stick strictly to Black, White, Greys, and the Red accent family.
 * **No off-brand fonts:** Never substitute `Geist` or `Geist Mono` with Inter, Roboto, serif, or script fonts.
 * **No blur in static exports:** Never use `backdrop-filter: blur()` in PDF decks or static social graphics.
-* **No tech cosplay:** Never use "//" or similar decoration-only patterns between words or at the start of sections.
+* **No tech cosplay:** Never use `//` or similar decoration-only patterns between words or at the start of sections.
